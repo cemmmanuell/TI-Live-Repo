@@ -13,7 +13,7 @@
                             <button type="button" class="btn bg-brown dropdown-toggle legitRipple btn-sm" data-toggle="dropdown" aria-expanded="false">More <i class="icon-menu7 ml-2"></i></button>
                             <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(152px, 38px, 0px);">
                                 <a href="#" class="dropdown-item"><i class="icon-file-download"></i> Download</a>
-                                <a href="@Url.Action("missionproporsalreq", "PaymentMemo",new {no=Model.no})" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
+                                <a href="@Url.Action("missionproporsalreq", "PaymentMemo", new { no = Model.no })" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
                                 <a href="#" class="dropdown-item"><i class="icon-folder-remove"></i> Cancel approval</a>
                                 <div class="dropdown-divider"></div>
                                 <a href="#" class="dropdown-item"><i class="icon-cancel-circle2"></i> Delete</a>
@@ -153,6 +153,12 @@
 
                                             </div>
 
+                                          @{ 
+                                           //   TODO: Add sections
+                                           //   TODO ADD PERSONAL QUALITIES: (TO BE FILLED BY THE SUPERVISOR)
+                                           //   TODO ADD REFLECTIONS AND LEARNINGS
+
+                                          }
                                         </div>
                                     </div>
                                 </div>
@@ -173,64 +179,64 @@
     $(document).ready(function () {
         $('#btnUpload112').click(function () {
 
-            // Checking whether FormData is available in browser
-            if (window.FormData !== undefined) {
+                                                          // Checking whether FormData is available in browser
+                                                          if (window.FormData !== undefined) {
 
-                var fileUpload = $("#FileUpload112").get(0);
-                var files = fileUpload.files;
+                                                              var fileUpload = $("#FileUpload112").get(0);
+                                                              var files = fileUpload.files;
 
-                // Create FormData object
-                var fileData = new FormData();
+                                                              // Create FormData object
+                                                              var fileData = new FormData();
 
-                // Looping over all files and add it to FormData object
-                for (var i = 0; i < files.length; i++) {
-                    fileData.append(files[i].name, files[i]);
-                }
+                                                              // Looping over all files and add it to FormData object
+                                                              for (var i = 0; i < files.length; i++) {
+                                                                  fileData.append(files[i].name, files[i]);
+                                                              }
 
-                // Adding one more key to FormData object
-                fileData.append('document', $('#pno11').text());
+                                                              // Adding one more key to FormData object
+                                                              fileData.append('document', $('#pno11').text());
 
                 $.ajax({
-                    url: '/Upload/uploadFile',
+                                                              url: '/Upload/uploadFile',
                     type: "POST",
                     contentType: false, // Not to set any content header
                     processData: false, // Not to process data
                     data: fileData,
                     success: function (result) {
-                        alert(result.message);
-                        LoadData('#docs1', '@Url.Action("uploadeddocuments", "upload", new { documentNo = Model.no })');
-                    },
+                                                                      alert(result.message);
+                                                                      LoadData('#docs1', '@Url.Action("uploadeddocuments", "upload", new { documentNo = Model.no })');
+                                                                  },
                     error: function (err) {
-                        alert(err.statusText);
-                    }
-                });
-            } else {
-                alert("FormData is not supported.");
-            }
-        });
-    });
+                                                                      alert(err.statusText);
+                                                                  }
+                                                              });
+                                                          } else {
+                                                              alert("FormData is not supported.");
+                                                          }
+                                                      });
+                                                  });
 
     function edit_Appraisal() {
 
-        var objectives = [];
-        var focus;
-        var outcome; var roles = []; var activities = []; var budgetinfo = []; var background;
-        debugger;
+                                                      var objectives = [];
+                                                      var focus;
+                                                      var outcome; var roles = []; var activities = []; var budgetinfo = []; var background;
+                                                      debugger;
 
 
-        var table5;
+                                                      var table5;
 
 
-        table5 = $('#table5_edit_released tr');
+                                                      table5 = $('#table5_edit_released tr');
 
 
 
 
-        table5.each(function () {
-            var row = $(this);
-            //var Statement = {};
-            var rowdata =
-            {
+                                                      table5.each(function () {
+                                                          var row = $(this);
+                                                          //var Statement = {};
+                                                          var rowdata =
+                                                          {
                 keyResultAreas: row.find("td:eq(0) input[type='text']").val(),
                 keyActivities: row.find("td:eq(1) input[type='text']").val(),
                 performanceMeasures: row.find("td:eq(2) input[type='text']").val(),
@@ -238,20 +244,20 @@
                 weighting: row.find("td:eq(4) input[type='number']").val(),
                 lineNo: row.find("td:eq(6) input[type='number']").val(),
                 documentNo: $('#appraisal_no').text()
-            }
+                                                          }
 
-            activities.push(rowdata);
-        });
+                                                      activities.push(rowdata);
+                                                  });
 
 
 
 
         $.ajax({
-            type: "POST",
+                                                  type: "POST",
             url: "/Home/UpdateAppraisal",
             data: JSON.stringify({
 
-                reviewFrom: $('#reviewPeriodFrom_edit').val(),
+                                                      reviewFrom: $('#reviewPeriodFrom_edit').val(),
                 reviewTo: $('#reviewPeriodTo_edit').val(),
                 no: $('#appraisal_no').text(),
                 Performance: activities
@@ -259,21 +265,21 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (response) {
-                /// alert("You selected: " + response.AuthSuccess);
-                if (response.status == true) {
-                    alert('Saved succesfuly');
+                                                          /// alert("You selected: " + response.AuthSuccess);
+                                                          if (response.status == true) {
+                                                              alert('Saved succesfuly');
 
-                    window.location.href = '/Home/appraisallist';
+                                                              window.location.href = '/Home/appraisallist';
 
-                } else {
-                    alert(response.message);
+                                                          } else {
+                                                              alert(response.message);
 
 
-                }
+                                                          }
 
-            }
+                                                      }
 
-        });
+                                                  });
     }
 
 
@@ -283,74 +289,74 @@
 
 
 
-    function addlinetotables1_edit(number) {
-        if (number == '1') {
-            var temp = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+                                              function addlinetotables1_edit(number) {
+                                                  if (number == '1') {
+                                                      var temp = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
             $('#msobjectives').append(temp);
-        }
-        else if (number == '6') {
-            var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><select class='form-control'></select></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(6) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+                                                  }
+                                                  else if (number == '6') {
+                                                      var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><select class='form-control'></select></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(6) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
             $('#table6').append(temp6);
-        }
-        else if (number == '5') {
-            var temp5 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables1_edit(5) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+                                                  }
+                                                  else if (number == '5') {
+                                                      var temp5 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables1_edit(5) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
             $('#table5_edit_released').append(temp5);
-        }
-        else if (number == '4') {
-            var temp4 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(4) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+                                                  }
+                                                  else if (number == '4') {
+                                                      var temp4 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(4) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
             $('#table4').append(temp4);
-        }
-        else if (number == '3') {
-            var temp3 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(3) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+                                                  }
+                                                  else if (number == '3') {
+                                                      var temp3 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(3) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
             $('#table3').append(temp3);
-        }
-        else if (number == '2') {
-            var temp2 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(2) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+                                                  }
+                                                  else if (number == '2') {
+                                                      var temp2 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(2) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
             $('#table2').append(temp2);
-        }
+                                                  }
 
-    }
+                                              }
 
 
     $(document).ready(function(){
         $('#btnUpload').click(function () {
-            debugger;
-            // Checking whether FormData is available in browser
-            if (window.FormData !== undefined) {
+                                                      debugger;
+                                                      // Checking whether FormData is available in browser
+                                                      if (window.FormData !== undefined) {
 
-                var fileUpload = $("#FileUpload1").get(0);
-                var files = fileUpload.files;
+                                                          var fileUpload = $("#FileUpload1").get(0);
+                                                          var files = fileUpload.files;
 
-                // Create FormData object
-                var fileData = new FormData();
+                                                          // Create FormData object
+                                                          var fileData = new FormData();
 
-                // Looping over all files and add it to FormData object
-                for (var i = 0; i < files.length; i++) {
-                    fileData.append(files[i].name, files[i]);
-                }
+                                                          // Looping over all files and add it to FormData object
+                                                          for (var i = 0; i < files.length; i++) {
+                                                              fileData.append(files[i].name, files[i]);
+                                                          }
 
-                // Adding one more key to FormData object
-                fileData.append('document', $('#pno11').text());
+                                                          // Adding one more key to FormData object
+                                                          fileData.append('document', $('#pno11').text());
 
                 $.ajax({
-                    url: '/Upload/uploadFile',
+                                                          url: '/Upload/uploadFile',
                     type: "POST",
                     contentType: false, // Not to set any content header
                     processData: false, // Not to process data
                     data: fileData,
                     success: function (result) {
-                        alert(result.message);
-                          LoadData('#docs3', '@Url.Action("uploadeddocuments", "upload", new { documentNo = Model.no })');
-                    },
+                                                                  alert(result.message);
+                                                                  LoadData('#docs3', '@Url.Action("uploadeddocuments", "upload", new { documentNo = Model.no })');
+                                                              },
                     error: function (err) {
-                        alert(err.statusText);
-                    }
-                });
-            } else {
-                alert("FormData is not supported.");
-            }
-        });
-    });
+                                                                  alert(err.statusText);
+                                                              }
+                                                          });
+                                                      } else {
+                                                          alert("FormData is not supported.");
+                                                      }
+                                                  });
+                                              });
 </script>
 
 <div class="modal" id="_approvalentries_mission10">
