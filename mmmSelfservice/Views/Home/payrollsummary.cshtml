@@ -1,0 +1,34 @@
+﻿@model mmmSelfservice.Models.payrolSummary
+
+@{
+
+    Layout = null;
+}
+
+<div class="table-responsive">
+    <table class="table">
+
+        <tbody>
+            <tr>
+
+                <td>Basic Pay:</td>
+                <td>@Model.BasicPay</td>
+            </tr>
+            <tr>
+
+                <td>Total allowances:</td>
+                <td>@Model.TotalAllowances</td>
+            </tr>
+            <tr>
+
+                <td>Total deductions:</td>
+                <td>@Model.TotalDeductions</td>
+            </tr>
+            <tr>
+
+                <td>Net Pay:</td>
+                <td>@Model.NetPay</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

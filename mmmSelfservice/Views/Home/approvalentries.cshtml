@@ -1,0 +1,41 @@
+﻿@model IEnumerable<mmmSelfservice.Models.approvalentries>
+@{
+
+    Layout = null;
+}
+<table class="table table-responsive table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.approverid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastmodified)
+        </th>
+        <th>
+            Comments
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.approverid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastmodified)
+        </td>
+        <td>
+            @item.comments
+        </td>
+     
+    </tr>
+}
+
+</table>

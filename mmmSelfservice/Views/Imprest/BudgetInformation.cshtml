@@ -1,0 +1,119 @@
+﻿@model IEnumerable<mmmSelfservice.Models.PurchaseLines>
+
+
+<table class="table">
+    <tr>
+        <th>
+           Budget item
+        </th>
+        <th>
+          Identified vendor
+        </th>
+        <th>
+           No. of Days
+        </th>
+        <th>
+          No. of Pax
+        </th>
+        <th>
+           Unit cost
+        </th>
+        <th>
+         Currency
+        </th>
+        <th>
+         Total cost
+        </th>
+        
+        <th>
+           Mission expense category
+        </th>
+       
+        <th></th>
+    </tr>
+    <tbody id="table61">
+
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    <input type="text" class="form-control" value="@Html.DisplayFor(modelItem => item.Description3)" />
+                </td>
+                <td>
+                    <input type="text" class="form-control" value="@Html.DisplayFor(modelItem => item.Description2)" />
+                </td>
+
+
+
+                <td>
+                    <input type="number" class="form-control" oninput="validateiens(this)" value="@Html.DisplayFor(modelItem => item.NoOfDays)" />
+                </td>
+                <td>
+                    <input type="number" class="form-control" oninput="validateiens(this)" value="@Html.DisplayFor(modelItem => item.NoOfPax)" />
+                </td>
+                <td>
+                    <input type="number" oninput="validateiens(this)" value="@Html.DisplayFor(modelItem => item.Ksh)" />
+                </td>
+                <td>
+                   <select class="form-control"><option value="@item.currencyCode">@item.currencyName</option>
+                    @Html.Action("currencies")</select>
+                </td>
+
+                <td>
+                    <input  type="number" class="totalprice1" disabled="disabled" value="@Html.DisplayFor(modelItem => item.TotalKsh)" />
+                </td>
+                <td   style="display:none">
+                    <input type="number" value="@Html.DisplayFor(modelItem => item.TotalOtherCurrency)" />
+                </td>
+                <td>
+                    <select class="form-control" id="type"><option>@Html.DisplayFor(modelItem => item.ExpenseCategory)</option>
+                    @Html.Action("expensecategories")</select>
+                   
+                </td>
+                <td style="display:none">@item.LineNo</td>
+                <td><a href="#" onclick="removelineAll(this,'@item.LineNo','@item.DocumentNo')"><i class="icon-cross3 mr-3 icon-1x"></i></a></td>
+
+            </tr>
+
+
+
+        }
+       
+        <tr>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="number" oninput="validateiens(this)" class="form-control"></td>
+            <td><input type="number" oninput="validateiens(this)" class="form-control"></td>
+            <td><input type="number" oninput="validateiens(this)" class="form-control"></td>
+            <td><select>@Html.Action("currencies")</select></td>
+            <td><input type="number" disabled="disabled" class="totalprice1 form-control"/></td>
+            <td   style="display:none"><input type="number" class="form-control"></td>
+            <td><select class="form-control" id="type">@Html.Action("expensecategories")</select></td>
+            <td style="display:none"></td>
+            <td class="text-center">
+                <div class="list-icons">
+                    <a onclick="addlinetotables1('6')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                </div>
+            </td>
+        
+
+        </tr>
+    </tbody>
+    <tfooter>
+        <tr>
+            <td colspan="6">Totals:</td>
+            <td><input type="number"  class="priceTotal1 form-control" disabled="disabled" /></td>
+           
+        </tr>
+       
+    </tfooter>
+</table>
+
+<script>
+
+
+</script>

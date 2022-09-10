@@ -1,0 +1,301 @@
+﻿@model IEnumerable<mmmSelfservice.Models.leave>
+@{
+	ViewBag.Title = "Leave";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+            <div class="d-flex justify-content-center">
+                <a href="@Url.Action("payslip")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Pay slip</span>
+                </a>
+                <a href="@Url.Action("Leaveinformation")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Leave statement</span>
+                </a>
+                <a href="@Url.Action("p9report")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>P9 report</span>
+                </a>
+
+                <a href="@Url.Action("hrdocuments","home")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>HR documents</span>
+                </a>
+
+                <a href="@Url.Action("employeefeedback","home")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Suggestion box</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("index")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="#" class="breadcrumb-item">Leave</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+<div class="card">	
+	<div class="row">
+	
+			<div class="datatable-header">
+				<button class="btn  btn-success" type="button" data-toggle="modal" data-target="#modal_form_horizontal">Apply new leave</button>
+				<table class="table datatable-show-all">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Days applied</th>
+							<th>Reliever</th>
+							<th>Status</th>
+							<th>Leave Type</th>
+							<th>Approved Days</th>
+							<th>Start Date</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						@if (Model != null)
+						{
+							foreach (mmmSelfservice.Models.leave data in Model.Where(a=>a.Status.Equals("New")))
+							{
+						<tr>
+							<td>@data.No</td>
+							<td>@data.NoofDayes</td>
+							<td>@data.RelieverCode</td>
+							@if (@data.Status == "Pending Approval")
+							{
+								<td><span class="badge bg-orange-700">@data.Status</span></td>
+							}
+							else if (@data.Status == "New")
+							{
+								<td><span class="badge bg-blue">@data.Status</span></td>
+							}
+							else
+							{
+								<td><span class="badge bg-success-700">@data.Status</span></td>
+							}
+							<td>@data.LeaveType</td>
+							<td>@data.ApprovedDays</td>
+							<td>@data.StartDate</td>
+							<td class="text-center">
+								<div class="list-icons">
+									<div class="dropdown">
+										<a href="#" class="list-icons-item" data-toggle="dropdown">
+											<i class="icon-menu9"></i>
+										</a>
+
+										<div class="dropdown-menu dropdown-menu-right">
+											@if (data.Status == "New")
+											{
+												<a href="#modal_form_horizontal1" data-toggle="modal" onclick="leaveeditclick('@data.No')" class="dropdown-item"><i class="icon-pencil7"></i>Edit</a>
+
+												<a href="@Url.Action("sendApproval", new { leaveNo = data.No })" class="dropdown-item"><i class="icon-file-check"></i>Send approval request</a>
+											}
+											@if (data.Status == "Pending Approval")
+											{
+												<a href="@Url.Action("cancelApproval", new { leaveno = data.No })" class="dropdown-item"><i class="icon-eraser2"></i>Cancel approval request</a>
+											}
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+							}
+
+						}
+					</tbody>
+				</table>
+			</div>
+	</div>	
+</div>
+
+@*New Leave application*@
+
+<div id="modal_form_horizontal1" class="modal">
+
+    <div  id="modal_edit">
+
+    </div>
+ </div>
+
+
+    <div id="modal_form_horizontal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New leave application</h5>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div id="alert_s">
+                    <div class="alert alert-danger alert-styled-left alert-dismissible" style="display:none">
+
+                        <span id="msg"></span>
+                    </div>
+                </div>
+                <form action="#" class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3">Leave type</label>
+                            <div class="col-sm-9">
+                                <select id="leaves" onchange="ochangeleavetype()" class="form-control select" required>
+                                   <option></option>
+                                    @Html.Action("leavetypes", "Leave")
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3">Leave days</label>
+                            <div class="col-sm-9">
+                               <i id="lvdays"></i>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3">Days to apply</label>
+                            <div class="col-sm-9">
+                                <input type="text" min="0" id="noOfDays" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3">Start leave on:</label>
+                            <div class="col-sm-9">
+                                <input type="date" id="startDate" onchange="determinereturnDate()" class="form-control" required>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3">Pendingtasks:</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id="pendingtasks" rows="10"></textarea>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3">Reliever</label>
+                            <div class="col-sm-9">
+                                <select id="relievers" class="form-control select" required>
+                                    @Html.Action("relievers", "Leave")
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Close</button>
+                        <button type="submit" onclick="submitLeave()" class="btn bg-primary legitRipple">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        function determinereturnDate() {
+
+        }
+
+        function submitLeave() {
+
+            var date = $('#startDate').val();
+            var leave = $('#leaves option:selected').val();
+            var days = $('#noOfDays').val();
+            var reli = $('#relievers option:selected').val();
+            var pendingtasks = $('#pendingtasks').val();
+            //alert('Here '+leave);
+            $.ajax({
+                type: "POST",
+                url: "/Leave/LeaveApply",
+                //data: '{start:"' + date + ' ", days:"' + days + '", leavetype:"' + leave + '", reliever:"' + reli + '"}',
+                data: JSON.stringify({ start: date, days: days, leavetype: leave, reliever: reli, pendingtasks: pendingtasks }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response.status == true) {
+
+                        window.location.href = '/Leave/index';
+
+                    } else {
+
+                        alert(response.message);
+
+                    }
+
+
+                },
+            });
+        }
+
+        
+        function leaveeditclick(leaveNo) {
+            //  alert('Here');
+            $.ajax({
+                type: "POST",
+                url: "/Leave/LeaveEdit",
+                data: '{applicationcode:"' + leaveNo + ' "}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                success: function (data) {
+                   
+                    $('#modal_edit').html('');
+                    $('#modal_edit').html(data);
+
+                },
+            });
+        }
+
+        function ochangeleavetype() {
+            //  alert('Here');
+            var leavetype = $('#leaves option:selected').val();
+            $.ajax({
+                type: "POST",
+                url: "/Leave/getleavedays",
+                data: '{leavetype:"' + leavetype + ' "}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                success: function (data) {
+                    $('#lvdays').html(data);
+
+                },
+            });
+        }
+
+        function editleave(leaveNo) {
+
+            var date = $('#startDate1').val();
+            
+            var leave = $('#leaves1 option:selected').val();
+            var days = $('#noOfDays1').val();
+            var reli = $('#relievers1 option:selected').val();
+            var pendingtasks = $('#pendingtasks1').val();
+          if (date=='') {alert('Please pick the start date')}
+            $.ajax({
+                type: "POST",
+                url: "/Leave/EditLeave",
+                data: '{start:"' + date + ' ", days:"' + days + '", leavetype:"' + leave + '", reliever:"' + reli + '", leaveNo:"'+leaveNo+'",pendingtasks: "'+pendingtasks+'" }',
+                contentType: "application/json; charset=utf-8",
+
+                success: function (data) {
+                    alert(data);
+
+
+                },
+            });
+        }
+
+    </script>

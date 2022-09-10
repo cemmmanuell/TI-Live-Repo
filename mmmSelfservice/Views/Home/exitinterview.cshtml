@@ -1,0 +1,460 @@
+﻿@{
+    ViewBag.Title = "employeefeedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model mmmSelfservice.Models.ExitInterview
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+            <div class="d-flex justify-content-center">
+                <a href="@Url.Action("payslip")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Pay slip</span>
+                </a>
+                <a href="@Url.Action("Leaveinformation")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Leave statement</span>
+                </a>
+                <a href="@Url.Action("p9report")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>P9 report</span>
+                </a>
+
+                <a href="@Url.Action("hrdocuments","home")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Event dates</span>
+                </a>
+
+                <a href="@Url.Action("employeefeedback","home")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Employee feed back</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("index")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="#" class="breadcrumb-item">Dashboard</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+@if (Model != null)
+{
+<div class="card">
+    <div class="card-body">
+        <form class="form-horizontal">
+            <div class="col-md-12">
+                
+                <div class="form-group">
+                    <label>Main reason(s) for your exit:</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" id="mainReason">@Model.mainReason</textarea>
+                        </div>
+                    </div>
+                  
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>	Describe your overall impression of TI-Kenya as an employee</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" id="overallImpression">@Model.overallImpression</textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <label>	Did you have clear objectives regarding your performance and did your supervisor provide adequate support to fulfill these objectives?</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="clearObjectives">@Model.clearObjectives</textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>How often was your performance reviewed and did you receive constructive feedback to help you improve your performance?</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="performanceReviewed">@Model.performanceReviewed</textarea>
+                        </div>
+                    </div>
+                   
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>	Do you feel that you received enough recognition for your work? Explain</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea type="text" class="form-control" id="enoughRecognition">@Model.enoughRecognition</textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Did you feel that your career aspirations were being met in TI-Kenya? Explain</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="careerAspirations">@Model.careerAspirations</textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>	Describe your relationship with your line supervisor</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="relationship_supervisor">@Model.relationship_supervisor</textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+                <br />
+                <div class="form-group">
+                    <label>Describe your relationship with your immediate team/colleagu</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="relationship_team">@Model.relationship_team</textarea>
+                        </div>
+                    </div>
+                   
+                </div>
+                <br />
+                <br />
+                <div class="form-group">
+                    <label>	What were your greatest accomplishments while working for TI-Kenya</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="accomplishments">@Model.accomplishments</textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+                <br />
+                <div class="form-group">
+                    <label>	What did you find most fulfilling about working in TI-Kenya?</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="fulfilling_working">@Model.fulfilling_working</textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+                <br />
+                <div class="form-group">
+                    <label>What would you change, if anything, to make TI-Kenya a better place to work in?</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="what_to_change">@Model.what_to_change</textarea>
+                        </div>
+                    </div>
+                   
+                </div>
+               
+                <br />
+               
+                <br />
+                <div class="form-group">
+                    <label>What is the next step after TI Kenya? </label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea type="text" class="form-control" id="next_step">@Model.next_step</textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+                <br />
+                <div class="form-group">
+                    <label>	Please add any other constructive feedback on your experience at TI-Kenya.</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="feedback">@Model.feedback</textarea>
+                        </div>
+                    </div>
+                   
+                </div>
+                <br />
+
+                <br />
+                <div class="form-group">
+                    <label>	Intervire Conducted By</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="conducted_by">@Model.conducted_by</textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+               
+
+
+
+
+
+
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary" id="submit_exit_interview">
+                        Save
+                    </button>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            <form class="form-horizontal">
+                <div class="col-md-12">
+
+                    <div class="form-group">
+                        <label>Main reason(s) for your exit:</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" id="mainReason"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>	Describe your overall impression of TI-Kenya as an employee</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" id="overallImpression"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br />
+                    <div class="form-group">
+                        <label>	Did you have clear objectives regarding your performance and did your supervisor provide adequate support to fulfill these objectives?</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="clearObjectives"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>How often was your performance reviewed and did you receive constructive feedback to help you improve your performance?</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="performanceReviewed"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>	Do you feel that you received enough recognition for your work? Explain</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea type="text" class="form-control" id="enoughRecognition"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Did you feel that your career aspirations were being met in TI-Kenya? Explain</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="careerAspirations"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>	Describe your relationship with your line supervisor</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="relationship_supervisor"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label>Describe your relationship with your immediate team/colleagu</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="relationship_team"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label>	What were your greatest accomplishments while working for TI-Kenya</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="accomplishments"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label>	What did you find most fulfilling about working in TI-Kenya?</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="fulfilling_working"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label>What would you change, if anything, to make TI-Kenya a better place to work in?</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="what_to_change"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br />
+
+                    <br />
+                    <div class="form-group">
+                        <label>What is the next step after TI Kenya? </label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea type="text" class="form-control" id="next_step"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label>	Please add any other constructive feedback on your experience at TI-Kenya.</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="feedback"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+
+                    <br />
+                    <div class="form-group">
+                        <label>	Intervire Conducted By</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea class="form-control" type="text" id="conducted_by"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+
+
+
+
+
+
+
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-primary" id="submit_exit_interview">
+                            Save
+                        </button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#submit_exit_interview').click(function () {
+            var data1 = {
+                mainReason: $('#mainReason').val()!=null ? $('#mainReason').val():"",
+                overallImpression: $('#overallImpression').val()!=null ? $('#overallImpression').val(): "",
+                clearObjectives: $('#clearObjectives').val() !=null ? $('#clearObjectives').val():"",
+                performanceReviewed: $('#performanceReviewed').val()!=null ? $('#performanceReviewed').val():"",
+                enoughRecognition: $('#enoughRecognition').val() !=null ? $('#enoughRecognition').val():"",
+                careerAspirations: $('#careerAspirations').val() !=null ? $('#careerAspirations').val():"",
+                relationship_supervisor: $('#relationship_supervisor').val() !=null ? $('#relationship_supervisor').val():"",
+                relationship_team: $('#relationship_team').val() !=null ? $('#relationship_team').val():"",
+                accomplishments: $('#accomplishments').val() !=null ?  $('#accomplishments').val():"",
+                fulfilling_working: $('#fulfilling_working').val() !=null ?  $('#fulfilling_working').val():"",
+                what_to_change: $('#what_to_change').val() !=null ?  $('#what_to_change').val():"",
+                next_step: $('#next_step').val() !=null ? $('#next_step').val():"",
+                feedback: $('#feedback').val()!=null ? $('#feedback').val(): "",
+                conducted_by: $('#conducted_by').val() !=null ? $('#conducted_by').val():""
+            }
+            debugger;
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/submitExitInterview",
+                data: data1,
+
+                dataType: "json",
+                success: function (response) {
+
+                    if (response.status== true) {
+
+                        alert('Thank you for your feedback');
+                        window.location.href = "/Home/exitinterview";
+
+                    } else {
+                        alert('Error occured');
+
+
+                    }
+
+                }
+
+            });
+
+
+        })
+
+    })
+
+
+</script>
+
+

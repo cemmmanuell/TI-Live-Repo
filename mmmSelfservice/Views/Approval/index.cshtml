@@ -1,0 +1,107 @@
+﻿@model List<mmmSelfservice.Models.Approval>
+
+@{
+	ViewBag.Title = "Approval";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+	<div class="page-header-content header-elements-md-inline">
+		<div class="page-title d-flex">
+			<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Approval information</h4>
+			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+		</div>
+
+	</div>
+	<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+		<div class="d-flex">
+			<div class="breadcrumb">
+				<a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+				<a href="@Url.Action("Index")" class="breadcrumb-item">Approval information</a>
+
+			</div>
+			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+		</div>
+		<div class="header-elements d-none">
+		</div>
+	</div>
+</div>
+<br />
+<div class="d-flex align-items-start flex-column flex-md-row">
+	<!-- Left content -->
+	<div class="w-100 order-2 order-md-1">
+		<!-- Basic card -->
+		<!-- /basic card -->
+		<!-- Basic table -->
+		<div class="card">
+			<div class="card-header header-elements-inline">
+				<h5 class="card-title">Approval information</h5>
+				<div class="header-elements">
+					<div class="list-icons">
+						<a class="list-icons-item" data-action="collapse"></a>
+						<a class="list-icons-item" data-action="reload"></a>
+						<a class="list-icons-item" data-action="remove"></a>
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="card col-sm-12">
+				<div class="content">
+					<table class="table datatable-show-all">
+						<thead>
+							<tr>
+								<th>Document No:</th>
+								<th>SenderID</th>
+								<th>ApproverID</th>
+								<th>Time Date Sent</th>
+								<th>Status</th>
+								<th>Amount</th>
+								<th class="text-center">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (mmmSelfservice.Models.Approval data in Model.Where(a => a.Status.Equals("Open")))
+							{
+							<tr>
+								<td>@data.DocumentNo</td>
+								<td>@data.SenderID</td>
+								<td>@data.ApproverID</td>
+								<td>@data.DateTimeSent</td>
+								@if (@data.Status == "Open")
+								{
+									<td><span class="badge bg-success-400">@data.Status</span></td>
+								}
+								else
+								{
+									<td><span class="badge bg-blue">@data.Status</span></td>
+								}
+							  <td>@data.Amount</td>
+								<td class="text-center">
+									<div class="list-icons">
+										<div class="dropdown">
+											<a href="#" class="list-icons-item" data-toggle="dropdown">
+												<i class="icon-menu9"></i>
+											</a>
+
+											<div class="dropdown-menu dropdown-menu-right">
+												@if (data.Status == "Open")
+												{													
+													<a href="@Url.Action("sendforapproval", new { DocumentNo = data.DocumentNo,ApproverID = data.ApproverID })" class="dropdown-item"><i class="icon-file-check"></i>Send approval request</a>
+												}
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		document.onload(getLeavesummary());
+		Document.getLeavesummary();
+	</script>

@@ -1,0 +1,298 @@
+﻿<div id="modal_backdrop8" class="modal fade" data-backdrop="false" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header pb-3">
+                <h5 class="modal-title">Imprest card</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12" data-select2-id="81">
+                        <div data-select2-id="80">
+                            <div class="card-header bg-white header-elements-sm-inline">
+                                <h6 class="card-title"><i class="icon-reading mr-2"></i> New imprest request:<text id="pno" class="text-primary"></text></h6>
+                                <div class="header-elements">
+                                    <button type="button" class="btn bg-blue btn-sm legitRipple" onclick="insertimprest()"><i class="icon-checkmark3 mr-2"></i> Save</button>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="card-body" data-select2-id="79">
+                                <div class="row" data-select2-id="78">
+                                    <div class="col-md-12">
+                                        <form action="#" data-select2-id="77">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label">Purpose:</label>
+                                                        <div class="col-lg-9">
+                                                            <input type="text" id="description3" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label">Fund code:</label>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="programcode3" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'programcode3')">@Html.Action("department")</select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label">Program code:</label>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="department3">@Html.Action("departmentvalue")</select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label">Budget lines code:</label>
+                                                        <div class="col-lg-9">
+                                                            <select class="programcodes form-control" id="budgetdimension1"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label">Budget category:</label>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="budgetdescription1">@Html.Action("budgetdescription", "imprest")</select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label">Department:</label>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="departmentdimension1">@Html.Action("departments", "imprest")</select>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    @*<div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label">Project title:</label>
+                                                        <div class="col-lg-9">
+                                                            <input type="text" id="projectittle10" class="form-control" />
+                                                        </div>
+                                                    </div>*@
+                                                   
+                                                   
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label">Purchase requisition No:</label>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="purchase04">
+                                                                @Html.Action("postedpurchasereq", "purchase")
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label">Mission proposal No:</label>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="missionno3">
+                                                                @Html.Action("postedmissionproposals","purchase")
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <br />
+                                            <div class="card-header bg-white header-elements-sm-inline">
+                                                <h6 class="card-title"><i class="icon-reading mr-2"></i> Imprest lines:<text class="text-primary"></text></h6>
+                                                <div class="header-elements">
+                                                    <a  class="btn bg-blue btn-sm legitRipple" data-toggle="modal" data-target="#modal_backdropline" ><i class="icon-checkmark3 mr-2"></i> Add line</a>
+
+                                                </div>
+                                            </div>
+                                            <table class="table" id="example-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Type</th>
+                                                        <th>Description</th>
+                                                        <th>Unit cost</th>
+                                                        <th>Currency</th>
+                                                        <th>Quantity</th>
+                                                        <th class="text-center">Actions</th>
+                                                       
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbodyimprestline">
+                                                    
+                                                </tbody>
+                                            </table>
+
+
+
+                                            @*<div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
+                                                <div class="col-lg-9">
+                                                    <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
+                                                    <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                                </div>
+                                            </div>*@
+
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+           
+        </div>
+    </div>
+</div>
+<div id="modal_backdropline" class="modal fade" data-backdrop="false" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Imprest lines</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+          
+           
+           
+                <div class="card-body" data-select2-id="79">
+                    <div class="row" data-select2-id="78">
+                        <div class="col-md-12">
+                            <form action="#" data-select2-id="77">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Type:</label>
+                                            <div class="col-lg-9">
+                                                <select class="form-control" id="type" >@Html.Action("expensecategories")</select>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group row">
+
+                                            <label class="col-lg-3 col-form-label">Description:</label>
+                                            <div class="col-lg-9">
+                                                <input type="text" id="description" class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+
+                                            <label class="col-lg-3 col-form-label">Unit cost:</label>
+                                            <div class="col-lg-9">
+                                                <input type="number" id="unitcost" class="form-control" />
+                                                </div>
+                                            </div>
+                                        <div class="form-group row">
+
+                                            <label class="col-lg-3 col-form-label">Quantity:</label>
+                                            <div class="col-lg-9">
+                                                <input type="number" id="quantity" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Currency code:</label>
+                                            <div class="col-lg-9">
+                                                <select class="form-control" id="currencies">@Html.Action("currencies")</select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+
+                                            <label class="col-lg-3 col-form-label">Total cost:</label>
+                                            <div class="col-lg-9">
+                                                <input type="number" disabled="disabled" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <br />
+
+
+
+                                @*<div class="form-group row">
+                            <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
+                            <div class="col-lg-9">
+                                <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
+                                <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                            </div>
+                        </div>*@
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <div class="card-footer">
+                <button type="button" onclick="addline()" class="btn bg-blue btn-sm legitRipple"><i class="icon-checkmark3 mr-2"></i> Add</button>
+            </div>
+            </div>
+            
+
+        </div>
+    </div>
+
+
+
+
+<script>
+    function insertimprest() {
+        var implines = [];
+        $("#tbodyimprestline tr").each(function () {
+            var row = $(this);
+            //var Statement = {};
+            var rowdata = row.find("td").eq(0).text() + "??" + row.find("td").eq(1).text() + "??" + row.find("td").eq(2).text() + "??" + row.find("td").eq(3).text() + "??" + row.find("td").eq(4).text();
+
+            implines.push(rowdata);
+        });
+      //  alert(implines);
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/Imprest/insertimprestheader",
+            data: JSON.stringify({ fundcode: $('#department3 option:selected').val(), programcode: $('#programcode3 option:selected').val(), purpose: $('#description3').val(), implines: implines, budgetdimension: $('#budgetdimension1 option:selected').val(), departmentdimension: $('#departmentdimension1 option:selected').val(), budgetdescription: $('#budgetdescription1 option:selected').val(), missionno: $('#missionno3 option:selected').val(), purchaseNo: $('#purchase04 option:selected').val() }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+
+                if (response.status == true) {
+
+                    alert('Imprest saved successfully');
+                    window.location.href = '/Imprest/index';
+
+                } else {
+
+
+
+                }
+
+            }
+
+        });
+    }
+
+    function addline() {
+
+        var tblstring = '<tr><td>' + $('#type option:selected').val() + '</td><td>' + $('#description').val() + '</td><td>' + $('#unitcost').val() + '</td><td>' + $('#currencies option:selected').val() + '</td><td>' + $('#quantity').val() + '</td><td style="display:none"></td><td style="display:none"></td><td class="text-center"><a href="#" onclick="removeEmptyLine(this)"><i class="icon-cross3 mr-3 icon-2x"></a></i></td></tr>';
+       
+        $('#tbodyimprestline').append(tblstring)
+
+    }
+
+    function html2json() {
+        var json = '{';
+        var otArr = [];
+        var tbl2 = $('#tbodyimprestline tr').each(function (i) {
+            x = $(this).children();
+            var itArr = [];
+            x.each(function () {
+                itArr.push('"' + $(this).text() + '"');
+            });
+            otArr.push('"' + i + '": [' + itArr.join(',') + ']');
+        })
+        json += otArr.join(",") + '}'
+
+        return json;
+    }
+
+</script>

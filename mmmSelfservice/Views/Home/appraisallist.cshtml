@@ -1,0 +1,204 @@
+﻿
+@model List<mmmSelfservice.Models.appraisal>
+@{
+    ViewBag.Title = "Staff Imprest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Appraisal</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="@Url.Action("index")" class="breadcrumb-item">Appraisal list</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+
+    @*<div class="col-md-8">
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h6 class="card-title">Imprest Information</h6>
+            </div>*@
+    <div class="card col-sm-12">
+        <div class="content">
+            <a class="btn bg-teal-400 btn-labeled btn-labeled-left legitRipple" data-toggle="modal" data-target="#modal_backdrop20"><b><i class="icon-file-plus"></i></b>New Appraisal plan</a>
+            <table class="table datatable-show-all">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Review period from </th>
+                        <th>Review period to</th>
+                        <th>Status</th>
+                       
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (mmmSelfservice.Models.appraisal data in Model)
+                    {
+                        <tr>
+                            <td>@data.no</td>
+                            <td>@data.reviewFrom.ToString("yyyy-MM-dd")</td>
+                            <td>@data.reviewTo.ToString("yyyy-MM-dd")</td>
+                            @if (@data.Status == "Pending Approval")
+                            {
+                                <td><span class="badge bg-success-400">@data.Status</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="badge bg-blue">@data.Status</span></td>
+                            }
+                           
+                            <td class="text-center">
+                                <div class="list-icons">
+                                    <div class="dropdown">
+                                        <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                            <i class="icon-menu9"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            @if (data.Status == "Open")
+                                            {
+                                                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modal_backdrop4" onclick="editPr('@data.no')">Edit appraisal plan</a>
+
+                                                @*@Html.ActionLink("Add Line", "ImprestLine", "Imprest", new { ImprestNo = data.No }, new { @class = "dropdown-item icon-add-to-list" })*@
+
+                                                <a href="@Url.Action("purchaserequest", "imprest",new {no=data.no})" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
+                                            }
+                                            @if (data.Status == "Pending Approval")
+                                            {
+                                                <a href="@Url.Action("sendforapprovalcancel", new { imprestNo = data.no })" class="dropdown-item"><i class="icon-eraser2"></i>Cancel approval request</a>
+                                            }
+
+                                            @if (data.Status == "Released")
+                                            {
+                                                <a href="@Url.Action("sendforapprovalcancel", new { imprestNo = data.no })" class="dropdown-item"><i class="icon-eraser2"></i>Cancel approval request</a>
+
+                                                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modal_backdrop4" onclick="editPr_approved('@data.no')">Edit appraisal</a>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <script type="text/javascript">
+                $('a.edit').on('click', function () {
+                    $.ajax({
+                        url: this.href,
+                        type: 'GET',
+                        cache: false,
+                        success: function (result) {
+                            $('#myModal').html(result).find('.modal').modal({
+                                show: true
+                            });
+                        }
+                    });
+                });
+            </script>
+            <div id='myModal' class='modal'>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div id='myModalContent'></div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Iconified modal -->
+            <div id="modal_Create_line" class="modal fade" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><i class="icon-menu7 mr-2"></i> &nbsp;Purchase requisition Line</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+                            <button class="btn bg-primary"><i class="icon-checkmark3 font-size-base mr-1"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /iconified modal -->
+        </div>
+    </div>
+    @*</div>
+        </div>*@
+</div>
+
+<div>
+
+    @Html.Partial("newAppraisal")
+    <div id="modal_backdrop4" class="modal fade" data-backdrop="false" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Appraisal </h5>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div id="mission4"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function editPr(mno) {
+
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/Home/editAppraisal",
+            data: '{no:"' + mno + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                debugger;
+                $('#mission4').html('');
+                $('#mission4').html(response);
+
+            }
+
+        });
+    }
+
+    function editPr_approved(mno) {
+
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/Home/editAppraisalReleased",
+            data: '{no:"' + mno + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                debugger;
+                $('#mission4').html('');
+                $('#mission4').html(response);
+
+            }
+
+        });
+    }
+</script>

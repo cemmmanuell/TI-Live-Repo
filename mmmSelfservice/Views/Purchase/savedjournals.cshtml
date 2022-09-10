@@ -1,0 +1,22 @@
+﻿@model IEnumerable<mmmSelfservice.Models.jnllines>
+
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+          <input type="text" class="form-control text-primary" value="@Html.DisplayFor(modelItem => item.description)" />
+        </td>
+        <td>
+          <input type="text" class="form-control text-primary" value="@Html.DisplayFor(modelItem => item.amount)" />
+        </td>
+        <td style="display:none">@Html.DisplayFor(modelItem => item.lineno)</td>
+            
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+

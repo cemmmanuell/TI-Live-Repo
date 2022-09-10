@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "employeefeedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+            <div class="d-flex justify-content-center">
+                <a href="@Url.Action("payslip")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Pay slip</span>
+                </a>
+                <a href="@Url.Action("Leaveinformation")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Leave statement</span>
+                </a>
+                <a href="@Url.Action("p9report")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>P9 report</span>
+                </a>
+
+                <a href="@Url.Action("hrdocuments","home")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Event dates</span>
+                </a>
+
+                <a href="@Url.Action("employeefeedback","home")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Employee feed back</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("index")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="#" class="breadcrumb-item">Dashboard</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Please type your suggestion:</label>
+                <textarea rows="10" class="form-control" id="suggestion"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Anonymous?</label>
+                <input type="checkbox"  id="anonymous" />
+            </div>
+
+            <br />
+            <br />
+            <div class="button-group">
+                <button class="btn btn-primary" id="submit_suggestion">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#submit_suggestion').click(function () {
+            var checked
+            if ($('#anonymous:checked').length > 0) {
+                checked=true
+            } else {
+                checked = false;
+            }
+
+            var data1 = {
+                suggestion: $('#suggestion').val(),
+                anonymous: checked
+
+
+            }
+            console.log(data1);
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/submitfeedback",
+                data:  data1,
+               
+                dataType: "json",
+                success: function (response) {
+
+                    if (response.status == true) {
+
+                        alert('Thank you for your feedback');
+                        window.location.href = "/Home/Index";
+
+                    } else {
+                        alert('Error occured');
+
+
+                    }
+
+                }
+
+            });
+
+
+        })
+
+    })
+
+
+</script>
+
+

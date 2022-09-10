@@ -1,0 +1,7 @@
+﻿@model IEnumerable<mmmSelfservice.Models.paymenttype>
+@{Layout = null; }
+@foreach (var item in Model)
+{
+	<option class="text-info" value="@item.Code">@item.Description</option>
+
+}

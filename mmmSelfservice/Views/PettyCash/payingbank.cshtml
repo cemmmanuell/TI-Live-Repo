@@ -1,0 +1,9 @@
+﻿@model IEnumerable<mmmSelfservice.Models.bank>
+@{Layout = null; }
+	<option class="text-blue" value="">Select paying Bank</option>
+@foreach (var item in Model)
+{
+	<option class="text-blue" value="@item.Code">@item.Name</option>
+
+}
+

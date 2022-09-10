@@ -1,0 +1,58 @@
+﻿
+@model List<mmmSelfservice.Models.ImprestLine>
+
+@{
+    ViewBag.Title = "Staff Imprest";
+    Layout = null;
+    //Layout = "~/Views/Shared/paymenttype.cshtml";
+}
+<div>
+    
+    <!-- Main content -->
+    <div class="card-body">
+        <!-- Content area -->
+        <div class="col-sm-12">
+
+            <!-- Page length options -->
+            <div class="col-sm-12">
+
+                <table class="table datatable-show-all">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Unit cost</th>
+                            <th>Currency</th>
+                            <th>Quantity</th>
+                          
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbodyimprestline2">
+                        @foreach (mmmSelfservice.Models.ImprestLine data in Model)
+                        {
+
+                            <tr>
+                                <td>@data.ExpenseCategory</td>
+                                <td>@data.Description</td>
+                                <td>@data.unitcost</td>
+                                <td>@data.currency</td>
+                                <td>@data.quantity</td>
+                                <td style="display:none">@data.LineNo</td>
+                                <td style="display:none">@data.No</td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- /page length options -->
+
+        </div>
+        <!-- /content area -->
+    </div>
+
+</div>
+

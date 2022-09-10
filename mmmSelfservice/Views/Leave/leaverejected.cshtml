@@ -1,0 +1,267 @@
+﻿@model IEnumerable<mmmSelfservice.Models.leave>
+@{
+    ViewBag.Title = "Leave Pending Approval";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Leave list</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+            <div class="d-flex justify-content-center">
+                <a href="#" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Pay slip</span>
+                </a>
+                <a href="#" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Leave statement</span>
+                </a>
+                <a href="#" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>P9 report</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("index")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="user_pages_profile_cover.html" class="breadcrumb-item">Leave list</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+<div class="card col-md-12">
+    <div class="row col-md-12">
+
+        <div class="datatable-header col-md-12">
+            <table class="table datatable-show-all col-md-12">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Days applied</th>
+                        <th>Reliever</th>
+                        <th>Status</th>
+                        <th>Leave Type</th>
+                        <th>Approved Days</th>
+                        <th>Start Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (mmmSelfservice.Models.leave data in Model.Where(a => a.Status.Equals("Rejected")))
+                        {
+                            <tr>
+                                <td>@data.No</td>
+                                <td>@data.NoofDayes</td>
+                                <td>@data.RelieverCode</td>
+                                @if (@data.Status == "Pending Approval")
+                                {
+                                    <td><span class="badge bg-orange-700">@data.Status</span></td>
+                                }
+                                else if (@data.Status == "New")
+                                {
+                                    <td><span class="badge bg-blue">@data.Status</span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="badge bg-success-700">@data.Status</span></td>
+                                }
+                                <td>@data.LeaveType</td>
+                                <td>@data.ApprovedDays</td>
+                                <td>@data.StartDate</td>
+                                <td class="text-center">
+                                    <div class="list-icons">
+                                        <div class="dropdown">
+                                            <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                @if (data.Status == "New")
+                                                {
+                                                    <a href="#modal_form_horizontal" data-toggle="modal" onclick="leaveeditclick('@data.No')" class="dropdown-item"><i class="icon-pencil7"></i>Edit</a>
+
+                                                    <a href="@Url.Action("sendApproval", new { leaveNo = data.No })" class="dropdown-item"><i class="icon-file-check"></i>Send approval request</a>
+                                                }
+                                                @if (data.Status == "Rejected")
+                                                {
+                                                   
+                                                    
+                                                 
+
+                                                    <a href="#approvers" data-toggle="modal" onclick="approvalsclick('@data.No')" class="dropdown-item"><i class="icon-pencil7"></i>Approvals</a>
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@*New Leave application*@
+
+<div id="modal_form_horizontal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New leave application</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div id="alert_s">
+                <div class="alert alert-danger alert-styled-left alert-dismissible" style="display:none">
+
+                    <span id="msg"></span>
+                </div>
+            </div>
+            <form action="#" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Leave type</label>
+                        <div class="col-sm-9">
+                            <select id="leaves" class="form-control select" required>
+                                @Html.Action("leavetypes", "Leave")
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Days to apply</label>
+                        <div class="col-sm-9">
+                            <input type="number" min="0" id="noOfDays" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Start leave on:</label>
+                        <div class="col-sm-9">
+                            <input type="date" id="startDate" onchange="determinereturnDate()" class="form-control" required>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Reliever</label>
+                        <div class="col-sm-9">
+                            <select id="relievers" class="form-control select" required>
+                                @Html.Action("relievers", "Leave")
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Close</button>
+                    <button type="submit" onclick="submitLeave()" class="btn bg-primary legitRipple">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="approvers">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div id="modal_approvals"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function determinereturnDate() {
+
+    }
+
+    function submitLeave() {
+
+        var date = $('#startDate').val();
+        var leave = $('#leaves option:selected').val();
+        var days = $('#noOfDays').val();
+		var reli = $('#relievers option:selected').val();
+		//alert('Here '+leave);
+        $.ajax({
+            type: "POST",
+            url: "/Leave/LeaveApply",
+			//data: '{start:"' + date + ' ", days:"' + days + '", leavetype:"' + leave + '", reliever:"' + reli + '"}',
+			data: JSON.stringify({ start: date, days: days, leavetype: leave, reliever: reli}),
+            contentType: "application/json; charset=utf-8",
+			dataType: "json",
+            success: function (data) {
+                alert(Data);
+
+
+            },
+        });
+    }
+
+    function leaveeditclick(leaveNo) {
+        //  alert('Here');
+        $.ajax({
+            type: "POST",
+            url: "/Leave/LeaveEdit",
+            data: '{applicationcode:"' + leaveNo + ' "}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                 alert(data);
+                $('#modal_edit').html(data);
+
+            },
+        });
+    }
+
+    function approvalsclick(leaveNo) {
+        //  alert('Here');
+        $.ajax({
+            type: "POST",
+            url: "/Home/approvalentries",
+            data: '{documentNo:"' + leaveNo + ' "}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (data) {
+
+                $('#modal_approvals').html(data);
+
+            },
+        });
+    }
+
+
+    function editleave() {
+
+        var date = $('#startDate1').val();
+        var leave = $('#leaves1 option:selected').val();
+        var days = $('#noOfDays1').val();
+        var reli = $('#relievers1 option:selected').val();
+
+        $.ajax({
+            type: "POST",
+            url: "/Leave/EditLeave",
+            data: '{start:"' + date + ' ", days:"' + days + '", leavetype:"' + leave + '", reliever:"' + reli + '"}',
+            contentType: "application/json; charset=utf-8",
+
+            success: function (data) {
+                alert(Data);
+
+
+            },
+        });
+    }
+
+</script>

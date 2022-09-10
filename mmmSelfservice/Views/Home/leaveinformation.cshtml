@@ -1,0 +1,139 @@
+﻿@model mmmSelfservice.Models.indexinfo
+@{
+	ViewBag.Title = "PaymentInformation";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+	<div class="page-header-content header-elements-md-inline">
+		<div class="page-title d-flex">
+			<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Payment information</h4>
+			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+		</div>
+		<div class="header-elements d-none">
+			<div class="d-flex justify-content-center">
+				<a href="@Url.Action("payslip")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+					<i class="icon-file-download text-pink-300"></i>
+					<span>Pay slip</span>
+				</a>
+				<a href="@Url.Action("leaveinformation")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+					<i class="icon-file-download text-pink-300"></i>
+					<span>Leave statement</span>
+				</a>
+				<a href="@Url.Action("p9report")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+					<i class="icon-file-download text-pink-300"></i>
+					<span>P9 report</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+		<div class="d-flex">
+			<div class="breadcrumb">
+				<a href="@Url.Action("index")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+				<a href="user_pages_profile_cover.html" class="breadcrumb-item">Payment information</a>
+
+			</div>
+			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+		</div>
+		<div class="header-elements d-none">
+		</div>
+	</div>
+</div>
+
+<br />
+<div class="d-flex align-items-start flex-column flex-md-row">
+	<!-- Left content -->
+	<div class="w-100 order-2 order-md-1">
+		<!-- Basic card -->
+		<!-- /basic card -->
+		<!-- Basic table -->
+		<div class="card">
+			<div class="card-header bg-white header-elements-inline">
+				<h6 class="card-title">Leave Statement: </h6>
+				<div class="header-elements">
+					<form action="#">
+						<div class="d-flex justify-content-between align-items-center">
+							<button type="button" onclick="LeaveStatementPdf()" class="btn bg-blue">Get Statement <i class="icon-paperplane ml-2"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div id="reportspL"></div>
+
+		</div>
+		<!-- /basic table -->
+		<!-- Form layouts -->
+		<!-- /form layouts -->
+	</div>
+
+
+	<!-- /left content -->
+	<!-- Right sidebar component -->
+	<div class="sidebar sidebar-light sidebar-component sidebar-component-right order-1 order-md-2 sidebar-expand-md bg-transparent border-0 shadow-0">
+		<!-- Sidebar content -->
+		<div class="sidebar-content">
+			<!-- Sidebar search -->
+			<div class="card">
+				<div class="card-header">
+					<div class="title">
+						Leave details summary
+					</div>
+				</div>
+				<div class="card-body" id="leavesummarry">
+					<div class="table-responsive">
+						<table class="table">
+
+							<tbody>
+                                <tr>
+                                    <td>Annual leave Acc.</td>
+                                    <td>@Model.annualLeaveAcc</td>
+                                </tr>
+                                <tr>
+                                    <td>Compasionate leave Acc.</td>
+                                    <td>@Model.compasionateLeaveAcc</td>
+                                </tr>
+                                <tr>
+                                    <td>Maternity leave Acc.</td>
+                                    <td>@Model.maternityLeaveAcc</td>
+                                </tr>
+                                <tr>
+                                    <td>Paternity leave Acc.</td>
+                                    <td>@Model.paternityLeaveAcc</td>
+                                </tr>
+                                <tr>
+                                    <td>Sick leave Acc.</td>
+                                    <td>@Model.sickLeaveAcc</td>
+                                </tr>
+                                <tr>
+                                    <td>Exam leave Acc.</td>
+                                    <td>@Model.studyLeaveAcc</td>
+                                </tr>
+                                <tr>
+                                    <td>CTO leave Acc.</td>
+                                    <td>@Model.Cto</td>
+                                </tr>
+
+                                
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- /sidebar search -->
+			<!-- Sub navigation -->
+			<!-- /sub navigation -->
+			<!-- Form sample -->
+			<!-- /form sample -->
+		</div>
+		<!-- /sidebar content -->
+	</div>
+	<!-- /right sidebar component -->
+</div>
+<script>
+    document.onload(getLeavesummary());
+   Document.getLeavesummary();
+</script>
+

@@ -1,0 +1,76 @@
+﻿
+@{
+	ViewBag.Title = "P9Report";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+	<div class="page-header page-header-light mb-0">
+		<div class="page-header-content header-elements-md-inline">
+			<div class="page-title d-flex">
+				<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Payslip</h4>
+				<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+			</div>
+			@*<div class="header-elements d-none">
+				<div class="d-flex justify-content-center">
+					<a href="#" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+						<i class="icon-file-download text-pink-300"></i>
+						<span>Pay slip</span>
+					</a>
+					<a href="#" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+						<i class="icon-file-download text-pink-300"></i>
+						<span>Leave statement</span>
+					</a>
+					<a href="#" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+						<i class="icon-file-download text-pink-300"></i>
+						<span>P9 report</span>
+					</a>
+				</div>
+			</div>*@
+		</div>
+		<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+			<div class="d-flex">
+				<div class="breadcrumb">
+					<a href="@Url.Action("index")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+					<a href="" class="breadcrumb-item">Payslip</a>
+
+				</div>
+				<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+			</div>
+			<div class="header-elements d-none">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+
+	<div class="card col-md-12">
+		<div class="card-header bg-white header-elements-inline">
+			<h6 class="card-title">Period: </h6>
+			<div class="header-elements">
+				<form action="#">
+					<div class="form-group">
+						<div class="form-group row">
+							<label class="col-form-label">Start Date:</label>
+							<div class="col-lg">
+								<input class="form-control" type="date" id="startdate" required placeholder="Text input validation">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-group row">
+							<label class="col-form-label">End Date:</label>
+							<div class="col-lg">
+								<input class="form-control" type="date" id="enddate" required placeholder="Text input validation">
+							</div>
+						</div>
+					</div>
+					<div class="d-flex justify-content-between align-items-center">
+						<button type="submit" onclick="p9Pdf()" class="btn bg-blue">Submit <i class="icon-paperplane ml-2"></i></button>
+					</div>
+				</form>
+			</div>
+		</div>		
+		<div id="reportsp9"></div>
+	</div>
+</div>
+

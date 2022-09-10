@@ -1,0 +1,281 @@
+﻿@model List<mmmSelfservice.Models.TrainingInfo>
+@{
+	ViewBag.Title = "Training";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+	<div class="page-header-content header-elements-md-inline">
+		<div class="page-title d-flex">
+			<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Training information</h4>
+			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+		</div>
+
+	</div>
+	<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+		<div class="d-flex">
+			<div class="breadcrumb">
+				<a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+				<a href="@Url.Action("Index")" class="breadcrumb-item">Training information</a>
+
+			</div>
+			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+		</div>
+		<div class="header-elements d-none">
+		</div>
+	</div>
+</div>
+
+<br />
+<div class="d-flex align-items-start flex-column flex-md-row">
+	<!-- Left content -->
+	<div class="w-100 order-2 order-md-1">
+		
+		<!-- Basic card -->
+		<!-- /basic card -->
+		<!-- Basic table -->
+
+		<div class="card">
+			<div class="card-header header-elements-inline">
+				<h5 class="card-title">Training Information</h5>
+				<div class="header-elements">
+					<div class="list-icons">
+						<a class="list-icons-item" data-action="collapse"></a>
+						<a class="list-icons-item" data-action="reload"></a>
+						<a class="list-icons-item" data-action="remove"></a>
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="card col-sm-12">
+				<div class="content">
+                    <div class="datatble-header">
+                        <button class="btn  btn-success" type="button" data-toggle="modal" data-target="#modal_form_horizontalTr">Apply new training request</button>
+                        <table class="table datatable-show-all">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Training need</th>
+                                    
+                                    <th>Status</th>
+                                    
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (mmmSelfservice.Models.TrainingInfo data in Model)
+                                {
+                                    <tr>
+                                        <td>@data.ApplicationNo</td>
+                                       <td>@data.need</td>
+                                        @if (@data.Status == "Approved")
+                                        {
+                                            <td><span class="badge bg-success-400">@data.Status</span></td>
+                                        }
+                                        else if (@data.Status == "Pending Aproval")
+                                        {
+                                            <td><span class="badge bg-orange-700">@data.Status</span></td>
+                                        }
+                                        else
+                                        {
+                                            <td><span class="badge bg-blue">@data.Status</span></td>
+                                        }
+                                     
+                                        <td class="text-center">
+                                            <div class="list-icons">
+                                                <div class="dropdown">
+                                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        @if (data.Status == "New")
+                                                        {
+                                                            <a href="#modal_form_horizontalTrEdit" data-toggle="modal" onclick="getraining('@data.ApplicationNo')" class="dropdown-item"><i class="icon-pencil7"></i>Edit</a>
+
+                                                            @*<a href="@Url.Action("sendApproval", new { leaveNo = data.ApplicationNo })" class="dropdown-item"><i class="icon-file-check"></i>Send approval request</a>*@
+                                                        }
+                                                        @if (data.Status == "Pending Approval")
+                                                        {
+
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+
+					<script type="text/javascript">
+                        $('a.edit').on('click', function () {
+                            $.ajax({
+                                url: this.href,
+                                type: 'GET',
+                                cache: false,
+                                success: function (result) {
+                                    $('#myModal').html(result).find('.modal').modal({
+                                        show: true
+                                    });
+                                }
+                            });
+                        });
+					</script>
+				</div>
+			</div>
+
+		</div>
+		<!-- /basic table -->
+		<!-- Form layouts -->
+		<!-- /form layouts -->
+	</div>
+</div>
+
+
+
+<div id="modal_form_horizontalTr" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-full">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Employee training requests</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div id="alert_s">
+                <div class="alert alert-danger alert-styled-left alert-dismissible" style="display:none">
+
+                    <span id="msg"></span>
+                </div>
+            </div>
+            <form action="#" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">What is the training/development need?</label>
+                        <div class="col-sm-9">
+                           <textarea id="need" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">What are the names of the employees involved?</label>
+                        <div class="col-sm-9">
+                            <textarea  class="form-control" id="employees"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">How does this link with the business of TI-Kenya and the responsibilities of your programme/post?</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="link"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Explain how the proposed training/development activity relates to your own job?</label>
+                        <div class="col-sm-9">
+                           <textarea class="form-control" id="purpose"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">What do you hope to learn?</label>
+                        <div class="col-sm-9">
+                          <textarea class="form-control" id="outcome"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Details of training (Training dates, venue, organisation name and contact details)</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="details"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Other details (e.g. cost of training, accommodation, transport and related costs and grant available)</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="otherdetails"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Close</button>
+                    <button type="submit" onclick="submitTraining()" class="btn bg-primary legitRipple">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="modal_form_horizontalTrEdit" class="modal" tabindex="-1">
+    <div id="tredit">
+
+    </div>
+</div>
+    <script>
+
+        function submitTraining() {
+            $.ajax({
+                type: "POST",
+                url: "/Training/TrainingRequest",
+
+                data: JSON.stringify({ need: $('#need').val(), employees: $('#employees').val(), link: $('#link').val(), purpose: $('#purpose').val(), outcome: $('#outcome').val(), details: $('#details').val(), otherdetails: $('#otherdetails').val() }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response.status == true) {
+
+                        window.location.href = '/Training/index';
+
+                    } else {
+
+                        alert(response.message);
+
+                    }
+
+
+                },
+            });
+        }
+
+        function updatetraining(application) {
+            $.ajax({
+                type: "POST",
+                url: "/Training/TrainingRequestUpdate",
+
+                data: JSON.stringify({ need: $('#need1').val(), employees: $('#employees1').val(), link: $('#link1').val(), purpose: $('#purpose1').val(), outcome: $('#outcome1').val(), details: $('#details1').val(), otherdetails: $('#otherdetails1').val(), appNo: application }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response.status == true) {
+                        alert('Updated successfully');
+                        window.location.href = '/Training/index';
+
+                    } else {
+
+                        alert(response.message);
+
+                    }
+
+
+                },
+            });
+        }
+
+        function getraining(appNo) {
+            //  alert('Here');
+            $.ajax({
+                type: "POST",
+                url: "/Training/edit",
+                data: '{application:"' + appNo + ' "}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                success: function (data) {
+
+                   
+                    $('#tredit').html(data);
+
+                },
+            });
+        }
+
+
+    </script>

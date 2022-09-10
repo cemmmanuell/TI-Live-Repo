@@ -1,0 +1,259 @@
+﻿@model IEnumerable<mmmSelfservice.Models.trainingschedule>
+
+@{
+    ViewBag.Title = "Training";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Training information</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="@Url.Action("Index")" class="breadcrumb-item">Training Schedule</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+
+<br />
+<div class="d-flex align-items-start flex-column flex-md-row">
+    <!-- Left content -->
+    <div class="w-100 order-2 order-md-1">
+
+        <!-- Basic card -->
+        <!-- /basic card -->
+        <!-- Basic table -->
+
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h5 class="card-title">Training schedule</h5>
+                <div class="header-elements">
+                    <div class="list-icons">
+                        <a class="list-icons-item" data-action="collapse"></a>
+                        <a class="list-icons-item" data-action="reload"></a>
+                        <a class="list-icons-item" data-action="remove"></a>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card col-sm-12">
+                <div class="content">
+                    <div class="datatble-header">
+                        <button class="btn  btn-success" type="button" data-toggle="modal" data-target="#modal_form_horizontalTrS">Create training schedule</button>
+                        <table class="table datatable-show-all">
+                            <thead>
+                                <tr>
+                                    <th>Year </th>
+                                    <th>Facilitator</th>
+
+                                    <th>Topic</th>
+                                    <th>Date</th>
+                                    <th>status</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (mmmSelfservice.Models.trainingschedule data in Model)
+                                {
+                                    <tr>
+                                        <td>@data.Year</td>
+                                        <td>@data.Facilitator</td>
+                                        <td>@data.topic</td>
+                                        <td>@data.ScheduledDate</td>
+                                        @if (@data.status == "Done")
+                                        {
+                                            <td><span class="badge bg-success-400">@data.status</span></td>
+                                        }
+                                        else if (@data.status== "Pending")
+                                        {
+                                            <td><span class="badge bg-orange-700">@data.status</span></td>
+                                        }
+                                        else
+                                        {
+                                            <td><span class="badge bg-blue">@data.status</span></td>
+                                        }
+
+                                        <td class="text-center">
+                                            <div class="list-icons">
+                                                <div class="dropdown">
+                                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        @if (data.status== "Pending")
+                                                        {
+                                                            <a href="#modal_form_horizontalTrSEdit" onclick="getrainingschedule('@data.Year','@data.topic')" data-toggle="modal" class="dropdown-item"><i class="icon-pencil7"></i>Edit</a>
+
+
+                                                        }
+                                                        @if (data.status == "Pending Approval")
+                                                        {
+
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <script type="text/javascript">
+                        $('a.edit').on('click', function () {
+                            $.ajax({
+                                url: this.href,
+                                type: 'GET',
+                                cache: false,
+                                success: function (result) {
+                                    $('#myModal').html(result).find('.modal').modal({
+                                        show: true
+                                    });
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+
+        </div>
+        <!-- /basic table -->
+        <!-- Form layouts -->
+        <!-- /form layouts -->
+    </div>
+</div>
+
+
+
+<div id="modal_form_horizontalTrS" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-full">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Employee training schedule</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div id="alert_s">
+                <div class="alert alert-danger alert-styled-left alert-dismissible" style="display:none">
+
+                    <span id="msg"></span>
+                </div>
+            </div>
+            <form action="#" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Year</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="year_s" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Topic</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="topic" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Facilitator</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="facilitator"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Department</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="department_s" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Schedule date</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="scheduleDate"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Employees</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="employees_S"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3">Evidence of training</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="evidence"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Close</button>
+                    <button type="submit" onclick="submitTrainingSchedule()" class="btn bg-primary legitRipple">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="modal_form_horizontalTrSEdit" class="modal" tabindex="-1">
+    <div id="trsedit">
+
+    </div>
+</div>
+<script>
+    function submitTrainingSchedule() {
+        $.ajax({
+            type: "POST",
+            url: "/Training/createTrainingSchedule",
+
+            data: JSON.stringify({ year: $('#year_s').val(), facilitator: $('#facilitator').val(), scheduleDate: $('#scheduleDate').val(), employees: $('#employees_S').val(), evidence: $('#evidence').val(), department: $('#department_s').val(), topic:$('#topic').val()}),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response.status == true) {
+
+                        window.location.href = '/Training/trainingscheduleopen';
+
+                    } else {
+
+                        alert(response.message);
+
+                    }
+
+
+                },
+            });
+    }
+    function getrainingschedule(year, topic) {
+        //  alert('Here');
+        $.ajax({
+            type: "POST",
+            url: "/Training/edittrainingschedule",
+            data: '{year:"' + year + ' ", topic:"'+topic+'"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (data) {
+
+
+                $('#trsedit').html(data);
+
+            },
+        });
+    }
+
+</script>

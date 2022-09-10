@@ -1,0 +1,85 @@
+﻿@model IEnumerable<mmmSelfservice.Models.hrdocuments>
+
+@{
+    ViewBag.Title = "hrdocuments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>hrdocuments</h2>
+
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+            <div class="d-flex justify-content-center">
+                <a href="@Url.Action("payslip")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Pay slip</span>
+                </a>
+                <a href="@Url.Action("Leaveinformation")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Leave statement</span>
+                </a>
+                <a href="@Url.Action("p9report")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>P9 report</span>
+                </a>
+                <a href="@Url.Action("hrdocuments", "home")" class="btn btn-link btn-float font-size-sm font-weight-semibold text-default legitRipple">
+                    <i class="icon-file-download text-pink-300"></i>
+                    <span>Hr documents</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("index")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="#" class="breadcrumb-item">Event dates</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="card">
+  
+    <div class="card-body">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.code)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                      <a href="@Url.Action("hrdocumentattachments", "Home", new { id=item.code })" >Attachments</a>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

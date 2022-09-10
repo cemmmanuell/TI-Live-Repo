@@ -1,0 +1,122 @@
+﻿
+@model mmmSelfservice.Models.leave
+
+<div class="modal-dialog modal-lg">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title">Edit leave application @Model.No</h5>
+            <i id="pnol" style="display:none">@Model.No</i>
+			<button type="button" class="close" data-dismiss="modal">×</button>
+		</div>
+
+       
+			<div class="modal-body">
+				<div class="form-group row">
+					<label class="col-form-label col-sm-3">Leave type</label>
+					<div class="col-sm-9">
+						<select id="leaves1" class="form-control select" onchange="ochangeleavetype()">
+							<option value="@Model.LeaveType">@Model.LeaveType</option>
+							@Html.Action("leavetypes", "Leave")
+						</select>
+					</div>
+				</div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-3">Leave days</label>
+                    <div class="col-sm-9">
+                        <i id="lvdays"></i>
+                    </div>
+                </div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-3">Days to apply</label>
+					<div class="col-sm-9">
+						<input type="text" id="noOfDays1" value="@Model.NoofDayes" class="form-control">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-3">Start leave on:</label>
+					<div class="col-sm-9">
+						<input type="date" id="startDate1" value="@Model.StartDate" class="form-control">
+						<span class="form-text text-muted">@Model.StartDate</span>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-3">Reliever</label>
+					<div class="col-sm-9">
+						<select id="relievers1" class="form-control select">
+							<option>@Model.RelieverCode</option>
+							@Html.Action("relievers", "Leave")
+						</select>
+					</div>
+				</div>
+
+                <div class="row" >
+                    <div class="col-md-12">
+                        <input type="file" id="FileUpload1l" class="form-control" />
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <button class="btn" id="btnUploadl">Upload</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="docs3l" class="col-md-12">
+                                @Html.Action("uploadeddocuments", "upload", new { documentNo = Model.No })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-3">Pending tasks</label>
+                    <textarea class="form-control" id="pendingtasks1">@Model.pendingtasks</textarea>
+                </div>
+			</div>
+          
+			<div class="modal-footer">
+				<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+				<button type="button" onclick="editleave('@Model.No')" class="btn bg-primary legitRipple">Save</button>
+			</div>
+		
+	</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#btnUploadl').click(function () {
+            debugger;
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload1l").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                // Adding one more key to FormData object
+                fileData.append('document', $('#pnol').text());
+
+                $.ajax({
+                    url: '/Upload/uploadFile',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                        alert(result.message);
+                        LoadData('#docs3l', '@Url.Action("uploadeddocuments", "upload", new { documentNo = Model.No })');
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+    });
+</script>

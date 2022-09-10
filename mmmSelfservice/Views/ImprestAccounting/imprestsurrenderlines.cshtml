@@ -1,0 +1,90 @@
+﻿
+@model List<mmmSelfservice.Models.ImprestLine>
+
+@{
+    ViewBag.Title = "Staff Imprest";
+    Layout = null;
+    //Layout = "~/Views/Shared/paymenttype.cshtml";
+}
+<div>
+ 
+
+    <!-- Main content -->
+    <div >
+        <!-- Content area -->
+        <div class="col-sm-12">
+
+            <!-- Page length options -->
+            <div class="col-sm-12">
+
+                <table class="table datatable-show-all">
+                    <thead>
+                        <tr>
+                            
+                            <th>Expense</th>
+                            <th>Amount</th>
+                            <th>Amount spent</th>
+                            <th>Amount refund</th>
+                         
+                        </tr>
+                    </thead>
+                    <tbody id="surrlines">
+                        @foreach (mmmSelfservice.Models.ImprestLine data in Model)
+                        {
+                            <tr>
+                                <td style="display:none">@data.Type</td>
+                                <td style="display:none">@data.AccountNo</td>
+                                <td>@data.ExpenseCategory</td>
+                                <td>@data.Amount</td>
+                                <td><input type="number" value="@data.AmountSpent"/></td>
+                                <td><input type="number" value="@data.CashRefund" /></td>
+                                <td style="display:none">@data.LineNo</td>
+                                <td style="display:none">@data.No</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /page length options -->
+
+        </div>
+        <!-- /content area -->
+    </div>
+
+</div>
+
+<script>
+    function editimprestSurrender() {
+        table1 = $('#surrlines tr');
+        var surrlines = [];
+        table1.each(function () {
+            var row = $(this);
+            //var Statement = {};
+            var rowdata = row.find("td:eq(4) input[type='number']").val() + '??' + row.find("td:eq(6)").html() + '??' + row.find("td:eq(7)").html() + '??' + row.find("td:eq(5) input[type='number']").val();
+
+            surrlines.push(rowdata);
+        });
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/ImprestAccounting/updatesurrenderline",
+            data: JSON.stringify({implines: surrlines}),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                if (response.status == true) {
+                    alert('Imprest surrender updated successfully');
+
+                } else {
+
+
+
+                }
+
+            }
+
+        });
+    }
+
+</script>

@@ -1,0 +1,74 @@
+﻿@model mmmSelfservice.Models.imprestRinfoModel
+
+<text style="display:none" id="srno">@Model.No</text>
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label">Fund code:</label>
+    <div class="col-lg-9">
+        <select class="form-control">
+            <option>@Model.FundCode</option>
+
+           
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label">Program code:</label>
+    <div class="col-lg-9">
+        <select class="form-control">
+            <option>@Model.ProgramCode</option>
+          
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label">Budget dimension:</label>
+    <div class="col-lg-9">
+        <select class="form-control">
+            <option>@Model.budgetdminesion</option>
+         
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label">Budget description:</label>
+    <div class="col-lg-9">
+        <select class="form-control">
+            <option>@Model.budgetdescription</option>
+          
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label">Department:</label>
+    <div class="col-lg-9">
+        <select class="form-control">
+            <option>@Model.Department</option>
+          
+        </select>
+    </div>
+</div>
+
+
+<br />
+<br />
+
+@Html.Action("imprestsurrenderlines", "ImprestAccounting", new { ImprestNo = Model.No })
+
+
+<div class="row">
+    <div class="row">
+      
+        <div class="row">
+            @Html.Action("uploadeddocuments", "upload", new { documentNo = Model.No })
+        </div>
+    </div>
+
+</div>
+<script>
+
+
+
+</script>
+
+
+

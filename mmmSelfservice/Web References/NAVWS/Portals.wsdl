@@ -1,0 +1,4242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/Portals" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="FnGetApprovalEntries">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetApprovalEntries_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUploadedDocuments2">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUploadedDocuments2_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnhrdocuments">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Fnhrdocuments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetdocuments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="attachmentno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="pictureText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetdocuments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pictureText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnsuggestionbox">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="suggestion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="anonymous" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnsuggestionbox_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnAppraisals">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAppraisals_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnNewappraisal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="background" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnNewappraisal_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnEditappraisal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appraisalno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="background" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnEditappraisal_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Fngrievances">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="suggestion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="anonymous" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fngrievances_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnExitInterview">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="designation" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="main_reasona40sa41_for_your_exit" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="overall_impression" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="clear_objectives" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="your_performance_reviewed" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="received_enough_recognition" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="career_aspirations" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="relationship_with_your" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="with_your_immediate_team" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="perception_on_TIa45Kenyaa194s" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="most_fulfilling" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="greatest_accomplishments" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="most_frustrating" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="better_place" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tIa45Kenya_in_the_future" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="constructive_feedback" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="next_step" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="intervire_Conducted_By" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnExitInterview_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetExitInterview">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetExitInterview_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetInductionSchedule">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employee" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetInductionSchedule_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInduct">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="inductingEmployee" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="emloyee" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="induct" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="comments" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInduct_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnPaymentMemosList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPaymentMemosList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertPaymentmemo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="datesofActivities" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="background" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="ref" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purchaseRequest" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="missionproposal" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertPaymentmemo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnupdatePaymentmemo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="datesofActivities" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="background" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="ref" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purchaseRequest" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="missionProporsal" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnupdatePaymentmemo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertAppraisal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="jsonData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertAppraisal_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnUpdateAppraisal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="jsonData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateAppraisal_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnAppraisalList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAppraisalList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestRequisitionCreate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employee_No" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="date_Required" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dept_Code" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilityCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bankAccount" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestRequisitionCreate_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnLeaveApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="appliedDays" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="startDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="reliever" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pendingtasks" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveApplication_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnLeaveApprovalRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveApplicationCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveApprovalRequest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnImprestApprovalRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestApprovalRequest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetPayslip">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employee_No" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payPeriod" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetPayslip_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestRequisitionUpdate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employee_No" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="date_Required" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dept_Code" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilityCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestRequisitionUpdate_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnApproveRecords">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="approverId" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnApproveRecords_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnLeaveCancelApprovalRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveApplicationCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveCancelApprovalRequest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnImprestCancelApprovalRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestCancelApprovalRequest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnRejectApprovalRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="approverId" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRejectApprovalRequest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnImprestSurrenderApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="impNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="request" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestSurrenderApproval_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnInserImprest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="impno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="cashier2" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInserImprest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateLeave">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leavetype" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="applieddays" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="startdate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="enddate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="returndate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="sendercomments" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="relieverno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilitycenter" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateLeave_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetEmployeeDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetEmployeeDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetPaymentInformation">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="no" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetPaymentInformation_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetSummaryPayment">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="no" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payPeriod" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetSummaryPayment_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnlogin">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="user" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="password" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnlogin_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRegister">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="regcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="newpassword" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRegister_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fninserreccode">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="idnumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fninserreccode_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetPeriods">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetPeriods_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnleaveinformation">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnleaveinformation_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveCard">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leavecode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveCard_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetLeaveTypes">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetLeaveTypes_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnHrEmployees">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnHrEmployees_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnEditApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="appliedDays" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="startDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="reliever" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pendingtasks" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnEditApplication_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnDelete">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDelete_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetleaveStatement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employee_No" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetleaveStatement_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetP9Report">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employee_No" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="starting_date" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="ending_date" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetP9Report_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveDelete">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveDelete_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateImprestCard">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="directoratecode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilitycenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="startdate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="enddate" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateImprestCard_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestCard">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="directoratecode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilitycenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="startdate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="enddate" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestCard_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestCardEdit">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestCardEdit_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashCardEdit">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashCardEdit_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashCardDelete">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashCardDelete_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnPettyCashCardDoUpdate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="directoratecode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amountRequested" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="bank" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashCardDoUpdate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashCard">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="directoratecode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amountRequested" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="bank" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashCard_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashBank">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnPettyCashBank_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="approval" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPettyCashApproval_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnPaymentTypes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="type" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPaymentTypes_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestLineDelete">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestLineDelete_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestLineCard">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestLineCard_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestLineCardEdit">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="type" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestLineCardEdit_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ApprovalList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ApprovalList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimCard">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="directoratecode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilitycenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="startdate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="enddate" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimCard_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimCardEdit">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimCardEdit_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimLineDelete">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimLineDelete_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimLineCard">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimLineCard_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimLineCardEdit">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="type" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnClaimLineCardEdit_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDepartment">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnDepartment_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDepartmentValue">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnDepartmentValue_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRolecenter">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnRolecenter_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnImprestList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveCardEdit">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leavecode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="startdate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="resposnsibilitycenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dayApplied" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="releavecode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLeaveCardEdit_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnMissionProportsalsList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnMissionProportsalsList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetProfilePicture">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pictureText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetProfilePicture_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pictureText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetStandardText">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetStandardText_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetContryregions">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetContryregions_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertMissionProporsal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="stratrgicFocusarea" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="subpillar" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="projecttitle" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="country" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="county" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="datesofActivities" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="missionteam" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="invitedmebers" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="background" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="strategicfocus" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="outcome" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertMissionProporsal_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateMissionProporsal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="stratrgicFocusarea" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="subpillar" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="projecttitle" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="country" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="county" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="datesofActivities" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="missionteam" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="invitedmebers" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="background" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="strategicfocus" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="outcome" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateMissionProporsal_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPurchaseRequisitionList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPurchaseRequisitionList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertPurchaseRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="daterequried" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="missionno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertPurchaseRequest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Fninsertimprestnew">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="missionproporsal" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purchaserequestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fninsertimprestnew_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnimprestlineinsert">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="expensecategory" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unitcost" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="currency" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="documentno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnimprestlineinsert_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FninsertPurchasenew">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="daterequired" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="missionno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FninsertPurchasenew_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPurchaselineinsert">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="expensecategory" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unicost" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="currency" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="documentno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPurchaselineinsert_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnDimensionValuesList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDimensionValuesList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="no" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnApproval_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FncancelApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="no" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FncancelApproval_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnSurrenderList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSurrenderList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInstImrSrNew">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInstImrSrNew_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fninsertbudgetinfo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="budgetitem" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="identifiedvendor" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="noofdays" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="noofpas" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="ksh" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="othercurrency" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="missionexpensecategory" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="currencycode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fninsertbudgetinfo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Fninsertteamroles">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibility" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fninsertteamroles_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Fninsertmisssionobjectives">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fninsertmisssionobjectives_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Fninsertmissionactivities">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="date" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="activity" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="duration" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="output" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fninsertmissionactivities_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnpurchaseLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnpurchaseLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertGeneralJournal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="postingDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payingBank" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="descirption" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertGeneralJournal_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnJournalLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payingBank" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnJournalLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdatebudgetinfo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="budgetitem" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="identifiedvendor" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="noofdays" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="noofpas" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="ksh" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="othercurrency" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="missionexpensecategory" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documenttype" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="linetype" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="date" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="activity" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="duration" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="output" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibility" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="currenccycode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdatebudgetinfo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnUpdatePurchasenew">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="daterequired" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="missionno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="reqne" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdatePurchasenew_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FngetLeaveBalanceType">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leavetype" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FngetLeaveBalanceType_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertTrainingRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="need" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empployees" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="link" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="outcome" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="details" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="otherdetails" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertTrainingRequest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnTrainingList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnTrainingList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateTrainingRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="need" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empployees" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="link" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="outcome" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="details" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="otherdetails" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateTrainingRequest_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnReqTrainingApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="no" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnReqTrainingApproval_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnInsertAttachments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="extension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="file" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertAttachments_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnUploadedDocuments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUploadedDocuments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSurrenderLineUpdate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="lineno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="amountsepnt" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="document" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="cashrefund" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSurrenderLineUpdate_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnTrainingSchedule">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnTrainingSchedule_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fininserttrainingschedule">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="year" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="facilitator" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="scheduleDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="employees" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="evidence" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="department" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="topic" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fininserttrainingschedule_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnDeletePurchaseLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="lineno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDeletePurchaseLine_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Fnimprestlinemodify">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="expensecategory" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unitcost" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="currency" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="documentno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lienno" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Fnimprestlinemodify_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FninsertimprestModify">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="missionproporsal" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purchaserequestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="document" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FninsertimprestModify_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnPurchaselineModify">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="expensecategory" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unitcost" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="currency" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="documentno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineno" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnPurchaselineModify_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FninsertBudgetNotes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="details" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vendor1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vendor2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vendor3" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="comments" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="document" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FninsertBudgetNotes_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnUdpateBudgetNotes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="details" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vendor1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vendor2" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vendor3" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="comments" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="document" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineno" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUdpateBudgetNotes_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetcurrencyCodes">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetcurrencyCodes_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetAttachment">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="attachment" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="pictureText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetAttachment_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pictureText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDeleteAttachment">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="attachment" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDeleteAttachment_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="FnGetApprovalEntries">
+    <part name="parameters" element="tns:FnGetApprovalEntries" />
+  </message>
+  <message name="FnGetApprovalEntries_Result">
+    <part name="parameters" element="tns:FnGetApprovalEntries_Result" />
+  </message>
+  <message name="FnUploadedDocuments2">
+    <part name="parameters" element="tns:FnUploadedDocuments2" />
+  </message>
+  <message name="FnUploadedDocuments2_Result">
+    <part name="parameters" element="tns:FnUploadedDocuments2_Result" />
+  </message>
+  <message name="Fnhrdocuments">
+    <part name="parameters" element="tns:Fnhrdocuments" />
+  </message>
+  <message name="Fnhrdocuments_Result">
+    <part name="parameters" element="tns:Fnhrdocuments_Result" />
+  </message>
+  <message name="FnGetdocuments">
+    <part name="parameters" element="tns:FnGetdocuments" />
+  </message>
+  <message name="FnGetdocuments_Result">
+    <part name="parameters" element="tns:FnGetdocuments_Result" />
+  </message>
+  <message name="Fnsuggestionbox">
+    <part name="parameters" element="tns:Fnsuggestionbox" />
+  </message>
+  <message name="Fnsuggestionbox_Result">
+    <part name="parameters" element="tns:Fnsuggestionbox_Result" />
+  </message>
+  <message name="FnAppraisals">
+    <part name="parameters" element="tns:FnAppraisals" />
+  </message>
+  <message name="FnAppraisals_Result">
+    <part name="parameters" element="tns:FnAppraisals_Result" />
+  </message>
+  <message name="FnNewappraisal">
+    <part name="parameters" element="tns:FnNewappraisal" />
+  </message>
+  <message name="FnNewappraisal_Result">
+    <part name="parameters" element="tns:FnNewappraisal_Result" />
+  </message>
+  <message name="FnEditappraisal">
+    <part name="parameters" element="tns:FnEditappraisal" />
+  </message>
+  <message name="FnEditappraisal_Result">
+    <part name="parameters" element="tns:FnEditappraisal_Result" />
+  </message>
+  <message name="Fngrievances">
+    <part name="parameters" element="tns:Fngrievances" />
+  </message>
+  <message name="Fngrievances_Result">
+    <part name="parameters" element="tns:Fngrievances_Result" />
+  </message>
+  <message name="FnExitInterview">
+    <part name="parameters" element="tns:FnExitInterview" />
+  </message>
+  <message name="FnExitInterview_Result">
+    <part name="parameters" element="tns:FnExitInterview_Result" />
+  </message>
+  <message name="FnGetExitInterview">
+    <part name="parameters" element="tns:FnGetExitInterview" />
+  </message>
+  <message name="FnGetExitInterview_Result">
+    <part name="parameters" element="tns:FnGetExitInterview_Result" />
+  </message>
+  <message name="FnGetInductionSchedule">
+    <part name="parameters" element="tns:FnGetInductionSchedule" />
+  </message>
+  <message name="FnGetInductionSchedule_Result">
+    <part name="parameters" element="tns:FnGetInductionSchedule_Result" />
+  </message>
+  <message name="FnInduct">
+    <part name="parameters" element="tns:FnInduct" />
+  </message>
+  <message name="FnInduct_Result">
+    <part name="parameters" element="tns:FnInduct_Result" />
+  </message>
+  <message name="FnPaymentMemosList">
+    <part name="parameters" element="tns:FnPaymentMemosList" />
+  </message>
+  <message name="FnPaymentMemosList_Result">
+    <part name="parameters" element="tns:FnPaymentMemosList_Result" />
+  </message>
+  <message name="FnInsertPaymentmemo">
+    <part name="parameters" element="tns:FnInsertPaymentmemo" />
+  </message>
+  <message name="FnInsertPaymentmemo_Result">
+    <part name="parameters" element="tns:FnInsertPaymentmemo_Result" />
+  </message>
+  <message name="FnupdatePaymentmemo">
+    <part name="parameters" element="tns:FnupdatePaymentmemo" />
+  </message>
+  <message name="FnupdatePaymentmemo_Result">
+    <part name="parameters" element="tns:FnupdatePaymentmemo_Result" />
+  </message>
+  <message name="FnInsertAppraisal">
+    <part name="parameters" element="tns:FnInsertAppraisal" />
+  </message>
+  <message name="FnInsertAppraisal_Result">
+    <part name="parameters" element="tns:FnInsertAppraisal_Result" />
+  </message>
+  <message name="FnUpdateAppraisal">
+    <part name="parameters" element="tns:FnUpdateAppraisal" />
+  </message>
+  <message name="FnUpdateAppraisal_Result">
+    <part name="parameters" element="tns:FnUpdateAppraisal_Result" />
+  </message>
+  <message name="FnAppraisalList">
+    <part name="parameters" element="tns:FnAppraisalList" />
+  </message>
+  <message name="FnAppraisalList_Result">
+    <part name="parameters" element="tns:FnAppraisalList_Result" />
+  </message>
+  <message name="FnImprestRequisitionCreate">
+    <part name="parameters" element="tns:FnImprestRequisitionCreate" />
+  </message>
+  <message name="FnImprestRequisitionCreate_Result">
+    <part name="parameters" element="tns:FnImprestRequisitionCreate_Result" />
+  </message>
+  <message name="FnLeaveApplication">
+    <part name="parameters" element="tns:FnLeaveApplication" />
+  </message>
+  <message name="FnLeaveApplication_Result">
+    <part name="parameters" element="tns:FnLeaveApplication_Result" />
+  </message>
+  <message name="FnLeaveApprovalRequest">
+    <part name="parameters" element="tns:FnLeaveApprovalRequest" />
+  </message>
+  <message name="FnLeaveApprovalRequest_Result">
+    <part name="parameters" element="tns:FnLeaveApprovalRequest_Result" />
+  </message>
+  <message name="FnImprestApprovalRequest">
+    <part name="parameters" element="tns:FnImprestApprovalRequest" />
+  </message>
+  <message name="FnImprestApprovalRequest_Result">
+    <part name="parameters" element="tns:FnImprestApprovalRequest_Result" />
+  </message>
+  <message name="FnGetPayslip">
+    <part name="parameters" element="tns:FnGetPayslip" />
+  </message>
+  <message name="FnGetPayslip_Result">
+    <part name="parameters" element="tns:FnGetPayslip_Result" />
+  </message>
+  <message name="FnImprestRequisitionUpdate">
+    <part name="parameters" element="tns:FnImprestRequisitionUpdate" />
+  </message>
+  <message name="FnImprestRequisitionUpdate_Result">
+    <part name="parameters" element="tns:FnImprestRequisitionUpdate_Result" />
+  </message>
+  <message name="FnApproveRecords">
+    <part name="parameters" element="tns:FnApproveRecords" />
+  </message>
+  <message name="FnApproveRecords_Result">
+    <part name="parameters" element="tns:FnApproveRecords_Result" />
+  </message>
+  <message name="FnLeaveCancelApprovalRequest">
+    <part name="parameters" element="tns:FnLeaveCancelApprovalRequest" />
+  </message>
+  <message name="FnLeaveCancelApprovalRequest_Result">
+    <part name="parameters" element="tns:FnLeaveCancelApprovalRequest_Result" />
+  </message>
+  <message name="FnImprestCancelApprovalRequest">
+    <part name="parameters" element="tns:FnImprestCancelApprovalRequest" />
+  </message>
+  <message name="FnImprestCancelApprovalRequest_Result">
+    <part name="parameters" element="tns:FnImprestCancelApprovalRequest_Result" />
+  </message>
+  <message name="FnRejectApprovalRequest">
+    <part name="parameters" element="tns:FnRejectApprovalRequest" />
+  </message>
+  <message name="FnRejectApprovalRequest_Result">
+    <part name="parameters" element="tns:FnRejectApprovalRequest_Result" />
+  </message>
+  <message name="FnImprestSurrenderApproval">
+    <part name="parameters" element="tns:FnImprestSurrenderApproval" />
+  </message>
+  <message name="FnImprestSurrenderApproval_Result">
+    <part name="parameters" element="tns:FnImprestSurrenderApproval_Result" />
+  </message>
+  <message name="FnInserImprest">
+    <part name="parameters" element="tns:FnInserImprest" />
+  </message>
+  <message name="FnInserImprest_Result">
+    <part name="parameters" element="tns:FnInserImprest_Result" />
+  </message>
+  <message name="UpdateLeave">
+    <part name="parameters" element="tns:UpdateLeave" />
+  </message>
+  <message name="UpdateLeave_Result">
+    <part name="parameters" element="tns:UpdateLeave_Result" />
+  </message>
+  <message name="FnGetEmployeeDetails">
+    <part name="parameters" element="tns:FnGetEmployeeDetails" />
+  </message>
+  <message name="FnGetEmployeeDetails_Result">
+    <part name="parameters" element="tns:FnGetEmployeeDetails_Result" />
+  </message>
+  <message name="FnGetPaymentInformation">
+    <part name="parameters" element="tns:FnGetPaymentInformation" />
+  </message>
+  <message name="FnGetPaymentInformation_Result">
+    <part name="parameters" element="tns:FnGetPaymentInformation_Result" />
+  </message>
+  <message name="FnGetSummaryPayment">
+    <part name="parameters" element="tns:FnGetSummaryPayment" />
+  </message>
+  <message name="FnGetSummaryPayment_Result">
+    <part name="parameters" element="tns:FnGetSummaryPayment_Result" />
+  </message>
+  <message name="Fnlogin">
+    <part name="parameters" element="tns:Fnlogin" />
+  </message>
+  <message name="Fnlogin_Result">
+    <part name="parameters" element="tns:Fnlogin_Result" />
+  </message>
+  <message name="FnRegister">
+    <part name="parameters" element="tns:FnRegister" />
+  </message>
+  <message name="FnRegister_Result">
+    <part name="parameters" element="tns:FnRegister_Result" />
+  </message>
+  <message name="Fninserreccode">
+    <part name="parameters" element="tns:Fninserreccode" />
+  </message>
+  <message name="Fninserreccode_Result">
+    <part name="parameters" element="tns:Fninserreccode_Result" />
+  </message>
+  <message name="FnGetPeriods">
+    <part name="parameters" element="tns:FnGetPeriods" />
+  </message>
+  <message name="FnGetPeriods_Result">
+    <part name="parameters" element="tns:FnGetPeriods_Result" />
+  </message>
+  <message name="Fnleaveinformation">
+    <part name="parameters" element="tns:Fnleaveinformation" />
+  </message>
+  <message name="Fnleaveinformation_Result">
+    <part name="parameters" element="tns:Fnleaveinformation_Result" />
+  </message>
+  <message name="FnLeaveList">
+    <part name="parameters" element="tns:FnLeaveList" />
+  </message>
+  <message name="FnLeaveList_Result">
+    <part name="parameters" element="tns:FnLeaveList_Result" />
+  </message>
+  <message name="FnLeaveCard">
+    <part name="parameters" element="tns:FnLeaveCard" />
+  </message>
+  <message name="FnLeaveCard_Result">
+    <part name="parameters" element="tns:FnLeaveCard_Result" />
+  </message>
+  <message name="FnGetLeaveTypes">
+    <part name="parameters" element="tns:FnGetLeaveTypes" />
+  </message>
+  <message name="FnGetLeaveTypes_Result">
+    <part name="parameters" element="tns:FnGetLeaveTypes_Result" />
+  </message>
+  <message name="FnHrEmployees">
+    <part name="parameters" element="tns:FnHrEmployees" />
+  </message>
+  <message name="FnHrEmployees_Result">
+    <part name="parameters" element="tns:FnHrEmployees_Result" />
+  </message>
+  <message name="FnEditApplication">
+    <part name="parameters" element="tns:FnEditApplication" />
+  </message>
+  <message name="FnEditApplication_Result">
+    <part name="parameters" element="tns:FnEditApplication_Result" />
+  </message>
+  <message name="FnDelete">
+    <part name="parameters" element="tns:FnDelete" />
+  </message>
+  <message name="FnDelete_Result">
+    <part name="parameters" element="tns:FnDelete_Result" />
+  </message>
+  <message name="FnGetleaveStatement">
+    <part name="parameters" element="tns:FnGetleaveStatement" />
+  </message>
+  <message name="FnGetleaveStatement_Result">
+    <part name="parameters" element="tns:FnGetleaveStatement_Result" />
+  </message>
+  <message name="FnGetP9Report">
+    <part name="parameters" element="tns:FnGetP9Report" />
+  </message>
+  <message name="FnGetP9Report_Result">
+    <part name="parameters" element="tns:FnGetP9Report_Result" />
+  </message>
+  <message name="FnLeaveDelete">
+    <part name="parameters" element="tns:FnLeaveDelete" />
+  </message>
+  <message name="FnLeaveDelete_Result">
+    <part name="parameters" element="tns:FnLeaveDelete_Result" />
+  </message>
+  <message name="FnUpdateImprestCard">
+    <part name="parameters" element="tns:FnUpdateImprestCard" />
+  </message>
+  <message name="FnUpdateImprestCard_Result">
+    <part name="parameters" element="tns:FnUpdateImprestCard_Result" />
+  </message>
+  <message name="FnImprestCard">
+    <part name="parameters" element="tns:FnImprestCard" />
+  </message>
+  <message name="FnImprestCard_Result">
+    <part name="parameters" element="tns:FnImprestCard_Result" />
+  </message>
+  <message name="FnImprestCardEdit">
+    <part name="parameters" element="tns:FnImprestCardEdit" />
+  </message>
+  <message name="FnImprestCardEdit_Result">
+    <part name="parameters" element="tns:FnImprestCardEdit_Result" />
+  </message>
+  <message name="FnPettyCashCardEdit">
+    <part name="parameters" element="tns:FnPettyCashCardEdit" />
+  </message>
+  <message name="FnPettyCashCardEdit_Result">
+    <part name="parameters" element="tns:FnPettyCashCardEdit_Result" />
+  </message>
+  <message name="FnPettyCashCardDelete">
+    <part name="parameters" element="tns:FnPettyCashCardDelete" />
+  </message>
+  <message name="FnPettyCashCardDelete_Result">
+    <part name="parameters" element="tns:FnPettyCashCardDelete_Result" />
+  </message>
+  <message name="FnPettyCashCardDoUpdate">
+    <part name="parameters" element="tns:FnPettyCashCardDoUpdate" />
+  </message>
+  <message name="FnPettyCashCardDoUpdate_Result">
+    <part name="parameters" element="tns:FnPettyCashCardDoUpdate_Result" />
+  </message>
+  <message name="FnPettyCashCard">
+    <part name="parameters" element="tns:FnPettyCashCard" />
+  </message>
+  <message name="FnPettyCashCard_Result">
+    <part name="parameters" element="tns:FnPettyCashCard_Result" />
+  </message>
+  <message name="FnPettyCashList">
+    <part name="parameters" element="tns:FnPettyCashList" />
+  </message>
+  <message name="FnPettyCashList_Result">
+    <part name="parameters" element="tns:FnPettyCashList_Result" />
+  </message>
+  <message name="FnPettyCashBank">
+    <part name="parameters" element="tns:FnPettyCashBank" />
+  </message>
+  <message name="FnPettyCashBank_Result">
+    <part name="parameters" element="tns:FnPettyCashBank_Result" />
+  </message>
+  <message name="FnPettyCashApproval">
+    <part name="parameters" element="tns:FnPettyCashApproval" />
+  </message>
+  <message name="FnPettyCashApproval_Result">
+    <part name="parameters" element="tns:FnPettyCashApproval_Result" />
+  </message>
+  <message name="FnPaymentTypes">
+    <part name="parameters" element="tns:FnPaymentTypes" />
+  </message>
+  <message name="FnPaymentTypes_Result">
+    <part name="parameters" element="tns:FnPaymentTypes_Result" />
+  </message>
+  <message name="FnImprestLineDelete">
+    <part name="parameters" element="tns:FnImprestLineDelete" />
+  </message>
+  <message name="FnImprestLineDelete_Result">
+    <part name="parameters" element="tns:FnImprestLineDelete_Result" />
+  </message>
+  <message name="FnImprestLine">
+    <part name="parameters" element="tns:FnImprestLine" />
+  </message>
+  <message name="FnImprestLine_Result">
+    <part name="parameters" element="tns:FnImprestLine_Result" />
+  </message>
+  <message name="FnImprestLineCard">
+    <part name="parameters" element="tns:FnImprestLineCard" />
+  </message>
+  <message name="FnImprestLineCard_Result">
+    <part name="parameters" element="tns:FnImprestLineCard_Result" />
+  </message>
+  <message name="FnImprestLineCardEdit">
+    <part name="parameters" element="tns:FnImprestLineCardEdit" />
+  </message>
+  <message name="FnImprestLineCardEdit_Result">
+    <part name="parameters" element="tns:FnImprestLineCardEdit_Result" />
+  </message>
+  <message name="ApprovalList">
+    <part name="parameters" element="tns:ApprovalList" />
+  </message>
+  <message name="ApprovalList_Result">
+    <part name="parameters" element="tns:ApprovalList_Result" />
+  </message>
+  <message name="FnClaimList">
+    <part name="parameters" element="tns:FnClaimList" />
+  </message>
+  <message name="FnClaimList_Result">
+    <part name="parameters" element="tns:FnClaimList_Result" />
+  </message>
+  <message name="FnClaimCard">
+    <part name="parameters" element="tns:FnClaimCard" />
+  </message>
+  <message name="FnClaimCard_Result">
+    <part name="parameters" element="tns:FnClaimCard_Result" />
+  </message>
+  <message name="FnClaimCardEdit">
+    <part name="parameters" element="tns:FnClaimCardEdit" />
+  </message>
+  <message name="FnClaimCardEdit_Result">
+    <part name="parameters" element="tns:FnClaimCardEdit_Result" />
+  </message>
+  <message name="FnClaimLineDelete">
+    <part name="parameters" element="tns:FnClaimLineDelete" />
+  </message>
+  <message name="FnClaimLineDelete_Result">
+    <part name="parameters" element="tns:FnClaimLineDelete_Result" />
+  </message>
+  <message name="FnClaimLine">
+    <part name="parameters" element="tns:FnClaimLine" />
+  </message>
+  <message name="FnClaimLine_Result">
+    <part name="parameters" element="tns:FnClaimLine_Result" />
+  </message>
+  <message name="FnClaimLineCard">
+    <part name="parameters" element="tns:FnClaimLineCard" />
+  </message>
+  <message name="FnClaimLineCard_Result">
+    <part name="parameters" element="tns:FnClaimLineCard_Result" />
+  </message>
+  <message name="FnClaimLineCardEdit">
+    <part name="parameters" element="tns:FnClaimLineCardEdit" />
+  </message>
+  <message name="FnClaimLineCardEdit_Result">
+    <part name="parameters" element="tns:FnClaimLineCardEdit_Result" />
+  </message>
+  <message name="FnDepartment">
+    <part name="parameters" element="tns:FnDepartment" />
+  </message>
+  <message name="FnDepartment_Result">
+    <part name="parameters" element="tns:FnDepartment_Result" />
+  </message>
+  <message name="FnDepartmentValue">
+    <part name="parameters" element="tns:FnDepartmentValue" />
+  </message>
+  <message name="FnDepartmentValue_Result">
+    <part name="parameters" element="tns:FnDepartmentValue_Result" />
+  </message>
+  <message name="FnRolecenter">
+    <part name="parameters" element="tns:FnRolecenter" />
+  </message>
+  <message name="FnRolecenter_Result">
+    <part name="parameters" element="tns:FnRolecenter_Result" />
+  </message>
+  <message name="FnImprestList">
+    <part name="parameters" element="tns:FnImprestList" />
+  </message>
+  <message name="FnImprestList_Result">
+    <part name="parameters" element="tns:FnImprestList_Result" />
+  </message>
+  <message name="FnLeaveCardEdit">
+    <part name="parameters" element="tns:FnLeaveCardEdit" />
+  </message>
+  <message name="FnLeaveCardEdit_Result">
+    <part name="parameters" element="tns:FnLeaveCardEdit_Result" />
+  </message>
+  <message name="FnMissionProportsalsList">
+    <part name="parameters" element="tns:FnMissionProportsalsList" />
+  </message>
+  <message name="FnMissionProportsalsList_Result">
+    <part name="parameters" element="tns:FnMissionProportsalsList_Result" />
+  </message>
+  <message name="FnGetProfilePicture">
+    <part name="parameters" element="tns:FnGetProfilePicture" />
+  </message>
+  <message name="FnGetProfilePicture_Result">
+    <part name="parameters" element="tns:FnGetProfilePicture_Result" />
+  </message>
+  <message name="FnGetStandardText">
+    <part name="parameters" element="tns:FnGetStandardText" />
+  </message>
+  <message name="FnGetStandardText_Result">
+    <part name="parameters" element="tns:FnGetStandardText_Result" />
+  </message>
+  <message name="FnGetContryregions">
+    <part name="parameters" element="tns:FnGetContryregions" />
+  </message>
+  <message name="FnGetContryregions_Result">
+    <part name="parameters" element="tns:FnGetContryregions_Result" />
+  </message>
+  <message name="FnInsertMissionProporsal">
+    <part name="parameters" element="tns:FnInsertMissionProporsal" />
+  </message>
+  <message name="FnInsertMissionProporsal_Result">
+    <part name="parameters" element="tns:FnInsertMissionProporsal_Result" />
+  </message>
+  <message name="FnUpdateMissionProporsal">
+    <part name="parameters" element="tns:FnUpdateMissionProporsal" />
+  </message>
+  <message name="FnUpdateMissionProporsal_Result">
+    <part name="parameters" element="tns:FnUpdateMissionProporsal_Result" />
+  </message>
+  <message name="FnPurchaseRequisitionList">
+    <part name="parameters" element="tns:FnPurchaseRequisitionList" />
+  </message>
+  <message name="FnPurchaseRequisitionList_Result">
+    <part name="parameters" element="tns:FnPurchaseRequisitionList_Result" />
+  </message>
+  <message name="FnInsertPurchaseRequest">
+    <part name="parameters" element="tns:FnInsertPurchaseRequest" />
+  </message>
+  <message name="FnInsertPurchaseRequest_Result">
+    <part name="parameters" element="tns:FnInsertPurchaseRequest_Result" />
+  </message>
+  <message name="Fninsertimprestnew">
+    <part name="parameters" element="tns:Fninsertimprestnew" />
+  </message>
+  <message name="Fninsertimprestnew_Result">
+    <part name="parameters" element="tns:Fninsertimprestnew_Result" />
+  </message>
+  <message name="Fnimprestlineinsert">
+    <part name="parameters" element="tns:Fnimprestlineinsert" />
+  </message>
+  <message name="Fnimprestlineinsert_Result">
+    <part name="parameters" element="tns:Fnimprestlineinsert_Result" />
+  </message>
+  <message name="FninsertPurchasenew">
+    <part name="parameters" element="tns:FninsertPurchasenew" />
+  </message>
+  <message name="FninsertPurchasenew_Result">
+    <part name="parameters" element="tns:FninsertPurchasenew_Result" />
+  </message>
+  <message name="FnPurchaselineinsert">
+    <part name="parameters" element="tns:FnPurchaselineinsert" />
+  </message>
+  <message name="FnPurchaselineinsert_Result">
+    <part name="parameters" element="tns:FnPurchaselineinsert_Result" />
+  </message>
+  <message name="FnDimensionValuesList">
+    <part name="parameters" element="tns:FnDimensionValuesList" />
+  </message>
+  <message name="FnDimensionValuesList_Result">
+    <part name="parameters" element="tns:FnDimensionValuesList_Result" />
+  </message>
+  <message name="FnApproval">
+    <part name="parameters" element="tns:FnApproval" />
+  </message>
+  <message name="FnApproval_Result">
+    <part name="parameters" element="tns:FnApproval_Result" />
+  </message>
+  <message name="FncancelApproval">
+    <part name="parameters" element="tns:FncancelApproval" />
+  </message>
+  <message name="FncancelApproval_Result">
+    <part name="parameters" element="tns:FncancelApproval_Result" />
+  </message>
+  <message name="FnSurrenderList">
+    <part name="parameters" element="tns:FnSurrenderList" />
+  </message>
+  <message name="FnSurrenderList_Result">
+    <part name="parameters" element="tns:FnSurrenderList_Result" />
+  </message>
+  <message name="FnInstImrSrNew">
+    <part name="parameters" element="tns:FnInstImrSrNew" />
+  </message>
+  <message name="FnInstImrSrNew_Result">
+    <part name="parameters" element="tns:FnInstImrSrNew_Result" />
+  </message>
+  <message name="Fninsertbudgetinfo">
+    <part name="parameters" element="tns:Fninsertbudgetinfo" />
+  </message>
+  <message name="Fninsertbudgetinfo_Result">
+    <part name="parameters" element="tns:Fninsertbudgetinfo_Result" />
+  </message>
+  <message name="Fninsertteamroles">
+    <part name="parameters" element="tns:Fninsertteamroles" />
+  </message>
+  <message name="Fninsertteamroles_Result">
+    <part name="parameters" element="tns:Fninsertteamroles_Result" />
+  </message>
+  <message name="Fninsertmisssionobjectives">
+    <part name="parameters" element="tns:Fninsertmisssionobjectives" />
+  </message>
+  <message name="Fninsertmisssionobjectives_Result">
+    <part name="parameters" element="tns:Fninsertmisssionobjectives_Result" />
+  </message>
+  <message name="Fninsertmissionactivities">
+    <part name="parameters" element="tns:Fninsertmissionactivities" />
+  </message>
+  <message name="Fninsertmissionactivities_Result">
+    <part name="parameters" element="tns:Fninsertmissionactivities_Result" />
+  </message>
+  <message name="FnpurchaseLines">
+    <part name="parameters" element="tns:FnpurchaseLines" />
+  </message>
+  <message name="FnpurchaseLines_Result">
+    <part name="parameters" element="tns:FnpurchaseLines_Result" />
+  </message>
+  <message name="FnInsertGeneralJournal">
+    <part name="parameters" element="tns:FnInsertGeneralJournal" />
+  </message>
+  <message name="FnInsertGeneralJournal_Result">
+    <part name="parameters" element="tns:FnInsertGeneralJournal_Result" />
+  </message>
+  <message name="FnJournalLines">
+    <part name="parameters" element="tns:FnJournalLines" />
+  </message>
+  <message name="FnJournalLines_Result">
+    <part name="parameters" element="tns:FnJournalLines_Result" />
+  </message>
+  <message name="FnUpdatebudgetinfo">
+    <part name="parameters" element="tns:FnUpdatebudgetinfo" />
+  </message>
+  <message name="FnUpdatebudgetinfo_Result">
+    <part name="parameters" element="tns:FnUpdatebudgetinfo_Result" />
+  </message>
+  <message name="FnUpdatePurchasenew">
+    <part name="parameters" element="tns:FnUpdatePurchasenew" />
+  </message>
+  <message name="FnUpdatePurchasenew_Result">
+    <part name="parameters" element="tns:FnUpdatePurchasenew_Result" />
+  </message>
+  <message name="FngetLeaveBalanceType">
+    <part name="parameters" element="tns:FngetLeaveBalanceType" />
+  </message>
+  <message name="FngetLeaveBalanceType_Result">
+    <part name="parameters" element="tns:FngetLeaveBalanceType_Result" />
+  </message>
+  <message name="FnInsertTrainingRequest">
+    <part name="parameters" element="tns:FnInsertTrainingRequest" />
+  </message>
+  <message name="FnInsertTrainingRequest_Result">
+    <part name="parameters" element="tns:FnInsertTrainingRequest_Result" />
+  </message>
+  <message name="FnTrainingList">
+    <part name="parameters" element="tns:FnTrainingList" />
+  </message>
+  <message name="FnTrainingList_Result">
+    <part name="parameters" element="tns:FnTrainingList_Result" />
+  </message>
+  <message name="FnUpdateTrainingRequest">
+    <part name="parameters" element="tns:FnUpdateTrainingRequest" />
+  </message>
+  <message name="FnUpdateTrainingRequest_Result">
+    <part name="parameters" element="tns:FnUpdateTrainingRequest_Result" />
+  </message>
+  <message name="FnReqTrainingApproval">
+    <part name="parameters" element="tns:FnReqTrainingApproval" />
+  </message>
+  <message name="FnReqTrainingApproval_Result">
+    <part name="parameters" element="tns:FnReqTrainingApproval_Result" />
+  </message>
+  <message name="FnInsertAttachments">
+    <part name="parameters" element="tns:FnInsertAttachments" />
+  </message>
+  <message name="FnInsertAttachments_Result">
+    <part name="parameters" element="tns:FnInsertAttachments_Result" />
+  </message>
+  <message name="FnUploadedDocuments">
+    <part name="parameters" element="tns:FnUploadedDocuments" />
+  </message>
+  <message name="FnUploadedDocuments_Result">
+    <part name="parameters" element="tns:FnUploadedDocuments_Result" />
+  </message>
+  <message name="FnSurrenderLineUpdate">
+    <part name="parameters" element="tns:FnSurrenderLineUpdate" />
+  </message>
+  <message name="FnSurrenderLineUpdate_Result">
+    <part name="parameters" element="tns:FnSurrenderLineUpdate_Result" />
+  </message>
+  <message name="FnTrainingSchedule">
+    <part name="parameters" element="tns:FnTrainingSchedule" />
+  </message>
+  <message name="FnTrainingSchedule_Result">
+    <part name="parameters" element="tns:FnTrainingSchedule_Result" />
+  </message>
+  <message name="Fininserttrainingschedule">
+    <part name="parameters" element="tns:Fininserttrainingschedule" />
+  </message>
+  <message name="Fininserttrainingschedule_Result">
+    <part name="parameters" element="tns:Fininserttrainingschedule_Result" />
+  </message>
+  <message name="FnDeletePurchaseLine">
+    <part name="parameters" element="tns:FnDeletePurchaseLine" />
+  </message>
+  <message name="FnDeletePurchaseLine_Result">
+    <part name="parameters" element="tns:FnDeletePurchaseLine_Result" />
+  </message>
+  <message name="Fnimprestlinemodify">
+    <part name="parameters" element="tns:Fnimprestlinemodify" />
+  </message>
+  <message name="Fnimprestlinemodify_Result">
+    <part name="parameters" element="tns:Fnimprestlinemodify_Result" />
+  </message>
+  <message name="FninsertimprestModify">
+    <part name="parameters" element="tns:FninsertimprestModify" />
+  </message>
+  <message name="FninsertimprestModify_Result">
+    <part name="parameters" element="tns:FninsertimprestModify_Result" />
+  </message>
+  <message name="FnPurchaselineModify">
+    <part name="parameters" element="tns:FnPurchaselineModify" />
+  </message>
+  <message name="FnPurchaselineModify_Result">
+    <part name="parameters" element="tns:FnPurchaselineModify_Result" />
+  </message>
+  <message name="FninsertBudgetNotes">
+    <part name="parameters" element="tns:FninsertBudgetNotes" />
+  </message>
+  <message name="FninsertBudgetNotes_Result">
+    <part name="parameters" element="tns:FninsertBudgetNotes_Result" />
+  </message>
+  <message name="FnUdpateBudgetNotes">
+    <part name="parameters" element="tns:FnUdpateBudgetNotes" />
+  </message>
+  <message name="FnUdpateBudgetNotes_Result">
+    <part name="parameters" element="tns:FnUdpateBudgetNotes_Result" />
+  </message>
+  <message name="FnGetcurrencyCodes">
+    <part name="parameters" element="tns:FnGetcurrencyCodes" />
+  </message>
+  <message name="FnGetcurrencyCodes_Result">
+    <part name="parameters" element="tns:FnGetcurrencyCodes_Result" />
+  </message>
+  <message name="FnGetAttachment">
+    <part name="parameters" element="tns:FnGetAttachment" />
+  </message>
+  <message name="FnGetAttachment_Result">
+    <part name="parameters" element="tns:FnGetAttachment_Result" />
+  </message>
+  <message name="FnDeleteAttachment">
+    <part name="parameters" element="tns:FnDeleteAttachment" />
+  </message>
+  <message name="FnDeleteAttachment_Result">
+    <part name="parameters" element="tns:FnDeleteAttachment_Result" />
+  </message>
+  <portType name="Portals_Port">
+    <operation name="FnGetApprovalEntries">
+      <input name="FnGetApprovalEntries" message="tns:FnGetApprovalEntries" />
+      <output name="FnGetApprovalEntries_Result" message="tns:FnGetApprovalEntries_Result" />
+    </operation>
+    <operation name="FnUploadedDocuments2">
+      <input name="FnUploadedDocuments2" message="tns:FnUploadedDocuments2" />
+      <output name="FnUploadedDocuments2_Result" message="tns:FnUploadedDocuments2_Result" />
+    </operation>
+    <operation name="Fnhrdocuments">
+      <input name="Fnhrdocuments" message="tns:Fnhrdocuments" />
+      <output name="Fnhrdocuments_Result" message="tns:Fnhrdocuments_Result" />
+    </operation>
+    <operation name="FnGetdocuments">
+      <input name="FnGetdocuments" message="tns:FnGetdocuments" />
+      <output name="FnGetdocuments_Result" message="tns:FnGetdocuments_Result" />
+    </operation>
+    <operation name="Fnsuggestionbox">
+      <input name="Fnsuggestionbox" message="tns:Fnsuggestionbox" />
+      <output name="Fnsuggestionbox_Result" message="tns:Fnsuggestionbox_Result" />
+    </operation>
+    <operation name="FnAppraisals">
+      <input name="FnAppraisals" message="tns:FnAppraisals" />
+      <output name="FnAppraisals_Result" message="tns:FnAppraisals_Result" />
+    </operation>
+    <operation name="FnNewappraisal">
+      <input name="FnNewappraisal" message="tns:FnNewappraisal" />
+      <output name="FnNewappraisal_Result" message="tns:FnNewappraisal_Result" />
+    </operation>
+    <operation name="FnEditappraisal">
+      <input name="FnEditappraisal" message="tns:FnEditappraisal" />
+      <output name="FnEditappraisal_Result" message="tns:FnEditappraisal_Result" />
+    </operation>
+    <operation name="Fngrievances">
+      <input name="Fngrievances" message="tns:Fngrievances" />
+      <output name="Fngrievances_Result" message="tns:Fngrievances_Result" />
+    </operation>
+    <operation name="FnExitInterview">
+      <input name="FnExitInterview" message="tns:FnExitInterview" />
+      <output name="FnExitInterview_Result" message="tns:FnExitInterview_Result" />
+    </operation>
+    <operation name="FnGetExitInterview">
+      <input name="FnGetExitInterview" message="tns:FnGetExitInterview" />
+      <output name="FnGetExitInterview_Result" message="tns:FnGetExitInterview_Result" />
+    </operation>
+    <operation name="FnGetInductionSchedule">
+      <input name="FnGetInductionSchedule" message="tns:FnGetInductionSchedule" />
+      <output name="FnGetInductionSchedule_Result" message="tns:FnGetInductionSchedule_Result" />
+    </operation>
+    <operation name="FnInduct">
+      <input name="FnInduct" message="tns:FnInduct" />
+      <output name="FnInduct_Result" message="tns:FnInduct_Result" />
+    </operation>
+    <operation name="FnPaymentMemosList">
+      <input name="FnPaymentMemosList" message="tns:FnPaymentMemosList" />
+      <output name="FnPaymentMemosList_Result" message="tns:FnPaymentMemosList_Result" />
+    </operation>
+    <operation name="FnInsertPaymentmemo">
+      <input name="FnInsertPaymentmemo" message="tns:FnInsertPaymentmemo" />
+      <output name="FnInsertPaymentmemo_Result" message="tns:FnInsertPaymentmemo_Result" />
+    </operation>
+    <operation name="FnupdatePaymentmemo">
+      <input name="FnupdatePaymentmemo" message="tns:FnupdatePaymentmemo" />
+      <output name="FnupdatePaymentmemo_Result" message="tns:FnupdatePaymentmemo_Result" />
+    </operation>
+    <operation name="FnInsertAppraisal">
+      <input name="FnInsertAppraisal" message="tns:FnInsertAppraisal" />
+      <output name="FnInsertAppraisal_Result" message="tns:FnInsertAppraisal_Result" />
+    </operation>
+    <operation name="FnUpdateAppraisal">
+      <input name="FnUpdateAppraisal" message="tns:FnUpdateAppraisal" />
+      <output name="FnUpdateAppraisal_Result" message="tns:FnUpdateAppraisal_Result" />
+    </operation>
+    <operation name="FnAppraisalList">
+      <input name="FnAppraisalList" message="tns:FnAppraisalList" />
+      <output name="FnAppraisalList_Result" message="tns:FnAppraisalList_Result" />
+    </operation>
+    <operation name="FnImprestRequisitionCreate">
+      <input name="FnImprestRequisitionCreate" message="tns:FnImprestRequisitionCreate" />
+      <output name="FnImprestRequisitionCreate_Result" message="tns:FnImprestRequisitionCreate_Result" />
+    </operation>
+    <operation name="FnLeaveApplication">
+      <input name="FnLeaveApplication" message="tns:FnLeaveApplication" />
+      <output name="FnLeaveApplication_Result" message="tns:FnLeaveApplication_Result" />
+    </operation>
+    <operation name="FnLeaveApprovalRequest">
+      <input name="FnLeaveApprovalRequest" message="tns:FnLeaveApprovalRequest" />
+      <output name="FnLeaveApprovalRequest_Result" message="tns:FnLeaveApprovalRequest_Result" />
+    </operation>
+    <operation name="FnImprestApprovalRequest">
+      <input name="FnImprestApprovalRequest" message="tns:FnImprestApprovalRequest" />
+      <output name="FnImprestApprovalRequest_Result" message="tns:FnImprestApprovalRequest_Result" />
+    </operation>
+    <operation name="FnGetPayslip">
+      <input name="FnGetPayslip" message="tns:FnGetPayslip" />
+      <output name="FnGetPayslip_Result" message="tns:FnGetPayslip_Result" />
+    </operation>
+    <operation name="FnImprestRequisitionUpdate">
+      <input name="FnImprestRequisitionUpdate" message="tns:FnImprestRequisitionUpdate" />
+      <output name="FnImprestRequisitionUpdate_Result" message="tns:FnImprestRequisitionUpdate_Result" />
+    </operation>
+    <operation name="FnApproveRecords">
+      <input name="FnApproveRecords" message="tns:FnApproveRecords" />
+      <output name="FnApproveRecords_Result" message="tns:FnApproveRecords_Result" />
+    </operation>
+    <operation name="FnLeaveCancelApprovalRequest">
+      <input name="FnLeaveCancelApprovalRequest" message="tns:FnLeaveCancelApprovalRequest" />
+      <output name="FnLeaveCancelApprovalRequest_Result" message="tns:FnLeaveCancelApprovalRequest_Result" />
+    </operation>
+    <operation name="FnImprestCancelApprovalRequest">
+      <input name="FnImprestCancelApprovalRequest" message="tns:FnImprestCancelApprovalRequest" />
+      <output name="FnImprestCancelApprovalRequest_Result" message="tns:FnImprestCancelApprovalRequest_Result" />
+    </operation>
+    <operation name="FnRejectApprovalRequest">
+      <input name="FnRejectApprovalRequest" message="tns:FnRejectApprovalRequest" />
+      <output name="FnRejectApprovalRequest_Result" message="tns:FnRejectApprovalRequest_Result" />
+    </operation>
+    <operation name="FnImprestSurrenderApproval">
+      <input name="FnImprestSurrenderApproval" message="tns:FnImprestSurrenderApproval" />
+      <output name="FnImprestSurrenderApproval_Result" message="tns:FnImprestSurrenderApproval_Result" />
+    </operation>
+    <operation name="FnInserImprest">
+      <input name="FnInserImprest" message="tns:FnInserImprest" />
+      <output name="FnInserImprest_Result" message="tns:FnInserImprest_Result" />
+    </operation>
+    <operation name="UpdateLeave">
+      <input name="UpdateLeave" message="tns:UpdateLeave" />
+      <output name="UpdateLeave_Result" message="tns:UpdateLeave_Result" />
+    </operation>
+    <operation name="FnGetEmployeeDetails">
+      <input name="FnGetEmployeeDetails" message="tns:FnGetEmployeeDetails" />
+      <output name="FnGetEmployeeDetails_Result" message="tns:FnGetEmployeeDetails_Result" />
+    </operation>
+    <operation name="FnGetPaymentInformation">
+      <input name="FnGetPaymentInformation" message="tns:FnGetPaymentInformation" />
+      <output name="FnGetPaymentInformation_Result" message="tns:FnGetPaymentInformation_Result" />
+    </operation>
+    <operation name="FnGetSummaryPayment">
+      <input name="FnGetSummaryPayment" message="tns:FnGetSummaryPayment" />
+      <output name="FnGetSummaryPayment_Result" message="tns:FnGetSummaryPayment_Result" />
+    </operation>
+    <operation name="Fnlogin">
+      <input name="Fnlogin" message="tns:Fnlogin" />
+      <output name="Fnlogin_Result" message="tns:Fnlogin_Result" />
+    </operation>
+    <operation name="FnRegister">
+      <input name="FnRegister" message="tns:FnRegister" />
+      <output name="FnRegister_Result" message="tns:FnRegister_Result" />
+    </operation>
+    <operation name="Fninserreccode">
+      <input name="Fninserreccode" message="tns:Fninserreccode" />
+      <output name="Fninserreccode_Result" message="tns:Fninserreccode_Result" />
+    </operation>
+    <operation name="FnGetPeriods">
+      <input name="FnGetPeriods" message="tns:FnGetPeriods" />
+      <output name="FnGetPeriods_Result" message="tns:FnGetPeriods_Result" />
+    </operation>
+    <operation name="Fnleaveinformation">
+      <input name="Fnleaveinformation" message="tns:Fnleaveinformation" />
+      <output name="Fnleaveinformation_Result" message="tns:Fnleaveinformation_Result" />
+    </operation>
+    <operation name="FnLeaveList">
+      <input name="FnLeaveList" message="tns:FnLeaveList" />
+      <output name="FnLeaveList_Result" message="tns:FnLeaveList_Result" />
+    </operation>
+    <operation name="FnLeaveCard">
+      <input name="FnLeaveCard" message="tns:FnLeaveCard" />
+      <output name="FnLeaveCard_Result" message="tns:FnLeaveCard_Result" />
+    </operation>
+    <operation name="FnGetLeaveTypes">
+      <input name="FnGetLeaveTypes" message="tns:FnGetLeaveTypes" />
+      <output name="FnGetLeaveTypes_Result" message="tns:FnGetLeaveTypes_Result" />
+    </operation>
+    <operation name="FnHrEmployees">
+      <input name="FnHrEmployees" message="tns:FnHrEmployees" />
+      <output name="FnHrEmployees_Result" message="tns:FnHrEmployees_Result" />
+    </operation>
+    <operation name="FnEditApplication">
+      <input name="FnEditApplication" message="tns:FnEditApplication" />
+      <output name="FnEditApplication_Result" message="tns:FnEditApplication_Result" />
+    </operation>
+    <operation name="FnDelete">
+      <input name="FnDelete" message="tns:FnDelete" />
+      <output name="FnDelete_Result" message="tns:FnDelete_Result" />
+    </operation>
+    <operation name="FnGetleaveStatement">
+      <input name="FnGetleaveStatement" message="tns:FnGetleaveStatement" />
+      <output name="FnGetleaveStatement_Result" message="tns:FnGetleaveStatement_Result" />
+    </operation>
+    <operation name="FnGetP9Report">
+      <input name="FnGetP9Report" message="tns:FnGetP9Report" />
+      <output name="FnGetP9Report_Result" message="tns:FnGetP9Report_Result" />
+    </operation>
+    <operation name="FnLeaveDelete">
+      <input name="FnLeaveDelete" message="tns:FnLeaveDelete" />
+      <output name="FnLeaveDelete_Result" message="tns:FnLeaveDelete_Result" />
+    </operation>
+    <operation name="FnUpdateImprestCard">
+      <input name="FnUpdateImprestCard" message="tns:FnUpdateImprestCard" />
+      <output name="FnUpdateImprestCard_Result" message="tns:FnUpdateImprestCard_Result" />
+    </operation>
+    <operation name="FnImprestCard">
+      <input name="FnImprestCard" message="tns:FnImprestCard" />
+      <output name="FnImprestCard_Result" message="tns:FnImprestCard_Result" />
+    </operation>
+    <operation name="FnImprestCardEdit">
+      <input name="FnImprestCardEdit" message="tns:FnImprestCardEdit" />
+      <output name="FnImprestCardEdit_Result" message="tns:FnImprestCardEdit_Result" />
+    </operation>
+    <operation name="FnPettyCashCardEdit">
+      <input name="FnPettyCashCardEdit" message="tns:FnPettyCashCardEdit" />
+      <output name="FnPettyCashCardEdit_Result" message="tns:FnPettyCashCardEdit_Result" />
+    </operation>
+    <operation name="FnPettyCashCardDelete">
+      <input name="FnPettyCashCardDelete" message="tns:FnPettyCashCardDelete" />
+      <output name="FnPettyCashCardDelete_Result" message="tns:FnPettyCashCardDelete_Result" />
+    </operation>
+    <operation name="FnPettyCashCardDoUpdate">
+      <input name="FnPettyCashCardDoUpdate" message="tns:FnPettyCashCardDoUpdate" />
+      <output name="FnPettyCashCardDoUpdate_Result" message="tns:FnPettyCashCardDoUpdate_Result" />
+    </operation>
+    <operation name="FnPettyCashCard">
+      <input name="FnPettyCashCard" message="tns:FnPettyCashCard" />
+      <output name="FnPettyCashCard_Result" message="tns:FnPettyCashCard_Result" />
+    </operation>
+    <operation name="FnPettyCashList">
+      <input name="FnPettyCashList" message="tns:FnPettyCashList" />
+      <output name="FnPettyCashList_Result" message="tns:FnPettyCashList_Result" />
+    </operation>
+    <operation name="FnPettyCashBank">
+      <input name="FnPettyCashBank" message="tns:FnPettyCashBank" />
+      <output name="FnPettyCashBank_Result" message="tns:FnPettyCashBank_Result" />
+    </operation>
+    <operation name="FnPettyCashApproval">
+      <input name="FnPettyCashApproval" message="tns:FnPettyCashApproval" />
+      <output name="FnPettyCashApproval_Result" message="tns:FnPettyCashApproval_Result" />
+    </operation>
+    <operation name="FnPaymentTypes">
+      <input name="FnPaymentTypes" message="tns:FnPaymentTypes" />
+      <output name="FnPaymentTypes_Result" message="tns:FnPaymentTypes_Result" />
+    </operation>
+    <operation name="FnImprestLineDelete">
+      <input name="FnImprestLineDelete" message="tns:FnImprestLineDelete" />
+      <output name="FnImprestLineDelete_Result" message="tns:FnImprestLineDelete_Result" />
+    </operation>
+    <operation name="FnImprestLine">
+      <input name="FnImprestLine" message="tns:FnImprestLine" />
+      <output name="FnImprestLine_Result" message="tns:FnImprestLine_Result" />
+    </operation>
+    <operation name="FnImprestLineCard">
+      <input name="FnImprestLineCard" message="tns:FnImprestLineCard" />
+      <output name="FnImprestLineCard_Result" message="tns:FnImprestLineCard_Result" />
+    </operation>
+    <operation name="FnImprestLineCardEdit">
+      <input name="FnImprestLineCardEdit" message="tns:FnImprestLineCardEdit" />
+      <output name="FnImprestLineCardEdit_Result" message="tns:FnImprestLineCardEdit_Result" />
+    </operation>
+    <operation name="ApprovalList">
+      <input name="ApprovalList" message="tns:ApprovalList" />
+      <output name="ApprovalList_Result" message="tns:ApprovalList_Result" />
+    </operation>
+    <operation name="FnClaimList">
+      <input name="FnClaimList" message="tns:FnClaimList" />
+      <output name="FnClaimList_Result" message="tns:FnClaimList_Result" />
+    </operation>
+    <operation name="FnClaimCard">
+      <input name="FnClaimCard" message="tns:FnClaimCard" />
+      <output name="FnClaimCard_Result" message="tns:FnClaimCard_Result" />
+    </operation>
+    <operation name="FnClaimCardEdit">
+      <input name="FnClaimCardEdit" message="tns:FnClaimCardEdit" />
+      <output name="FnClaimCardEdit_Result" message="tns:FnClaimCardEdit_Result" />
+    </operation>
+    <operation name="FnClaimLineDelete">
+      <input name="FnClaimLineDelete" message="tns:FnClaimLineDelete" />
+      <output name="FnClaimLineDelete_Result" message="tns:FnClaimLineDelete_Result" />
+    </operation>
+    <operation name="FnClaimLine">
+      <input name="FnClaimLine" message="tns:FnClaimLine" />
+      <output name="FnClaimLine_Result" message="tns:FnClaimLine_Result" />
+    </operation>
+    <operation name="FnClaimLineCard">
+      <input name="FnClaimLineCard" message="tns:FnClaimLineCard" />
+      <output name="FnClaimLineCard_Result" message="tns:FnClaimLineCard_Result" />
+    </operation>
+    <operation name="FnClaimLineCardEdit">
+      <input name="FnClaimLineCardEdit" message="tns:FnClaimLineCardEdit" />
+      <output name="FnClaimLineCardEdit_Result" message="tns:FnClaimLineCardEdit_Result" />
+    </operation>
+    <operation name="FnDepartment">
+      <input name="FnDepartment" message="tns:FnDepartment" />
+      <output name="FnDepartment_Result" message="tns:FnDepartment_Result" />
+    </operation>
+    <operation name="FnDepartmentValue">
+      <input name="FnDepartmentValue" message="tns:FnDepartmentValue" />
+      <output name="FnDepartmentValue_Result" message="tns:FnDepartmentValue_Result" />
+    </operation>
+    <operation name="FnRolecenter">
+      <input name="FnRolecenter" message="tns:FnRolecenter" />
+      <output name="FnRolecenter_Result" message="tns:FnRolecenter_Result" />
+    </operation>
+    <operation name="FnImprestList">
+      <input name="FnImprestList" message="tns:FnImprestList" />
+      <output name="FnImprestList_Result" message="tns:FnImprestList_Result" />
+    </operation>
+    <operation name="FnLeaveCardEdit">
+      <input name="FnLeaveCardEdit" message="tns:FnLeaveCardEdit" />
+      <output name="FnLeaveCardEdit_Result" message="tns:FnLeaveCardEdit_Result" />
+    </operation>
+    <operation name="FnMissionProportsalsList">
+      <input name="FnMissionProportsalsList" message="tns:FnMissionProportsalsList" />
+      <output name="FnMissionProportsalsList_Result" message="tns:FnMissionProportsalsList_Result" />
+    </operation>
+    <operation name="FnGetProfilePicture">
+      <input name="FnGetProfilePicture" message="tns:FnGetProfilePicture" />
+      <output name="FnGetProfilePicture_Result" message="tns:FnGetProfilePicture_Result" />
+    </operation>
+    <operation name="FnGetStandardText">
+      <input name="FnGetStandardText" message="tns:FnGetStandardText" />
+      <output name="FnGetStandardText_Result" message="tns:FnGetStandardText_Result" />
+    </operation>
+    <operation name="FnGetContryregions">
+      <input name="FnGetContryregions" message="tns:FnGetContryregions" />
+      <output name="FnGetContryregions_Result" message="tns:FnGetContryregions_Result" />
+    </operation>
+    <operation name="FnInsertMissionProporsal">
+      <input name="FnInsertMissionProporsal" message="tns:FnInsertMissionProporsal" />
+      <output name="FnInsertMissionProporsal_Result" message="tns:FnInsertMissionProporsal_Result" />
+    </operation>
+    <operation name="FnUpdateMissionProporsal">
+      <input name="FnUpdateMissionProporsal" message="tns:FnUpdateMissionProporsal" />
+      <output name="FnUpdateMissionProporsal_Result" message="tns:FnUpdateMissionProporsal_Result" />
+    </operation>
+    <operation name="FnPurchaseRequisitionList">
+      <input name="FnPurchaseRequisitionList" message="tns:FnPurchaseRequisitionList" />
+      <output name="FnPurchaseRequisitionList_Result" message="tns:FnPurchaseRequisitionList_Result" />
+    </operation>
+    <operation name="FnInsertPurchaseRequest">
+      <input name="FnInsertPurchaseRequest" message="tns:FnInsertPurchaseRequest" />
+      <output name="FnInsertPurchaseRequest_Result" message="tns:FnInsertPurchaseRequest_Result" />
+    </operation>
+    <operation name="Fninsertimprestnew">
+      <input name="Fninsertimprestnew" message="tns:Fninsertimprestnew" />
+      <output name="Fninsertimprestnew_Result" message="tns:Fninsertimprestnew_Result" />
+    </operation>
+    <operation name="Fnimprestlineinsert">
+      <input name="Fnimprestlineinsert" message="tns:Fnimprestlineinsert" />
+      <output name="Fnimprestlineinsert_Result" message="tns:Fnimprestlineinsert_Result" />
+    </operation>
+    <operation name="FninsertPurchasenew">
+      <input name="FninsertPurchasenew" message="tns:FninsertPurchasenew" />
+      <output name="FninsertPurchasenew_Result" message="tns:FninsertPurchasenew_Result" />
+    </operation>
+    <operation name="FnPurchaselineinsert">
+      <input name="FnPurchaselineinsert" message="tns:FnPurchaselineinsert" />
+      <output name="FnPurchaselineinsert_Result" message="tns:FnPurchaselineinsert_Result" />
+    </operation>
+    <operation name="FnDimensionValuesList">
+      <input name="FnDimensionValuesList" message="tns:FnDimensionValuesList" />
+      <output name="FnDimensionValuesList_Result" message="tns:FnDimensionValuesList_Result" />
+    </operation>
+    <operation name="FnApproval">
+      <input name="FnApproval" message="tns:FnApproval" />
+      <output name="FnApproval_Result" message="tns:FnApproval_Result" />
+    </operation>
+    <operation name="FncancelApproval">
+      <input name="FncancelApproval" message="tns:FncancelApproval" />
+      <output name="FncancelApproval_Result" message="tns:FncancelApproval_Result" />
+    </operation>
+    <operation name="FnSurrenderList">
+      <input name="FnSurrenderList" message="tns:FnSurrenderList" />
+      <output name="FnSurrenderList_Result" message="tns:FnSurrenderList_Result" />
+    </operation>
+    <operation name="FnInstImrSrNew">
+      <input name="FnInstImrSrNew" message="tns:FnInstImrSrNew" />
+      <output name="FnInstImrSrNew_Result" message="tns:FnInstImrSrNew_Result" />
+    </operation>
+    <operation name="Fninsertbudgetinfo">
+      <input name="Fninsertbudgetinfo" message="tns:Fninsertbudgetinfo" />
+      <output name="Fninsertbudgetinfo_Result" message="tns:Fninsertbudgetinfo_Result" />
+    </operation>
+    <operation name="Fninsertteamroles">
+      <input name="Fninsertteamroles" message="tns:Fninsertteamroles" />
+      <output name="Fninsertteamroles_Result" message="tns:Fninsertteamroles_Result" />
+    </operation>
+    <operation name="Fninsertmisssionobjectives">
+      <input name="Fninsertmisssionobjectives" message="tns:Fninsertmisssionobjectives" />
+      <output name="Fninsertmisssionobjectives_Result" message="tns:Fninsertmisssionobjectives_Result" />
+    </operation>
+    <operation name="Fninsertmissionactivities">
+      <input name="Fninsertmissionactivities" message="tns:Fninsertmissionactivities" />
+      <output name="Fninsertmissionactivities_Result" message="tns:Fninsertmissionactivities_Result" />
+    </operation>
+    <operation name="FnpurchaseLines">
+      <input name="FnpurchaseLines" message="tns:FnpurchaseLines" />
+      <output name="FnpurchaseLines_Result" message="tns:FnpurchaseLines_Result" />
+    </operation>
+    <operation name="FnInsertGeneralJournal">
+      <input name="FnInsertGeneralJournal" message="tns:FnInsertGeneralJournal" />
+      <output name="FnInsertGeneralJournal_Result" message="tns:FnInsertGeneralJournal_Result" />
+    </operation>
+    <operation name="FnJournalLines">
+      <input name="FnJournalLines" message="tns:FnJournalLines" />
+      <output name="FnJournalLines_Result" message="tns:FnJournalLines_Result" />
+    </operation>
+    <operation name="FnUpdatebudgetinfo">
+      <input name="FnUpdatebudgetinfo" message="tns:FnUpdatebudgetinfo" />
+      <output name="FnUpdatebudgetinfo_Result" message="tns:FnUpdatebudgetinfo_Result" />
+    </operation>
+    <operation name="FnUpdatePurchasenew">
+      <input name="FnUpdatePurchasenew" message="tns:FnUpdatePurchasenew" />
+      <output name="FnUpdatePurchasenew_Result" message="tns:FnUpdatePurchasenew_Result" />
+    </operation>
+    <operation name="FngetLeaveBalanceType">
+      <input name="FngetLeaveBalanceType" message="tns:FngetLeaveBalanceType" />
+      <output name="FngetLeaveBalanceType_Result" message="tns:FngetLeaveBalanceType_Result" />
+    </operation>
+    <operation name="FnInsertTrainingRequest">
+      <input name="FnInsertTrainingRequest" message="tns:FnInsertTrainingRequest" />
+      <output name="FnInsertTrainingRequest_Result" message="tns:FnInsertTrainingRequest_Result" />
+    </operation>
+    <operation name="FnTrainingList">
+      <input name="FnTrainingList" message="tns:FnTrainingList" />
+      <output name="FnTrainingList_Result" message="tns:FnTrainingList_Result" />
+    </operation>
+    <operation name="FnUpdateTrainingRequest">
+      <input name="FnUpdateTrainingRequest" message="tns:FnUpdateTrainingRequest" />
+      <output name="FnUpdateTrainingRequest_Result" message="tns:FnUpdateTrainingRequest_Result" />
+    </operation>
+    <operation name="FnReqTrainingApproval">
+      <input name="FnReqTrainingApproval" message="tns:FnReqTrainingApproval" />
+      <output name="FnReqTrainingApproval_Result" message="tns:FnReqTrainingApproval_Result" />
+    </operation>
+    <operation name="FnInsertAttachments">
+      <input name="FnInsertAttachments" message="tns:FnInsertAttachments" />
+      <output name="FnInsertAttachments_Result" message="tns:FnInsertAttachments_Result" />
+    </operation>
+    <operation name="FnUploadedDocuments">
+      <input name="FnUploadedDocuments" message="tns:FnUploadedDocuments" />
+      <output name="FnUploadedDocuments_Result" message="tns:FnUploadedDocuments_Result" />
+    </operation>
+    <operation name="FnSurrenderLineUpdate">
+      <input name="FnSurrenderLineUpdate" message="tns:FnSurrenderLineUpdate" />
+      <output name="FnSurrenderLineUpdate_Result" message="tns:FnSurrenderLineUpdate_Result" />
+    </operation>
+    <operation name="FnTrainingSchedule">
+      <input name="FnTrainingSchedule" message="tns:FnTrainingSchedule" />
+      <output name="FnTrainingSchedule_Result" message="tns:FnTrainingSchedule_Result" />
+    </operation>
+    <operation name="Fininserttrainingschedule">
+      <input name="Fininserttrainingschedule" message="tns:Fininserttrainingschedule" />
+      <output name="Fininserttrainingschedule_Result" message="tns:Fininserttrainingschedule_Result" />
+    </operation>
+    <operation name="FnDeletePurchaseLine">
+      <input name="FnDeletePurchaseLine" message="tns:FnDeletePurchaseLine" />
+      <output name="FnDeletePurchaseLine_Result" message="tns:FnDeletePurchaseLine_Result" />
+    </operation>
+    <operation name="Fnimprestlinemodify">
+      <input name="Fnimprestlinemodify" message="tns:Fnimprestlinemodify" />
+      <output name="Fnimprestlinemodify_Result" message="tns:Fnimprestlinemodify_Result" />
+    </operation>
+    <operation name="FninsertimprestModify">
+      <input name="FninsertimprestModify" message="tns:FninsertimprestModify" />
+      <output name="FninsertimprestModify_Result" message="tns:FninsertimprestModify_Result" />
+    </operation>
+    <operation name="FnPurchaselineModify">
+      <input name="FnPurchaselineModify" message="tns:FnPurchaselineModify" />
+      <output name="FnPurchaselineModify_Result" message="tns:FnPurchaselineModify_Result" />
+    </operation>
+    <operation name="FninsertBudgetNotes">
+      <input name="FninsertBudgetNotes" message="tns:FninsertBudgetNotes" />
+      <output name="FninsertBudgetNotes_Result" message="tns:FninsertBudgetNotes_Result" />
+    </operation>
+    <operation name="FnUdpateBudgetNotes">
+      <input name="FnUdpateBudgetNotes" message="tns:FnUdpateBudgetNotes" />
+      <output name="FnUdpateBudgetNotes_Result" message="tns:FnUdpateBudgetNotes_Result" />
+    </operation>
+    <operation name="FnGetcurrencyCodes">
+      <input name="FnGetcurrencyCodes" message="tns:FnGetcurrencyCodes" />
+      <output name="FnGetcurrencyCodes_Result" message="tns:FnGetcurrencyCodes_Result" />
+    </operation>
+    <operation name="FnGetAttachment">
+      <input name="FnGetAttachment" message="tns:FnGetAttachment" />
+      <output name="FnGetAttachment_Result" message="tns:FnGetAttachment_Result" />
+    </operation>
+    <operation name="FnDeleteAttachment">
+      <input name="FnDeleteAttachment" message="tns:FnDeleteAttachment" />
+      <output name="FnDeleteAttachment_Result" message="tns:FnDeleteAttachment_Result" />
+    </operation>
+  </portType>
+  <binding name="Portals_Binding" type="tns:Portals_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="FnGetApprovalEntries">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetApprovalEntries" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetApprovalEntries">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetApprovalEntries_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUploadedDocuments2">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUploadedDocuments2" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUploadedDocuments2">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUploadedDocuments2_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fnhrdocuments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fnhrdocuments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fnhrdocuments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fnhrdocuments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetdocuments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetdocuments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetdocuments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetdocuments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fnsuggestionbox">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fnsuggestionbox" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fnsuggestionbox">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fnsuggestionbox_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnAppraisals">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnAppraisals" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnAppraisals">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnAppraisals_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnNewappraisal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnNewappraisal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnNewappraisal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnNewappraisal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnEditappraisal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnEditappraisal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnEditappraisal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnEditappraisal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fngrievances">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fngrievances" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fngrievances">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fngrievances_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnExitInterview">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnExitInterview" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnExitInterview">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnExitInterview_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetExitInterview">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetExitInterview" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetExitInterview">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetExitInterview_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetInductionSchedule">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetInductionSchedule" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetInductionSchedule">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetInductionSchedule_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInduct">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInduct" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInduct">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInduct_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPaymentMemosList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPaymentMemosList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPaymentMemosList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPaymentMemosList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertPaymentmemo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertPaymentmemo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertPaymentmemo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertPaymentmemo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnupdatePaymentmemo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnupdatePaymentmemo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnupdatePaymentmemo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnupdatePaymentmemo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertAppraisal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertAppraisal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertAppraisal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertAppraisal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateAppraisal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUpdateAppraisal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateAppraisal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateAppraisal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnAppraisalList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnAppraisalList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnAppraisalList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnAppraisalList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestRequisitionCreate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestRequisitionCreate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestRequisitionCreate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestRequisitionCreate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLeaveApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnLeaveApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLeaveApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLeaveApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLeaveApprovalRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnLeaveApprovalRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLeaveApprovalRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLeaveApprovalRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestApprovalRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestApprovalRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestApprovalRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestApprovalRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetPayslip">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetPayslip" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetPayslip">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetPayslip_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestRequisitionUpdate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestRequisitionUpdate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestRequisitionUpdate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestRequisitionUpdate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnApproveRecords">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnApproveRecords" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnApproveRecords">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnApproveRecords_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLeaveCancelApprovalRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnLeaveCancelApprovalRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLeaveCancelApprovalRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLeaveCancelApprovalRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestCancelApprovalRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestCancelApprovalRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestCancelApprovalRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestCancelApprovalRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnRejectApprovalRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnRejectApprovalRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnRejectApprovalRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnRejectApprovalRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestSurrenderApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestSurrenderApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestSurrenderApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestSurrenderApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInserImprest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInserImprest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInserImprest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInserImprest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateLeave">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:UpdateLeave" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateLeave">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateLeave_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetEmployeeDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetEmployeeDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetEmployeeDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetEmployeeDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetPaymentInformation">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetPaymentInformation" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetPaymentInformation">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetPaymentInformation_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetSummaryPayment">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetSummaryPayment" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetSummaryPayment">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetSummaryPayment_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fnlogin">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fnlogin" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fnlogin">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fnlogin_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnRegister">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnRegister" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnRegister">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnRegister_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fninserreccode">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fninserreccode" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fninserreccode">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fninserreccode_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetPeriods">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetPeriods" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetPeriods">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetPeriods_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fnleaveinformation">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fnleaveinformation" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fnleaveinformation">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fnleaveinformation_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLeaveList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnLeaveList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLeaveList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLeaveList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLeaveCard">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnLeaveCard" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLeaveCard">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLeaveCard_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetLeaveTypes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetLeaveTypes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetLeaveTypes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetLeaveTypes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnHrEmployees">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnHrEmployees" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnHrEmployees">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnHrEmployees_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnEditApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnEditApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnEditApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnEditApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDelete">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnDelete" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDelete">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDelete_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetleaveStatement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetleaveStatement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetleaveStatement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetleaveStatement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetP9Report">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetP9Report" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetP9Report">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetP9Report_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLeaveDelete">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnLeaveDelete" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLeaveDelete">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLeaveDelete_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateImprestCard">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUpdateImprestCard" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateImprestCard">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateImprestCard_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestCard">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestCard" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestCard">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestCard_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestCardEdit">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestCardEdit" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestCardEdit">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestCardEdit_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPettyCashCardEdit">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPettyCashCardEdit" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPettyCashCardEdit">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPettyCashCardEdit_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPettyCashCardDelete">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPettyCashCardDelete" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPettyCashCardDelete">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPettyCashCardDelete_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPettyCashCardDoUpdate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPettyCashCardDoUpdate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPettyCashCardDoUpdate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPettyCashCardDoUpdate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPettyCashCard">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPettyCashCard" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPettyCashCard">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPettyCashCard_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPettyCashList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPettyCashList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPettyCashList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPettyCashList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPettyCashBank">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPettyCashBank" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPettyCashBank">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPettyCashBank_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPettyCashApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPettyCashApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPettyCashApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPettyCashApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPaymentTypes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPaymentTypes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPaymentTypes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPaymentTypes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestLineDelete">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestLineDelete" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestLineDelete">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestLineDelete_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestLineCard">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestLineCard" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestLineCard">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestLineCard_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestLineCardEdit">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestLineCardEdit" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestLineCardEdit">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestLineCardEdit_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ApprovalList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:ApprovalList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ApprovalList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ApprovalList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnClaimList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnClaimList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnClaimList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnClaimList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnClaimCard">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnClaimCard" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnClaimCard">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnClaimCard_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnClaimCardEdit">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnClaimCardEdit" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnClaimCardEdit">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnClaimCardEdit_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnClaimLineDelete">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnClaimLineDelete" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnClaimLineDelete">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnClaimLineDelete_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnClaimLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnClaimLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnClaimLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnClaimLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnClaimLineCard">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnClaimLineCard" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnClaimLineCard">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnClaimLineCard_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnClaimLineCardEdit">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnClaimLineCardEdit" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnClaimLineCardEdit">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnClaimLineCardEdit_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDepartment">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnDepartment" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDepartment">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDepartment_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDepartmentValue">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnDepartmentValue" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDepartmentValue">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDepartmentValue_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnRolecenter">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnRolecenter" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnRolecenter">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnRolecenter_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnImprestList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnImprestList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnImprestList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnImprestList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLeaveCardEdit">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnLeaveCardEdit" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLeaveCardEdit">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLeaveCardEdit_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnMissionProportsalsList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnMissionProportsalsList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnMissionProportsalsList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnMissionProportsalsList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetProfilePicture">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetProfilePicture" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetProfilePicture">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetProfilePicture_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetStandardText">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetStandardText" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetStandardText">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetStandardText_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetContryregions">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetContryregions" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetContryregions">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetContryregions_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertMissionProporsal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertMissionProporsal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertMissionProporsal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertMissionProporsal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateMissionProporsal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUpdateMissionProporsal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateMissionProporsal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateMissionProporsal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPurchaseRequisitionList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPurchaseRequisitionList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPurchaseRequisitionList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPurchaseRequisitionList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertPurchaseRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertPurchaseRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertPurchaseRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertPurchaseRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fninsertimprestnew">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fninsertimprestnew" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fninsertimprestnew">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fninsertimprestnew_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fnimprestlineinsert">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fnimprestlineinsert" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fnimprestlineinsert">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fnimprestlineinsert_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FninsertPurchasenew">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FninsertPurchasenew" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FninsertPurchasenew">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FninsertPurchasenew_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPurchaselineinsert">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPurchaselineinsert" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPurchaselineinsert">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPurchaselineinsert_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDimensionValuesList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnDimensionValuesList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDimensionValuesList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDimensionValuesList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FncancelApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FncancelApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FncancelApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FncancelApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnSurrenderList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnSurrenderList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnSurrenderList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnSurrenderList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInstImrSrNew">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInstImrSrNew" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInstImrSrNew">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInstImrSrNew_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fninsertbudgetinfo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fninsertbudgetinfo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fninsertbudgetinfo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fninsertbudgetinfo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fninsertteamroles">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fninsertteamroles" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fninsertteamroles">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fninsertteamroles_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fninsertmisssionobjectives">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fninsertmisssionobjectives" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fninsertmisssionobjectives">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fninsertmisssionobjectives_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fninsertmissionactivities">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fninsertmissionactivities" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fninsertmissionactivities">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fninsertmissionactivities_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnpurchaseLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnpurchaseLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnpurchaseLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnpurchaseLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertGeneralJournal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertGeneralJournal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertGeneralJournal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertGeneralJournal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnJournalLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnJournalLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnJournalLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnJournalLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdatebudgetinfo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUpdatebudgetinfo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdatebudgetinfo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdatebudgetinfo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdatePurchasenew">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUpdatePurchasenew" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdatePurchasenew">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdatePurchasenew_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FngetLeaveBalanceType">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FngetLeaveBalanceType" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FngetLeaveBalanceType">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FngetLeaveBalanceType_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertTrainingRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertTrainingRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertTrainingRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertTrainingRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnTrainingList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnTrainingList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnTrainingList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnTrainingList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateTrainingRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUpdateTrainingRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateTrainingRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateTrainingRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnReqTrainingApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnReqTrainingApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnReqTrainingApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnReqTrainingApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertAttachments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertAttachments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertAttachments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertAttachments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUploadedDocuments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUploadedDocuments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUploadedDocuments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUploadedDocuments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnSurrenderLineUpdate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnSurrenderLineUpdate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnSurrenderLineUpdate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnSurrenderLineUpdate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnTrainingSchedule">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnTrainingSchedule" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnTrainingSchedule">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnTrainingSchedule_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fininserttrainingschedule">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fininserttrainingschedule" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fininserttrainingschedule">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fininserttrainingschedule_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDeletePurchaseLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnDeletePurchaseLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDeletePurchaseLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDeletePurchaseLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Fnimprestlinemodify">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:Fnimprestlinemodify" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Fnimprestlinemodify">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Fnimprestlinemodify_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FninsertimprestModify">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FninsertimprestModify" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FninsertimprestModify">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FninsertimprestModify_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnPurchaselineModify">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnPurchaselineModify" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnPurchaselineModify">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnPurchaselineModify_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FninsertBudgetNotes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FninsertBudgetNotes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FninsertBudgetNotes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FninsertBudgetNotes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUdpateBudgetNotes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUdpateBudgetNotes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUdpateBudgetNotes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUdpateBudgetNotes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetcurrencyCodes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetcurrencyCodes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetcurrencyCodes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetcurrencyCodes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetAttachment">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetAttachment" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetAttachment">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetAttachment_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDeleteAttachment">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnDeleteAttachment" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDeleteAttachment">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDeleteAttachment_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Portals">
+    <port name="Portals_Port" binding="tns:Portals_Binding">
+      <address location="http://localhost:1047/BC140/WS/Transparency%20International/Codeunit/Portals" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
