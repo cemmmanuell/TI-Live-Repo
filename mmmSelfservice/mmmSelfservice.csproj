@@ -3265,6 +3265,8 @@
     <Content Include="Views\Home\employeeData.cshtml" />
     <Content Include="Views\Home\editAppraisal.cshtml" />
     <Content Include="Views\Home\editAppraisalReleased.cshtml" />
+    <Content Include="Views\Home\pendingappraisallist.cshtml" />
+    <Content Include="Views\Home\approvedappraisallist.cshtml" />
     <None Include="Web References\NAVWS\Portals.wsdl" />
     <Content Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

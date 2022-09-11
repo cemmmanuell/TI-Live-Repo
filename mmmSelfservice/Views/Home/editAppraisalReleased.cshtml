@@ -36,7 +36,11 @@
                                     <ul class="nav nav-tabs">
                                         <li class="nav-item"><a href="#basic-tab1_edit_released" class="nav-link active" data-toggle="tab">General</a></li>
                                         <li class="nav-item"><a href="#basic-tab2_edit_released" class="nav-link" data-toggle="tab">Perfomance plan </a></li>
-
+                                        <li class="nav-item"><a href="#basic-tab3_edit_released" class="nav-link" data-toggle="tab">Appraisal points </a></li>
+                                        <li class="nav-item"><a href="#basic-tab4_edit_released" class="nav-link" data-toggle="tab">Action points </a></li>
+                                        <li class="nav-item"><a href="#basic-tab5_edit_released" class="nav-link" data-toggle="tab">Capacity needs</a></li>
+                                        <li class="nav-item"><a href="#basic-tab6_edit_released" class="nav-link" data-toggle="tab">Personal qualities</a></li>
+                                        <li class="nav-item"><a href="#basic-tab7_edit_released" class="nav-link" data-toggle="tab">Reflections and learnings</a></li>
                                     </ul>
 
                                     <div class="row" data-select2-id="78">
@@ -110,7 +114,7 @@
                                                                                     <th class="col-xs-1">Action</th>
                                                                                 </tr>
                                                                             </thead>
-                                                                            <tbody id="table5_edit">
+                                                                            <tbody id="table5_edit_approved">
                                                                                 @foreach (var i in Model.Performance)
                                                                                 {
                                                                                     <tr>
@@ -153,12 +157,309 @@
 
                                             </div>
 
-                                          @{ 
-                                           //   TODO: Add sections
-                                           //   TODO ADD PERSONAL QUALITIES: (TO BE FILLED BY THE SUPERVISOR)
-                                           //   TODO ADD REFLECTIONS AND LEARNINGS
+                                            <div class="tab-pane" id="basic-tab3_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
 
-                                          }
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Appraisal type</th>
+                                                                                    <th class="col-xs-1">Description</th>
+                                                                                    <th class="col-xs-1">My rating</th>
+                                                                                    <th class="col-xs-1">Supervisor rating </th>
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table6_edit_approved">
+                                                                                @foreach (var s in Model.Sections)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" disbled="disabled" value="@s.appraisalType" class="form-control"></td>
+                                                                                        <td><input type="text" disbled="disabled" value="@s.appraisalDescription" class="form-control"></td>
+                                                                                        <td><input type="number" disbled="disabled" value="@s.staffRating" class="form-control"></td>
+                                                                                        <td><input type="number" disabled="disabled" value="@s.supervisorRating" class="form-control"></td>
+
+
+                                                                                        <td class="text-center">
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@s.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="basic-tab4_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Focus area, Reflections</th>
+                                                                                    <th class="col-xs-1">Peson responsible</th>
+                                                                                    <th class="col-xs-1">Agreed action points </th>
+                                                                                    <th class="col-xs-1">Time lines </th>
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table6_edit_approved">
+                                                                                @foreach (var a in Model.ActionPoints)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" value="@a.planning" class="form-control"></td>
+                                                                                        <td><input type="text" value="@a.personResponsible" class="form-control"></td>
+                                                                                        <td><input type="text" value="@a.agreedActionPoints" class="form-control"></td>
+                                                                                        <td><input type="text" value="@a.timelines" class="form-control"></td>
+
+
+                                                                                        <td class="text-center">
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@a.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="basic-tab5_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Capacity need</th>
+                                                                                    <th class="col-xs-1">By when (Compleion date)</th>
+                                                                                    <th class="col-xs-1">Describe why these should be prioritized </th>
+                                                                                    <th class="col-xs-1">Remedial measures </th>
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table6_edit_approved">
+                                                                                @foreach (var c in Model.CapacityNeeds)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" value="@c.capacity" class="form-control"></td>
+                                                                                        <td><input type="date" value="@c.completionDate" class="form-control"></td>
+                                                                                        <td><input type="text" value="@c.capacityNeedsDescription" class="form-control"></td>
+                                                                                        <td><input type="text" value="@c.remedialMeasures" class="form-control"></td>
+
+
+                                                                                        <td class="text-center">
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@c.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="basic-tab6_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Personal qualities</th>
+                                                                                    <th class="col-xs-1">Score </th>
+                                                                                    <th class="col-xs-1">Comments </th>
+
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table6_edit_approved">
+                                                                                @foreach (var p in Model.PersonalQualities)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" value="@p.personalDescription" class="form-control"></td>
+                                                                                        <td><input type="number" value="@p.score" class="form-control"></td>
+                                                                                        <td><input type="text" disabled value="@p.comments" class="form-control"></td>
+
+
+
+                                                                                        <td class="text-center">
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@p.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="basic-tab7_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Please answer the following questions</th>
+                                                                                    <th class="col-xs-1">self appraisal </th>
+                                                                                    <th class="col-xs-1">Supervisor's feedback </th>
+
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table6_edit_approved">
+                                                                                @foreach (var r in Model.Reflections)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" value="@r.reflectionDescription" class="form-control"></td>
+                                                                                        <td><input type="number" value="@r.selfAppraisal" class="form-control"></td>
+                                                                                        <td><input type="text" disabled value="@r.supervisorsFeedback" class="form-control"></td>
+
+
+
+                                                                                        <td class="text-center">
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@r.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            @{
+
+                                                //   TODO ADD PERSONAL QUALITIES: (TO BE FILLED BY THE SUPERVISOR)
+                                                //   TODO ADD REFLECTIONS AND LEARNINGS
+
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -220,14 +521,15 @@
 
                                                       var objectives = [];
                                                       var focus;
-                                                      var outcome; var roles = []; var activities = []; var budgetinfo = []; var background;
+        var outcome; var roles = []; var activities = []; var budgetinfo = []; var background; var sections = [];
                                                       debugger;
 
 
                                                       var table5;
+                                                       var table6;
 
-
-                                                      table5 = $('#table5_edit_released tr');
+        table5 = $('#table5_edit_approved tr');
+        table6 = $('#table6_edit_approved tr');
 
 
 
@@ -247,7 +549,19 @@
                                                           }
 
                                                       activities.push(rowdata);
-                                                  });
+                                                      });
+        table6.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
+
+                staffRating: row.find("td:eq(2) input[type='number']").val(),
+                lineNo: row.find("td:eq(5) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            sections.push(rowdata);
+        });
 
 
 
@@ -259,8 +573,9 @@
 
                                                       reviewFrom: $('#reviewPeriodFrom_edit').val(),
                 reviewTo: $('#reviewPeriodTo_edit').val(),
-                no: $('#appraisal_no').text(),
-                Performance: activities
+                no: $('#appraisal_no_released').text(),
+                Performance: activities,
+                Sections: sections
             }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",

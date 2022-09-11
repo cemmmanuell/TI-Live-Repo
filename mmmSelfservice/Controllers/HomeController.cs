@@ -2325,6 +2325,38 @@
             }
         }
 
+        public ActionResult pendingappraisallist()
+        {
+            try
+            {
+                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
+                return base.View(model);
+            }
+            catch (Exception e)
+            {
+                List<appraisal> model = new List<appraisal>();
+                return base.View(from r in model
+                                 where (r.Status == "Pending Approval")
+                                 select r);
+            }
+        }
+
+        public ActionResult approvedappraisallist()
+        {
+            try
+            {
+                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
+                return base.View(from r in model
+                                 where (r.Status == "Released") 
+                                 select r);
+            }
+            catch (Exception e)
+            {
+                List<appraisal> model = new List<appraisal>();
+                return base.View(model);
+            }
+        }
+
         public ActionResult approvalentries(string documentNo)
         {
             List<mmmSelfservice.Models.approvalentries> model = JsonConvert.DeserializeObject<List<mmmSelfservice.Models.approvalentries>>(WSConfig.ObjNav.FnGetApprovalEntries(documentNo));
