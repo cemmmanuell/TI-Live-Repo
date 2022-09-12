@@ -78,7 +78,7 @@
 
                                                 @*@Html.ActionLink("Add Line", "ImprestLine", "Imprest", new { ImprestNo = data.No }, new { @class = "dropdown-item icon-add-to-list" })*@
 
-                                                <a href="@Url.Action("purchaserequest", "imprest",new {no=data.no})" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
+                                              <a href="@Url.Action("missionproporsalreq", "Home",new {no=data.no})" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
                                             }
                                             @if (data.Status == "Pending Approval")
                                             {
