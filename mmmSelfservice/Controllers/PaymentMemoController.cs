@@ -150,7 +150,7 @@
         public ActionResult missionproporsalreq(string no)
         {
             WSConfig.ObjNav.FnApproval(no);
-            return base.RedirectToAction("pendingpaymentMemos", "PaymentMemo");
+            return base.RedirectToAction("appraisallist", "Home");
         }
         public JsonResult insertpaymentmemo(string strategicfocusarea, string subpillar, string projecttitle, string country, string county, string dateofactivities, string missionteam, string invitedmembers, string fundcode, string programcode, string budgetdimension, string departmentdimension, string budgetdescription, List<string> objectives, string focus, string outcome, List<string> roles, List<string> activities, List<string> budgetinfo, string refe, List<string> budgetnotes, DateTime date, string subject, string  missionproposal, string purchaserequest)
         {

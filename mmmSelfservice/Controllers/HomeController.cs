@@ -2316,7 +2316,7 @@
             try
             {
                 List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-                return base.View(model);
+                return base.View(model.Where(r => r.Status == "Open").ToList());
             }
             catch (Exception e)
             {
@@ -2330,14 +2330,12 @@
             try
             {
                 List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-                return base.View(model);
+                return base.View(model.Where(r => r.Status == "Pending Approval").ToList());
             }
             catch (Exception e)
             {
                 List<appraisal> model = new List<appraisal>();
-                return base.View(from r in model
-                                 where (r.Status == "Pending Approval")
-                                 select r);
+                return base.View(model);
             }
         }
 
@@ -2346,9 +2344,7 @@
             try
             {
                 List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-                return base.View(from r in model
-                                 where (r.Status == "Released") 
-                                 select r);
+                return base.View(model.Where(r=>r.Status=="Released").ToList());
             }
             catch (Exception e)
             {
@@ -2357,6 +2353,47 @@
             }
         }
 
+        public ActionResult pendingPerformanceAppraisal()
+        {
+            try
+            {
+                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
+                return base.View(model.Where(r => r.Status == "Released").ToList());
+            }
+            catch (Exception e)
+            {
+                List<appraisal> model = new List<appraisal>();
+                return base.View(model);
+            }
+        }
+
+        public ActionResult approvedPerformanceAppraisal()
+        {
+            try
+            {
+                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
+                return base.View(model.Where(r => r.Status == "Released").ToList());
+            }
+            catch (Exception e)
+            {
+                List<appraisal> model = new List<appraisal>();
+                return base.View(model);
+            }
+        }
+
+        public ActionResult closedPerformanceAppraisal()
+        {
+            try
+            {
+                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
+                return base.View(model.Where(r => r.Status == "Released").ToList());
+            }
+            catch (Exception e)
+            {
+                List<appraisal> model = new List<appraisal>();
+                return base.View(model);
+            }
+        }
         public ActionResult approvalentries(string documentNo)
         {
             List<mmmSelfservice.Models.approvalentries> model = JsonConvert.DeserializeObject<List<mmmSelfservice.Models.approvalentries>>(WSConfig.ObjNav.FnGetApprovalEntries(documentNo));

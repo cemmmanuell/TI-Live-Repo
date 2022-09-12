@@ -238,18 +238,30 @@
 						<!---End-->
 						<li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>HR</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="Themes">
-                              
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+
 
                                 <li class="nav-item"><a href="@Url.Action("PaymentInformation", "Home")" class="nav-link">Payment information</a></li>
                                 <li class="nav-item"><a href="@Url.Action("payslip", "Home")" class="nav-link">Pay slip</a></li>
                                 <li class="nav-item"><a href="@Url.Action("p9report", "Home")" class="nav-link">P9 Report</a></li>
-								<li class="nav-item"><a href="@Url.Action("Leaveinformation", "Home")" class="nav-link">Leave Information</a></li>
-								<li class="nav-item"><a href="@Url.Action("Index", "leave")" class="nav-link active">Leave Application</a></li>
-								<li class="nav-item"><a href="@Url.Action("leavependingapproval", "leave")" class="nav-link active">Leave Pending Approval</a></li>
-								<li class="nav-item"><a href="@Url.Action("LeaveApproved", "leave")" class="nav-link active">Leave Approved</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Leaveinformation", "Home")" class="nav-link">Leave Information</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Index", "leave")" class="nav-link active">Leave Application</a></li>
+                                <li class="nav-item"><a href="@Url.Action("leavependingapproval", "leave")" class="nav-link active">Leave Pending Approval</a></li>
+                                <li class="nav-item"><a href="@Url.Action("LeaveApproved", "leave")" class="nav-link active">Leave Approved</a></li>
                                 <li class="nav-item"><a href="@Url.Action("Leaverejected", "leave")" class="nav-link active">Leave rejected</a></li>
-                                <li class="nav-item"><a href="@Url.Action("appraisallist", "Home")" class="nav-link active">Appraisals list</a></li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Appraisal</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("appraisallist", "Home")" class="nav-link active">New Appraisal plan</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingappraisallist", "Home")" class="nav-link active">Pending Appraisal plain</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedappraisallist", "Home")" class="nav-link active">Performance appraisal</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedappraisallist", "Home")" class="nav-link active">Pending performance appraisal</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedappraisallist", "Home")" class="nav-link active">Approved performance appraisal</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedappraisallist", "Home")" class="nav-link active">Closed appraisal</a></li>
+
+                                    </ul>
+                                </li>
+                                
                                 <li class="nav-item nav-item-submenu">
                                     <a href="#" class="nav-link">Induction list</a>
                                     <ul class="nav nav-group-sub">
@@ -261,7 +273,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a href="@Url.Action("exitinterview", "Home")" class="nav-link active">Exit interview</a></li>
-                               
+
                                 <li class="nav-item nav-item-submenu">
                                     <a href="#" class="nav-link">Training</a>
                                     <ul class="nav nav-group-sub">
@@ -272,8 +284,8 @@
                                         <li class="nav-item"><a href="@Url.Action("pending", "Training")" class="nav-link">Pending training requests</a></li>
 
                                     </ul>
-                                </li>							
-							</ul>
+                                </li>
+                            </ul>
 						</li>
                        
                         <li class="nav-item nav-item-submenu">

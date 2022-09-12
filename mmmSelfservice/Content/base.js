@@ -473,27 +473,7 @@ function editimprest() {
 }
 function removeline(row) {
     var rowdelete = $(row).closest('tr');
-    $.ajax({
-        type: "POST",
-        url: "/Imprest/deleteline",
-        data: JSON.stringify({ line: rowdelete.find("td:eq(3)").html(), document: rowdelete.find("td:eq(4)").html() }),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (response) {
-
-            if (response.status == true) {
-
-                $(row).closest('tr').remove();
-            } else {
-
-                alert(response.mesasge)
-
-            }
-
-        }
-
-    });
-
+   
 
 
 }

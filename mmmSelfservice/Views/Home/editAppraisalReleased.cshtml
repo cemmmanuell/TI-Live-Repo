@@ -114,7 +114,7 @@
                                                                                     <th class="col-xs-1">Action</th>
                                                                                 </tr>
                                                                             </thead>
-                                                                            <tbody id="table5_edit_approved">
+                                                                            <tbody id="table4_edit_approved">
                                                                                 @foreach (var i in Model.Performance)
                                                                                 {
                                                                                     <tr>
@@ -126,7 +126,7 @@
 
                                                                                         <td class="text-center">
                                                                                             <div class="list-icons">
-                                                                                                <a onclick="addlinetotables1_edit('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>|
+                                                                                                <a onclick="addlinetotables1_released('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>|
                                                                                                 <a href="#" onclick="removelineAll(this,'@i.lineNo','@i.documentNo')"><i class="icon-cross3 mr-3 icon-1x"></i></a>
                                                                                             </div>
                                                                                         </td>
@@ -178,7 +178,7 @@
 
                                                                                 </tr>
                                                                             </thead>
-                                                                            <tbody id="table6_edit_approved">
+                                                                            <tbody id="table5_edit_approved">
                                                                                 @foreach (var s in Model.Sections)
                                                                                 {
                                                                                     <tr>
@@ -231,7 +231,7 @@
                                                                                 <tr>
 
                                                                                     <th class="col-xs-1">Focus area, Reflections</th>
-                                                                                    <th class="col-xs-1">Peson responsible</th>
+                                                                                    <th class="col-xs-1">Person responsible</th>
                                                                                     <th class="col-xs-1">Agreed action points </th>
                                                                                     <th class="col-xs-1">Time lines </th>
                                                                                     <th class="col-xs-1">Action</th>
@@ -249,12 +249,29 @@
 
 
                                                                                         <td class="text-center">
+                                                                                           
                                                                                         </td>
                                                                                         <td style="display:none"><input type="number" value="@a.lineNo" class="form-control"></td>
 
                                                                                     </tr>
                                                                                 }
 
+                                                                                <tr>
+                                                                                    <td><input type="text" class="form-control"></td>
+                                                                                    <td><input type="text"  class="form-control"></td>
+                                                                                    <td><input type="text"  class="form-control"></td>
+                                                                                    <td><input type="text" class="form-control"></td>
+
+
+                                                                                    <td class="text-center">
+                                                                                        <div class="list-icons">
+                                                                                            <a onclick="addlinetotables1_approved('6')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>|
+                                                                                            <a href="#" onclick="removeline(this)"><i class="icon-cross3 mr-3 icon-1x"></i></a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td style="display:none"><input type="number"  class="form-control"></td>
+
+                                                                                </tr>
 
 
 
@@ -298,7 +315,7 @@
 
                                                                                 </tr>
                                                                             </thead>
-                                                                            <tbody id="table6_edit_approved">
+                                                                            <tbody id="table7_edit_approved">
                                                                                 @foreach (var c in Model.CapacityNeeds)
                                                                                 {
                                                                                     <tr>
@@ -315,7 +332,22 @@
                                                                                     </tr>
                                                                                 }
 
+                                                                                <tr>
+                                                                                    <td><input type="text" class="form-control"></td>
+                                                                                    <td><input type="date"  class="form-control"></td>
+                                                                                    <td><input type="text" class="form-control"></td>
+                                                                                    <td><input type="text"  class="form-control"></td>
 
+
+                                                                                    <td class="text-center">
+                                                                                        <div class="list-icons">
+                                                                                            <a onclick="addlinetotables1_approved('7')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>|
+                                                                                            <a href="#" onclick="removeline(this)"><i class="icon-cross3 mr-3 icon-1x"></i></a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td style="display:none"><input type="number" class="form-control"></td>
+
+                                                                                </tr>
 
 
                                                                             </tbody>
@@ -357,12 +389,12 @@
 
                                                                                 </tr>
                                                                             </thead>
-                                                                            <tbody id="table6_edit_approved">
+                                                                            <tbody id="table8_edit_approved">
                                                                                 @foreach (var p in Model.PersonalQualities)
                                                                                 {
                                                                                     <tr>
                                                                                         <td><input type="text" value="@p.personalDescription" class="form-control"></td>
-                                                                                        <td><input type="number" value="@p.score" class="form-control"></td>
+                                                                                        <td><input type="number" disabled value="@p.score" class="form-control"></td>
                                                                                         <td><input type="text" disabled value="@p.comments" class="form-control"></td>
 
 
@@ -416,12 +448,12 @@
 
                                                                                 </tr>
                                                                             </thead>
-                                                                            <tbody id="table6_edit_approved">
+                                                                            <tbody id="table9_edit_approved">
                                                                                 @foreach (var r in Model.Reflections)
                                                                                 {
                                                                                     <tr>
                                                                                         <td><input type="text" value="@r.reflectionDescription" class="form-control"></td>
-                                                                                        <td><input type="number" value="@r.selfAppraisal" class="form-control"></td>
+                                                                                        <td><input type="text" value="@r.selfAppraisal" class="form-control"></td>
                                                                                         <td><input type="text" disabled value="@r.supervisorsFeedback" class="form-control"></td>
 
 
@@ -523,18 +555,22 @@
                                                       var focus;
         var outcome; var roles = []; var activities = []; var budgetinfo = []; var background; var sections = [];
                                                       debugger;
+        var actionPoints=[]; var capacityNeeds=[]; var personalQualities=[]; var learnings=[];
 
+        var table4; var table5; var table6; var table7; var table8; var table9;
+     
 
-                                                      var table5;
-                                                       var table6;
-
+        table4 = $('#table4_edit_approved tr');
         table5 = $('#table5_edit_approved tr');
         table6 = $('#table6_edit_approved tr');
+        table7 = $('#table7_edit_approved tr');
+        table8 = $('#table8_edit_approved tr');
+        table9 = $('#table9_edit_approved tr');
 
 
 
 
-                                                      table5.each(function () {
+        table4.each(function () {
                                                           var row = $(this);
                                                           //var Statement = {};
                                                           var rowdata =
@@ -550,7 +586,7 @@
 
                                                       activities.push(rowdata);
                                                       });
-        table6.each(function () {
+        table5.each(function () {
             var row = $(this);
             var rowdata =
             {
@@ -563,19 +599,77 @@
             sections.push(rowdata);
         });
 
+        table6.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
 
+                planning: row.find("td:eq(0) input[type='text']").val(),
+                personResponsible: row.find("td:eq(1) input[type='text']").val(),
+                agreedActionPoints: row.find("td:eq(2) input[type='text']").val(),
+                timelines: row.find("td:eq(3) input[type='text']").val(),
+                lineNo: row.find("td:eq(5) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            actionPoints.push(rowdata);
+        });
+
+        table7.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
+
+                capacity: row.find("td:eq(0) input[type='text']").val(),
+                completionDate: row.find("td:eq(1) input[type='date']").val(),
+                capacityNeedsDescription: row.find("td:eq(2) input[type='text']").val(),
+                remedialMeasures: row.find("td:eq(3) input[type='text']").val(),
+                lineNo: row.find("td:eq(5) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            capacityNeeds.push(rowdata);
+        });
+
+        table8.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
+
+                staffRating: row.find("td:eq(2) input[type='number']").val(),
+                lineNo: row.find("td:eq(5) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            personalQualities.push(rowdata);
+        });
+        table9.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
+
+                selfAppraisal : row.find("td:eq(1) input[type='text']").val(),
+                lineNo: row.find("td:eq(4) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            learnings.push(rowdata);
+        });
 
 
         $.ajax({
-                                                  type: "POST",
+            type: "POST",
             url: "/Home/UpdateAppraisal",
             data: JSON.stringify({
 
-                                                      reviewFrom: $('#reviewPeriodFrom_edit').val(),
+                reviewFrom: $('#reviewPeriodFrom_edit').val(),
                 reviewTo: $('#reviewPeriodTo_edit').val(),
                 no: $('#appraisal_no_released').text(),
                 Performance: activities,
-                Sections: sections
+                CapacityNeeds: capacityNeeds,
+                ActionPoints: actionPoints,
+                Sections: sections,
+                Reflections: learnings
             }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -604,33 +698,21 @@
 
 
 
-                                              function addlinetotables1_edit(number) {
-                                                  if (number == '1') {
-                                                      var temp = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
-            $('#msobjectives').append(temp);
-                                                  }
-                                                  else if (number == '6') {
-                                                      var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><select class='form-control'></select></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(6) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
-            $('#table6').append(temp6);
-                                                  }
-                                                  else if (number == '5') {
-                                                      var temp5 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables1_edit(5) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
-            $('#table5_edit_released').append(temp5);
-                                                  }
-                                                  else if (number == '4') {
-                                                      var temp4 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(4) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
-            $('#table4').append(temp4);
-                                                  }
-                                                  else if (number == '3') {
-                                                      var temp3 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(3) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
-            $('#table3').append(temp3);
-                                                  }
-                                                  else if (number == '2') {
-                                                      var temp2 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(2) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
-            $('#table2').append(temp2);
-                                                  }
+    function addlinetotables1_approved(number)
+    {
 
-                                              }
+        if (number == '6')
+        {
+            var temp = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables1_approved(6) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+            $('#table6_edit_approved').append(temp);
+        }
+        else if (number == '7')
+        {
+            var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='date' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables1_approved(7) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table7_edit_approved').append(temp6);
+        }
+        
+    }
 
 
     $(document).ready(function(){
