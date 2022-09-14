@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title> - Self Service</title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="~/global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/layout.min.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/components.min.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+	<!-- Global stylesheets -->
+	
+	<!-- /global stylesheets -->
+	<!-- Core JS files -->
+	<script src="~/global_assets/js/main/jquery.min.js"></script>
+	<script src="~/global_assets/js/main/bootstrap.bundle.min.js"></script>
+	<script src="~/global_assets/js/plugins/loaders/blockui.min.js"></script>
+	<script src="~/global_assets/js/plugins/ui/ripple.min.js"></script>
+	<!-- /core JS files -->
+	<!-- Theme JS files -->
+	<script src="~/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+	<script src="~/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+	<script src="~/global_assets/js/plugins/forms/styling/switchery.min.js"></script>
+	<script src="~/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+	<script src="~/global_assets/js/plugins/pickers/daterangepicker.js"></script>
+
+	<script src="~/assets/js/app.js"></script>
+	<script src="~/global_assets/js/demo_pages/dashboard.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/streamgraph.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/sparklines.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/lines.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/areas.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/donuts.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/bars.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/progress.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/heatmaps.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/pies.js"></script>
+	<script src="~/global_assets/js/demo_charts/pages/dashboard/light/bullets.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="~/global_assets/js/plugins/forms/inputs/touchspin.min.js"></script>
+	<script src="~/global_assets/js/main/jquery.min.js"></script>
+
+	<!-- Load Bootstrap -->
+	<script src="~/global_assets/js/main/bootstrap.min.js"></script>
+	<!-- Load jQuery -->
+	<script src="~/global_assets/js/main/jquery.min.js"></script>
+
+	<!-- Load plugin -->
+	<script src="~/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script src="~/global_assets/js/demo_pages/datatables_advanced.js"></script>
+
+	<!-- Load plugin -->
+	<script src="~/global_assets/js/plugins/forms/styling/switch.min.js"></script><!-- /theme JS files -->
+	<script src="https://ajax.googleapis.com/ajax/libs/d3js/5.9.0/d3.min.js"></script>
+   
+    <script src="~/global_assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
+    <script src="~/global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
+    <script src="~/global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
+	
+	<!-- /theme JS files -->
+    <script src="~/global_assets/js/plugins/notifications/pnotify.min.js"></script>
+    <script src="~/global_assets/js/demo_pages/extra_pnotify.js"></script>
+    <script src="~/Content/base.js"></script>
+</head>
+
+<body>
+	
+   
+	<div class="navbar navbar-expand-md navbar-dark bg-green navbar-static">
+		<div class="d-md-none">
+			@*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-footer">
+			<i class="icon-tree5"></i>
+		</button>*@
+			<button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+				<i class="icon-paragraph-justify3"></i>
+			</button>
+		</div>
+		<span class="navbar-text ml-md-5">
+			SELF SERVICE PORTAL
+		</span>
+		<div class="collapse navbar-collapse" id="navbar-mobile">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a href="#" class="navbar-nav-link sidebar-control sidebar-main-toggle d-none d-md-block">
+						<i class="icon-paragraph-justify3"></i>
+					</a>
+				</li>
+			</ul>
+
+			<span class="navbar-text ml-md-3">
+				<span class="badge badge-mark border-orange-300 mr-2"></span>
+				@Session["username"].ToString()
+			</span>
+
+			<ul class="navbar-nav ml-md-auto">
+				<li class="nav-item">
+					<a href="@Url.Action("../login/logout")" class="navbar-nav-link">
+						<i class="icon-switch2"></i>
+						<span class="d-md-none ml-2">Logout</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="page-content">
+		<div class="sidebar sidebar-light sidebar-main sidebar-expand-md">
+
+			<!-- Sidebar mobile toggler -->
+			<div class="sidebar-mobile-toggler text-center">
+				<a href="#" class="sidebar-mobile-main-toggle">
+					<i class="icon-arrow-left8"></i>
+				</a>
+				<span class="font-weight-semibold">Navigation</span>
+				<a href="#" class="sidebar-mobile-expand">
+					<i class="icon-screen-full"></i>
+					<i class="icon-screen-normal"></i>
+				</a>
+			</div>
+			<!-- /sidebar mobile toggler -->
+			<!-- Sidebar content -->
+			<div class="sidebar-content">
+
+				<!-- User menu -->
+				<div class="sidebar-user-material">
+					<div class="sidebar-user-material-body">
+						<div class="card-body text-center">
+							<a href="#">
+								<img src="../../../../global_assets/images/backgrounds/gok.png" class="img-fluid rounded-circle shadow-1 mb-3" width="80" height="80" alt="">
+							</a>
+							<h6 class="mb-0 text-white text-shadow-dark"></h6>
+							<span class="font-size-sm text-white text-shadow-dark"></span>
+						</div>
+						<div class="sidebar-user-material-footer">
+							<a href="#user-nav" class="d-flex justify-content-between align-items-center text-shadow-dark dropdown-toggle" data-toggle="collapse"><span>My account</span></a>
+						</div>
+					</div>
+					<div class="collapse" id="user-nav">
+						<ul class="nav nav-sidebar">
+							<li class="nav-item">
+								<a href="#" class="nav-link">
+									<i class="icon-user-plus"></i>
+									<span>My profile</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link">
+									<i class="icon-cog5"></i>
+									<span>Account settings</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link">
+									<i class="icon-switch2"></i>
+									<span>Logout</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /user menu -->
+				<!-- Main navigation -->
+				<div class="card card-sidebar-mobile">
+					<ul class="nav nav-sidebar" data-nav-type="accordion">
+
+						<!-- Main -->
+						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
+						<li class="nav-item">
+							<a href="@Url.Action("index","home")" class="nav-link active">
+								<i class="icon-home4"></i>
+								<span>
+									Dashboard
+								</span>
+							</a>
+						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Finance</span></a>
+
+
+							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Imprest requests</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("Index", "Imprest")" class="nav-link">New Imprest requests</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingimprests", "Imprest")" class="nav-link">Pending imprest requests</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedimprests", "Imprest")" class="nav-link">Approved imprest requests</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("Postedimprests", "Imprest")" class="nav-link">Posted imprest requests</a></li>
+                                    </ul>
+                                </li>
+                              
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Imprest surrender</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("index", "ImprestAccounting")" class="nav-link">New imprest surrender</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingimprestsurrender", "ImprestAccounting")" class="nav-link">Pending imprest surrender</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedimprestsurrender", "ImprestAccounting")" class="nav-link">Approved imprest surrender</a></li>
+
+                                    </ul>
+                                </li>
+                                        <li class="nav-item"><a href="@Url.Action("pettycashbank", "PettyCash")" class="nav-link">Petty cash batch</a></li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Payment memos</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("openPaymentMemos", "PaymentMemo")" class="nav-link">Open payment memos</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingPaymentMemos", "PaymentMemo")" class="nav-link">Pending payment memos</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("releasedPaymentMemos", "PaymentMemo")" class="nav-link">Released payment memos</a></li>
+                                     </ul>
+                                </li>
+							
+							</ul>
+						</li>
+						<!--Common activities-->
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-list-ordered"></i> <span>Procurement</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Purchase requests</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("openPurchases", "Purchase")" class="nav-link">New Purchase requests</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingpurchases", "Purchase")" class="nav-link">Pending Purchase requests</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedpurchase", "Purchase")" class="nav-link">Approved Purchase requests</a></li>
+
+                                    </ul>
+                                </li>
+								
+                           
+								
+								
+							</ul>
+						</li>
+						<!---End-->
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>HR</span></a>
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+
+
+                                <li class="nav-item"><a href="@Url.Action("PaymentInformation", "Home")" class="nav-link">Payment information</a></li>
+                                <li class="nav-item"><a href="@Url.Action("payslip", "Home")" class="nav-link">Pay slip</a></li>
+                                <li class="nav-item"><a href="@Url.Action("p9report", "Home")" class="nav-link">P9 Report</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Leaveinformation", "Home")" class="nav-link">Leave Information</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Index", "leave")" class="nav-link active">Leave Application</a></li>
+                                <li class="nav-item"><a href="@Url.Action("leavependingapproval", "leave")" class="nav-link active">Leave Pending Approval</a></li>
+                                <li class="nav-item"><a href="@Url.Action("LeaveApproved", "leave")" class="nav-link active">Leave Approved</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Leaverejected", "leave")" class="nav-link active">Leave rejected</a></li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Appraisal</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("appraisallist", "Home")" class="nav-link active">New Appraisal plan</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingappraisallist", "Home")" class="nav-link active">Pending Appraisal plain</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedappraisallist", "Home")" class="nav-link active">Performance appraisal</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedappraisallist", "Home")" class="nav-link active">Pending performance appraisal</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedappraisallist", "Home")" class="nav-link active">Approved performance appraisal</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedappraisallist", "Home")" class="nav-link active">Closed appraisal</a></li>
+
+                                    </ul>
+                                </li>
+                                
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Induction list</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("pending_induction", "Home")" class="nav-link">Pending induction</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("completed_induction", "Home")" class="nav-link">Completed induction</a></li>
+
+
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a href="@Url.Action("exitinterview", "Home")" class="nav-link active">Exit interview</a></li>
+
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Training</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("trainingscheduleOPen", "Training")" class="nav-link">Open training schedule</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("trainingscheduleDone", "Training")" class="nav-link">Done training schedule</a></li>
+
+                                        <li class="nav-item"><a href="@Url.Action("index", "Training")" class="nav-link">New training requests</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pending", "Training")" class="nav-link">Pending training requests</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+						</li>
+                       
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Mission proposals</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Starter kit">
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Mission proposals</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("openMissionProposals", "Imprest")" class="nav-link">New mission proposals</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingProposals", "Imprest")" class="nav-link"> Pending mission proposals</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedProposals", "Imprest")" class="nav-link"> Approved mission proposals</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("completedProposals", "Imprest")" class="nav-link">Completed mission proposals</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Approvals</span></a>
+
+							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
+								<li class="nav-item"><a href="@Url.Action("Index", "Approval")" class="nav-link">Pending Approval</a></li>
+								<li class="nav-item"><a href="@Url.Action("Approved", "Approval")" class="nav-link">Approved</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- /main navigation -->
+
+			</div>
+			<!-- /sidebar content -->
+
+		</div>
+		<!-- Main sidebar -->
+		<!-- /main sidebar -->
+		<!-- Main content -->
+		<div class="content-wrapper">
+
+			<!-- Page header -->
+			<!-- /page header -->
+			<!-- Content area -->
+			<div class="content">
+
+
+				@*Main page*@
+				<br />
+				@RenderBody()
+
+
+			</div>
+			<!-- /content area -->
+			<!-- Footer -->
+			<div class="navbar navbar-expand-lg navbar-light">
+				<div class="text-center d-lg-none w-100">
+					<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+						<i class="icon-unfold mr-2"></i>
+						Footer
+					</button>
+				</div>
+
+				<div class="navbar-collapse collapse" id="navbar-footer">
+					<span class="navbar-text">
+						&copy; @DateTime.Today.Year<a href="#"></a> by
+					</span>
+
+
+				</div>
+			</div>
+			<!-- /footer -->
+
+		</div>
+		<!-- /main content -->
+
+	</div>
+	<!-- /page content -->
+	<script type="text/javascript">
+	//session end
+		var sessionTimeoutWarning = @Session.Timeout - 1;
+		var sTimeout = parseInt(sessionTimeoutWarning) * 60 * 1000;
+		setTimeout('SessionEnd()', sTimeout);
+
+		function SessionEnd() {
+			window.location.hostname = "";
+			 @*$(window.Location).attr("href", "@Url.Content("~/Login/index/")");*@
+			window.location = "/Login/index/";
+		}
+	</script>
+
+</body>
+</html>

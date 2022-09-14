@@ -1,0 +1,31 @@
+﻿@model mmmSelfservice.Models.timesheet
+
+@foreach (var item in Model.Timesheetlines)
+{
+    <tr>
+        <td><input type="datetime-local" value="@item.fromdate.ToString("yyyy-MM-ddTHH:mm")" /></td>
+        <td><input type="datetime-local" value="@item.todate.ToString("yyyy-MM-ddTHH:mm")" /></td>
+        <td></td>
+        <td><textarea rows="2">@item.comments</textarea></td>
+        <td class="text-center">
+            <div class="list-icons">
+                <a onclick="addrow()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+            </div>
+        </td>
+        <td style="display:none"><input type="number" value="@item.entryno"/></td>
+    </tr>
+}
+<tr>
+    <td><input type="datetime-local" /></td>
+    <td><input type="datetime-local" /></td>
+    <td></td>
+    <td><textarea rows="2"></textarea></td>
+    <td class="text-center">
+        <div class="list-icons">
+            <a onclick="addrow()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+        </div>
+    </td>
+    <td style="display:none"></td>
+</tr>

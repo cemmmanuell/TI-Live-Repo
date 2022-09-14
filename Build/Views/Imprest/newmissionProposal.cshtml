@@ -1,0 +1,617 @@
+﻿<div id="modal_backdrop" class="modal fade" tabindex="-1" style="display: none;">
+    <div class="modal-dialog modal-full">
+        <div id="msproporsal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New mission proposal</h5>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12" data-select2-id="81">
+                            <div data-select2-id="80">
+
+
+                                <div class="card-body" data-select2-id="79">
+
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="#basic-tab1" class="nav-link active" data-toggle="tab">General</a></li>
+                                        <li class="nav-item"><a href="#basic-tab4" class="nav-link" data-toggle="tab">Mission objectives</a></li>
+                                        <li class="nav-item"><a href="#basic-tab3" class="nav-link" data-toggle="tab">Team roles</a></li>
+                                        <li class="nav-item"><a href="#basic-tab2" class="nav-link" data-toggle="tab">Activities</a></li>
+                                       
+                                        
+                                        <li class="nav-item"><a href="#basic-tab5" class="nav-link" data-toggle="tab">Budget information</a></li>
+                                        <li class="nav-item"><a href="#basic-tab7" class="nav-link" data-toggle="tab">Budget notes</a></li>
+                                    </ul>
+
+                                    <div class="row" data-select2-id="78">
+                                        <div class="tab-content col-md-12">
+                                            <div class="tab-pane fade active show" id="basic-tab1">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Strategic focus area:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="strategicfocusarea10">@Html.Action("strategicfocusareas")</select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Sub pillar:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="subpillar10">@Html.Action("subpillar")</select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Fund code:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="department10" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'department10')">@Html.Action("department")</select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Program code:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="programcode10">@Html.Action("departmentvalue")</select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Budget lines code:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="programcodes form-control" id="budgetdimension"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Budget category:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="budgetdescription">@Html.Action("budgetdescription", "imprest")</select>
+                                                                    </div>
+                                                                </div>
+                                                              
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Country:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="country10">@Html.Action("country")</select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">County:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="county10">@Html.Action("county")</select>
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                            
+                                                            <div class="col-md-6">
+                                                               <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Department:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="departmentdimesion">@Html.Action("departments", "imprest")</select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Project title:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <input type="text" id="projectittle10" class="form-control" />
+                                                                    </div>
+                                                                </div>
+
+                                                               
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Date(s) of activity:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <input type="text" id="dateofactivity10" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Mission team:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <input type="text" id="missionteam10" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Invited members/ Partners:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <input type="text" id="invitedmembers10" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Back ground:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <textarea id="background" class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Contribution to TI strategic focus:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <textarea id="itstrategicfocus" class="form-control"></textarea>
+                                                                    </div>
+                                                                    <div class="col-lg-9" style="display:none">
+                                                                        <div class="table-responsive" style="display:none">
+                                                                            <table class="table">
+                                                                                <thead>
+                                                                                    <tr>
+
+                                                                                        <th class="col-xs-1"></th>
+                                                                                        <th class="col-xs-1">Action</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody id="table2">
+                                                                                    <tr>
+                                                                                        <td><input type="text" class="form-control"></td>
+
+                                                                                        <td class="text-center">
+                                                                                            <div class="list-icons">
+                                                                                                <a onclick="addlinetotables('2')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td><input type="text" class="form-control"></td>
+
+                                                                                        <td class="text-center">
+                                                                                            <div class="list-icons">
+                                                                                                <a onclick="addlinetotables('2')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Mission outcome :</label>
+                                                                    <div class="col-lg-9">
+                                                                        <textarea id="missionoutcome" class="form-control"></textarea>
+                                                                    </div>
+                                                                    <div class="col-lg-9" style="display:none">
+
+
+                                                                        <div class="table-responsive">
+                                                                            <table class="table" style="display:none">
+                                                                                <thead>
+                                                                                    <tr>
+
+                                                                                        <th class="col-xs-1"></th>
+                                                                                        <th class="col-xs-1">Action</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody id="table3">
+                                                                                    <tr>
+                                                                                        <td><input type="text" class="form-control"></td>
+
+                                                                                        <td class="text-center">
+                                                                                            <div class="list-icons">
+                                                                                                <a onclick="addlinetotables('3')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td><input type="text" class="form-control"></td>
+
+                                                                                        <td class="text-center">
+                                                                                            <div class="list-icons">
+                                                                                                <a onclick="addlinetotables('3')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+
+                                                                                </tbody>
+                                                                            </table>
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div>
+
+                                                            
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="basic-tab2">
+                                                <div class="form-group row">
+
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th class="col-xs-1">Date</th>
+                                                                        <th class="col-xs-1">Activity</th>
+                                                                        <th class="col-xs-1">Duration</th>
+                                                                        <th class="col-xs-1">Output</th>
+                                                                        <th class="col-xs-1">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="table5">
+                                                                    <tr>
+                                                                        <td><input type="date" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="number" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td class="text-center">
+                                                                            <div class="list-icons">
+                                                                                <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="basic-tab7">
+                                                <div class="form-group row">
+                                                  
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th class="col-xs-1">Details</th>
+                                                                        <th class="col-xs-1">Vendor 1</th>
+                                                                        <th class="col-xs-1">Vendor 2</th>
+                                                                        <th class="col-xs-1">Vendor 3</th>
+                                                                        <th class="col-xs-1">Comments</th>
+                                                                        <th class="col-xs-1">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="table7">
+                                                                    <tr>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td class="text-center">
+                                                                            <div class="list-icons">
+                                                                                <a onclick="addlinetotables('7')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="basic-tab3">
+                                                <div class="form-group row">
+                                                  
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+
+                                                                    <tr>
+
+                                                                        <th class="col-xs-1">Name</th>
+                                                                        <th class="col-xs-1">Responsibilities</th>
+                                                                        <th class="col-xs-1">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="table4">
+                                                                    <tr>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td class="text-center">
+                                                                            <div class="list-icons">
+                                                                                <a onclick="addlinetotables('4')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td class="text-center">
+                                                                            <div class="list-icons">
+                                                                                <a onclick="addlinetotables('4')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="basic-tab4">
+                                                <div class="form-group row">
+                                                   
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-lg">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th class="col-xs-1">Mission objectives</th>
+                                                                        <th class="col-xs-1"></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="msobjectives">
+                                                                    <tr>
+
+                                                                        <td><input type="text" class="form-control"></td>
+
+                                                                        <td class="text-center">
+                                                                            <div class="list-icons">
+                                                                                <a onclick="addlinetotables('1')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td><input type="text" class="form-control"></td>
+
+                                                                        <td class="text-center">
+                                                                            <div class="list-icons">
+                                                                                <a onclick="addlinetotables('1')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="basic-tab5">
+                                                <div class="form-group row">
+                                                    
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th class="col-xs-1">Budget item</th>
+                                                                        <th class="col-xs-1">Identified vendor</th>
+                                                                        <th class="col-xs-1">No. of days</th>
+                                                                        <th class="col-xs-1">No. of pax</th>
+                                                                        <th class="col-xs-1">Unit cost</th>
+                                                                        <th class="col-xs-1">Currency</th>
+                                                                        <th class="col-xs-1">Total cost</th>
+                                                                        <th class="col-xs-1" style="display:none">Total Other currency</th>
+                                                                        <th class="col-xs-1">Mission expense category</th>
+                                                                        <th class="col-xs-1">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="table6">
+                                                                    <tr>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="number" oninput="validateiens(this)" class="form-control"></td>
+                                                                        <td><input type="number"  oninput="validateiens(this)" class="form-control"></td>
+                                                                        <td><input type="number" oninput="validateiens(this)"  class="form-control"></td>
+                                                                        <td><select class="form-control">@Html.Action("currencies")</select></td>
+                                                                        <td><input type="number" disabled="disabled" class="totalprice form-control"></td>
+                                                                        <td   style="display:none"><input type="number" class="form-control"></td>
+                                                                        <td><select class="form-control" id="type">@Html.Action("expensecategories")</select></td>
+                                                                        <td class="text-center">
+                                                                            <div class="list-icons">
+                                                                                <a onclick="addlinetotables('6')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="text" class="form-control"></td>
+                                                                        <td><input type="number" oninput="validateiens(this)"  class="form-control"></td>
+                                                                        <td><input type="number" oninput="validateiens(this)"  class="form-control"></td>
+                                                                        <td><input type="number"  oninput="validateiens(this)"  class="form-control"></td>
+                                                                        <td><select class="form-control" >@Html.Action("currencies")</select></td>
+                                                                        <td><input type="number" disabled="disabled" class="totalprice form-control"></td>
+                                                                        <td   style="display:none"><input type="number" class="form-control"></td>
+                                                                        <td><select class="form-control" id="type">@Html.Action("expensecategories")</select></td>
+                                                                        <td class="text-center">
+                                                                            <div class="list-icons">
+                                                                                <a onclick="addlinetotables('6')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+
+                                                                <tfooter>
+                                                                    <tr>
+                                                                        <td colspan="6">Totals:</td>
+                                                                        <td><input type="number" class="priceTotal form-conrol" disabled="disabled" /></td>
+
+                                                                    </tr>
+
+                                                               </tfooter>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    
+                    <button type="button"  class="btn bg-primary legitRipple" onclick="insertproporsal100000()" >Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function insertproporsal100000() {
+
+        var objectives = [];
+        var focus;
+        var outcome; var roles = []; var activities = []; var budgetinfo = []; var background; var budgetnotes = [];
+        debugger;
+
+        focus = $('#itstrategicfocus').val();
+        outcome = $('#missionoutcome').val();
+        background = $('#background').val();
+
+        var table1, table2, table3, table4, table5, table6;
+
+        table1 = $('#msobjectives tr');
+        table2 = $('#table2 tr');
+        table3 = $('#table3 tr');
+        table4 = $('#table4 tr');
+        table5 = $('#table5 tr');
+        table6 = $('#table6 tr');
+        table7 = $('#table7 tr');
+        table1.each(function () {
+            var row = $(this);
+            //var Statement = {};
+            var rowdata = row.find("td:eq(0) input[type='text']").val();
+
+            objectives.push(rowdata);
+        });
+      table4.each(function () {
+           var row = $(this);
+           //var Statement = {};
+           var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='text']").val();
+
+           roles.push(rowdata);
+       }); table5.each(function () {
+           var row = $(this);
+           //var Statement = {};
+           var rowdata = row.find("td:eq(0) input[type='Date']").val() + '??' + row.find("td:eq(1) input[type='text']").val() + '??'+ row.find("td:eq(2) input[type='number']").val() + '??' + row.find("td:eq(3) input[type='text']").val();
+
+           activities.push(rowdata);
+       }); table6.each(function () {
+           var row = $(this);
+           //var Statement = {};
+           var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='text']").val() + '??' + row.find("td:eq(2) input[type='number']").val() + '??' + row.find("td:eq(3) input[type='number']").val() + '??' + row.find("td:eq(4) input[type='number']").val() + '??' + row.find("td:eq(5) select option:selected").val() + '??' + row.find("td:eq(8) select option:selected").val();
+
+           budgetinfo.push(rowdata);
+       });
+
+       table7.each(function () {
+           var row = $(this);
+           //var Statement = {};
+           var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='text']").val() + '??' + row.find("td:eq(3) input[type='text']").val() + '??' + row.find("td:eq(4) input[type='text']").val() + '??' + row.find("td:eq(4) input[type='number']").val() + '??';
+
+           budgetnotes.push(rowdata);
+       });
+
+        $.ajax({
+            type: "POST",
+            url: "/Imprest/insertmissionproposal",
+            data:JSON.stringify( { strategicfocusarea: $('#strategicfocusarea10 option:selected').val(),
+                 subpillar: $('#subpillar10 option:selected').val(), projecttitle:
+               $('#projectittle10').val(),country: $('#country10 option:selected').val(),
+               county: $('#county10 option:selected').val(),dateofactivities:
+                $('#dateofactivity10').val() ,missionteam: $('#missionteam10').val(),
+               invitedmembers:  $('#invitedmembers10').val(), fundcode:
+                 $('#department10 option:selected').val() , programcode: $('#programcode10 option:selected').val()
+                ,budgetdimension: $('#budgetdimension option:selected').val(),
+                departmentdimension: $('#departmentdimesion option:selected').val()
+               ,budgetdescription:  $('#budgetdescription option:selected').val(),
+                objectives: objectives , focus: focus
+               , outcome: outcome, roles: roles, activities: activities, budgetinfo: budgetinfo, background: background, budgetnotes: budgetnotes
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+                if (response.status == true) {
+                    alert('Saved succesfuly');
+
+                    window.location.href = '/Imprest/openMissionProposals';
+
+                } else {
+                    alert(resonse.message);
+
+
+
+                }
+
+            }
+
+        });
+    }
+
+
+
+    function addlinetotables(number) {
+        debugger;
+        if (number == '1') {
+            var temp = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a></div></td></tr>";
+            $('#msobjectives').append(temp);
+        }
+        else if (number == '6') {
+           
+            var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><select class='currencies form-control'>@Html.Raw("currencies")</select></td><td><input type='number' disabled='disabled' class='totalprice form-control'></td><td  style='display:none'><input type='number' class='form-control'></td><td><select class='expensecategories form-control'></select></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(6) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            loadropdown('.currencies', '@Url.Action("currencies")');
+            loadropdown('.expensecategories', '@Url.Action("expensecategories")');
+            $('#table6').append(temp6);
+
+        }
+        else if (number == '5') {
+            var temp5 = "<tr><td><input type='date' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(5) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table5').append(temp5);
+        }
+        else if (number == '4') {
+            var temp4 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(4) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table4').append(temp4);
+        }
+        else if (number == '3') {
+            var temp3 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(3) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+            $('#table3').append(temp3);
+        }
+        else if (number == '2') {
+            var temp2 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(2) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+            $('#table2').append(temp2);
+        }
+        else if (number == '7') {
+            var temp7 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(7) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table7').append(temp7);
+        }
+
+    }
+
+
+</script>

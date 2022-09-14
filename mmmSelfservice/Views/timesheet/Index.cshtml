@@ -1,0 +1,191 @@
+﻿
+@{
+    ViewBag.Title = "Petty Cash";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Time sheet information</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="@Url.Action("index")" class="breadcrumb-item">Timesheet information</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="card-title">Timesheet entries</h6>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Year:</label><select id="year" class="form-control">@Html.Action("years")</select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>Project:</label><select id="project" class="form-control">@Html.Action("departmentvalue", "imprest")</select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <button class="btn btn-primary" onclick="filter()">Filter</button>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="row col-md-12">
+                            <div class="col-md-12">
+                                <table class="table datatable-show-all">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                From date and time
+                                            </th>
+                                            <th>
+                                                To date and time
+                                            </th>
+                                            <th>Status</th>
+                                            <th>
+                                                Comments
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="timesheet">
+                                        <tr>
+                                            <td><input type="datetime-local" /></td>
+                                            <td><input type="datetime-local" /></td>
+                                            <td></td>
+                                            <td><textarea rows="2"></textarea></td>
+                                            <td class="text-center">
+                                                <div class="list-icons">
+                                                    <a onclick="addrow()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                </div>
+                                            </td>
+                                            <td style="display:none"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-success" onClick="insertTimesheet()" >Update timesheet</button>
+    </div>
+</div>
+
+<script>
+    // New row
+    function row() {
+        var r = "";
+        r = r + "<tr><td><input type='datetime-local' /></td>";
+        r = r + "<td><input type='datetime-local' /></td><td></td>";
+        r = r + "<td><textarea rows='2'></textarea></td>";
+        r = r + "<td class='text-center'>";
+        r = r + "<div class='list-icons'> <a onclick='addrow()' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a> </div> </td><td style='display: none'></td> </tr>";
+
+        return r;
+    }
+
+    function addrow() {
+        $('#timesheet').append(row());
+    }
+
+    function insertTimesheet() {
+        const year = parseInt($('#year option:selected').val()); // year
+        const project = $('#project option:selected').val();// Project code
+        var items = []  // Lines
+        const table1 = $('#timesheet tr');
+        table1.each(function ()
+        {
+            var row = $(this);
+            items.push
+                (
+                    {
+                        'fromdate': row.find("td:eq(0) input[type='datetime-local']").val(),
+                        'todate': row.find("td:eq(1) input[type='datetime-local']").val(),
+                        'comments': row.find("td:eq(3) textarea").val(),
+                        'entryno': row.find("td:eq(5) input[type='number']").val()
+                    }
+
+                );
+        }
+        );
+        const obj =
+        {
+            'projectCode': project,
+            'year': year,
+            'Timesheetlines': items
+        }
+        $.ajax({
+            type: "POST",
+            url: "/timesheet/postTimesheet",
+            data: JSON.stringify(obj),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+                if (response.status == true) {
+                    alert('Saved succesfuly');
+
+                    window.location.href = '/timesheet/index';
+
+                } else {
+                    alert(response.message);
+
+
+                }
+
+            }
+
+        });
+    }
+
+    function filter() {
+        const year = parseInt($('#year option:selected').val()); // year
+        const project = $('#project option:selected').val();// Project code
+       
+        $.ajax({
+            type: "POST",
+            url: "/timesheet/FilterIndex",
+            data: JSON.stringify({ 'year': parseInt(year), 'project': project }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+                $('#timesheet').html('');
+                $('#timesheet').html(response);
+
+            }
+
+        });
+    }
+</script>

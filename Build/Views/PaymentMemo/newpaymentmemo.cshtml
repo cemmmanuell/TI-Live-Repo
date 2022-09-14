@@ -1,0 +1,218 @@
+﻿<div id="modal_backdrop" class="modal fade" tabindex="-1" style="display: none;">
+    <div class="modal-dialog modal-full">
+        <div id="msproporsal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New payment memo</h5>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12" data-select2-id="81">
+                            <div data-select2-id="80">
+
+
+                                <div class="card-body" data-select2-id="79">
+
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="#basic-tab1" class="nav-link active" data-toggle="tab">General</a></li>
+                                        
+                                    </ul>
+
+                                    <div class="row" data-select2-id="78">
+                                        <div class="tab-content col-md-12">
+                                            <div class="tab-pane fade active show" id="basic-tab1">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                
+
+                                                                
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Fund code:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="department101" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'department101')">@Html.Action("department", "imprest")</select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Program code:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="programcode101">@Html.Action("departmentvalue", "imprest")</select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Budget lines code:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="programcodes form-control" id="budgetdimension1"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Budget category:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="budgetdescription1">@Html.Action("budgetdescription", "imprest")</select>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Department:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="departmentdimesion1">@Html.Action("departments", "imprest")</select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Misssion proporsal No:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="missionno000212">
+                                                                            <option></option>
+                                                                            @Html.Action("postedmissionproposals", "purchase")
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Purchase requisition No:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="purchasereq10112">
+                                                                            <option></option>
+                                                                            @Html.Action("postedpurchasereq", "purchase")
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Date:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <input type="date" id="dateofactivity101" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Narration:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <textarea id="subject" class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Subject/Ref:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <textarea id="background1" class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                              
+                                                            </div>
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                         
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn bg-primary legitRipple" onclick="insertproporsal100000()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function insertproporsal100000() {
+
+       
+      
+        $.ajax({
+            type: "POST",
+            url: "/PaymentMemo/insertpaymentmemo",
+            data:JSON.stringify( { 
+                 fundcode:
+                 $('#department101 option:selected').val() , programcode: $('#programcode101 option:selected').val()
+                ,budgetdimension: $('#budgetdimension1 option:selected').val(),
+                departmentdimension: $('#departmentdimesion1 option:selected').val()
+               ,budgetdescription:  $('#budgetdescription1 option:selected').val(),
+               date: $('#dateofactivity101').val(), refe: $('#background1').val(), subject:$('#subject').val()
+               , missionproposal: $('#missionno000212 option:selected').val(), purchaserequest: $('#purchasereq10112 option:selected').val()
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+                if (response.status == true) {
+                    alert('Saved succesfuly');
+
+                    window.location.href = '/PaymentMemo/openPaymentMemos';
+
+                } else {
+                    alert(resonse.message);
+
+
+
+                }
+
+            }
+
+        });
+    }
+
+
+
+    function addlinetotables(number) {
+        debugger;
+        if (number == '1') {
+            var temp = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a></div></td></tr>";
+            $('#msobjectives').append(temp);
+        }
+        else if (number == '6') {
+
+            var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><select class='currencies form-control'>@Html.Raw("currencies")</select></td><td><input type='number' disabled='disabled' class='totalprice form-control'></td><td  style='display:none'><input type='number' class='form-control'></td><td><select class='expensecategories form-control'></select></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(6) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            loadropdown('.currencies', '@Url.Action("currencies")');
+            loadropdown('.expensecategories', '@Url.Action("expensecategories")');
+            $('#table6').append(temp6);
+
+        }
+        else if (number == '5') {
+            var temp5 = "<tr><td><input type='date' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(5) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table5').append(temp5);
+        }
+        else if (number == '4') {
+            var temp4 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(4) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table4').append(temp4);
+        }
+        else if (number == '3') {
+            var temp3 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(3) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+            $('#table3').append(temp3);
+        }
+        else if (number == '2') {
+            var temp2 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(2) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+            $('#table2').append(temp2);
+        }
+        else if (number == '7') {
+            var temp7 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(7) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table7').append(temp7);
+        }
+
+    }
+
+
+</script>

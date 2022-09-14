@@ -2281,116 +2281,9 @@
                 return new JsonResult { Data = mt };
             }
         }
-       public PartialViewResult editAppraisal(string no)
-        {
-            try
-            {
-                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-
-                return base.PartialView(model.Where(r=>r.no==no).FirstOrDefault());
-            }
-            catch (Exception e)
-            {
-                List<appraisal> model = new List<appraisal>();
-                return base.PartialView(model);
-            }
-
-        }
-
-        public PartialViewResult editAppraisalReleased(string no)
-        {
-            try
-            {
-                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-
-                return base.PartialView(model.Where(r => r.no == no).FirstOrDefault());
-            }
-            catch (Exception e)
-            {
-                List<appraisal> model = new List<appraisal>();
-                return base.PartialView(model);
-            }
-        }
-        public ActionResult appraisallist()
-        {
-              List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-                return base.View(model.Where(r => r.Status == "Open").ToList());
-           
-        }
-
-        public ActionResult pendingappraisallist()
-        {
-            try
-            {
-                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-                return base.View(model.Where(r => r.Status == "Pending Approval").ToList());
-            }
-            catch (Exception e)
-            {
-                List<appraisal> model = new List<appraisal>();
-                return base.View(model);
-            }
-        }
-
-        public ActionResult approvedappraisallist()
-        {
-            try
-            {
-                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-                return base.View(model.Where(r=>r.Status=="Released").ToList());
-            }
-            catch (Exception e)
-            {
-                List<appraisal> model = new List<appraisal>();
-                return base.View(model);
-            }
-        }
-        public ActionResult missionproporsalreq(string no)
-        {
-            WSConfig.ObjNav.FnApproval(no);
-            return base.RedirectToAction("appraisallist", "Home");
-        }
-        public ActionResult pendingPerformanceAppraisal()
-        {
-            try
-            {
-                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-                return base.View(model.Where(r => r.Status == "Released").ToList());
-            }
-            catch (Exception e)
-            {
-                List<appraisal> model = new List<appraisal>();
-                return base.View(model);
-            }
-        }
-
-        public ActionResult approvedPerformanceAppraisal()
-        {
-            try
-            {
-                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-                return base.View(model.Where(r => r.Status == "Released").ToList());
-            }
-            catch (Exception e)
-            {
-                List<appraisal> model = new List<appraisal>();
-                return base.View(model);
-            }
-        }
-
-        public ActionResult closedPerformanceAppraisal()
-        {
-            try
-            {
-                List<appraisal> model = JsonConvert.DeserializeObject<List<appraisal>>(WSConfig.ObjNav.FnAppraisalList(base.Session["userName"].ToString()));
-                return base.View(model.Where(r => r.Status == "Released").ToList());
-            }
-            catch (Exception e)
-            {
-                List<appraisal> model = new List<appraisal>();
-                return base.View(model);
-            }
-        }
+      
+      
+    
         public ActionResult approvalentries(string documentNo)
         {
             List<mmmSelfservice.Models.approvalentries> model = JsonConvert.DeserializeObject<List<mmmSelfservice.Models.approvalentries>>(WSConfig.ObjNav.FnGetApprovalEntries(documentNo));
@@ -2559,45 +2452,13 @@
             return base.PartialView(model);
         }
 
-        public JsonResult insertAppraisal(appraisal appraisal)
-        {
-            resultMt mt = new resultMt();
-            try
-            {
-                appraisal.emno = Session["userName"].ToString();
-                WSConfig.ObjNav.FnInsertAppraisal(JsonConvert.SerializeObject( appraisal));
-                mt.status = true;
-                return new JsonResult { Data = mt };
-            }
-            catch (Exception e)
-            {
-                mt.status = false;
-                mt.message = e.ToString();
-                return new JsonResult { Data = mt };
-            }
-        }
+      
 
         public PartialViewResult editPlan(string no)
         {
             return PartialView();
         }
-        public JsonResult UpdateAppraisal(appraisal appraisal)
-        {
-            resultMt mt = new resultMt();
-            try
-            {
-                appraisal.emno = Session["userName"].ToString();
-                WSConfig.ObjNav.FnUpdateAppraisal(JsonConvert.SerializeObject(appraisal));
-                mt.status = true;
-                return new JsonResult { Data = mt };
-            }
-            catch (Exception e)
-            {
-                mt.status = false;
-                mt.message = e.ToString();
-                return new JsonResult { Data = mt };
-            }
-        }
+     
         public ActionResult leaveinformation()
         {
             indexinfo model = JsonConvert.DeserializeObject<indexinfo>(WSConfig.ObjNav.FnGetEmployeeDetails(base.Session["username"].ToString()));

@@ -1,0 +1,542 @@
+﻿@model List<mmmSelfservice.Models.pettycashInfo>
+@{
+    ViewBag.Title = "Petty Cash";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Petty Cash batch</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="@Url.Action("index")" class="breadcrumb-item">Petty Cash</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="form-group row">
+                            <label class="col-form-label">Paying Bank:</label>
+                            <div class="col-lg">
+                                <select onchange="onchangebank()" class="form-control text-info" id="bank" required>
+                                    @Html.Action("payingbank")
+                                </select>
+                            </div>
+                        </div>
+                        @*<div class="form-group row">
+                            <label class="col-form-label">Posting date:</label>
+                            <div class="col-lg">
+                                <input class="form-control text-primary" id="postingdate" type="date" />
+                            </div>
+                        </div>*@
+                        @*<div class="form-group row">
+                <label class="col-form-label">Petty cash No:</label>
+                <div class="col-lg">
+                    <input class="form-control text-primary" id="documentno" type="text" />
+                </div>
+            </div>*@
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table datatable-show-all table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Payment description</th>
+                                    <th>Posting date</th>
+                                    <th>External No</th>
+                                    <th>Amount</th>
+                                    <th>Attachment</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jnlline">
+                                @*@Html.Partial("savedjournals")*@
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control text-primary" />
+                                    </td>
+                                    <td>
+                                        <input type="file" class="form-control text-primary" />
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="coi-md-4">
+                        <button type="button" class="btn bg-primary legitRipple" onclick="addjnllines()">Save</button>
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function addlinetotables1() {
+     
+        var temp = "<tr><td><input type='text' class='form-control text-primary'></td><td><input type='number' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a class='list-icons-item'></a></div></td></tr>";
+            $('#jnlline').append(temp);
+      
+       
+
+    }
+
+    function addjnllines() {
+
+      
+        var documentno;
+        var postingdate;
+        var jnllines = [];
+        var payingbank;
+
+        debugger;
+
+        documentno = $('#documentno').val();
+        postingdate = $('#postingdate').val();
+        payingbank = $('#bank option:selected').val();
+
+        var table1;
+
+        table1 = $('#jnlline tr');
+        
+
+        table1.each(function () {
+            var row = $(this);
+            //var Statement = {};
+            var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='date']").val() + '??' + row.find("td:eq(2) input[type='text']").val() + '??' + row.find("td:eq(3) input[type='number']").val() + '??' + row.find("td:eq(5)").val();
+
+            jnllines.push(rowdata);
+        });
+       
+
+
+        $.ajax({
+            type: "POST",
+            url: "/PettyCash/InsertJournals",
+            data: JSON.stringify({
+                Document: documentno,
+                Journals:jnllines,
+               
+                PBank: payingbank
+             
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+                if (response.status == true) {
+                    alert('Saved succesfuly');
+
+                    window.location.href = '/Pettycash/pettycashBank';
+
+                } else {
+                    alert(response.message);
+
+
+                }
+
+            }
+
+        });
+    }
+   
+
+    function onchangebank() {
+        $.ajax({
+            type: "POST",
+            url: "/PettyCash/savedjournals",
+            data: JSON.stringify({
+                payingbank: $('#bank option:selected').val()
+
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+                $('#jnlline').html('');
+                $('#jnlline').before(response);
+
+            }
+
+        });
+    }
+
+</script>

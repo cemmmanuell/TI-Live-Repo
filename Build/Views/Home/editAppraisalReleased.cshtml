@@ -1,0 +1,778 @@
+﻿@model mmmSelfservice.Models.appraisal
+
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12" data-select2-id="81">
+            <div data-select2-id="80">
+                <div class="card-header bg-white header-elements-sm-inline">
+                    <h6 class="card-title"><i class="icon-reading mr-2"></i> Appraisal No:<text id="appraisal_no_released" class="text-primary">@Model.no</text></h6>
+                    <div class="header-elements">
+                        <button type="button" class="btn bg-blue btn-sm legitRipple" onclick="edit_Appraisal()"><i class="icon-checkmark3 mr-2"></i> Save</button>
+                        <div class="btn-group">
+                            <button type="button" class="btn bg-brown dropdown-toggle legitRipple btn-sm" data-toggle="dropdown" aria-expanded="false">More <i class="icon-menu7 ml-2"></i></button>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(152px, 38px, 0px);">
+                                <a href="#" class="dropdown-item"><i class="icon-file-download"></i> Download</a>
+                                <a href="@Url.Action("missionproporsalreq", "PaymentMemo", new { no = Model.no })" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
+                                <a href="#" class="dropdown-item"><i class="icon-folder-remove"></i> Cancel approval</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item"><i class="icon-cancel-circle2"></i> Delete</a>
+                                <a href="#" data-toggle="modal" data-target="#_approvalentries_mission10" class="dropdown-item"><i class="icon-file-check"></i> Approval comments</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" data-select2-id="79">
+
+
+
+                    <div class="row">
+                        <div class="col-md-12" data-select2-id="81">
+                            <div data-select2-id="80">
+
+
+                                <div class="card-body" data-select2-id="79">
+
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="#basic-tab1_edit_released" class="nav-link active" data-toggle="tab">General</a></li>
+                                        <li class="nav-item"><a href="#basic-tab2_edit_released" class="nav-link" data-toggle="tab">Perfomance plan </a></li>
+                                        <li class="nav-item"><a href="#basic-tab3_edit_released" class="nav-link" data-toggle="tab">Appraisal points </a></li>
+                                        <li class="nav-item"><a href="#basic-tab4_edit_released" class="nav-link" data-toggle="tab">Action points </a></li>
+                                        <li class="nav-item"><a href="#basic-tab5_edit_released" class="nav-link" data-toggle="tab">Capacity needs</a></li>
+                                        <li class="nav-item"><a href="#basic-tab6_edit_released" class="nav-link" data-toggle="tab">Personal qualities</a></li>
+                                        <li class="nav-item"><a href="#basic-tab7_edit_released" class="nav-link" data-toggle="tab">Reflections and learnings</a></li>
+                                    </ul>
+
+                                    <div class="row" data-select2-id="78">
+                                        <div class="tab-content col-md-12">
+                                            <div class="tab-pane fade active show" id="basic-tab1_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="col-md-12">
+
+
+                                                                @Html.Action("employeeData")
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Review period from :</label>
+                                                                    <div class="col-lg-9">
+                                                                        <input type="date" id="reviewPeriodFrom_released" value="@Model.reviewFrom.ToString("yyyy-MM-dd")" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Review period to  :</label>
+                                                                    <div class="col-lg-9">
+                                                                        <input type="date" id="reviewPeriodTo_released" value="@Model.reviewTo.ToString("yyyy-MM-dd")" class="form-control" />
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <input type="file" id="FileUpload112" class="form-control" />
+                                                            <div class="form-group row">
+                                                                <div class="col-md-4">
+                                                                    <button class="btn" id="btnUpload112">Upload</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div id="docs1" class="col-md-12">
+                                                                    @Html.Action("uploadeddocuments", "upload", new { documentNo = Model.no })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="basic-tab2_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Key result areas</th>
+                                                                                    <th class="col-xs-1">Key activities</th>
+                                                                                    <th class="col-xs-1">Performance measures</th>
+                                                                                    <th class="col-xs-1">Target</th>
+
+                                                                                    <th class="col-xs-1">Actual achieved</th>
+                                                                                    <th class="col-xs-1">Percentage of rating</th>
+                                                                                    <th class="col-xs-1">Rating</th>
+                                                                                    <th class="col-xs-1">Weighting</th>
+                                                                                    <th class="col-xs-1">Weighting rating</th>
+                                                                                    <th class="col-xs-1">Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table4_edit_approved">
+                                                                                @foreach (var i in Model.Performance)
+                                                                                {
+                                                                                <tr>
+                                                                                    <td><input type="text" value="@i.keyResultAreas" class="form-control"></td>
+                                                                                    <td><input type="text" value="@i.keyActivities" class="form-control"></td>
+                                                                                    <td><input type="text" value="@i.performanceMeasures" class="form-control"></td>
+                                                                                    <td><input type="number" value="@i.target" class="form-control"></td>
+                                                                                    <td><input type="number" value="@i.actualAchieved" class="form-control"></td>
+                                                                                    <td><input type="number" diabled value="@i.percentageOfTarget" class="form-control"></td>
+                                                                                    <td><input type="number" diabled value="@i.rating" class="form-control"></td>
+
+                                                                                    <td><input type="number"  value="@i.weighting" class="form-control"></td>
+                                                                                    <td><input type="number" disbled value="@i.weightingRating" class="form-control"></td>
+
+                                                                                    <td class="text-center">
+                                                                                        <div class="list-icons">
+                                                                                            <a onclick="addlinetotables1_released('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>|
+                                                                                            <a href="#" onclick="removelineAll(this,'@i.lineNo','@i.documentNo')"><i class="icon-cross3 mr-3 icon-1x"></i></a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td style="display:none"><input type="number" value="@i.lineNo" class="form-control"></td>
+
+                                                                                </tr>
+                                                                                }
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="basic-tab3_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Appraisal type</th>
+                                                                                    <th class="col-xs-1">Description</th>
+                                                                                    <th class="col-xs-1">My rating</th>
+                                                                                    <th class="col-xs-1">Supervisor rating </th>
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table5_edit_approved">
+                                                                                @foreach (var s in Model.Sections)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" disbled="disabled" value="@s.appraisalType" class="form-control"></td>
+                                                                                        <td><input type="text" disbled="disabled" value="@s.appraisalDescription" class="form-control"></td>
+                                                                                        <td><input type="number" disbled="disabled" value="@s.staffRating" class="form-control"></td>
+                                                                                        <td><input type="number" disabled="disabled" value="@s.supervisorRating" class="form-control"></td>
+
+
+                                                                                        <td class="text-center">
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@s.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="basic-tab4_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Focus area, Reflections</th>
+                                                                                    <th class="col-xs-1">Person responsible</th>
+                                                                                    <th class="col-xs-1">Agreed action points </th>
+                                                                                    <th class="col-xs-1">Time lines </th>
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table6_edit_approved">
+                                                                                @foreach (var a in Model.ActionPoints)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" value="@a.planning" class="form-control"></td>
+                                                                                        <td><input type="text" value="@a.personResponsible" class="form-control"></td>
+                                                                                        <td><input type="text" value="@a.agreedActionPoints" class="form-control"></td>
+                                                                                        <td><input type="text" value="@a.timelines" class="form-control"></td>
+
+
+                                                                                        <td class="text-center">
+                                                                                           
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@a.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+                                                                                <tr>
+                                                                                    <td><input type="text" class="form-control"></td>
+                                                                                    <td><input type="text"  class="form-control"></td>
+                                                                                    <td><input type="text"  class="form-control"></td>
+                                                                                    <td><input type="text" class="form-control"></td>
+
+
+                                                                                    <td class="text-center">
+                                                                                        <div class="list-icons">
+                                                                                            <a onclick="addlinetotables1_approved('6')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>|
+                                                                                            <a href="#" onclick="removeline(this)"><i class="icon-cross3 mr-3 icon-1x"></i></a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td style="display:none"><input type="number"  class="form-control"></td>
+
+                                                                                </tr>
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="basic-tab5_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Capacity need</th>
+                                                                                    <th class="col-xs-1">By when (Compleion date)</th>
+                                                                                    <th class="col-xs-1">Describe why these should be prioritized </th>
+                                                                                    <th class="col-xs-1">Remedial measures </th>
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table7_edit_approved">
+                                                                                @foreach (var c in Model.CapacityNeeds)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" value="@c.capacity" class="form-control"></td>
+                                                                                        <td><input type="date" value="@c.completionDate" class="form-control"></td>
+                                                                                        <td><input type="text" value="@c.capacityNeedsDescription" class="form-control"></td>
+                                                                                        <td><input type="text" value="@c.remedialMeasures" class="form-control"></td>
+
+
+                                                                                        <td class="text-center">
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@c.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+                                                                                <tr>
+                                                                                    <td><input type="text" class="form-control"></td>
+                                                                                    <td><input type="date"  class="form-control"></td>
+                                                                                    <td><input type="text" class="form-control"></td>
+                                                                                    <td><input type="text"  class="form-control"></td>
+
+
+                                                                                    <td class="text-center">
+                                                                                        <div class="list-icons">
+                                                                                            <a onclick="addlinetotables1_approved('7')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>|
+                                                                                            <a href="#" onclick="removeline(this)"><i class="icon-cross3 mr-3 icon-1x"></i></a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td style="display:none"><input type="number" class="form-control"></td>
+
+                                                                                </tr>
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="basic-tab6_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Personal qualities</th>
+                                                                                    <th class="col-xs-1">Score </th>
+                                                                                    <th class="col-xs-1">Comments </th>
+
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table8_edit_approved">
+                                                                                @foreach (var p in Model.PersonalQualities)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" value="@p.personalDescription" class="form-control"></td>
+                                                                                        <td><input type="number" disabled value="@p.score" class="form-control"></td>
+                                                                                        <td><input type="text" disabled value="@p.comments" class="form-control"></td>
+
+
+
+                                                                                        <td class="text-center">
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@p.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="basic-tab7_edit_released">
+                                                <div class="col-md-12">
+                                                    <form action="#" data-select2-id="77">
+                                                        <div class="row">
+
+                                                            <div class="form-group row">
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+
+                                                                                    <th class="col-xs-1">Please answer the following questions</th>
+                                                                                    <th class="col-xs-1">self appraisal </th>
+                                                                                    <th class="col-xs-1">Supervisor's feedback </th>
+
+                                                                                    <th class="col-xs-1">Action</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="table9_edit_approved">
+                                                                                @foreach (var r in Model.Reflections)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td><input type="text" value="@r.reflectionDescription" class="form-control"></td>
+                                                                                        <td><input type="text" value="@r.selfAppraisal" class="form-control"></td>
+                                                                                        <td><input type="text" disabled value="@r.supervisorsFeedback" class="form-control"></td>
+
+
+
+                                                                                        <td class="text-center">
+                                                                                        </td>
+                                                                                        <td style="display:none"><input type="number" value="@r.lineNo" class="form-control"></td>
+
+                                                                                    </tr>
+                                                                                }
+
+
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div>
+
+
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            @{
+
+                                                //   TODO ADD PERSONAL QUALITIES: (TO BE FILLED BY THE SUPERVISOR)
+                                                //   TODO ADD REFLECTIONS AND LEARNINGS
+
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#btnUpload112').click(function () {
+
+                                                          // Checking whether FormData is available in browser
+                                                          if (window.FormData !== undefined) {
+
+                                                              var fileUpload = $("#FileUpload112").get(0);
+                                                              var files = fileUpload.files;
+
+                                                              // Create FormData object
+                                                              var fileData = new FormData();
+
+                                                              // Looping over all files and add it to FormData object
+                                                              for (var i = 0; i < files.length; i++) {
+                                                                  fileData.append(files[i].name, files[i]);
+                                                              }
+
+                                                              // Adding one more key to FormData object
+                                                              fileData.append('document', $('#pno11').text());
+
+                $.ajax({
+                                                              url: '/Upload/uploadFile',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                                                                      alert(result.message);
+                                                                      LoadData('#docs1', '@Url.Action("uploadeddocuments", "upload", new { documentNo = Model.no })');
+                                                                  },
+                    error: function (err) {
+                                                                      alert(err.statusText);
+                                                                  }
+                                                              });
+                                                          } else {
+                                                              alert("FormData is not supported.");
+                                                          }
+                                                      });
+                                                  });
+
+    function edit_Appraisal() {
+
+                                                      var objectives = [];
+                                                      var focus;
+        var outcome; var roles = []; var activities = []; var budgetinfo = []; var background; var sections = [];
+                                                      debugger;
+        var actionPoints=[]; var capacityNeeds=[]; var personalQualities=[]; var learnings=[];
+
+        var table4; var table5; var table6; var table7; var table8; var table9;
+     
+
+        table4 = $('#table4_edit_approved tr');
+        table5 = $('#table5_edit_approved tr');
+        table6 = $('#table6_edit_approved tr');
+        table7 = $('#table7_edit_approved tr');
+        table8 = $('#table8_edit_approved tr');
+        table9 = $('#table9_edit_approved tr');
+
+
+
+
+        table4.each(function () {
+                                                          var row = $(this);
+                                                          //var Statement = {};
+                                                          var rowdata =
+               {
+                keyResultAreas: row.find("td:eq(0) input[type='text']").val(),
+                keyActivities: row.find("td:eq(1) input[type='text']").val(),
+                performanceMeasures: row.find("td:eq(2) input[type='text']").val(),
+                target: row.find("td:eq(3) input[type='number']").val(),
+                actualAchieved: row.find("td:eq(4) input[type='number']").val(),
+
+                weighting: row.find("td:eq(7) input[type='number']").val(),
+                lineNo: row.find("td:eq(10) input[type='number']").val(),
+                documentNo: $('#appraisal_no').text()
+              }
+
+                                                      activities.push(rowdata);
+                                                      });
+        table5.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
+
+                staffRating: row.find("td:eq(2) input[type='number']").val(),
+                lineNo: row.find("td:eq(5) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            sections.push(rowdata);
+        });
+
+        table6.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
+
+                planning: row.find("td:eq(0) input[type='text']").val(),
+                personResponsible: row.find("td:eq(1) input[type='text']").val(),
+                agreedActionPoints: row.find("td:eq(2) input[type='text']").val(),
+                timelines: row.find("td:eq(3) input[type='text']").val(),
+                lineNo: row.find("td:eq(5) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            actionPoints.push(rowdata);
+        });
+
+        table7.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
+
+                capacity: row.find("td:eq(0) input[type='text']").val(),
+                completionDate: row.find("td:eq(1) input[type='date']").val(),
+                capacityNeedsDescription: row.find("td:eq(2) input[type='text']").val(),
+                remedialMeasures: row.find("td:eq(3) input[type='text']").val(),
+                lineNo: row.find("td:eq(5) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            capacityNeeds.push(rowdata);
+        });
+
+        table8.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
+
+                staffRating: row.find("td:eq(2) input[type='number']").val(),
+                lineNo: row.find("td:eq(5) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            personalQualities.push(rowdata);
+        });
+        table9.each(function () {
+            var row = $(this);
+            var rowdata =
+            {
+
+                selfAppraisal : row.find("td:eq(1) input[type='text']").val(),
+                lineNo: row.find("td:eq(4) input[type='number']").val(),
+                documentNo: $('#appraisal_no_released').text()
+            }
+
+            learnings.push(rowdata);
+        });
+
+
+        $.ajax({
+            type: "POST",
+            url: "/Home/UpdateAppraisal",
+            data: JSON.stringify({
+
+                reviewFrom: $('#reviewPeriodFrom_released').val(),
+                reviewTo: $('#reviewPeriodTo_released').val(),
+                no: $('#appraisal_no_released').text(),
+                Performance: activities,
+                CapacityNeeds: capacityNeeds,
+                ActionPoints: actionPoints,
+                Sections: sections,
+                Reflections: learnings
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                                                          /// alert("You selected: " + response.AuthSuccess);
+                                                          if (response.status == true) {
+                                                              alert('Saved succesfuly');
+
+                                                              window.location.href = '/Home/approvedappraisallist';
+
+                                                          } else {
+                                                              alert(response.message);
+
+
+                                                          }
+
+                                                      }
+
+                                                  });
+    }
+
+
+
+
+
+
+
+
+    function addlinetotables1_approved(number)
+    {
+
+        if (number == '6')
+        {
+            var temp = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables1_approved(6) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+            $('#table6_edit_approved').append(temp);
+        }
+        else if (number == '7')
+        {
+            var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='date' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables1_approved(7) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table7_edit_approved').append(temp6);
+        }
+        
+    }
+
+
+    $(document).ready(function(){
+        $('#btnUpload').click(function () {
+                                                      debugger;
+                                                      // Checking whether FormData is available in browser
+                                                      if (window.FormData !== undefined) {
+
+                                                          var fileUpload = $("#FileUpload1").get(0);
+                                                          var files = fileUpload.files;
+
+                                                          // Create FormData object
+                                                          var fileData = new FormData();
+
+                                                          // Looping over all files and add it to FormData object
+                                                          for (var i = 0; i < files.length; i++) {
+                                                              fileData.append(files[i].name, files[i]);
+                                                          }
+
+                                                          // Adding one more key to FormData object
+                                                          fileData.append('document', $('#pno11').text());
+
+                $.ajax({
+                                                          url: '/Upload/uploadFile',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                                                                  alert(result.message);
+                                                                  LoadData('#docs3', '@Url.Action("uploadeddocuments", "upload", new { documentNo = Model.no })');
+                                                              },
+                    error: function (err) {
+                                                                  alert(err.statusText);
+                                                              }
+                                                          });
+                                                      } else {
+                                                          alert("FormData is not supported.");
+                                                      }
+                                                  });
+                                              });
+</script>
+
+<div class="modal" id="_approvalentries_mission10">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @Html.Action("approvalentries", "Home", new { documentNo = Model.no })
+        </div>
+    </div>
+</div>
+

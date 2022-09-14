@@ -78,7 +78,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -205,6 +207,7 @@
     <Compile Include="Controllers\PaymentMemoController.cs" />
     <Compile Include="Controllers\PettyCashController.cs" />
     <Compile Include="Controllers\PurchaseController.cs" />
+    <Compile Include="Controllers\timesheetController.cs" />
     <Compile Include="Controllers\TrainingController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
@@ -259,6 +262,7 @@
     <Compile Include="Models\SetPasswordViewModel.cs" />
     <Compile Include="Models\standardtexts.cs" />
     <Compile Include="Models\taskgroups.cs" />
+    <Compile Include="Models\timesheet.cs" />
     <Compile Include="Models\TrainingInfo.cs" />
     <Compile Include="Models\TrainingNeedsInfo.cs" />
     <Compile Include="Models\trainingschedule.cs" />
@@ -2251,6 +2255,7 @@
     <Content Include="global_assets\js\polyfills\fetch.min.js" />
     <Content Include="global_assets\js\polyfills\promise.min.js" />
     <Content Include="global_assets\swf\datatables\flashExport.swf" />
+    <Content Include="Readme.txt" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -3267,6 +3272,11 @@
     <Content Include="Views\Home\editAppraisalReleased.cshtml" />
     <Content Include="Views\Home\pendingappraisallist.cshtml" />
     <Content Include="Views\Home\approvedappraisallist.cshtml" />
+    <Content Include="Views\timesheet\Edit.cshtml" />
+    <Content Include="Views\timesheet\FilterIndex.cshtml" />
+    <Content Include="Views\timesheet\Index.cshtml" />
+    <Content Include="Views\timesheet\New.cshtml" />
+    <Content Include="Views\timesheet\years.cshtml" />
     <None Include="Web References\NAVWS\Portals.wsdl" />
     <Content Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -3291,16 +3301,18 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:1047/BC140/WS/Transparency%2520International/Codeunit/Portals">
+    <WebReferenceUrl Include="http://20.87.212.136:8047/SADOBC/WS/TRAINING/Codeunit/Portals">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NAVWS\</RelPath>
-      <UpdateFromURL>http://localhost:1047/BC140/WS/Transparency%2520International/Codeunit/Portals</UpdateFromURL>
+      <UpdateFromURL>http://20.87.212.136:8047/SADOBC/WS/TRAINING/Codeunit/Portals</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>mmmSelfservice_NAVWS_Portals</CachedSettingsPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>

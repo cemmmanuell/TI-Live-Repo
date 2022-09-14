@@ -1,0 +1,53 @@
+﻿@model mmmSelfservice.Models.imprestRinfoModel
+
+
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label">Fund code:</label>
+    <div class="col-lg-9">
+        <select class="form-control" id="department30">
+            <option>@Model.FundCode</option>
+
+            @Html.Action("departmentvalue", "imprest")
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label">Program code:</label>
+    <div class="col-lg-9">
+        <select class="form-control" id="programcode30">
+            <option>@Model.ProgramCode</option>
+            @Html.Action("department", "imprest")
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+        <label class="col-lg-3 col-form-label">Budget dimension:</label>
+        <div class="col-lg-9">
+            <select class="form-control" id="budgetdimension10"><option>@Model.budgetdminesion</option>
+            @Html.Action("budgetdimesion", "imprest")</select>
+        </div>
+    </div>
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label">Budget description:</label>
+    <div class="col-lg-9">
+        <select class="form-control" id="budgetdescription10">
+            <option>@Model.budgetdescription</option>
+            @Html.Action("budgetdescription", "imprest")
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+        <label class="col-lg-3 col-form-label">Department:</label>
+        <div class="col-lg-9">
+            <select class="form-control" id="departmentdimension10"><option>@Model.Department</option>
+            @Html.Action("departments", "imprest")</select>
+        </div>
+    </div>
+
+
+<br />
+<br />
+@Html.Action("imprestsurrenderlines", "ImprestAccounting", new { ImprestNo=Model.No })
+
+
+

@@ -1,0 +1,11 @@
+﻿
+@model IEnumerable<mmmSelfservice.Models.relievers>
+
+
+
+@foreach (var item in Model)
+{
+
+	<option value="@item.EmpNo">@item.Name</option>
+
+}

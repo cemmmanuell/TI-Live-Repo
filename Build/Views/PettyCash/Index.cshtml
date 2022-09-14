@@ -1,0 +1,195 @@
+﻿@model List<mmmSelfservice.Models.pettycashInfo>
+@{
+	ViewBag.Title = "Petty Cash";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+	<div class="page-header-content header-elements-md-inline">
+		<div class="page-title d-flex">
+			<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Petty Cash information</h4>
+			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+		</div>
+	</div>
+	<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+		<div class="d-flex">
+			<div class="breadcrumb">
+				<a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+				<a href="@Url.Action("index")" class="breadcrumb-item">Petty Cash information</a>
+
+			</div>
+			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+		</div>
+		<div class="header-elements d-none">
+		</div>
+	</div>
+</div>
+<br />
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<h6 class="card-title">Petty Cash Application</h6>
+			</div>
+
+			<div class="card-body">
+				<div class="form-group row">
+					<div class="col-lg-12">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card-body">
+									<form action="#">
+										<div class="form-group">
+											<div class="form-group row">
+												<label class="col-form-label">Department Code:</label>
+												<div class="col-lg">
+													<select class="form-control text-info" id="departmentcode" onchange="">
+														@Html.Action("department")
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="form-group row">
+												<label class="col-form-label">Directorate Code":</label>
+												<div class="col-lg">
+													<select class="form-control text-info" id="directoratecode">
+														@Html.Action("departmentvalue")
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="form-group row">
+												<label class="col-form-label">Paying Bank:</label>
+												<div class="col-lg">
+													<select class="form-control text-info" id="bank" required>
+														@Html.Action("payingbank")
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="form-group">
+												<label>Purpose:</label>
+												<textarea rows="3" cols="3" id="purpose" class="form-control" placeholder="Enter your message here" required></textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="form-group">
+												<label>Requested Amount:</label>
+												<input id="requestedamount" class="form-control" placeholder="Enter requested Amount" required />
+											</div>
+										</div>
+										<div class="d-flex justify-content-between align-items-center">
+											<button type="submit" onclick="createPettyCash()" class="btn bg-blue">Submit <i class="icon-paperplane ml-2"></i></button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="imprestId" hidden></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header header-elements-inline">
+				<h6 class="card-title">Petty Cash Information</h6>
+			</div>
+			<div class="card-body">
+				
+					<div class="datatable-header">
+						<table class="table datatable-show-all">
+							<thead class="col-md-8">
+								<tr>
+									<th>No</th>
+									<th>Date</th>
+									<th>Requested Amount</th>
+									<th>Status</th>
+									<th>Department</th>
+									<th>Purpose</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (mmmSelfservice.Models.pettycashInfo data in Model)
+								{
+								<tr>
+									<td>@data.No</td>
+									<td>@data.Date</td>
+									<td>@data.Amount</td>
+									@if (@data.Status == "Pending Approval")
+									{
+										<td><span class="badge bg-info-400">@data.Status</span></td>
+									}
+									else if (@data.Status == "open")
+									{
+										<td><span class="badge bg-blue">@data.Status</span></td>
+									}
+									else
+									{
+										<td><span class="badge bg-green-700">@data.Status</span></td>
+									}
+									<td>@data.DepartmentCode</td>
+									<td>@data.Purpose</td>
+									<td class="text-center">
+										<div class="list-icons">
+											<div class="dropdown">
+												<a href="#" class="list-icons-item" data-toggle="dropdown">
+													<i class="icon-menu9"></i>
+												</a>
+
+												<div class="dropdown-menu dropdown-menu-right">
+													@if (data.Status == "Open")
+													{
+														@Html.ActionLink("Edit", "PettyCashEdit", "PettyCash", new { PettyCashNo = data.No }, new { @class = "dropdown-item" })
+														<a href="@Url.Action("deletePettyCash", new { PettyCashNo = data.No })" class="dropdown-item"><i class="icon-eraser2"></i>Delete</a>
+
+														<a href="@Url.Action("forapproval", new { PettyCashNo = data.No,Approval = "TRUE" })" class="dropdown-item"><i class="icon-file-check"></i>Send approval request</a>
+													}
+													@if (data.Status == "Pending Approval")
+													{
+														<a href="@Url.Action("forapproval", new { PettyCashNo = data.No,Approval = "FALSE"  })" class="dropdown-item"><i class="icon-eraser2"></i>Cancel approval request</a>
+													}
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								}
+
+
+							</tbody>
+						</table>
+					</div>
+				
+				<!-- Iconified modal -->
+				<div id="modal_iconified" class="modal fade" tabindex="-1">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><i class="icon-menu7 mr-2"></i> &nbsp;Imprest Line</h5>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>
+
+							<div class="modal-body">
+
+							</div>
+
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+								<button class="btn bg-primary"><i class="icon-checkmark3 font-size-base mr-1"></i> Save</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /iconified modal -->
+			</div>
+		</div>
+	</div>
+</div>
+

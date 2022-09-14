@@ -1,0 +1,9 @@
+﻿@model IEnumerable<mmmSelfservice.Models.TrainingNeedsInfo>
+@{Layout = null; }
+	<option class="text-blue" value="">Select Training Course </option>
+@foreach (var item in Model)
+{
+	<option class="text-blue" value="@item.Code">@item.Description</option>
+
+}
+

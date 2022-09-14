@@ -1,0 +1,9 @@
+﻿@model IEnumerable<mmmSelfservice.Models.payperiods>
+@{Layout = null; }
+@foreach (var item in Model)
+{
+    <option class="text-info" value="@item.Period">@item.Name</option>
+   
+} 
+
+

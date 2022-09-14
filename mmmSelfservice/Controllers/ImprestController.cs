@@ -451,7 +451,7 @@
         {
             int num2;
             resultMt mt = new resultMt();
-            string documentno = WSConfig.ObjNav.Fninsertimprestnew(programcode, fundcode, purpose, departmentdimension, budgetdimension, budgetdescription, base.Session["username"].ToString(), missionno, purchaseNo);
+            string documentno = WSConfig.ObjNav.Fninsertimprestnew(programcode, fundcode, purpose, departmentdimension, budgetdimension, budgetdescription, base.Session["username"].ToString(), "", "");
             for (int i = 0; i < implines.Count; i = num2 + 1)
             {
                 string[] separator = new string[] { "??" };
@@ -827,7 +827,7 @@
                     if (strArray[5] != "")
                     {
                         int lienno = Convert.ToInt32(strArray[5].ToString());
-                        WSConfig.ObjNav.FninsertimprestModify(programcode, fundcode, purpose, departmentdimension, budgetdimension, budgetdescription, base.Session["username"].ToString(), missionno, purchaseNo, document);
+                        WSConfig.ObjNav.FninsertimprestModify(programcode, fundcode, purpose, departmentdimension, budgetdimension, budgetdescription, base.Session["username"].ToString(), "", "", document);
                         WSConfig.ObjNav.Fnimprestlinemodify(strArray[0].ToString(), strArray[1].ToString(), Convert.ToDecimal(strArray[2].ToString()), strArray[3].ToString(), Convert.ToDecimal(strArray[4].ToString()), document, lienno);
                     }
                     else

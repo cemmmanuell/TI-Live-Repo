@@ -1,0 +1,289 @@
+﻿@model mmmSelfservice.Models.imprestRinfoModel
+
+
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12" data-select2-id="81">
+            <div data-select2-id="80">
+                <div class="card-header bg-white header-elements-sm-inline">
+                    <h6 class="card-title"><i class="icon-reading mr-2"></i> Purchase requisition No:<text  class="text-primary">@Model.No</text></h6>
+                    <div class="header-elements">
+                        @*<button type="button" class="btn bg-blue btn-sm legitRipple" onclick="purchaserequest1111111112()"><i class="icon-checkmark3 mr-2"></i> Save</button>*@
+                        <div class="btn-group">
+                            <button type="button" class="btn bg-brown dropdown-toggle legitRipple btn-sm" data-toggle="dropdown" aria-expanded="false">More <i class="icon-menu7 ml-2"></i></button>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(152px, 38px, 0px);">
+                                <a href="#" data-toggle="modal" data-target="#_approvalentries_purchase" class="dropdown-item"><i class="icon-file-check"></i> Approvals</a>
+                                  <a href="#" class="dropdown-item"><i class="icon-file-download"></i> Download</a>
+
+                                @*<a href="@Url.Action("purchaserequest", "imprest",new {no=Model.No})" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
+                                <a href="#" class="dropdown-item"><i class="icon-folder-remove"></i> Cancel approval</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item"><i class="icon-cancel-circle2"></i> Delele</a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body" data-select2-id="79">
+                    <div class="row" data-select2-id="78">
+                        <div class="col-md-12">
+                            <form action="#" data-select2-id="77">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Fund code:</label>
+                                            <div class="col-lg-9">
+
+                                                <select class="form-control">
+                                                    <option>@Model.ProgramCode</option>
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Program code:</label>
+                                            <div class="col-lg-9">
+                                                <select class="form-control">
+                                                    <option>@Model.FundCode</option>
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Budget line code:</label>
+                                            <div class="col-lg-9">
+                                                <select class="form-control">
+                                                    <option>@Model.budgetdminesion</option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Budget category:</label>
+                                            <div class="col-lg-9">
+                                                <select class="form-control" >
+                                                    <option>@Model.budgetdescription</option>
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Department:</label>
+                                            <div class="col-lg-9">
+                                                <select class="form-control">
+                                                    <option>@Model.departmentdimension</option>
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        @*<div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Project title:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" id="projectittle10" class="form-control" />
+                                                </div>
+                                            </div>*@
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Misssion proporsal No:</label>
+                                            <div class="col-lg-9">
+                                                <select class="form-control">
+                                                    <option>@Model.missionNo</option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Date required:</label>
+                                            <div class="col-lg-9">
+                                                <input type="date" value="@Model.StartDate.ToString("yyyy-MM-dd")" class="form-control" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @Html.Action("requestlinesView", new { purchaseNo = Model.No })
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+       
+        <div class="row">
+            @Html.Action("uploadeddocuments", "upload", new { documentNo = Model.No })
+        </div>
+    </div>
+
+</div>
+<div id="modal_backdroplineEditPurchase" class="modal fade" data-backdrop="false" tabindex="-1" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Request lines</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+
+
+            <div class="card-body" data-select2-id="79">
+                <div class="row" data-select2-id="78">
+                    <div class="col-md-12">
+                        <form action="#" data-select2-id="77">
+                            <div class="row">
+                                <div class="col-md-12">
+
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Type:</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control" id="type13">@Html.Action("expensecategories", "imprest")</select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+
+                                        <label class="col-lg-3 col-form-label">Amount:</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" id="imprestamount13" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <br />
+
+
+
+                            @*<div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
+                                    <div class="col-lg-9">
+                                        <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
+                                        <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                    </div>
+                                </div>*@
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="button" onclick="addline13()" class="btn bg-blue btn-sm legitRipple"><i class="icon-checkmark3 mr-2"></i> Add</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+<script>
+    function purchaserequest1111111112() {
+        var implines = [];
+        $("#tbodyrequestline tr").each(function () {
+            var row = $(this);
+            //var Statement = {};
+            var rowdata = row.find("td").eq(0).text() + "??" + row.find("td").eq(2).text();
+
+            implines.push(rowdata);
+        });
+        alert(implines);
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/Purchase/Updateimprestheader1",
+            data: JSON.stringify({ fundcode: $('#programcode0002 option:selected').val(), programcode: $('#department0002 option:selected').val(), purpose: $('#description0002').val(), implines: implines, daterequired: $('#daterequired0002').val(), budgetdimension: $('#budgetdimension0002 option:selected').val(), departmentdimension: $('#departmentdimension0002 option:selected').val(), budgetdescription: $('#budgetdescription0002 option:selected').val(), missiono: $('#missionno0002 option:selected').val(), no: $('#reqno0002').text() }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                if (response.status == true) {
+
+                    alert('Changes saved');
+
+                } else {
+
+
+
+                }
+
+            }
+
+        });
+    }
+
+    function addline12() {
+
+        var tblstring = '<tr><td>' + $('#type1 option:selected').val() + '</td><td>' + $('#type1 option:selected').text() + '</td><td>' + $('#imprestamount1').val() + '</td><td><button type="button" onclick="removeline()" class="btn bg-blue btn-sm legitRipple"><i class="icon-checkmark3 mr-2">Remove</button></td></tr>';
+
+        $('#tbodyrequestline').append(tblstring)
+
+    }
+
+    $(document).ready(function () {
+        $('#btnUpload13').click(function () {
+
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload13").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                // Adding one more key to FormData object
+                fileData.append('document', $('#reqno0002').text());
+
+                $.ajax({
+                    url: '/Upload/uploadFile',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                        alert(result.message);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+    });
+</script>
+<div class="modal" id="_approvalentries_purchase">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @Html.Action("approvalentries", "Home", new { documentNo = Model.No })
+        </div>
+    </div>
+</div>

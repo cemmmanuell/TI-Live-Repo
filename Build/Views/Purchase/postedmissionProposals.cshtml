@@ -1,0 +1,8 @@
+﻿@model List<mmmSelfservice.Models.imprestRinfoModel>
+@{Layout = null; }
+<option class="text-blue" value="">Select Mission proposal</option>
+@foreach (var item in Model)
+{
+    <option class="text-blue" value="@item.No">@item.No</option>
+
+}

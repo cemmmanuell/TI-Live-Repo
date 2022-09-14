@@ -1,0 +1,81 @@
+﻿@model mmmSelfservice.Models.TrainingInfo
+
+<div class="modal-dialog modal-full">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Employee training requests</h5>
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div id="alert_s">
+            <div class="alert alert-danger alert-styled-left alert-dismissible" style="display:none">
+
+                <span id="msg"></span>
+            </div>
+        </div>
+        <div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="header-elements">
+                        <button type="button" class="btn bg-blue btn-sm legitRipple" onclick="updatetraining('@Model.ApplicationNo')"><i class="icon-checkmark3 mr-2"></i> Save</button>
+                        <div class="btn-group">
+                            <button type="button" class="btn bg-brown dropdown-toggle legitRipple btn-sm" data-toggle="dropdown" aria-expanded="false">More <i class="icon-menu7 ml-2"></i></button>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(152px, 38px, 0px);">
+                                <a class="dropdown-item"><i class="icon-file-download"></i> Download</a>
+                                <a  href="@Url.Action("trainingReq", "training",new {no=Model.ApplicationNo})" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
+                                <a href="#" class="dropdown-item"><i class="icon-folder-remove"></i> Cancel approval</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item"><i class="icon-cancel-circle2"></i> Delele</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-3">What is the training/development need?</label>
+                    <div class="col-sm-9">
+                      <textarea class="form-control" id="need1">@Model.need</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-3">What are the names of the employees involved?</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="employees1">@Model.employees</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-3">How does this link with the business of TI-Kenya and the responsibilities of your programme/post?</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="link1">@Model.link</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-3">Explain how the proposed training/development activity relates to your own job?</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="purpose1">@Model.purpose</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-3">What do you hope to learn?</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="outcome1">@Model.outcome</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-3">Details of training (Training dates, venue, organisation name and contact details)</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="details1">@Model.details</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-3">Other details (e.g. cost of training, accommodation, transport and related costs and grant available)</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="otherdetails1">@Model.otherdetails</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link legitRipple" data-dismiss="modal">Close</button>
+                <button type="submit" onclick="submitTraining1()" class="btn bg-primary legitRipple">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

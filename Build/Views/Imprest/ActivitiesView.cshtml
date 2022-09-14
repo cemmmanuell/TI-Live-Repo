@@ -1,0 +1,47 @@
+﻿@model IEnumerable<mmmSelfservice.Models.PurchaseLines>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Activity
+        </th>
+        <th>
+            Duration
+        </th>
+        <th>
+            Output
+        </th>
+
+        <th></th>
+    </tr>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ExpectedReceiptDate.ToString("yyyy-MM-dd")</td>
+
+
+
+                <td>@Html.DisplayFor(modelItem => item.Description3)</td>
+                <td>@Html.DisplayFor(modelItem => item.UOM)</td>
+
+
+                <td>@Html.DisplayFor(modelItem => item.Description2)</td>
+                <td style="display:none">@item.LineNo</td>
+
+
+
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+

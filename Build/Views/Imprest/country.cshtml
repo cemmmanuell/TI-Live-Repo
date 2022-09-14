@@ -1,0 +1,10 @@
+﻿
+@model IEnumerable<mmmSelfservice.Models.standardtexts>
+@{Layout = null; }
+<option class="text-blue" value="">Select country</option>
+@foreach (var item in Model)
+{
+    <option class="text-blue" value="@item.Code">@item.Name</option>
+
+}
+
