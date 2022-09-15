@@ -9,11 +9,14 @@ namespace mmmSelfservice.Models
     using System.Runtime.CompilerServices;
     public class timesheet
     {
-        public string code { get; set; }
+        public int code { get; set; }
         public string name { get; set; }
         public DateTime startdate { get; set; }
+        public DateTime endDate { get; set; }
         public string projectCode { get; set; }
         public int year { get; set; }
+
+        public int entryNo { get; set; }
         public IEnumerable<TImesheetlines> Timesheetlines { get; set; }
 
     }
@@ -26,5 +29,8 @@ namespace mmmSelfservice.Models
         public DateTime todate { get; set; }
         public string comments { get; set; }
         public int entryno { get; set; }
+        public string projectCode { get; set; }
+        public string projectText { get; set; }
+        public int hours { get; set; }
     }
 }

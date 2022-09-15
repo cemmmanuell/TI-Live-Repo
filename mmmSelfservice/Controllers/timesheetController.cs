@@ -13,9 +13,29 @@ namespace mmmSelfservice.Controllers
         // GET: timesheet
         public ActionResult Index()
         {
-            return View();
+
+            try
+            {
+                IEnumerable<timesheet> m = JsonConvert.DeserializeObject<IEnumerable<timesheet>>(WSConfig.ObjNav.FnGetTimesheets(Session["username"].ToString()));
+                return View(m);
+            } catch (Exception e)
+            {
+                return null;
+            }
         }
 
+        public PartialViewResult editTimesheet(int entryNo)
+        {
+            try
+            {
+                IEnumerable<timesheet> m = JsonConvert.DeserializeObject<IEnumerable<timesheet>>(WSConfig.ObjNav.FnGetTimesheets(Session["username"].ToString()));
+                return PartialView(m.Where(r=>r.code==entryNo).FirstOrDefault());
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
         public PartialViewResult FilterIndex(int year, string project)
         {
             IEnumerable<timesheet> m = JsonConvert.DeserializeObject<IEnumerable<timesheet>>(WSConfig.ObjNav.FnGetTimesheets(Session["username"].ToString()));
@@ -39,18 +59,12 @@ namespace mmmSelfservice.Controllers
             resultMt mt = new resultMt();
             try
             {
-                IEnumerable<timesheet> z = JsonConvert.DeserializeObject<IEnumerable<timesheet>>(WSConfig.ObjNav.FnGetTimesheets(Session["username"].ToString()));
-                string code = "";
-                if (z.Where(r => r.year == m.year && r.projectCode == m.projectCode).Count() == 0)
-                {
+               // IEnumerable<timesheet> z = JsonConvert.DeserializeObject<IEnumerable<timesheet>>(WSConfig.ObjNav.FnGetTimesheets(Session["username"].ToString()));
+                int code =0;
+               
 
-
-                    code = WSConfig.ObjNav.FnInsertTimeSheet("", m.projectCode, DateTime.Now, Session["username"].ToString(), m.year);
-                }
-                else
-                {
-                    code = m.projectCode + m.year.ToString();
-                }
+                    code = WSConfig.ObjNav.FnInsertTimeSheet("","", m.startdate, Session["username"].ToString(), 0, m.endDate);
+               
 
                 if (m.Timesheetlines.Count() != 0)
                 {
@@ -62,7 +76,7 @@ namespace mmmSelfservice.Controllers
                             {
                                 if (l.comments != null )
                                 {
-                                    WSConfig.ObjNav.FnInsertTimesheetLines(code, l.fromdate, l.todate, l.comments);
+                                    WSConfig.ObjNav.FnInsertTimesheetLines(code, DateTime.Now, DateTime.Now, l.comments, l.projectCode, l.projectText,l.hours);
                                 }
                             }
                             else
@@ -70,7 +84,7 @@ namespace mmmSelfservice.Controllers
                                if
                                      (l.comments != null)
                                     {
-                                        WSConfig.ObjNav.FnModifyTimesheetLines(code, l.fromdate, l.todate, l.entryno, l.comments);
+                                        WSConfig.ObjNav.FnModifyTimesheetLines(code, DateTime.Now, DateTime.Now, l.entryno, l.comments, l.projectCode, l.projectText, l.hours);
                                     }
                             }
 
@@ -106,8 +120,8 @@ namespace mmmSelfservice.Controllers
             resultMt mt = new resultMt();
             try
             {
-                string code = "";
-                code = WSConfig.ObjNav.FnModifyTimeSheet (m.name, m.projectCode, m.startdate, m.code, Session["username"].ToString(), m.year);
+                int code = 0;
+                code = WSConfig.ObjNav.FnModifyTimeSheet (m.name,m.projectCode,m.startdate,"", Session["userName"].ToString(),m.year,m.code, m.endDate );
 
                 if (m.Timesheetlines.Count() != 0)
                 {
@@ -115,7 +129,7 @@ namespace mmmSelfservice.Controllers
                     {
                         try
                         {
-                            WSConfig.ObjNav.FnModifyTimesheetLines(code, l.fromdate, l.todate,l.entryno, l.comments);
+                            WSConfig.ObjNav.FnModifyTimesheetLines(code, l.fromdate, l.todate,l.entryno, l.comments, l.projectCode, l.projectText, l.hours);
 
                         }
                         catch (Exception e)
@@ -153,6 +167,19 @@ namespace mmmSelfservice.Controllers
             }
 
             return PartialView(years);
+        }
+
+
+        public PartialViewResult newTimesheet()
+        {
+
+            List<mmmSelfservice.Models.departmentvalue> model = JsonConvert.DeserializeObject<List<mmmSelfservice.Models.departmentvalue>>(WSConfig.ObjNav.FnDepartmentValueLeave());
+            return base.PartialView(model);
+        }
+        public ActionResult TimeSheetList()
+        {
+            IEnumerable<timesheet> m = JsonConvert.DeserializeObject<IEnumerable<timesheet>>(WSConfig.ObjNav.FnGetTimesheets(Session["username"].ToString()));
+            return View(m);
         }
     }
 }

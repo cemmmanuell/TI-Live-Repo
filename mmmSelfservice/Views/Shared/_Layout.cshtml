@@ -183,37 +183,45 @@
 							<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Finance</span></a>
 
 
-							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                                 <li class="nav-item nav-item-submenu">
-                                    <a href="#" class="nav-link">Imprest requests</a>
+                                    <a href="#" class="nav-link">Travel authorizaion</a>
                                     <ul class="nav nav-group-sub">
-                                        <li class="nav-item"><a href="@Url.Action("Index", "Imprest")" class="nav-link">New Imprest requests</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("pendingimprests", "Imprest")" class="nav-link">Pending imprest requests</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("approvedimprests", "Imprest")" class="nav-link">Approved imprest requests</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("Postedimprests", "Imprest")" class="nav-link">Posted imprest requests</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("Index", "Imprest")" class="nav-link">New travel authorization</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingimprests", "Imprest")" class="nav-link">Pending travel authorization</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedimprests", "Imprest")" class="nav-link">Approved travel authorization</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("Postedimprests", "Imprest")" class="nav-link">Posted travel authorization</a></li>
                                     </ul>
                                 </li>
-                              
+
                                 <li class="nav-item nav-item-submenu">
-                                    <a href="#" class="nav-link">Imprest surrender</a>
+                                    <a href="#" class="nav-link">Travel authorization expense</a>
                                     <ul class="nav nav-group-sub">
-                                        <li class="nav-item"><a href="@Url.Action("index", "ImprestAccounting")" class="nav-link">New imprest surrender</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("pendingimprestsurrender", "ImprestAccounting")" class="nav-link">Pending imprest surrender</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("approvedimprestsurrender", "ImprestAccounting")" class="nav-link">Approved imprest surrender</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("index", "ImprestAccounting")" class="nav-link">New travel authorization expense</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingimprestsurrender", "ImprestAccounting")" class="nav-link">Pending travel authorization expense</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedimprestsurrender", "ImprestAccounting")" class="nav-link">Approved travel authorization expense</a></li>
 
                                     </ul>
                                 </li>
-                                        <li class="nav-item"><a href="@Url.Action("pettycashbank", "PettyCash")" class="nav-link">Petty cash batch</a></li>
+                                <li class="nav-item"><a href="@Url.Action("pettycashbank", "PettyCash")" class="nav-link">Petty cash batch</a></li>
                                 <li class="nav-item nav-item-submenu">
                                     <a href="#" class="nav-link">Payment memos</a>
                                     <ul class="nav nav-group-sub">
                                         <li class="nav-item"><a href="@Url.Action("openPaymentMemos", "PaymentMemo")" class="nav-link">Open payment memos</a></li>
                                         <li class="nav-item"><a href="@Url.Action("pendingPaymentMemos", "PaymentMemo")" class="nav-link">Pending payment memos</a></li>
                                         <li class="nav-item"><a href="@Url.Action("releasedPaymentMemos", "PaymentMemo")" class="nav-link">Released payment memos</a></li>
-                                     </ul>
+                                    </ul>
                                 </li>
-							
-							</ul>
+
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Timesheet</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("index", "Timesheet")" class="nav-link">Time sheet list</a></li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
 						</li>
 						<!--Common activities-->
 						<li class="nav-item nav-item-submenu">
@@ -288,22 +296,7 @@
                             </ul>
 						</li>
                        
-                        <li class="nav-item nav-item-submenu">
-                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Mission proposals</span></a>
-
-                            <ul class="nav nav-group-sub" data-submenu-title="Starter kit">
-                                <li class="nav-item nav-item-submenu">
-                                    <a href="#" class="nav-link">Mission proposals</a>
-                                    <ul class="nav nav-group-sub">
-                                        <li class="nav-item"><a href="@Url.Action("openMissionProposals", "Imprest")" class="nav-link">New mission proposals</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("pendingProposals", "Imprest")" class="nav-link"> Pending mission proposals</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("approvedProposals", "Imprest")" class="nav-link"> Approved mission proposals</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("completedProposals", "Imprest")" class="nav-link">Completed mission proposals</a></li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                        </li>
+                      
 						<li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Approvals</span></a>
 

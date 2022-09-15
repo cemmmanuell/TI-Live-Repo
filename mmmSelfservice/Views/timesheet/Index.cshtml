@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<mmmSelfservice.Models.timesheet>
 @{
     ViewBag.Title = "Petty Cash";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -33,72 +33,100 @@
                 <h6 class="card-title">Timesheet entries</h6>
             </div>
 
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Year:</label><select id="year" class="form-control">@Html.Action("years")</select>
-                            </div>
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                <div class="datatable-header">
+                    <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                        <button class="btn  btn-success" type="button" data-toggle="modal" data-target="#modal_backdrop12">New timesheet</button>
+                    </div><div class="datatable-scroll">
+                        <table class="table datatable-basic dataTable no-footer table-hover" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.code)
+                                    </th>
 
-                            <div class="col-md-4">
-                                <label>Project:</label><select id="project" class="form-control">@Html.Action("departmentvalue", "imprest")</select>
-                            </div>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.startdate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.endDate)
+                                    </th>
 
-                            <div class="col-md-4">
-                                <button class="btn btn-primary" onclick="filter()">Filter</button>
-                            </div>
-                        </div>
-                        <br/>
-                        <br/>
-                        <div class="row col-md-12">
-                            <div class="col-md-12">
-                                <table class="table datatable-show-all">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                From date and time
-                                            </th>
-                                            <th>
-                                                To date and time
-                                            </th>
-                                            <th>Status</th>
-                                            <th>
-                                                Comments
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="timesheet">
-                                        <tr>
-                                            <td><input type="datetime-local" /></td>
-                                            <td><input type="datetime-local" /></td>
-                                            <td></td>
-                                            <td><textarea rows="2"></textarea></td>
-                                            <td class="text-center">
-                                                <div class="list-icons">
-                                                    <a onclick="addrow()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
 
-                                                </div>
-                                            </td>
-                                            <td style="display:none"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                          
-                        </div>
+
+                                    <th></th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.code)
+                                        </td>
+                                        <td>
+                                           @item.startdate.ToString("yyyy-MM-dd")
+                                        </td>
+                                        <td>
+                                           @item.endDate.ToString("yyyy-MM-dd")
+                                        </td>
+
+
+                                        <td>
+
+
+                                            <a href="#modal_backdropimprest_0011" data-toggle="modal" onclick="EdtTimesheet('@item.code')" class="dropdown-item"><i class="icon-pencil7"></i>Edit</a>
+
+
+
+                                        </td>
+                                    </tr>
+                                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-              
             </div>
         </div>
     </div>
-  
+
 </div>
 
-<div class="row">
+<div style="display:none" class="row">
     <div class="col-md-12">
-        <button class="btn btn-success" onClick="insertTimesheet()" >Update timesheet</button>
+        <button class="btn btn-success" onClick="insertTimesheet()">Update timesheet</button>
+    </div>
+</div>
+
+@Html.Action("newTimeSheet")
+
+<div id="modal_backdropimprest_0011" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit timesheet</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div id="timeedit"></div>
+
+        </div>
     </div>
 </div>
 
@@ -119,60 +147,30 @@
         $('#timesheet').append(row());
     }
 
-    function insertTimesheet() {
-        const year = parseInt($('#year option:selected').val()); // year
-        const project = $('#project option:selected').val();// Project code
-        var items = []  // Lines
-        const table1 = $('#timesheet tr');
-        table1.each(function ()
-        {
-            var row = $(this);
-            items.push
-                (
-                    {
-                        'fromdate': row.find("td:eq(0) input[type='datetime-local']").val(),
-                        'todate': row.find("td:eq(1) input[type='datetime-local']").val(),
-                        'comments': row.find("td:eq(3) textarea").val(),
-                        'entryno': row.find("td:eq(5) input[type='number']").val()
-                    }
+    function EdtTimesheet(leaveNo) {
+        //  alert('Here');
 
-                );
-        }
-        );
-        const obj =
-        {
-            'projectCode': project,
-            'year': year,
-            'Timesheetlines': items
-        }
+
         $.ajax({
             type: "POST",
-            url: "/timesheet/postTimesheet",
-            data: JSON.stringify(obj),
+            url: "/Timesheet/editTimesheet",
+            data: '{entryNo:"' + leaveNo + ' "}',
             contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (response) {
-                /// alert("You selected: " + response.AuthSuccess);
-                if (response.status == true) {
-                    alert('Saved succesfuly');
+            dataType: "html",
+            success: function (data) {
+                //  alert(data);
+                $('#timeedit').html(data);
 
-                    window.location.href = '/timesheet/index';
-
-                } else {
-                    alert(response.message);
-
-
-                }
-
-            }
-
+            },
         });
     }
+
+
 
     function filter() {
         const year = parseInt($('#year option:selected').val()); // year
         const project = $('#project option:selected').val();// Project code
-       
+
         $.ajax({
             type: "POST",
             url: "/timesheet/FilterIndex",

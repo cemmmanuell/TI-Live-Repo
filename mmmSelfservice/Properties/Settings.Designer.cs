@@ -26,7 +26,7 @@ namespace mmmSelfservice.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1047/BC140/WS/Transparency%20International/Codeunit/Portals")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://20.87.212.136:8047/SADOBC/WS/TRAINING/Codeunit/Portals")]
         public string mmmSelfservice_NAVWS_Portals {
             get {
                 return ((string)(this["mmmSelfservice_NAVWS_Portals"]));

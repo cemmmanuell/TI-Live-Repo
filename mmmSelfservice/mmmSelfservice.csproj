@@ -3277,11 +3277,13 @@
     <Content Include="Views\timesheet\Index.cshtml" />
     <Content Include="Views\timesheet\New.cshtml" />
     <Content Include="Views\timesheet\years.cshtml" />
+    <Content Include="Views\timesheet\newTimesheet.cshtml" />
+    <Content Include="Views\timesheet\editTimesheet.cshtml" />
     <None Include="Web References\NAVWS\Portals.wsdl" />
-    <Content Include="Web References\NAVWS\Reference.map">
+    <None Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3309,10 +3311,8 @@
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>
-      </CachedAppSettingsObjectName>
-      <CachedSettingsPropName>
-      </CachedSettingsPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>mmmSelfservice_NAVWS_Portals</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>

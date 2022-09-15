@@ -131,6 +131,8 @@ namespace mmmSelfservice.NAVWS {
         
         private System.Threading.SendOrPostCallback FnAdvertAppliedOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnDepartmentValueLeaveOperationCompleted;
+        
         private System.Threading.SendOrPostCallback FnImprestRequisitionCreateOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnLeaveApplicationOperationCompleted;
@@ -341,7 +343,7 @@ namespace mmmSelfservice.NAVWS {
         
         /// <remarks/>
         public Portals() {
-            this.Url = "http://20.87.212.136:8047/SADOBC/WS/TRAINING/Codeunit/Portals";
+            this.Url = global::mmmSelfservice.Properties.Settings.Default.mmmSelfservice_NAVWS_Portals;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -527,6 +529,9 @@ namespace mmmSelfservice.NAVWS {
         
         /// <remarks/>
         public event FnAdvertAppliedCompletedEventHandler FnAdvertAppliedCompleted;
+        
+        /// <remarks/>
+        public event FnDepartmentValueLeaveCompletedEventHandler FnDepartmentValueLeaveCompleted;
         
         /// <remarks/>
         public event FnImprestRequisitionCreateCompletedEventHandler FnImprestRequisitionCreateCompleted;
@@ -1465,23 +1470,24 @@ namespace mmmSelfservice.NAVWS {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertTimeSheet", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnInsertTimeSheet_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnInsertTimeSheet(string name, string projectCode, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime startdate, string employee, int year) {
+        public int FnInsertTimeSheet(string name, string projectCode, System.DateTime startdate, string employee, int year, System.DateTime enddate) {
             object[] results = this.Invoke("FnInsertTimeSheet", new object[] {
                         name,
                         projectCode,
                         startdate,
                         employee,
-                        year});
-            return ((string)(results[0]));
+                        year,
+                        enddate});
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void FnInsertTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string employee, int year) {
-            this.FnInsertTimeSheetAsync(name, projectCode, startdate, employee, year, null);
+        public void FnInsertTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string employee, int year, System.DateTime enddate) {
+            this.FnInsertTimeSheetAsync(name, projectCode, startdate, employee, year, enddate, null);
         }
         
         /// <remarks/>
-        public void FnInsertTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string employee, int year, object userState) {
+        public void FnInsertTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string employee, int year, System.DateTime enddate, object userState) {
             if ((this.FnInsertTimeSheetOperationCompleted == null)) {
                 this.FnInsertTimeSheetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertTimeSheetOperationCompleted);
             }
@@ -1490,7 +1496,8 @@ namespace mmmSelfservice.NAVWS {
                         projectCode,
                         startdate,
                         employee,
-                        year}, this.FnInsertTimeSheetOperationCompleted, userState);
+                        year,
+                        enddate}, this.FnInsertTimeSheetOperationCompleted, userState);
         }
         
         private void OnFnInsertTimeSheetOperationCompleted(object arg) {
@@ -1503,24 +1510,26 @@ namespace mmmSelfservice.NAVWS {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnModifyTimeSheet", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnModifyTimeSheet_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnModifyTimeSheet(string name, string projectCode, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime startdate, string code, string employee, int year) {
+        public int FnModifyTimeSheet(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, int entryNo, System.DateTime endDate) {
             object[] results = this.Invoke("FnModifyTimeSheet", new object[] {
                         name,
                         projectCode,
                         startdate,
                         code,
                         employee,
-                        year});
-            return ((string)(results[0]));
+                        year,
+                        entryNo,
+                        endDate});
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void FnModifyTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string code, string employee, int year) {
-            this.FnModifyTimeSheetAsync(name, projectCode, startdate, code, employee, year, null);
+        public void FnModifyTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, int entryNo, System.DateTime endDate) {
+            this.FnModifyTimeSheetAsync(name, projectCode, startdate, code, employee, year, entryNo, endDate, null);
         }
         
         /// <remarks/>
-        public void FnModifyTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, object userState) {
+        public void FnModifyTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, int entryNo, System.DateTime endDate, object userState) {
             if ((this.FnModifyTimeSheetOperationCompleted == null)) {
                 this.FnModifyTimeSheetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnModifyTimeSheetOperationCompleted);
             }
@@ -1530,7 +1539,9 @@ namespace mmmSelfservice.NAVWS {
                         startdate,
                         code,
                         employee,
-                        year}, this.FnModifyTimeSheetOperationCompleted, userState);
+                        year,
+                        entryNo,
+                        endDate}, this.FnModifyTimeSheetOperationCompleted, userState);
         }
         
         private void OnFnModifyTimeSheetOperationCompleted(object arg) {
@@ -1572,21 +1583,24 @@ namespace mmmSelfservice.NAVWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertTimesheetLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnInsertTimesheetLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void FnInsertTimesheetLines(string code, System.DateTime from, System.DateTime totime, string comments) {
+        public void FnInsertTimesheetLines(int code, System.DateTime from, System.DateTime totime, string comments, string projectCode, string projectText, int hours) {
             this.Invoke("FnInsertTimesheetLines", new object[] {
                         code,
                         from,
                         totime,
-                        comments});
+                        comments,
+                        projectCode,
+                        projectText,
+                        hours});
         }
         
         /// <remarks/>
-        public void FnInsertTimesheetLinesAsync(string code, System.DateTime from, System.DateTime totime, string comments) {
-            this.FnInsertTimesheetLinesAsync(code, from, totime, comments, null);
+        public void FnInsertTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, string comments, string projectCode, string projectText, int hours) {
+            this.FnInsertTimesheetLinesAsync(code, from, totime, comments, projectCode, projectText, hours, null);
         }
         
         /// <remarks/>
-        public void FnInsertTimesheetLinesAsync(string code, System.DateTime from, System.DateTime totime, string comments, object userState) {
+        public void FnInsertTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, string comments, string projectCode, string projectText, int hours, object userState) {
             if ((this.FnInsertTimesheetLinesOperationCompleted == null)) {
                 this.FnInsertTimesheetLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertTimesheetLinesOperationCompleted);
             }
@@ -1594,7 +1608,10 @@ namespace mmmSelfservice.NAVWS {
                         code,
                         from,
                         totime,
-                        comments}, this.FnInsertTimesheetLinesOperationCompleted, userState);
+                        comments,
+                        projectCode,
+                        projectText,
+                        hours}, this.FnInsertTimesheetLinesOperationCompleted, userState);
         }
         
         private void OnFnInsertTimesheetLinesOperationCompleted(object arg) {
@@ -1606,22 +1623,25 @@ namespace mmmSelfservice.NAVWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnModifyTimesheetLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnModifyTimesheetLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void FnModifyTimesheetLines(string code, System.DateTime from, System.DateTime totime, int entryno, string comments) {
+        public void FnModifyTimesheetLines(int code, System.DateTime from, System.DateTime totime, int entryno, string comments, string projectCode, string projectText, int hours) {
             this.Invoke("FnModifyTimesheetLines", new object[] {
                         code,
                         from,
                         totime,
                         entryno,
-                        comments});
+                        comments,
+                        projectCode,
+                        projectText,
+                        hours});
         }
         
         /// <remarks/>
-        public void FnModifyTimesheetLinesAsync(string code, System.DateTime from, System.DateTime totime, int entryno, string comments) {
-            this.FnModifyTimesheetLinesAsync(code, from, totime, entryno, comments, null);
+        public void FnModifyTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, int entryno, string comments, string projectCode, string projectText, int hours) {
+            this.FnModifyTimesheetLinesAsync(code, from, totime, entryno, comments, projectCode, projectText, hours, null);
         }
         
         /// <remarks/>
-        public void FnModifyTimesheetLinesAsync(string code, System.DateTime from, System.DateTime totime, int entryno, string comments, object userState) {
+        public void FnModifyTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, int entryno, string comments, string projectCode, string projectText, int hours, object userState) {
             if ((this.FnModifyTimesheetLinesOperationCompleted == null)) {
                 this.FnModifyTimesheetLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnModifyTimesheetLinesOperationCompleted);
             }
@@ -1630,7 +1650,10 @@ namespace mmmSelfservice.NAVWS {
                         from,
                         totime,
                         entryno,
-                        comments}, this.FnModifyTimesheetLinesOperationCompleted, userState);
+                        comments,
+                        projectCode,
+                        projectText,
+                        hours}, this.FnModifyTimesheetLinesOperationCompleted, userState);
         }
         
         private void OnFnModifyTimesheetLinesOperationCompleted(object arg) {
@@ -2755,6 +2778,34 @@ namespace mmmSelfservice.NAVWS {
             if ((this.FnAdvertAppliedCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.FnAdvertAppliedCompleted(this, new FnAdvertAppliedCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnDepartmentValueLeave", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnDepartmentValueLeave_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnDepartmentValueLeave() {
+            object[] results = this.Invoke("FnDepartmentValueLeave", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnDepartmentValueLeaveAsync() {
+            this.FnDepartmentValueLeaveAsync(null);
+        }
+        
+        /// <remarks/>
+        public void FnDepartmentValueLeaveAsync(object userState) {
+            if ((this.FnDepartmentValueLeaveOperationCompleted == null)) {
+                this.FnDepartmentValueLeaveOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnDepartmentValueLeaveOperationCompleted);
+            }
+            this.InvokeAsync("FnDepartmentValueLeave", new object[0], this.FnDepartmentValueLeaveOperationCompleted, userState);
+        }
+        
+        private void OnFnDepartmentValueLeaveOperationCompleted(object arg) {
+            if ((this.FnDepartmentValueLeaveCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnDepartmentValueLeaveCompleted(this, new FnDepartmentValueLeaveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -6788,10 +6839,10 @@ namespace mmmSelfservice.NAVWS {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -6814,10 +6865,10 @@ namespace mmmSelfservice.NAVWS {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -7359,6 +7410,32 @@ namespace mmmSelfservice.NAVWS {
         private object[] results;
         
         internal FnAdvertAppliedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnDepartmentValueLeaveCompletedEventHandler(object sender, FnDepartmentValueLeaveCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnDepartmentValueLeaveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnDepartmentValueLeaveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
