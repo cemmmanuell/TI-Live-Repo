@@ -77,7 +77,12 @@ namespace mmmSelfservice.Controllers
                                 if (l.comments != null )
                                 {
                                     WSConfig.ObjNav.FnInsertTimesheetLines(code, DateTime.Now, DateTime.Now, l.comments, l.projectCode, l.projectText,l.hours);
+                                } 
+                                else
+                                {
+                                    WSConfig.ObjNav.FnInsertTimesheetLines(code, DateTime.Now, DateTime.Now, "", l.projectCode, l.projectText, l.hours);
                                 }
+
                             }
                             else
                             {
@@ -86,6 +91,10 @@ namespace mmmSelfservice.Controllers
                                     {
                                         WSConfig.ObjNav.FnModifyTimesheetLines(code, DateTime.Now, DateTime.Now, l.entryno, l.comments, l.projectCode, l.projectText, l.hours);
                                     }
+                               else
+                                {
+                                    WSConfig.ObjNav.FnModifyTimesheetLines(code, DateTime.Now, DateTime.Now, l.entryno, "", l.projectCode, l.projectText, l.hours);
+                                }
                             }
 
                         }
