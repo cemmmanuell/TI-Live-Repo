@@ -57,13 +57,13 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-3 col-form-label">Review period from :</label>
                                                                     <div class="col-lg-9">
-                                                                        <input type="date" id="reviewPeriodFrom_edit_released" value="@Model.reviewFrom.ToString("yyyy-MM-dd")" class="form-control" />
+                                                                        <input type="date" id="reviewPeriodFrom_released" value="@Model.reviewFrom.ToString("yyyy-MM-dd")" class="form-control" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-3 col-form-label">Review period to  :</label>
                                                                     <div class="col-lg-9">
-                                                                        <input type="date" id="reviewPeriodTo_edit_released" value="@Model.reviewTo.ToString("yyyy-MM-dd")" class="form-control" />
+                                                                        <input type="date" id="reviewPeriodTo_released" value="@Model.reviewTo.ToString("yyyy-MM-dd")" class="form-control" />
                                                                     </div>
                                                                 </div>
 
@@ -110,29 +110,39 @@
                                                                                     <th class="col-xs-1">Key activities</th>
                                                                                     <th class="col-xs-1">Performance measures</th>
                                                                                     <th class="col-xs-1">Target</th>
+
+                                                                                    <th class="col-xs-1">Actual achieved</th>
+                                                                                    <th class="col-xs-1">Percentage of rating</th>
+                                                                                    <th class="col-xs-1">Rating</th>
                                                                                     <th class="col-xs-1">Weighting</th>
+                                                                                    <th class="col-xs-1">Weighting rating</th>
                                                                                     <th class="col-xs-1">Action</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody id="table4_edit_approved">
                                                                                 @foreach (var i in Model.Performance)
                                                                                 {
-                                                                                    <tr>
-                                                                                        <td><input type="text" value="@i.keyResultAreas" class="form-control"></td>
-                                                                                        <td><input type="text" value="@i.keyActivities" class="form-control"></td>
-                                                                                        <td><input type="text" value="@i.performanceMeasures" class="form-control"></td>
-                                                                                        <td><input type="number" value="@i.target" class="form-control"></td>
-                                                                                        <td><input type="number" value="@i.weighting" class="form-control"></td>
+                                                                                <tr>
+                                                                                    <td><input type="text" value="@i.keyResultAreas" class="form-control"></td>
+                                                                                    <td><input type="text" value="@i.keyActivities" class="form-control"></td>
+                                                                                    <td><input type="text" value="@i.performanceMeasures" class="form-control"></td>
+                                                                                    <td><input type="number" value="@i.target" class="form-control"></td>
+                                                                                    <td><input type="number" value="@i.actualAchieved" class="form-control"></td>
+                                                                                    <td><input type="number" diabled value="@i.percentageOfTarget" class="form-control"></td>
+                                                                                    <td><input type="number" diabled value="@i.rating" class="form-control"></td>
 
-                                                                                        <td class="text-center">
-                                                                                            <div class="list-icons">
-                                                                                                <a onclick="addlinetotables1_released('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>|
-                                                                                                <a href="#" onclick="removelineAll(this,'@i.lineNo','@i.documentNo')"><i class="icon-cross3 mr-3 icon-1x"></i></a>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td style="display:none"><input type="number" value="@i.lineNo" class="form-control"></td>
+                                                                                    <td><input type="number"  value="@i.weighting" class="form-control"></td>
+                                                                                    <td><input type="number" disbled value="@i.weightingRating" class="form-control"></td>
 
-                                                                                    </tr>
+                                                                                    <td class="text-center">
+                                                                                        <div class="list-icons">
+                                                                                            <a onclick="addlinetotables1_released('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>|
+                                                                                            <a href="#" onclick="removelineAll(this,'@i.lineNo','@i.documentNo')"><i class="icon-cross3 mr-3 icon-1x"></i></a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td style="display:none"><input type="number" value="@i.lineNo" class="form-control"></td>
+
+                                                                                </tr>
                                                                                 }
 
 
@@ -574,15 +584,17 @@
                                                           var row = $(this);
                                                           //var Statement = {};
                                                           var rowdata =
-                                                          {
+               {
                 keyResultAreas: row.find("td:eq(0) input[type='text']").val(),
                 keyActivities: row.find("td:eq(1) input[type='text']").val(),
                 performanceMeasures: row.find("td:eq(2) input[type='text']").val(),
                 target: row.find("td:eq(3) input[type='number']").val(),
-                weighting: row.find("td:eq(4) input[type='number']").val(),
-                lineNo: row.find("td:eq(6) input[type='number']").val(),
+                actualAchieved: row.find("td:eq(4) input[type='number']").val(),
+
+                weighting: row.find("td:eq(7) input[type='number']").val(),
+                lineNo: row.find("td:eq(10) input[type='number']").val(),
                 documentNo: $('#appraisal_no').text()
-                                                          }
+              }
 
                                                       activities.push(rowdata);
                                                       });
@@ -662,8 +674,8 @@
             url: "/Home/UpdateAppraisal",
             data: JSON.stringify({
 
-                reviewFrom: $('#reviewPeriodFrom_edit').val(),
-                reviewTo: $('#reviewPeriodTo_edit').val(),
+                reviewFrom: $('#reviewPeriodFrom_released').val(),
+                reviewTo: $('#reviewPeriodTo_released').val(),
                 no: $('#appraisal_no_released').text(),
                 Performance: activities,
                 CapacityNeeds: capacityNeeds,
@@ -678,7 +690,7 @@
                                                           if (response.status == true) {
                                                               alert('Saved succesfuly');
 
-                                                              window.location.href = '/Home/appraisallist';
+                                                              window.location.href = '/Home/approvedappraisallist';
 
                                                           } else {
                                                               alert(response.message);
