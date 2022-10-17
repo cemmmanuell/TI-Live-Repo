@@ -167,23 +167,23 @@
 				<!-- /user menu -->
 				<!-- Main navigation -->
 				<div class="card card-sidebar-mobile">
-					<ul class="nav nav-sidebar" data-nav-type="accordion">
+                    <ul class="nav nav-sidebar" data-nav-type="accordion">
 
-						<!-- Main -->
-						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
-						<li class="nav-item">
-							<a href="@Url.Action("index","home")" class="nav-link active">
-								<i class="icon-home4"></i>
-								<span>
-									Dashboard
-								</span>
-							</a>
-						</li>
-						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Finance</span></a>
+                        <!-- Main -->
+                        <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("index","home")" class="nav-link active">
+                                <i class="icon-home4"></i>
+                                <span>
+                                    Dashboard
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Finance</span></a>
 
 
-							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                                 <li class="nav-item nav-item-submenu">
                                     <a href="#" class="nav-link">Imprest requests</a>
                                     <ul class="nav nav-group-sub">
@@ -193,7 +193,7 @@
                                         <li class="nav-item"><a href="@Url.Action("Postedimprests", "Imprest")" class="nav-link">Posted imprest requests</a></li>
                                     </ul>
                                 </li>
-                              
+
                                 <li class="nav-item nav-item-submenu">
                                     <a href="#" class="nav-link">Imprest surrender</a>
                                     <ul class="nav nav-group-sub">
@@ -203,22 +203,22 @@
 
                                     </ul>
                                 </li>
-                                        <li class="nav-item"><a href="@Url.Action("pettycashbank", "PettyCash")" class="nav-link">Petty cash batch</a></li>
+                                <li class="nav-item"><a href="@Url.Action("pettycashbank", "PettyCash")" class="nav-link">Petty cash batch</a></li>
                                 <li class="nav-item nav-item-submenu">
                                     <a href="#" class="nav-link">Payment memos</a>
                                     <ul class="nav nav-group-sub">
                                         <li class="nav-item"><a href="@Url.Action("openPaymentMemos", "PaymentMemo")" class="nav-link">Open payment memos</a></li>
                                         <li class="nav-item"><a href="@Url.Action("pendingPaymentMemos", "PaymentMemo")" class="nav-link">Pending payment memos</a></li>
                                         <li class="nav-item"><a href="@Url.Action("releasedPaymentMemos", "PaymentMemo")" class="nav-link">Released payment memos</a></li>
-                                     </ul>
+                                    </ul>
                                 </li>
-							
-							</ul>
-						</li>
-						<!--Common activities-->
-						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-list-ordered"></i> <span>Procurement</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+
+                            </ul>
+                        </li>
+                        <!--Common activities-->
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-list-ordered"></i> <span>Procurement</span></a>
+                            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
 
                                 <li class="nav-item nav-item-submenu">
                                     <a href="#" class="nav-link">Purchase requests</a>
@@ -229,15 +229,15 @@
 
                                     </ul>
                                 </li>
-								
-                           
-								
-								
-							</ul>
-						</li>
-						<!---End-->
-						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>HR</span></a>
+
+
+
+
+                            </ul>
+                        </li>
+                        <!---End-->
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>HR</span></a>
                             <ul class="nav nav-group-sub" data-submenu-title="Themes">
 
 
@@ -261,7 +261,7 @@
 
                                     </ul>
                                 </li>
-                                
+
                                 <li class="nav-item nav-item-submenu">
                                     <a href="#" class="nav-link">Induction list</a>
                                     <ul class="nav nav-group-sub">
@@ -286,8 +286,18 @@
                                     </ul>
                                 </li>
                             </ul>
-						</li>
-                       
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-color-sampler"></i>Timesheet</a>
+                            <ul class="nav nav-group-sub">
+                                <li class="nav-item"><a href="@Url.Action("index", "Timesheet")" class="nav-link">Time sheet list</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Pending", "Timesheet")" class="nav-link">Pending timesheet</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Approved", "Timesheet")" class="nav-link">Approved timesheet</a></li>
+
+                            </ul>
+                        </li>
+
+
                         <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Mission proposals</span></a>
 
@@ -304,15 +314,15 @@
 
                             </ul>
                         </li>
-						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Approvals</span></a>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Approvals</span></a>
 
-							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
-								<li class="nav-item"><a href="@Url.Action("Index", "Approval")" class="nav-link">Pending Approval</a></li>
-								<li class="nav-item"><a href="@Url.Action("Approved", "Approval")" class="nav-link">Approved</a></li>
-							</ul>
-						</li>
-					</ul>
+                            <ul class="nav nav-group-sub" data-submenu-title="Starter kit">
+                                <li class="nav-item"><a href="@Url.Action("Index", "Approval")" class="nav-link">Pending Approval</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Approved", "Approval")" class="nav-link">Approved</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 				</div>
 				<!-- /main navigation -->
 

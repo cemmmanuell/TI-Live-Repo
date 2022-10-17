@@ -1,0 +1,180 @@
+﻿@model List<mmmSelfservice.Models.departmentvalue>
+<div id="modal_backdrop12" class="modal fade" data-backdrop="false" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New time sheet</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12" data-select2-id="81">
+                        <div data-select2-id="80">
+                            <div class="card-header bg-white header-elements-sm-inline">
+                                <h6 class="card-title"><i class="icon-reading mr-2"></i> New timesheet details:<text id="pno" class="text-primary"></text></h6>
+                                    
+                                
+                                <div class="header-elements">
+                                    <button type="button" class="btn bg-blue btn-sm legitRipple" onclick="insertTimesheet()"><i class="icon-checkmark3 mr-2"></i> Save</button>
+
+                                </div>
+                            </div>
+
+                            <div class="card-body" data-select2-id="79">
+                                <div class="row">
+                                    <div class="col-md-4">  From date: <input type="date" id="fromDate_timeSheet" class="form-control" /></div>
+                                    <div class="col-md-4"> To date: <input type="date" id="toDate_timeSheet" class="form-control" /></div>
+
+
+                                </div>
+                                <br/>
+                                <br/>
+                                <div class="row" data-select2-id="78">
+                                    <div>
+                                        <div>
+                                            <div class="col-md-12">
+                                                <form action="#" data-select2-id="77">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <table class="table datatable-basic dataTable no-footer table-hover col-md-12" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th>
+                                                                            Projects
+                                                                        </th>
+
+                                                                        <th>
+                                                                            Time (Hours )
+                                                                        </th>
+                                                                        <th>
+                                                                            Comments  (Optional)
+                                                                        </th>
+
+
+
+                                                                        <th></th>
+                                                                    </tr>
+
+                                                                </thead>
+                                                                <tbody id="timeSheetLines_timesheet">
+
+
+                                                                    @foreach (var item in Model)
+                                                                    {
+                                                                        <tr>
+                                                                            <td style="display:none">
+                                                                              <input type="text" value="@item.Code"  class="form-control"/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" disabled value="@item.Name" class="form-control" />
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="number" class="form-control" />
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" />
+                                                                            </td>
+
+
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <br />
+
+
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function insertTimesheet() {
+         
+        var items = []  // Lines
+        const table1 = $('#timeSheetLines_timesheet tr');
+        table1.each(function () {
+            var row = $(this);
+            items.push
+                (
+                    {
+                        'projectCode': row.find("td:eq(0) input[type='text']").val(),
+                        'projectText': row.find("td:eq(1) input[type='text']").val(),
+                        'hours': row.find("td:eq(2) input[type='number']").val(),
+                        'comments': row.find("td:eq(3) input[type='text']").val(),
+                        'entryno': row.find("td:eq(4) input[type='number']").val()
+                    }
+
+                );
+        }
+        );
+        const obj =
+        {
+            'startdate': $('#fromDate_timeSheet').val(),
+            'endDate':$('#toDate_timeSheet').val(),
+            'Timesheetlines': items
+        }
+        $.ajax({
+            type: "POST",
+            url: "/timesheet/postTimesheet",
+            data: JSON.stringify(obj),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+                if (response.status == true) {
+                    alert('Saved succesfuly');
+
+                    window.location.href = '/timesheet/index';
+
+                } else {
+                    alert(response.message);
+
+
+                }
+
+            }
+
+        });
+    }
+</script>

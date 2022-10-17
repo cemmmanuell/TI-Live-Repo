@@ -205,6 +205,7 @@
     <Compile Include="Controllers\PaymentMemoController.cs" />
     <Compile Include="Controllers\PettyCashController.cs" />
     <Compile Include="Controllers\PurchaseController.cs" />
+    <Compile Include="Controllers\timesheetController.cs" />
     <Compile Include="Controllers\TrainingController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
@@ -259,6 +260,7 @@
     <Compile Include="Models\SetPasswordViewModel.cs" />
     <Compile Include="Models\standardtexts.cs" />
     <Compile Include="Models\taskgroups.cs" />
+    <Compile Include="Models\timesheet.cs" />
     <Compile Include="Models\TrainingInfo.cs" />
     <Compile Include="Models\TrainingNeedsInfo.cs" />
     <Compile Include="Models\trainingschedule.cs" />
@@ -3267,11 +3269,20 @@
     <Content Include="Views\Home\editAppraisalReleased.cshtml" />
     <Content Include="Views\Home\pendingappraisallist.cshtml" />
     <Content Include="Views\Home\approvedappraisallist.cshtml" />
+    <Content Include="Views\timesheet\Edit.cshtml" />
+    <Content Include="Views\timesheet\editTimesheet.cshtml" />
+    <Content Include="Views\timesheet\FilterIndex.cshtml" />
+    <Content Include="Views\timesheet\Index.cshtml" />
+    <Content Include="Views\timesheet\New.cshtml" />
+    <Content Include="Views\timesheet\newTimesheet.cshtml" />
+    <Content Include="Views\timesheet\years.cshtml" />
+    <Content Include="Views\timesheet\Pending.cshtml" />
+    <Content Include="Views\timesheet\Approved.cshtml" />
     <None Include="Web References\NAVWS\Portals.wsdl" />
-    <Content Include="Web References\NAVWS\Reference.map">
+    <None Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
