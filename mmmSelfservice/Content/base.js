@@ -634,3 +634,24 @@ function loadropdown1(target, url, id) {
         //   complete: stopAnimation(target)
     });
 }
+
+function approvalDocPdt(docNo, approverId) {
+
+    debugger;
+    $('#DocumentNo').val(docNo);
+    $('#approverId').val(approverId);
+
+    $.ajax({
+        type: "POST",
+        url: "/Approval/ApprovalDoc",
+        data: JSON.stringify({ no: docNo }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //alert(result);
+            debugger;
+
+            $("#approvalDoc00000001").html('<iframe src=' + result + ' style="min-height:400px; height:900px; width:100%; min-width:500px"></iframe>');
+        },
+    });
+}

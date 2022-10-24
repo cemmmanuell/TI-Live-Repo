@@ -1,107 +1,179 @@
 ﻿@model List<mmmSelfservice.Models.Approval>
 
 @{
-	ViewBag.Title = "Approval";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Approval";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <script type="text/javascript" src="~/Content/base.js"></script>
 <div class="page-header page-header-light mb-0">
-	<div class="page-header-content header-elements-md-inline">
-		<div class="page-title d-flex">
-			<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Approval information</h4>
-			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
-		</div>
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Approval information</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
 
-	</div>
-	<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
-		<div class="d-flex">
-			<div class="breadcrumb">
-				<a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-				<a href="@Url.Action("Index")" class="breadcrumb-item">Approval information</a>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="@Url.Action("Index")" class="breadcrumb-item">Approval information</a>
 
-			</div>
-			<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
-		</div>
-		<div class="header-elements d-none">
-		</div>
-	</div>
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
 </div>
 <br />
 <div class="d-flex align-items-start flex-column flex-md-row">
-	<!-- Left content -->
-	<div class="w-100 order-2 order-md-1">
-		<!-- Basic card -->
-		<!-- /basic card -->
-		<!-- Basic table -->
-		<div class="card">
-			<div class="card-header header-elements-inline">
-				<h5 class="card-title">Approval information</h5>
-				<div class="header-elements">
-					<div class="list-icons">
-						<a class="list-icons-item" data-action="collapse"></a>
-						<a class="list-icons-item" data-action="reload"></a>
-						<a class="list-icons-item" data-action="remove"></a>
-					</div>
-				</div>
-			</div>
-			<br />
-			<div class="card col-sm-12">
-				<div class="content">
-					<table class="table datatable-show-all">
-						<thead>
-							<tr>
-								<th>Document No:</th>
-								<th>SenderID</th>
-								<th>ApproverID</th>
-								<th>Time Date Sent</th>
-								<th>Status</th>
-								<th>Amount</th>
-								<th class="text-center">Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach (mmmSelfservice.Models.Approval data in Model.Where(a => a.Status.Equals("Open")))
-							{
-							<tr>
-								<td>@data.DocumentNo</td>
-								<td>@data.SenderID</td>
-								<td>@data.ApproverID</td>
-								<td>@data.DateTimeSent</td>
-								@if (@data.Status == "Open")
-								{
-									<td><span class="badge bg-success-400">@data.Status</span></td>
-								}
-								else
-								{
-									<td><span class="badge bg-blue">@data.Status</span></td>
-								}
-							  <td>@data.Amount</td>
-								<td class="text-center">
-									<div class="list-icons">
-										<div class="dropdown">
-											<a href="#" class="list-icons-item" data-toggle="dropdown">
-												<i class="icon-menu9"></i>
-											</a>
+    <!-- Left content -->
+    <div class="w-100 order-2 order-md-1">
+        <!-- Basic card -->
+        <!-- /basic card -->
+        <!-- Basic table -->
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h5 class="card-title">Approval information</h5>
+                <div class="header-elements">
+                    <div class="list-icons">
+                        <a class="list-icons-item" data-action="collapse"></a>
+                        <a class="list-icons-item" data-action="reload"></a>
+                        <a class="list-icons-item" data-action="remove"></a>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card col-sm-12">
+                <div class="content">
+                    <table class="table datatable-show-all">
+                        <thead>
+                            <tr>
+                                <th>Document No:</th>
+                                <th>SenderID</th>
+                                <th>ApproverID</th>
+                                <th>Time Date Sent</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (mmmSelfservice.Models.Approval data in Model.Where(a => a.Status.Equals("Open")))
+                            {
+                                <tr>
+                                    <td>@data.DocumentNo</td>
+                                    <td>@data.SenderID</td>
+                                    <td>@data.ApproverID</td>
+                                    <td>@data.DateTimeSent</td>
+                                    @if (@data.Status == "Open")
+                                    {
+                                        <td><span class="badge bg-success-400">@data.Status</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="badge bg-blue">@data.Status</span></td>
+                                    }
+                                    <td>@data.Amount</td>
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <div class="dropdown">
+                                                <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                    <i class="icon-menu9"></i>
+                                                </a>
 
-											<div class="dropdown-menu dropdown-menu-right">
-												@if (data.Status == "Open")
-												{													
-													<a href="@Url.Action("sendforapproval", new { DocumentNo = data.DocumentNo,ApproverID = data.ApproverID })" class="dropdown-item"><i class="icon-file-check"></i>Send approval request</a>
-												}
-											</div>
-										</div>
-									</div>
-								</td>
-							</tr>
-							}
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script>
-		document.onload(getLeavesummary());
-		Document.getLeavesummary();
-	</script>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    @if (data.Status == "Open")
+                                                    {
+                                                        <a onClick="approvalDocPdt('@data.DocumentNo', '@data.ApproverID')" class="dropdown-item" data-toggle="modal" data-target="#modal_backdropimprest">Open document</a>
+
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="modal_backdropimprest" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Document to approve </h5>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <input style="display:none" type="text" value="" id="approverId" />
+                        <input style="display:none" type="text" value="" id="DocumentNo" />
+                        <div class="col-md-12">
+                            <label>Enter comments</label>
+                            <textarea placeholder="Enter comments" cols="3" id="comments" class="form-control"> </textarea>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button onClick="reject()" class="btn bg-danger"><i class="icon-remove3 btn-danger font-size-base mr-1"></i>Reject </button> | <button class="btn bg-success" onClick="approve()"><i class="icon-checkmark3 btn-success font-size-base mr-1"></i> Approve </button>
+                        </div>
+                    </div>
+                    <br />
+                    <div id="approvalDoc00000001"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function approve() {
+            $.ajax({
+                type: "POST",
+                url: "/Approval/approve",
+                data: JSON.stringify({ DocumentNo: $('#DocumentNo').val(), ApproverID: $('#approverId').val() }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    if (result.status == false) {
+                        alert(result.message);
+                    }
+                    else {
+                        window.location.href = '/Approval/index';
+                    }
+
+                },
+            });
+        }
+        function reject() {
+            var comments = $('#comments').val();
+            debugger;
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Approval/reject",
+                data: JSON.stringify({ DocumentNo: $('#DocumentNo').val(), ApproverID: $('#approverId').val(), comments: comments }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    if (result.status == false) {
+                        alert(result.message);
+                    }
+                    else {
+                        window.location.href = '/Approval/index';
+                    }
+
+                },
+            });
+        }
+    </script>

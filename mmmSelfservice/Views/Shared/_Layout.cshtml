@@ -128,42 +128,39 @@
 			<div class="sidebar-content">
 
 				<!-- User menu -->
-				<div class="sidebar-user-material">
-					<div class="sidebar-user-material-body">
-						<div class="card-body text-center">
-							<a href="#">
-								<img src="../../../../global_assets/images/backgrounds/gok.png" class="img-fluid rounded-circle shadow-1 mb-3" width="80" height="80" alt="">
-							</a>
-							<h6 class="mb-0 text-white text-shadow-dark"></h6>
-							<span class="font-size-sm text-white text-shadow-dark"></span>
-						</div>
-						<div class="sidebar-user-material-footer">
-							<a href="#user-nav" class="d-flex justify-content-between align-items-center text-shadow-dark dropdown-toggle" data-toggle="collapse"><span>My account</span></a>
-						</div>
-					</div>
-					<div class="collapse" id="user-nav">
-						<ul class="nav nav-sidebar">
-							<li class="nav-item">
-								<a href="#" class="nav-link">
-									<i class="icon-user-plus"></i>
-									<span>My profile</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link">
-									<i class="icon-cog5"></i>
-									<span>Account settings</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link">
-									<i class="icon-switch2"></i>
-									<span>Logout</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
+                <div class="sidebar-user-material">
+                    <div style="height:280px" class="sidebar-user-material-body">
+                        <div class="card-body text-center">
+
+                            <h6 class="mb-0 text-white text-shadow-dark"></h6>
+                            <span class="font-size-sm text-white text-shadow-dark"></span>
+                        </div>
+
+
+                    </div>
+                    <div class="collapse" id="user-nav">
+                        <ul class="nav nav-sidebar">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="icon-user-plus"></i>
+                                    <span>My profile</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="icon-cog5"></i>
+                                    <span>Account settings</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="icon-switch2"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 				<!-- /user menu -->
 				<!-- Main navigation -->
 				<div class="card card-sidebar-mobile">
@@ -203,13 +200,13 @@
 
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a href="@Url.Action("pettycashbank", "PettyCash")" class="nav-link">Petty cash batch</a></li>
+                               
                                 <li class="nav-item nav-item-submenu">
-                                    <a href="#" class="nav-link">Payment memos</a>
+                                    <a href="#" class="nav-link">Payment request form</a>
                                     <ul class="nav nav-group-sub">
-                                        <li class="nav-item"><a href="@Url.Action("openPaymentMemos", "PaymentMemo")" class="nav-link">Open payment memos</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("pendingPaymentMemos", "PaymentMemo")" class="nav-link">Pending payment memos</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("releasedPaymentMemos", "PaymentMemo")" class="nav-link">Released payment memos</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("openPaymentMemos", "PaymentMemo")" class="nav-link">Open Payment request form</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingPaymentMemos", "PaymentMemo")" class="nav-link">Pending Payment request form</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("releasedPaymentMemos", "PaymentMemo")" class="nav-link">Released Payment request form</a></li>
                                     </ul>
                                 </li>
 
@@ -217,6 +214,8 @@
                                     <a href="#" class="nav-link">Timesheet</a>
                                     <ul class="nav nav-group-sub">
                                         <li class="nav-item"><a href="@Url.Action("index", "Timesheet")" class="nav-link">Time sheet list</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("Pending", "Timesheet")" class="nav-link">Pending timesheet</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("Approved", "Timesheet")" class="nav-link">Approved timesheet</a></li>
 
                                     </ul>
                                 </li>

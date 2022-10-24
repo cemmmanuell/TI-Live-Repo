@@ -15,7 +15,7 @@ namespace mmmSelfservice.Models
         public DateTime endDate { get; set; }
         public string projectCode { get; set; }
         public int year { get; set; }
-
+        public string status { get; set; }
         public int entryNo { get; set; }
         public IEnumerable<TImesheetlines> Timesheetlines { get; set; }
 

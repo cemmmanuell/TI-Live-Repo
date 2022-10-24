@@ -56,6 +56,25 @@
                 return portals;
             }
         }
+
+        public static Portals ObjNavLogin (string username, string password)
+        {
+            //get
+            {
+                Portals portals = new Portals();
+                try
+                {
+                    NetworkCredential credential = new NetworkCredential(ConfigurationManager.AppSettings["W_USER"], ConfigurationManager.AppSettings["W_PWD"], ConfigurationManager.AppSettings["DOMAIN"]);
+                    portals.Credentials = credential;
+                    portals.PreAuthenticate = true;
+                }
+                catch (Exception exception)
+                {
+                    exception.Data.Clear();
+                }
+                return portals;
+            }
+        }
     }
 }
 

@@ -61,16 +61,6 @@ namespace mmmSelfservice.NAVWS {
         
         private System.Threading.SendOrPostCallback FnupdatePaymentmemoOperationCompleted;
         
-        private System.Threading.SendOrPostCallback FnInsertTimeSheetOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnModifyTimeSheetOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnGetTimesheetsOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnInsertTimesheetLinesOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnModifyTimesheetLinesOperationCompleted;
-        
         private System.Threading.SendOrPostCallback FnInsertMileageOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnModifyMileageOperationCompleted;
@@ -113,25 +103,23 @@ namespace mmmSelfservice.NAVWS {
         
         private System.Threading.SendOrPostCallback FnUpdateTARLinesOperationCompleted;
         
-        private System.Threading.SendOrPostCallback FnAdvertsOperationCompleted;
+        private System.Threading.SendOrPostCallback FnModifyTimeSheetOperationCompleted;
         
-        private System.Threading.SendOrPostCallback FninsertApplicationProfileOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnMemberProfileOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnprofileQualificationsInsertOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnLookupOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnGetQualificationsOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnApplyOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnAdvertOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback FnAdvertAppliedOperationCompleted;
+        private System.Threading.SendOrPostCallback FnModifyTimesheetLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnDepartmentValueLeaveOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnInsertAppraisalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnUpdateAppraisalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnAppraisalListOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnGetApprovalDocumentOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnInsertTimeSheetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnGetTimesheetsOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnImprestRequisitionCreateOperationCompleted;
         
@@ -426,21 +414,6 @@ namespace mmmSelfservice.NAVWS {
         public event FnupdatePaymentmemoCompletedEventHandler FnupdatePaymentmemoCompleted;
         
         /// <remarks/>
-        public event FnInsertTimeSheetCompletedEventHandler FnInsertTimeSheetCompleted;
-        
-        /// <remarks/>
-        public event FnModifyTimeSheetCompletedEventHandler FnModifyTimeSheetCompleted;
-        
-        /// <remarks/>
-        public event FnGetTimesheetsCompletedEventHandler FnGetTimesheetsCompleted;
-        
-        /// <remarks/>
-        public event FnInsertTimesheetLinesCompletedEventHandler FnInsertTimesheetLinesCompleted;
-        
-        /// <remarks/>
-        public event FnModifyTimesheetLinesCompletedEventHandler FnModifyTimesheetLinesCompleted;
-        
-        /// <remarks/>
         public event FnInsertMileageCompletedEventHandler FnInsertMileageCompleted;
         
         /// <remarks/>
@@ -504,34 +477,31 @@ namespace mmmSelfservice.NAVWS {
         public event FnUpdateTARLinesCompletedEventHandler FnUpdateTARLinesCompleted;
         
         /// <remarks/>
-        public event FnAdvertsCompletedEventHandler FnAdvertsCompleted;
+        public event FnModifyTimeSheetCompletedEventHandler FnModifyTimeSheetCompleted;
         
         /// <remarks/>
-        public event FninsertApplicationProfileCompletedEventHandler FninsertApplicationProfileCompleted;
-        
-        /// <remarks/>
-        public event FnMemberProfileCompletedEventHandler FnMemberProfileCompleted;
-        
-        /// <remarks/>
-        public event FnprofileQualificationsInsertCompletedEventHandler FnprofileQualificationsInsertCompleted;
-        
-        /// <remarks/>
-        public event FnLookupCompletedEventHandler FnLookupCompleted;
-        
-        /// <remarks/>
-        public event FnGetQualificationsCompletedEventHandler FnGetQualificationsCompleted;
-        
-        /// <remarks/>
-        public event FnApplyCompletedEventHandler FnApplyCompleted;
-        
-        /// <remarks/>
-        public event FnAdvertCompletedEventHandler FnAdvertCompleted;
-        
-        /// <remarks/>
-        public event FnAdvertAppliedCompletedEventHandler FnAdvertAppliedCompleted;
+        public event FnModifyTimesheetLinesCompletedEventHandler FnModifyTimesheetLinesCompleted;
         
         /// <remarks/>
         public event FnDepartmentValueLeaveCompletedEventHandler FnDepartmentValueLeaveCompleted;
+        
+        /// <remarks/>
+        public event FnInsertAppraisalCompletedEventHandler FnInsertAppraisalCompleted;
+        
+        /// <remarks/>
+        public event FnUpdateAppraisalCompletedEventHandler FnUpdateAppraisalCompleted;
+        
+        /// <remarks/>
+        public event FnAppraisalListCompletedEventHandler FnAppraisalListCompleted;
+        
+        /// <remarks/>
+        public event FnGetApprovalDocumentCompletedEventHandler FnGetApprovalDocumentCompleted;
+        
+        /// <remarks/>
+        public event FnInsertTimeSheetCompletedEventHandler FnInsertTimeSheetCompleted;
+        
+        /// <remarks/>
+        public event FnGetTimesheetsCompletedEventHandler FnGetTimesheetsCompleted;
         
         /// <remarks/>
         public event FnImprestRequisitionCreateCompletedEventHandler FnImprestRequisitionCreateCompleted;
@@ -1468,202 +1438,6 @@ namespace mmmSelfservice.NAVWS {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertTimeSheet", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnInsertTimeSheet_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public int FnInsertTimeSheet(string name, string projectCode, System.DateTime startdate, string employee, int year, System.DateTime enddate) {
-            object[] results = this.Invoke("FnInsertTimeSheet", new object[] {
-                        name,
-                        projectCode,
-                        startdate,
-                        employee,
-                        year,
-                        enddate});
-            return ((int)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void FnInsertTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string employee, int year, System.DateTime enddate) {
-            this.FnInsertTimeSheetAsync(name, projectCode, startdate, employee, year, enddate, null);
-        }
-        
-        /// <remarks/>
-        public void FnInsertTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string employee, int year, System.DateTime enddate, object userState) {
-            if ((this.FnInsertTimeSheetOperationCompleted == null)) {
-                this.FnInsertTimeSheetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertTimeSheetOperationCompleted);
-            }
-            this.InvokeAsync("FnInsertTimeSheet", new object[] {
-                        name,
-                        projectCode,
-                        startdate,
-                        employee,
-                        year,
-                        enddate}, this.FnInsertTimeSheetOperationCompleted, userState);
-        }
-        
-        private void OnFnInsertTimeSheetOperationCompleted(object arg) {
-            if ((this.FnInsertTimeSheetCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnInsertTimeSheetCompleted(this, new FnInsertTimeSheetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnModifyTimeSheet", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnModifyTimeSheet_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public int FnModifyTimeSheet(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, int entryNo, System.DateTime endDate) {
-            object[] results = this.Invoke("FnModifyTimeSheet", new object[] {
-                        name,
-                        projectCode,
-                        startdate,
-                        code,
-                        employee,
-                        year,
-                        entryNo,
-                        endDate});
-            return ((int)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void FnModifyTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, int entryNo, System.DateTime endDate) {
-            this.FnModifyTimeSheetAsync(name, projectCode, startdate, code, employee, year, entryNo, endDate, null);
-        }
-        
-        /// <remarks/>
-        public void FnModifyTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, int entryNo, System.DateTime endDate, object userState) {
-            if ((this.FnModifyTimeSheetOperationCompleted == null)) {
-                this.FnModifyTimeSheetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnModifyTimeSheetOperationCompleted);
-            }
-            this.InvokeAsync("FnModifyTimeSheet", new object[] {
-                        name,
-                        projectCode,
-                        startdate,
-                        code,
-                        employee,
-                        year,
-                        entryNo,
-                        endDate}, this.FnModifyTimeSheetOperationCompleted, userState);
-        }
-        
-        private void OnFnModifyTimeSheetOperationCompleted(object arg) {
-            if ((this.FnModifyTimeSheetCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnModifyTimeSheetCompleted(this, new FnModifyTimeSheetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetTimesheets", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnGetTimesheets_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnGetTimesheets(string employee) {
-            object[] results = this.Invoke("FnGetTimesheets", new object[] {
-                        employee});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void FnGetTimesheetsAsync(string employee) {
-            this.FnGetTimesheetsAsync(employee, null);
-        }
-        
-        /// <remarks/>
-        public void FnGetTimesheetsAsync(string employee, object userState) {
-            if ((this.FnGetTimesheetsOperationCompleted == null)) {
-                this.FnGetTimesheetsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGetTimesheetsOperationCompleted);
-            }
-            this.InvokeAsync("FnGetTimesheets", new object[] {
-                        employee}, this.FnGetTimesheetsOperationCompleted, userState);
-        }
-        
-        private void OnFnGetTimesheetsOperationCompleted(object arg) {
-            if ((this.FnGetTimesheetsCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnGetTimesheetsCompleted(this, new FnGetTimesheetsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertTimesheetLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnInsertTimesheetLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void FnInsertTimesheetLines(int code, System.DateTime from, System.DateTime totime, string comments, string projectCode, string projectText, int hours) {
-            this.Invoke("FnInsertTimesheetLines", new object[] {
-                        code,
-                        from,
-                        totime,
-                        comments,
-                        projectCode,
-                        projectText,
-                        hours});
-        }
-        
-        /// <remarks/>
-        public void FnInsertTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, string comments, string projectCode, string projectText, int hours) {
-            this.FnInsertTimesheetLinesAsync(code, from, totime, comments, projectCode, projectText, hours, null);
-        }
-        
-        /// <remarks/>
-        public void FnInsertTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, string comments, string projectCode, string projectText, int hours, object userState) {
-            if ((this.FnInsertTimesheetLinesOperationCompleted == null)) {
-                this.FnInsertTimesheetLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertTimesheetLinesOperationCompleted);
-            }
-            this.InvokeAsync("FnInsertTimesheetLines", new object[] {
-                        code,
-                        from,
-                        totime,
-                        comments,
-                        projectCode,
-                        projectText,
-                        hours}, this.FnInsertTimesheetLinesOperationCompleted, userState);
-        }
-        
-        private void OnFnInsertTimesheetLinesOperationCompleted(object arg) {
-            if ((this.FnInsertTimesheetLinesCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnInsertTimesheetLinesCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnModifyTimesheetLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnModifyTimesheetLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void FnModifyTimesheetLines(int code, System.DateTime from, System.DateTime totime, int entryno, string comments, string projectCode, string projectText, int hours) {
-            this.Invoke("FnModifyTimesheetLines", new object[] {
-                        code,
-                        from,
-                        totime,
-                        entryno,
-                        comments,
-                        projectCode,
-                        projectText,
-                        hours});
-        }
-        
-        /// <remarks/>
-        public void FnModifyTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, int entryno, string comments, string projectCode, string projectText, int hours) {
-            this.FnModifyTimesheetLinesAsync(code, from, totime, entryno, comments, projectCode, projectText, hours, null);
-        }
-        
-        /// <remarks/>
-        public void FnModifyTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, int entryno, string comments, string projectCode, string projectText, int hours, object userState) {
-            if ((this.FnModifyTimesheetLinesOperationCompleted == null)) {
-                this.FnModifyTimesheetLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnModifyTimesheetLinesOperationCompleted);
-            }
-            this.InvokeAsync("FnModifyTimesheetLines", new object[] {
-                        code,
-                        from,
-                        totime,
-                        entryno,
-                        comments,
-                        projectCode,
-                        projectText,
-                        hours}, this.FnModifyTimesheetLinesOperationCompleted, userState);
-        }
-        
-        private void OnFnModifyTimesheetLinesOperationCompleted(object arg) {
-            if ((this.FnModifyTimesheetLinesCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnModifyTimesheetLinesCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertMileage", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnInsertMileage_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string FnInsertMileage(string plateNo, string purpose, string county, string nature, decimal repaircost, string comments, System.DateTime startDate, string employee, string pointofdeparture, string destination) {
@@ -2496,288 +2270,88 @@ namespace mmmSelfservice.NAVWS {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnAdverts", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnAdverts_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnModifyTimeSheet", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnModifyTimeSheet_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnAdverts() {
-            object[] results = this.Invoke("FnAdverts", new object[0]);
-            return ((string)(results[0]));
+        public int FnModifyTimeSheet(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, int entryNo, System.DateTime endDate) {
+            object[] results = this.Invoke("FnModifyTimeSheet", new object[] {
+                        name,
+                        projectCode,
+                        startdate,
+                        code,
+                        employee,
+                        year,
+                        entryNo,
+                        endDate});
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void FnAdvertsAsync() {
-            this.FnAdvertsAsync(null);
+        public void FnModifyTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, int entryNo, System.DateTime endDate) {
+            this.FnModifyTimeSheetAsync(name, projectCode, startdate, code, employee, year, entryNo, endDate, null);
         }
         
         /// <remarks/>
-        public void FnAdvertsAsync(object userState) {
-            if ((this.FnAdvertsOperationCompleted == null)) {
-                this.FnAdvertsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnAdvertsOperationCompleted);
+        public void FnModifyTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string code, string employee, int year, int entryNo, System.DateTime endDate, object userState) {
+            if ((this.FnModifyTimeSheetOperationCompleted == null)) {
+                this.FnModifyTimeSheetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnModifyTimeSheetOperationCompleted);
             }
-            this.InvokeAsync("FnAdverts", new object[0], this.FnAdvertsOperationCompleted, userState);
+            this.InvokeAsync("FnModifyTimeSheet", new object[] {
+                        name,
+                        projectCode,
+                        startdate,
+                        code,
+                        employee,
+                        year,
+                        entryNo,
+                        endDate}, this.FnModifyTimeSheetOperationCompleted, userState);
         }
         
-        private void OnFnAdvertsOperationCompleted(object arg) {
-            if ((this.FnAdvertsCompleted != null)) {
+        private void OnFnModifyTimeSheetOperationCompleted(object arg) {
+            if ((this.FnModifyTimeSheetCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnAdvertsCompleted(this, new FnAdvertsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.FnModifyTimeSheetCompleted(this, new FnModifyTimeSheetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FninsertApplicationProfile", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FninsertApplicationProfile_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void FninsertApplicationProfile(string firstname, string lastName, string email, string idnumber, string phoneNumber, string username, string password, string address) {
-            this.Invoke("FninsertApplicationProfile", new object[] {
-                        firstname,
-                        lastName,
-                        email,
-                        idnumber,
-                        phoneNumber,
-                        username,
-                        password,
-                        address});
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnModifyTimesheetLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnModifyTimesheetLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void FnModifyTimesheetLines(int code, System.DateTime from, System.DateTime totime, int entryno, string comments, string projectCode, string projectText, int hours) {
+            this.Invoke("FnModifyTimesheetLines", new object[] {
+                        code,
+                        from,
+                        totime,
+                        entryno,
+                        comments,
+                        projectCode,
+                        projectText,
+                        hours});
         }
         
         /// <remarks/>
-        public void FninsertApplicationProfileAsync(string firstname, string lastName, string email, string idnumber, string phoneNumber, string username, string password, string address) {
-            this.FninsertApplicationProfileAsync(firstname, lastName, email, idnumber, phoneNumber, username, password, address, null);
+        public void FnModifyTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, int entryno, string comments, string projectCode, string projectText, int hours) {
+            this.FnModifyTimesheetLinesAsync(code, from, totime, entryno, comments, projectCode, projectText, hours, null);
         }
         
         /// <remarks/>
-        public void FninsertApplicationProfileAsync(string firstname, string lastName, string email, string idnumber, string phoneNumber, string username, string password, string address, object userState) {
-            if ((this.FninsertApplicationProfileOperationCompleted == null)) {
-                this.FninsertApplicationProfileOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFninsertApplicationProfileOperationCompleted);
+        public void FnModifyTimesheetLinesAsync(int code, System.DateTime from, System.DateTime totime, int entryno, string comments, string projectCode, string projectText, int hours, object userState) {
+            if ((this.FnModifyTimesheetLinesOperationCompleted == null)) {
+                this.FnModifyTimesheetLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnModifyTimesheetLinesOperationCompleted);
             }
-            this.InvokeAsync("FninsertApplicationProfile", new object[] {
-                        firstname,
-                        lastName,
-                        email,
-                        idnumber,
-                        phoneNumber,
-                        username,
-                        password,
-                        address}, this.FninsertApplicationProfileOperationCompleted, userState);
+            this.InvokeAsync("FnModifyTimesheetLines", new object[] {
+                        code,
+                        from,
+                        totime,
+                        entryno,
+                        comments,
+                        projectCode,
+                        projectText,
+                        hours}, this.FnModifyTimesheetLinesOperationCompleted, userState);
         }
         
-        private void OnFninsertApplicationProfileOperationCompleted(object arg) {
-            if ((this.FninsertApplicationProfileCompleted != null)) {
+        private void OnFnModifyTimesheetLinesOperationCompleted(object arg) {
+            if ((this.FnModifyTimesheetLinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FninsertApplicationProfileCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnMemberProfile", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnMemberProfile_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnMemberProfile(string username) {
-            object[] results = this.Invoke("FnMemberProfile", new object[] {
-                        username});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void FnMemberProfileAsync(string username) {
-            this.FnMemberProfileAsync(username, null);
-        }
-        
-        /// <remarks/>
-        public void FnMemberProfileAsync(string username, object userState) {
-            if ((this.FnMemberProfileOperationCompleted == null)) {
-                this.FnMemberProfileOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnMemberProfileOperationCompleted);
-            }
-            this.InvokeAsync("FnMemberProfile", new object[] {
-                        username}, this.FnMemberProfileOperationCompleted, userState);
-        }
-        
-        private void OnFnMemberProfileOperationCompleted(object arg) {
-            if ((this.FnMemberProfileCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnMemberProfileCompleted(this, new FnMemberProfileCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnprofileQualificationsInsert", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnprofileQualificationsInsert_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void FnprofileQualificationsInsert(string employeeNo, System.DateTime fromdate, string qualificationtype, System.DateTime todate, string institution, string description) {
-            this.Invoke("FnprofileQualificationsInsert", new object[] {
-                        employeeNo,
-                        fromdate,
-                        qualificationtype,
-                        todate,
-                        institution,
-                        description});
-        }
-        
-        /// <remarks/>
-        public void FnprofileQualificationsInsertAsync(string employeeNo, System.DateTime fromdate, string qualificationtype, System.DateTime todate, string institution, string description) {
-            this.FnprofileQualificationsInsertAsync(employeeNo, fromdate, qualificationtype, todate, institution, description, null);
-        }
-        
-        /// <remarks/>
-        public void FnprofileQualificationsInsertAsync(string employeeNo, System.DateTime fromdate, string qualificationtype, System.DateTime todate, string institution, string description, object userState) {
-            if ((this.FnprofileQualificationsInsertOperationCompleted == null)) {
-                this.FnprofileQualificationsInsertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnprofileQualificationsInsertOperationCompleted);
-            }
-            this.InvokeAsync("FnprofileQualificationsInsert", new object[] {
-                        employeeNo,
-                        fromdate,
-                        qualificationtype,
-                        todate,
-                        institution,
-                        description}, this.FnprofileQualificationsInsertOperationCompleted, userState);
-        }
-        
-        private void OnFnprofileQualificationsInsertOperationCompleted(object arg) {
-            if ((this.FnprofileQualificationsInsertCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnprofileQualificationsInsertCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnLookup", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnLookup_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnLookup() {
-            object[] results = this.Invoke("FnLookup", new object[0]);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void FnLookupAsync() {
-            this.FnLookupAsync(null);
-        }
-        
-        /// <remarks/>
-        public void FnLookupAsync(object userState) {
-            if ((this.FnLookupOperationCompleted == null)) {
-                this.FnLookupOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnLookupOperationCompleted);
-            }
-            this.InvokeAsync("FnLookup", new object[0], this.FnLookupOperationCompleted, userState);
-        }
-        
-        private void OnFnLookupOperationCompleted(object arg) {
-            if ((this.FnLookupCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnLookupCompleted(this, new FnLookupCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetQualifications", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnGetQualifications_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnGetQualifications(string username) {
-            object[] results = this.Invoke("FnGetQualifications", new object[] {
-                        username});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void FnGetQualificationsAsync(string username) {
-            this.FnGetQualificationsAsync(username, null);
-        }
-        
-        /// <remarks/>
-        public void FnGetQualificationsAsync(string username, object userState) {
-            if ((this.FnGetQualificationsOperationCompleted == null)) {
-                this.FnGetQualificationsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGetQualificationsOperationCompleted);
-            }
-            this.InvokeAsync("FnGetQualifications", new object[] {
-                        username}, this.FnGetQualificationsOperationCompleted, userState);
-        }
-        
-        private void OnFnGetQualificationsOperationCompleted(object arg) {
-            if ((this.FnGetQualificationsCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnGetQualificationsCompleted(this, new FnGetQualificationsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnApply", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnApply_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void FnApply(string username, string jobid) {
-            this.Invoke("FnApply", new object[] {
-                        username,
-                        jobid});
-        }
-        
-        /// <remarks/>
-        public void FnApplyAsync(string username, string jobid) {
-            this.FnApplyAsync(username, jobid, null);
-        }
-        
-        /// <remarks/>
-        public void FnApplyAsync(string username, string jobid, object userState) {
-            if ((this.FnApplyOperationCompleted == null)) {
-                this.FnApplyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnApplyOperationCompleted);
-            }
-            this.InvokeAsync("FnApply", new object[] {
-                        username,
-                        jobid}, this.FnApplyOperationCompleted, userState);
-        }
-        
-        private void OnFnApplyOperationCompleted(object arg) {
-            if ((this.FnApplyCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnApplyCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnAdvert", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnAdvert_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnAdvert(string jobid) {
-            object[] results = this.Invoke("FnAdvert", new object[] {
-                        jobid});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void FnAdvertAsync(string jobid) {
-            this.FnAdvertAsync(jobid, null);
-        }
-        
-        /// <remarks/>
-        public void FnAdvertAsync(string jobid, object userState) {
-            if ((this.FnAdvertOperationCompleted == null)) {
-                this.FnAdvertOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnAdvertOperationCompleted);
-            }
-            this.InvokeAsync("FnAdvert", new object[] {
-                        jobid}, this.FnAdvertOperationCompleted, userState);
-        }
-        
-        private void OnFnAdvertOperationCompleted(object arg) {
-            if ((this.FnAdvertCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnAdvertCompleted(this, new FnAdvertCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnAdvertApplied", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnAdvertApplied_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnAdvertApplied(string username) {
-            object[] results = this.Invoke("FnAdvertApplied", new object[] {
-                        username});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void FnAdvertAppliedAsync(string username) {
-            this.FnAdvertAppliedAsync(username, null);
-        }
-        
-        /// <remarks/>
-        public void FnAdvertAppliedAsync(string username, object userState) {
-            if ((this.FnAdvertAppliedOperationCompleted == null)) {
-                this.FnAdvertAppliedOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnAdvertAppliedOperationCompleted);
-            }
-            this.InvokeAsync("FnAdvertApplied", new object[] {
-                        username}, this.FnAdvertAppliedOperationCompleted, userState);
-        }
-        
-        private void OnFnAdvertAppliedOperationCompleted(object arg) {
-            if ((this.FnAdvertAppliedCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnAdvertAppliedCompleted(this, new FnAdvertAppliedCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.FnModifyTimesheetLinesCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2806,6 +2380,195 @@ namespace mmmSelfservice.NAVWS {
             if ((this.FnDepartmentValueLeaveCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.FnDepartmentValueLeaveCompleted(this, new FnDepartmentValueLeaveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertAppraisal", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnInsertAppraisal_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void FnInsertAppraisal(string jsonData) {
+            this.Invoke("FnInsertAppraisal", new object[] {
+                        jsonData});
+        }
+        
+        /// <remarks/>
+        public void FnInsertAppraisalAsync(string jsonData) {
+            this.FnInsertAppraisalAsync(jsonData, null);
+        }
+        
+        /// <remarks/>
+        public void FnInsertAppraisalAsync(string jsonData, object userState) {
+            if ((this.FnInsertAppraisalOperationCompleted == null)) {
+                this.FnInsertAppraisalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertAppraisalOperationCompleted);
+            }
+            this.InvokeAsync("FnInsertAppraisal", new object[] {
+                        jsonData}, this.FnInsertAppraisalOperationCompleted, userState);
+        }
+        
+        private void OnFnInsertAppraisalOperationCompleted(object arg) {
+            if ((this.FnInsertAppraisalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnInsertAppraisalCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnUpdateAppraisal", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnUpdateAppraisal_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void FnUpdateAppraisal(string jsonData) {
+            this.Invoke("FnUpdateAppraisal", new object[] {
+                        jsonData});
+        }
+        
+        /// <remarks/>
+        public void FnUpdateAppraisalAsync(string jsonData) {
+            this.FnUpdateAppraisalAsync(jsonData, null);
+        }
+        
+        /// <remarks/>
+        public void FnUpdateAppraisalAsync(string jsonData, object userState) {
+            if ((this.FnUpdateAppraisalOperationCompleted == null)) {
+                this.FnUpdateAppraisalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnUpdateAppraisalOperationCompleted);
+            }
+            this.InvokeAsync("FnUpdateAppraisal", new object[] {
+                        jsonData}, this.FnUpdateAppraisalOperationCompleted, userState);
+        }
+        
+        private void OnFnUpdateAppraisalOperationCompleted(object arg) {
+            if ((this.FnUpdateAppraisalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnUpdateAppraisalCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnAppraisalList", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnAppraisalList_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnAppraisalList(string empNo) {
+            object[] results = this.Invoke("FnAppraisalList", new object[] {
+                        empNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnAppraisalListAsync(string empNo) {
+            this.FnAppraisalListAsync(empNo, null);
+        }
+        
+        /// <remarks/>
+        public void FnAppraisalListAsync(string empNo, object userState) {
+            if ((this.FnAppraisalListOperationCompleted == null)) {
+                this.FnAppraisalListOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnAppraisalListOperationCompleted);
+            }
+            this.InvokeAsync("FnAppraisalList", new object[] {
+                        empNo}, this.FnAppraisalListOperationCompleted, userState);
+        }
+        
+        private void OnFnAppraisalListOperationCompleted(object arg) {
+            if ((this.FnAppraisalListCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnAppraisalListCompleted(this, new FnAppraisalListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetApprovalDocument", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnGetApprovalDocument_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void FnGetApprovalDocument(string documentNo, ref string bigText) {
+            object[] results = this.Invoke("FnGetApprovalDocument", new object[] {
+                        documentNo,
+                        bigText});
+            bigText = ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGetApprovalDocumentAsync(string documentNo, string bigText) {
+            this.FnGetApprovalDocumentAsync(documentNo, bigText, null);
+        }
+        
+        /// <remarks/>
+        public void FnGetApprovalDocumentAsync(string documentNo, string bigText, object userState) {
+            if ((this.FnGetApprovalDocumentOperationCompleted == null)) {
+                this.FnGetApprovalDocumentOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGetApprovalDocumentOperationCompleted);
+            }
+            this.InvokeAsync("FnGetApprovalDocument", new object[] {
+                        documentNo,
+                        bigText}, this.FnGetApprovalDocumentOperationCompleted, userState);
+        }
+        
+        private void OnFnGetApprovalDocumentOperationCompleted(object arg) {
+            if ((this.FnGetApprovalDocumentCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGetApprovalDocumentCompleted(this, new FnGetApprovalDocumentCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertTimeSheet", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnInsertTimeSheet_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public int FnInsertTimeSheet(string name, string projectCode, System.DateTime startdate, string employee, int year, System.DateTime enddate, int hours) {
+            object[] results = this.Invoke("FnInsertTimeSheet", new object[] {
+                        name,
+                        projectCode,
+                        startdate,
+                        employee,
+                        year,
+                        enddate,
+                        hours});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnInsertTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string employee, int year, System.DateTime enddate, int hours) {
+            this.FnInsertTimeSheetAsync(name, projectCode, startdate, employee, year, enddate, hours, null);
+        }
+        
+        /// <remarks/>
+        public void FnInsertTimeSheetAsync(string name, string projectCode, System.DateTime startdate, string employee, int year, System.DateTime enddate, int hours, object userState) {
+            if ((this.FnInsertTimeSheetOperationCompleted == null)) {
+                this.FnInsertTimeSheetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertTimeSheetOperationCompleted);
+            }
+            this.InvokeAsync("FnInsertTimeSheet", new object[] {
+                        name,
+                        projectCode,
+                        startdate,
+                        employee,
+                        year,
+                        enddate,
+                        hours}, this.FnInsertTimeSheetOperationCompleted, userState);
+        }
+        
+        private void OnFnInsertTimeSheetOperationCompleted(object arg) {
+            if ((this.FnInsertTimeSheetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnInsertTimeSheetCompleted(this, new FnInsertTimeSheetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetTimesheets", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnGetTimesheets_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGetTimesheets(string employee) {
+            object[] results = this.Invoke("FnGetTimesheets", new object[] {
+                        employee});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGetTimesheetsAsync(string employee) {
+            this.FnGetTimesheetsAsync(employee, null);
+        }
+        
+        /// <remarks/>
+        public void FnGetTimesheetsAsync(string employee, object userState) {
+            if ((this.FnGetTimesheetsOperationCompleted == null)) {
+                this.FnGetTimesheetsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGetTimesheetsOperationCompleted);
+            }
+            this.InvokeAsync("FnGetTimesheets", new object[] {
+                        employee}, this.FnGetTimesheetsOperationCompleted, userState);
+        }
+        
+        private void OnFnGetTimesheetsOperationCompleted(object arg) {
+            if ((this.FnGetTimesheetsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGetTimesheetsCompleted(this, new FnGetTimesheetsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3100,25 +2863,27 @@ namespace mmmSelfservice.NAVWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnRejectApprovalRequest", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnRejectApprovalRequest_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void FnRejectApprovalRequest(string documentNumber, string approverId) {
+        public void FnRejectApprovalRequest(string documentNumber, string approverId, string comments) {
             this.Invoke("FnRejectApprovalRequest", new object[] {
                         documentNumber,
-                        approverId});
+                        approverId,
+                        comments});
         }
         
         /// <remarks/>
-        public void FnRejectApprovalRequestAsync(string documentNumber, string approverId) {
-            this.FnRejectApprovalRequestAsync(documentNumber, approverId, null);
+        public void FnRejectApprovalRequestAsync(string documentNumber, string approverId, string comments) {
+            this.FnRejectApprovalRequestAsync(documentNumber, approverId, comments, null);
         }
         
         /// <remarks/>
-        public void FnRejectApprovalRequestAsync(string documentNumber, string approverId, object userState) {
+        public void FnRejectApprovalRequestAsync(string documentNumber, string approverId, string comments, object userState) {
             if ((this.FnRejectApprovalRequestOperationCompleted == null)) {
                 this.FnRejectApprovalRequestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnRejectApprovalRequestOperationCompleted);
             }
             this.InvokeAsync("FnRejectApprovalRequest", new object[] {
                         documentNumber,
-                        approverId}, this.FnRejectApprovalRequestOperationCompleted, userState);
+                        approverId,
+                        comments}, this.FnRejectApprovalRequestOperationCompleted, userState);
         }
         
         private void OnFnRejectApprovalRequestOperationCompleted(object arg) {
@@ -3327,11 +3092,11 @@ namespace mmmSelfservice.NAVWS {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:Fnlogin", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="Fnlogin_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public bool Fnlogin(string user, string password) {
+        public string Fnlogin(string user, string password) {
             object[] results = this.Invoke("Fnlogin", new object[] {
                         user,
                         password});
-            return ((bool)(results[0]));
+            return ((string)(results[0]));
         }
         
         /// <remarks/>
@@ -6823,92 +6588,6 @@ namespace mmmSelfservice.NAVWS {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnInsertTimeSheetCompletedEventHandler(object sender, FnInsertTimeSheetCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnInsertTimeSheetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FnInsertTimeSheetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public int Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnModifyTimeSheetCompletedEventHandler(object sender, FnModifyTimeSheetCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnModifyTimeSheetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FnModifyTimeSheetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public int Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnGetTimesheetsCompletedEventHandler(object sender, FnGetTimesheetsCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnGetTimesheetsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FnGetTimesheetsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnInsertTimesheetLinesCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnModifyTimesheetLinesCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void FnInsertMileageCompletedEventHandler(object sender, FnInsertMileageCompletedEventArgs e);
     
     /// <remarks/>
@@ -7257,171 +6936,33 @@ namespace mmmSelfservice.NAVWS {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnAdvertsCompletedEventHandler(object sender, FnAdvertsCompletedEventArgs e);
+    public delegate void FnModifyTimeSheetCompletedEventHandler(object sender, FnModifyTimeSheetCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnAdvertsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class FnModifyTimeSheetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal FnAdvertsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal FnModifyTimeSheetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FninsertApplicationProfileCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnMemberProfileCompletedEventHandler(object sender, FnMemberProfileCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnMemberProfileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FnMemberProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnprofileQualificationsInsertCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnLookupCompletedEventHandler(object sender, FnLookupCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnLookupCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FnLookupCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnGetQualificationsCompletedEventHandler(object sender, FnGetQualificationsCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnGetQualificationsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FnGetQualificationsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnApplyCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnAdvertCompletedEventHandler(object sender, FnAdvertCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnAdvertCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FnAdvertCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnAdvertAppliedCompletedEventHandler(object sender, FnAdvertAppliedCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnAdvertAppliedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FnAdvertAppliedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
+    public delegate void FnModifyTimesheetLinesCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
@@ -7436,6 +6977,118 @@ namespace mmmSelfservice.NAVWS {
         private object[] results;
         
         internal FnDepartmentValueLeaveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnInsertAppraisalCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnUpdateAppraisalCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnAppraisalListCompletedEventHandler(object sender, FnAppraisalListCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnAppraisalListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnAppraisalListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGetApprovalDocumentCompletedEventHandler(object sender, FnGetApprovalDocumentCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGetApprovalDocumentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGetApprovalDocumentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string bigText {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnInsertTimeSheetCompletedEventHandler(object sender, FnInsertTimeSheetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnInsertTimeSheetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnInsertTimeSheetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGetTimesheetsCompletedEventHandler(object sender, FnGetTimesheetsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGetTimesheetsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGetTimesheetsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -7619,10 +7272,10 @@ namespace mmmSelfservice.NAVWS {
         }
         
         /// <remarks/>
-        public bool Result {
+        public string Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
+                return ((string)(this.results[0]));
             }
         }
     }

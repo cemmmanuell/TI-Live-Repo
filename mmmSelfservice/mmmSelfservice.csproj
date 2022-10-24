@@ -3272,13 +3272,15 @@
     <Content Include="Views\Home\editAppraisalReleased.cshtml" />
     <Content Include="Views\Home\pendingappraisallist.cshtml" />
     <Content Include="Views\Home\approvedappraisallist.cshtml" />
-    <Content Include="Views\timesheet\Edit.cshtml" />
-    <Content Include="Views\timesheet\FilterIndex.cshtml" />
-    <Content Include="Views\timesheet\Index.cshtml" />
-    <Content Include="Views\timesheet\New.cshtml" />
-    <Content Include="Views\timesheet\years.cshtml" />
     <Content Include="Views\timesheet\newTimesheet.cshtml" />
+    <Content Include="Views\timesheet\New.cshtml" />
+    <Content Include="Views\timesheet\Index.cshtml" />
+    <Content Include="Views\timesheet\FilterIndex.cshtml" />
     <Content Include="Views\timesheet\editTimesheet.cshtml" />
+    <Content Include="Views\timesheet\Edit.cshtml" />
+    <Content Include="Views\timesheet\years.cshtml" />
+    <Content Include="Views\timesheet\Pending.cshtml" />
+    <Content Include="Views\timesheet\Approved.cshtml" />
     <None Include="Web References\NAVWS\Portals.wsdl" />
     <None Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

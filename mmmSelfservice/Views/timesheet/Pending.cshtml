@@ -1,0 +1,182 @@
+﻿@model IEnumerable<mmmSelfservice.Models.timesheet>
+@{
+    ViewBag.Title = "Petty Cash";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Time sheet information</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="@Url.Action("index")" class="breadcrumb-item">Timesheet information</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="card-title">Pending Timesheet entries</h6>
+            </div>
+
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                <div class="datatable-header">
+                    <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                      
+                    </div><div class="datatable-scroll">
+                        <table class="table datatable-basic dataTable no-footer table-hover" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                            <thead>
+                                <tr>
+
+
+                                    <th>
+                                     Description
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Hours
+                                    </th>
+
+
+
+                                    <th></th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @item.projectCode
+                                        </td>
+                                        <td>
+                                            @item.startdate.ToString("yyyy-MM-dd")
+                                        </td>
+
+                                        <td>@item.year</td>
+                                        <td style="display:none">@item.entryNo</td>
+                                       
+                                    </tr>
+                                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div style="display:none" class="row">
+    <div class="col-md-12">
+        <button class="btn btn-success" onClick="insertTimesheet()">Update timesheet</button>
+    </div>
+</div>
+
+
+
+<div id="modal_backdropimprest_0011" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit timesheet</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div id="timeedit"></div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // New row
+    function row() {
+        var r = "";
+        r = r + "<tr><td><input type='datetime-local' /></td>";
+        r = r + "<td><input type='datetime-local' /></td><td></td>";
+        r = r + "<td><textarea rows='2'></textarea></td>";
+        r = r + "<td class='text-center'>";
+        r = r + "<div class='list-icons'> <a onclick='addrow()' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a> </div> </td><td style='display: none'></td> </tr>";
+
+        return r;
+    }
+
+    function addrow() {
+        $('#timesheet').append(row());
+    }
+
+    function EdtTimesheet(leaveNo) {
+        //  alert('Here');
+
+
+        $.ajax({
+            type: "POST",
+            url: "/Timesheet/editTimesheet",
+            data: '{entryNo:"' + leaveNo + ' "}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (data) {
+                //  alert(data);
+                $('#timeedit').html(data);
+
+            },
+        });
+    }
+
+
+
+    function filter() {
+        const year = parseInt($('#year option:selected').val()); // year
+        const project = $('#project option:selected').val();// Project code
+
+        $.ajax({
+            type: "POST",
+            url: "/timesheet/FilterIndex",
+            data: JSON.stringify({ 'year': parseInt(year), 'project': project }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+                $('#timesheet').html('');
+                $('#timesheet').html(response);
+
+            }
+
+        });
+    }
+</script>

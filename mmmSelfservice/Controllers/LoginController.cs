@@ -13,9 +13,10 @@
         public JsonResult authenticate(string username, string password)
         {
             userMetaData data = new userMetaData();
-            if (WSConfig.ObjNav.Fnlogin(username, password))
+            string emp = WSConfig.ObjNavLogin(username, password).Fnlogin(@"AU\"+username, password);
+            if (emp!="")
             {
-                base.Session["UserName"] = username;
+                base.Session["UserName"] = emp;
                 data.AuthSuccess = true;
                 data.username = base.Session["Username"].ToString();
                 string str = JsonConvert.SerializeObject(data);
