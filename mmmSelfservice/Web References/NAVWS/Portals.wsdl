@@ -787,6 +787,44 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnInsertAppraisal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="jsonData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertAppraisal_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnUpdateAppraisal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="jsonData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateAppraisal_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnAppraisalList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAppraisalList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="FnImprestRequisitionCreate">
         <complexType>
           <sequence>
@@ -2673,6 +2711,24 @@
   <message name="FnGetTimesheets_Result">
     <part name="parameters" element="tns:FnGetTimesheets_Result" />
   </message>
+  <message name="FnInsertAppraisal">
+    <part name="parameters" element="tns:FnInsertAppraisal" />
+  </message>
+  <message name="FnInsertAppraisal_Result">
+    <part name="parameters" element="tns:FnInsertAppraisal_Result" />
+  </message>
+  <message name="FnUpdateAppraisal">
+    <part name="parameters" element="tns:FnUpdateAppraisal" />
+  </message>
+  <message name="FnUpdateAppraisal_Result">
+    <part name="parameters" element="tns:FnUpdateAppraisal_Result" />
+  </message>
+  <message name="FnAppraisalList">
+    <part name="parameters" element="tns:FnAppraisalList" />
+  </message>
+  <message name="FnAppraisalList_Result">
+    <part name="parameters" element="tns:FnAppraisalList_Result" />
+  </message>
   <message name="FnImprestRequisitionCreate">
     <part name="parameters" element="tns:FnImprestRequisitionCreate" />
   </message>
@@ -3475,6 +3531,18 @@
     <operation name="FnGetTimesheets">
       <input name="FnGetTimesheets" message="tns:FnGetTimesheets" />
       <output name="FnGetTimesheets_Result" message="tns:FnGetTimesheets_Result" />
+    </operation>
+    <operation name="FnInsertAppraisal">
+      <input name="FnInsertAppraisal" message="tns:FnInsertAppraisal" />
+      <output name="FnInsertAppraisal_Result" message="tns:FnInsertAppraisal_Result" />
+    </operation>
+    <operation name="FnUpdateAppraisal">
+      <input name="FnUpdateAppraisal" message="tns:FnUpdateAppraisal" />
+      <output name="FnUpdateAppraisal_Result" message="tns:FnUpdateAppraisal_Result" />
+    </operation>
+    <operation name="FnAppraisalList">
+      <input name="FnAppraisalList" message="tns:FnAppraisalList" />
+      <output name="FnAppraisalList_Result" message="tns:FnAppraisalList_Result" />
     </operation>
     <operation name="FnImprestRequisitionCreate">
       <input name="FnImprestRequisitionCreate" message="tns:FnImprestRequisitionCreate" />
@@ -4302,6 +4370,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnGetTimesheets_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertAppraisal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertAppraisal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertAppraisal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertAppraisal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateAppraisal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUpdateAppraisal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateAppraisal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateAppraisal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnAppraisalList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnAppraisalList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnAppraisalList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnAppraisalList_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

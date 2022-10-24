@@ -55,7 +55,7 @@
         public string documentNo { get; set; }
         public int lineNo { get; set; } = 0;
         public string personalDescription { get; set; }
-        public int score { get; set; }
+        public string score { get; set; }
         public string comments { get; set; }
         public int count { get; set; }
     }
