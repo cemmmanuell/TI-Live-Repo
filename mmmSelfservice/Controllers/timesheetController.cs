@@ -92,22 +92,7 @@ namespace mmmSelfservice.Controllers
                     {
                         try
                         {
-                            if (l.entryno == 0)
-                            {
-                                if (l.comments != null )
-                                {
-                                    WSConfig.ObjNav.FnInsertTimesheetLines(code, DateTime.Now, DateTime.Now, l.comments, l.projectCode, l.projectText,l.hours);
-                                }
-                            }
-                            else
-                            {
-                               if
-                                     (l.comments != null)
-                                    {
-                                        WSConfig.ObjNav.FnModifyTimesheetLines(code, DateTime.Now, DateTime.Now, l.entryno, l.comments, l.projectCode, l.projectText, l.hours);
-                                    }
-                            }
-
+                            WSConfig.ObjNav.FnInsertTimeSheet("", l.projectCode, m.startdate, Session["userName"].ToString(), 0, m.endDate, l.hours);
                         }
                         catch (Exception e)
                         {

@@ -2,7 +2,7 @@
 {
     using mmmSelfservice;
     using mmmSelfservice.Models;
-   
+
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
@@ -17,10 +17,10 @@
     using System.Web.Script.Serialization;
     using System.Xml.Serialization;
 
-    public class ImprestController : Controller
+    public class TravelclaimController : Controller
     {
         private static Uri uri = new Uri(ConfigurationManager.AppSettings["ODATA_URI"]);
-        
+
 
         public PartialViewResult Activities(string no)
         {
@@ -30,8 +30,8 @@
                 string input = WSConfig.ObjNav.FnpurchaseLines(no);
                 List<PurchaseLines> list = serializer.Deserialize<List<PurchaseLines>>(input);
                 return base.PartialView((from r in list
-                    where r.LineType == "Activity"
-                    select r).ToList<PurchaseLines>());
+                                         where r.LineType == "Activity"
+                                         select r).ToList<PurchaseLines>());
             }
             catch (Exception)
             {
@@ -47,8 +47,8 @@
                 string input = WSConfig.ObjNav.FnpurchaseLines(no);
                 List<PurchaseLines> list = serializer.Deserialize<List<PurchaseLines>>(input);
                 return base.PartialView((from r in list
-                    where r.LineType == "Activity"
-                    select r).ToList<PurchaseLines>());
+                                         where r.LineType == "Activity"
+                                         select r).ToList<PurchaseLines>());
             }
             catch (Exception)
             {
@@ -73,8 +73,8 @@
                 string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                    where r.Status == "Released"
-                    select r).ToList<imprestRinfoModel>());
+                                  where r.Status == "Released"
+                                  select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -90,8 +90,8 @@
                 string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                    where (r.Status == "Released") && (r.Completed == "No")
-                    select r).ToList<imprestRinfoModel>());
+                                  where (r.Status == "Released") && (r.Completed == "No")
+                                  select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -107,8 +107,8 @@
                 string input = WSConfig.ObjNav.FnDimensionValuesList("");
                 List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
                 return base.PartialView((from r in list
-                    where r.Type == "4"
-                    select r).ToList<standardtexts>());
+                                         where r.Type == "4"
+                                         select r).ToList<standardtexts>());
             }
             catch (Exception)
             {
@@ -124,8 +124,8 @@
                 string input = WSConfig.ObjNav.FnDimensionValuesList(fundcode);
                 List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
                 return base.PartialView((from r in list
-                    where r.Type == "3"
-                    select r).ToList<standardtexts>());
+                                         where r.Type == "3"
+                                         select r).ToList<standardtexts>());
             }
             catch (Exception)
             {
@@ -141,8 +141,8 @@
                 string input = WSConfig.ObjNav.FnpurchaseLines(no);
                 List<PurchaseLines> list = serializer.Deserialize<List<PurchaseLines>>(input);
                 return base.PartialView((from r in list
-                    where r.LineType == "Budget Info"
-                    select r).ToList<PurchaseLines>());
+                                         where r.LineType == "Budget Info"
+                                         select r).ToList<PurchaseLines>());
             }
             catch (Exception)
             {
@@ -158,8 +158,8 @@
                 string input = WSConfig.ObjNav.FnpurchaseLines(no);
                 List<PurchaseLines> list = serializer.Deserialize<List<PurchaseLines>>(input);
                 return base.PartialView((from r in list
-                    where r.LineType == "Budget Info"
-                    select r).ToList<PurchaseLines>());
+                                         where r.LineType == "Budget Info"
+                                         select r).ToList<PurchaseLines>());
             }
             catch (Exception)
             {
@@ -175,8 +175,8 @@
                 string input = WSConfig.ObjNav.FnpurchaseLines(no);
                 List<PurchaseLines> list = serializer.Deserialize<List<PurchaseLines>>(input);
                 return base.PartialView((from r in list
-                    where r.LineType == "Budget Notes"
-                    select r).ToList<PurchaseLines>());
+                                         where r.LineType == "Budget Notes"
+                                         select r).ToList<PurchaseLines>());
             }
             catch (Exception)
             {
@@ -192,8 +192,8 @@
                 string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                    where r.Completed == "Yes"
-                    select r).ToList<imprestRinfoModel>());
+                                  where r.Completed == "Yes"
+                                  select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -209,8 +209,8 @@
                 string input = WSConfig.ObjNav.FnGetContryregions();
                 List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
                 return base.View((from r in list
-                    where r.Type == "Country"
-                    select r).ToList<standardtexts>());
+                                  where r.Type == "Country"
+                                  select r).ToList<standardtexts>());
             }
             catch (Exception)
             {
@@ -226,8 +226,8 @@
                 string input = WSConfig.ObjNav.FnGetContryregions();
                 List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
                 return base.PartialView((from r in list
-                    where r.Type == "County"
-                    select r).ToList<standardtexts>());
+                                         where r.Type == "County"
+                                         select r).ToList<standardtexts>());
             }
             catch (Exception)
             {
@@ -296,8 +296,8 @@
                 string input = WSConfig.ObjNav.FnDimensionValuesList("");
                 List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
                 return base.PartialView((from r in list
-                    where r.Type == "5"
-                    select r).ToList<standardtexts>());
+                                         where r.Type == "5"
+                                         select r).ToList<standardtexts>());
             }
             catch (Exception)
             {
@@ -311,7 +311,7 @@
             return base.PartialView(model);
         }
 
-       
+
 
         public PartialViewResult editImp(string no)
         {
@@ -321,8 +321,8 @@
                 string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.PartialView((from r in list
-                    where (r.Status == "Open") && (r.No == no)
-                    select r).FirstOrDefault<imprestRinfoModel>());
+                                         where (r.Status == "Open") && (r.No == no)
+                                         select r).FirstOrDefault<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -338,8 +338,8 @@
                 string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.PartialView((from r in list
-                    where r.No == no
-                    select r).FirstOrDefault<imprestRinfoModel>());
+                                         where r.No == no
+                                         select r).FirstOrDefault<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -355,8 +355,8 @@
                 string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.PartialView((from r in list
-                    where (r.Status == "Open") && (r.No == missionno)
-                    select r).FirstOrDefault<imprestRinfoModel>());
+                                         where (r.Status == "Open") && (r.No == missionno)
+                                         select r).FirstOrDefault<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -372,8 +372,8 @@
                 string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.PartialView((from r in list
-                    where r.No == missionno
-                    select r).FirstOrDefault<imprestRinfoModel>());
+                                         where r.No == missionno
+                                         select r).FirstOrDefault<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -436,8 +436,8 @@
                 string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                    where r.Status == "Open"
-                    select r).ToList<imprestRinfoModel>());
+                                  where r.Status == "Open"
+                                  select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -604,8 +604,8 @@
                 string input = WSConfig.ObjNav.FnpurchaseLines(no);
                 List<PurchaseLines> list = serializer.Deserialize<List<PurchaseLines>>(input);
                 return base.PartialView((from r in list
-                    where r.LineType == "Objectives"
-                    select r).ToList<PurchaseLines>());
+                                         where r.LineType == "Objectives"
+                                         select r).ToList<PurchaseLines>());
             }
             catch (Exception)
             {
@@ -621,8 +621,8 @@
                 string input = WSConfig.ObjNav.FnpurchaseLines(no);
                 List<PurchaseLines> list = serializer.Deserialize<List<PurchaseLines>>(input);
                 return base.PartialView((from r in list
-                    where r.LineType == "Objectives"
-                    select r).ToList<PurchaseLines>());
+                                         where r.LineType == "Objectives"
+                                         select r).ToList<PurchaseLines>());
             }
             catch (Exception)
             {
@@ -638,8 +638,8 @@
                 string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                    where r.Status == "Open"
-                    select r).ToList<imprestRinfoModel>());
+                                  where r.Status == "Open"
+                                  select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -670,8 +670,8 @@
                 string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                    where r.Status == "Pending Approval"
-                    select r).ToList<imprestRinfoModel>());
+                                  where r.Status == "Pending Approval"
+                                  select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -687,8 +687,8 @@
                 string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                    where r.Status == "Pending Approval"
-                    select r).ToList<imprestRinfoModel>());
+                                  where r.Status == "Pending Approval"
+                                  select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -704,8 +704,8 @@
                 string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                    where r.Posted == "Yes"
-                    select r).ToList<imprestRinfoModel>());
+                                  where r.Posted == "Yes"
+                                  select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)
             {
@@ -718,7 +718,7 @@
             WSConfig.ObjNav.FnApproval(no);
             return base.RedirectToAction("openpurchases", "Purchase");
         }
-        
+
 
         public ActionResult rolecenter()
         {
@@ -746,8 +746,8 @@
                 string input = WSConfig.ObjNav.FnGetStandardText();
                 List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
                 return base.PartialView((from r in list
-                    where r.Type == "Focus Area"
-                    select r).ToList<standardtexts>());
+                                         where r.Type == "Focus Area"
+                                         select r).ToList<standardtexts>());
             }
             catch (Exception)
             {
@@ -763,8 +763,8 @@
                 string input = WSConfig.ObjNav.FnGetStandardText();
                 List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
                 return base.PartialView((from r in list
-                    where r.Type == "Sub Pillar"
-                    select r).ToList<standardtexts>());
+                                         where r.Type == "Sub Pillar"
+                                         select r).ToList<standardtexts>());
             }
             catch (Exception)
             {
@@ -780,8 +780,8 @@
                 string input = WSConfig.ObjNav.FnpurchaseLines(no);
                 List<PurchaseLines> list = serializer.Deserialize<List<PurchaseLines>>(input);
                 return base.PartialView((from r in list
-                    where r.LineType == "Team Roles"
-                    select r).ToList<PurchaseLines>());
+                                         where r.LineType == "Team Roles"
+                                         select r).ToList<PurchaseLines>());
             }
             catch (Exception)
             {
@@ -797,8 +797,8 @@
                 string input = WSConfig.ObjNav.FnpurchaseLines(no);
                 List<PurchaseLines> list = serializer.Deserialize<List<PurchaseLines>>(input);
                 return base.PartialView((from r in list
-                    where r.LineType == "Team Roles"
-                    select r).ToList<PurchaseLines>());
+                                         where r.LineType == "Team Roles"
+                                         select r).ToList<PurchaseLines>());
             }
             catch (Exception)
             {
@@ -1057,7 +1057,7 @@
             return new JsonResult { Data = mt };
         }
 
-      
-        }
+
+    }
 }
 

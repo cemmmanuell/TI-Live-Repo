@@ -1,0 +1,28 @@
+﻿
+@model IEnumerable<mmmSelfservice.Models.PurchaseLines>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentNo)
+        </th>
+
+        <th></th>
+    </tr>
+    <tbody >
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                 @Html.DisplayFor(modelItem => item.Description2)
+                </td>
+
+                <td style="display:none">@item.LineNo</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<mmmSelfservice.Models.PurchaseLines>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentNo)
+        </th>
+       
+        <th></th>
+    </tr>
+    <tbody id="table11">
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="text" class="form-control" value="@Html.DisplayFor(modelItem => item.Description2)" />
+                </td>
+
+                <td style="display:none">@item.LineNo</td>
+                <td><a href="#" onclick="removelineAll(this,'@item.LineNo','@item.DocumentNo')"><i class="icon-cross3 mr-3 icon-1x"></i></a></td>
+            </tr>
+        }
+        <tr>
+
+            <td><input type="text" class="form-control"></td>
+            <td style="display:none"></td>
+            <td class="text-center">
+                <div class="list-icons">
+                    <a onclick="addlinetotables1('1')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

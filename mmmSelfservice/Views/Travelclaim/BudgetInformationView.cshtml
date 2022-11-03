@@ -1,0 +1,85 @@
+﻿@model IEnumerable<mmmSelfservice.Models.PurchaseLines>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Budget item
+        </th>
+        <th>
+            Identified vendor
+        </th>
+        <th>
+            No. of Days
+        </th>
+        <th>
+            No. of Pax
+        </th>
+        <th>
+            Ksh
+        </th>
+        <th>
+            Other currency
+        </th>
+        <th>
+            Total Ksh
+        </th>
+        <th>
+            Total other currency
+        </th>
+        <th>
+            Mission expense category
+        </th>
+
+        <th></th>
+    </tr>
+    <tbody>
+
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>
+                  @Html.DisplayFor(modelItem => item.Description3)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.Description2)
+                </td>
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoOfDays)
+                </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.NoOfPax)
+                </td>
+                <td>
+                   @Html.DisplayFor(modelItem => item.Ksh)
+                </td>
+                <td>
+               @Html.DisplayFor(modelItem => item.OtherCurrency)
+                </td>
+
+                <td>
+                 @Html.DisplayFor(modelItem => item.TotalKsh)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.TotalOtherCurrency)
+                </td>
+                <td>
+                  @Html.DisplayFor(modelItem => item.ExpenseCategory)
+                </td>
+                <td style="display:none">@item.LineNo</td>
+
+            </tr>
+
+
+
+        }
+
+    </tbody>
+</table>
+

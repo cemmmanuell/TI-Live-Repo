@@ -209,6 +209,7 @@
     <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\timesheetController.cs" />
     <Compile Include="Controllers\TrainingController.cs" />
+    <Compile Include="Controllers\TravelclaimController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3281,11 +3282,53 @@
     <Content Include="Views\timesheet\years.cshtml" />
     <Content Include="Views\timesheet\Pending.cshtml" />
     <Content Include="Views\timesheet\Approved.cshtml" />
+    <Content Include="Views\Travelclaim\Activities.cshtml" />
+    <Content Include="Views\Travelclaim\ActivitiesView.cshtml" />
+    <Content Include="Views\Travelclaim\Approvedimprests.cshtml" />
+    <Content Include="Views\Travelclaim\approvedProporsals.cshtml" />
+    <Content Include="Views\Travelclaim\approvedProposals.cshtml" />
+    <Content Include="Views\Travelclaim\budgetdescription.cshtml" />
+    <Content Include="Views\Travelclaim\budgetdimesion.cshtml" />
+    <Content Include="Views\Travelclaim\BudgetInformation.cshtml" />
+    <Content Include="Views\Travelclaim\BudgetInformationView.cshtml" />
+    <Content Include="Views\Travelclaim\budgetnotes.cshtml" />
+    <Content Include="Views\Travelclaim\completedProporsals.cshtml" />
+    <Content Include="Views\Travelclaim\completedProposals.cshtml" />
+    <Content Include="Views\Travelclaim\country.cshtml" />
+    <Content Include="Views\Travelclaim\county.cshtml" />
+    <Content Include="Views\Travelclaim\currencies.cshtml" />
+    <Content Include="Views\Travelclaim\department.cshtml" />
+    <Content Include="Views\Travelclaim\departments.cshtml" />
+    <Content Include="Views\Travelclaim\departmentvalue.cshtml" />
+    <Content Include="Views\Travelclaim\editImp.cshtml" />
+    <Content Include="Views\Travelclaim\editImpView.cshtml" />
+    <Content Include="Views\Travelclaim\editmissionproposal.cshtml" />
+    <Content Include="Views\Travelclaim\editmissionproposalView.cshtml" />
+    <Content Include="Views\Travelclaim\expensecategories.cshtml" />
+    <Content Include="Views\Travelclaim\ImprestEdit.cshtml" />
+    <Content Include="Views\Travelclaim\ImprestLine.cshtml" />
+    <Content Include="Views\Travelclaim\Index.cshtml" />
+    <Content Include="Views\Travelclaim\newimprest.cshtml" />
+    <Content Include="Views\Travelclaim\newmissionProporsal.cshtml" />
+    <Content Include="Views\Travelclaim\newmissionProposal.cshtml" />
+    <Content Include="Views\Travelclaim\Objectives.cshtml" />
+    <Content Include="Views\Travelclaim\ObjectivesView.cshtml" />
+    <Content Include="Views\Travelclaim\openMissionProporsals.cshtml" />
+    <Content Include="Views\Travelclaim\openMissionProposals.cshtml" />
+    <Content Include="Views\Travelclaim\pendingimprests.cshtml" />
+    <Content Include="Views\Travelclaim\pendingProporsals.cshtml" />
+    <Content Include="Views\Travelclaim\pendingProposals.cshtml" />
+    <Content Include="Views\Travelclaim\Postedimprests.cshtml" />
+    <Content Include="Views\Travelclaim\rolecenter.cshtml" />
+    <Content Include="Views\Travelclaim\strategicFocusAreas.cshtml" />
+    <Content Include="Views\Travelclaim\subpillar.cshtml" />
+    <Content Include="Views\Travelclaim\teamRoles.cshtml" />
+    <Content Include="Views\Travelclaim\teamRolesview.cshtml" />
     <None Include="Web References\NAVWS\Portals.wsdl" />
-    <None Include="Web References\NAVWS\Reference.map">
+    <Content Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3305,10 +3348,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://20.87.212.136:8047/SADOBC/WS/TRAINING/Codeunit/Portals">
+    <WebReferenceUrl Include="http://38.242.223.23:7047/SADOBC/WS/TRAINING/Codeunit/Portals">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NAVWS\</RelPath>
-      <UpdateFromURL>http://20.87.212.136:8047/SADOBC/WS/TRAINING/Codeunit/Portals</UpdateFromURL>
+      <UpdateFromURL>http://38.242.223.23:7047/SADOBC/WS/TRAINING/Codeunit/Portals</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

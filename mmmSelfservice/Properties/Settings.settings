@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="mmmSelfservice_NAVWS_Portals" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://20.87.212.136:8047/SADOBC/WS/TRAINING/Codeunit/Portals</Value>
+      <Value Profile="(Default)">http://38.242.223.23:7047/SADOBC/WS/TRAINING/Codeunit/Portals</Value>
     </Setting>
   </Settings>
 </SettingsFile>
