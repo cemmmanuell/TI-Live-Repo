@@ -78,6 +78,8 @@
         public string Ref { get; set; }
         public DateTime Date { get; set; }
         public string Subject { get; set; }
+        public string vendor { get; set; }
+        public string vendorName { get; set; }
 
         public string DateString { get
             {

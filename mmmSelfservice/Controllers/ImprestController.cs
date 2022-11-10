@@ -133,6 +133,38 @@
             }
         }
 
+
+        public PartialViewResult Payes()
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            try
+            {
+                string input = WSConfig.ObjNav.FnVendors();
+                List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
+                return base.PartialView(list);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+        public PartialViewResult UnitsOfMeasure()
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            try
+            {
+                string input = WSConfig.ObjNav.();
+                List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
+                return base.PartialView(list);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public PartialViewResult BudgetInformation(string no)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
