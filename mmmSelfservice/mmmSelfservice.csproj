@@ -3324,11 +3324,13 @@
     <Content Include="Views\Travelclaim\subpillar.cshtml" />
     <Content Include="Views\Travelclaim\teamRoles.cshtml" />
     <Content Include="Views\Travelclaim\teamRolesview.cshtml" />
+    <Content Include="Views\Imprest\Payes.cshtml" />
+    <Content Include="Views\Imprest\UnitsOfMeasure.cshtml" />
     <None Include="Web References\NAVWS\Portals.wsdl" />
-    <Content Include="Web References\NAVWS\Reference.map">
+    <None Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

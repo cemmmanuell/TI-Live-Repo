@@ -127,7 +127,7 @@
             public string html { get; set; }
         }
 
-        public JsonResult editpaymentmemo(string strategicfocusarea, string subpillar, string projecttitle, string country, string county, string dateofactivities, string missionteam, string invitedmembers, string fundcode, string programcode, string budgetdimension, string departmentdimension, string budgetdescription, List<string> objectives, string focus, string outcome, List<string> roles, List<string> activities, List<string> budgetinfo, string refe, List<string> budgetnotes, DateTime date, string subject, string no, string missionproposal, string purchaserequest)
+        public JsonResult editpaymentmemo(string strategicfocusarea, string subpillar, string projecttitle, string country, string county, string dateofactivities, string missionteam, string invitedmembers, string fundcode, string programcode, string budgetdimension, string departmentdimension, string budgetdescription, List<string> objectives, string focus, string outcome, List<string> roles, List<string> activities, List<string> budgetinfo, string refe, List<string> budgetnotes, DateTime date, string subject, string no, string missionproposal, string purchaserequest, string paye)
         {
             resultMt mt = new resultMt();
             try
@@ -135,7 +135,7 @@
                 int num2;
 
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
-                string documentno = WSConfig.ObjNav.FnupdatePaymentmemo(date, fundcode, programcode, departmentdimension, budgetdimension, budgetdescription, subject, base.Session["username"].ToString(), refe,no,purchaserequest, missionproposal);
+                string documentno = WSConfig.ObjNav.FnupdatePaymentmemo(date, fundcode, programcode, departmentdimension, budgetdimension, budgetdescription, subject, base.Session["username"].ToString(), refe,no,purchaserequest, missionproposal, paye);
                 mt.status = true;
 
             }
@@ -152,14 +152,14 @@
             WSConfig.ObjNav.FnApproval(no);
             return base.RedirectToAction("appraisallist", "Home");
         }
-        public JsonResult insertpaymentmemo(string strategicfocusarea, string subpillar, string projecttitle, string country, string county, string dateofactivities, string missionteam, string invitedmembers, string fundcode, string programcode, string budgetdimension, string departmentdimension, string budgetdescription, List<string> objectives, string focus, string outcome, List<string> roles, List<string> activities, List<string> budgetinfo, string refe, List<string> budgetnotes, DateTime date, string subject, string  missionproposal, string purchaserequest)
+        public JsonResult insertpaymentmemo(string strategicfocusarea, string subpillar, string projecttitle, string country, string county, string dateofactivities, string missionteam, string invitedmembers, string fundcode, string programcode, string budgetdimension, string departmentdimension, string budgetdescription, List<string> objectives, string focus, string outcome, List<string> roles, List<string> activities, List<string> budgetinfo, string refe, List<string> budgetnotes, DateTime date, string subject, string  missionproposal, string purchaserequest, string paye)
         {
             resultMt mt = new resultMt();
             try { 
             int num2;
            
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            string documentno = WSConfig.ObjNav.FnInsertPaymentmemo(date, fundcode, programcode, departmentdimension,budgetdimension, budgetdescription, subject, base.Session["username"].ToString(), refe,purchaserequest, missionproposal);
+            string documentno = WSConfig.ObjNav.FnInsertPaymentmemo(date, fundcode, programcode, departmentdimension,budgetdimension, budgetdescription, subject, base.Session["username"].ToString(), refe,purchaserequest, missionproposal, paye);
             mt.status = true;
            
             }

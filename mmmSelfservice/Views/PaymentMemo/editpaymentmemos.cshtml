@@ -53,8 +53,8 @@
                                                                     <label class="col-lg-3 col-form-label">Fund code:</label>
                                                                     <div class="col-lg-9">
                                                                         <select class="form-control" id="department1011" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'department1011')">
-                                                                              <option value="@Model.FundCode">@Model.FundCode</option>
-                                                                             @Html.Action("department", "imprest")
+                                                                            <option value="@Model.FundCode">@Model.FundCode</option>
+                                                                            @Html.Action("department", "imprest")
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -63,7 +63,7 @@
                                                                     <div class="col-lg-9">
                                                                         <select class="form-control" id="programcode1011">
                                                                             <option value="@Model.ProgramCode">@Model.ProgramCode</option>
-                                                                        @Html.Action("departmentvalue", "imprest")
+                                                                            @Html.Action("departmentvalue", "imprest")
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -79,6 +79,13 @@
                                                                     <label class="col-lg-3 col-form-label">Budget category:</label>
                                                                     <div class="col-lg-9">
                                                                         <select class="form-control" id="budgetdescription11"><option value="@Model.departmentdimension">@Model.departmentdimension</option>@Html.Action("budgetdescription", "imprest")</select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Payee:</label>
+                                                                    <div class="col-lg-9">
+                                                                        <select class="form-control" id="payee02"><option value="@Model.vendor">@Model.vendorName</option>@Html.Action("Payes", "imprest")</select>
                                                                     </div>
                                                                 </div>
 

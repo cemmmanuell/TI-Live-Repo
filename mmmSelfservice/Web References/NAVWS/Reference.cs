@@ -121,6 +121,10 @@ namespace mmmSelfservice.NAVWS {
         
         private System.Threading.SendOrPostCallback FnGetTimesheetsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnVendorsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnUnitsOfMeasureOperationCompleted;
+        
         private System.Threading.SendOrPostCallback FnImprestRequisitionCreateOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnLeaveApplicationOperationCompleted;
@@ -502,6 +506,12 @@ namespace mmmSelfservice.NAVWS {
         
         /// <remarks/>
         public event FnGetTimesheetsCompletedEventHandler FnGetTimesheetsCompleted;
+        
+        /// <remarks/>
+        public event FnVendorsCompletedEventHandler FnVendorsCompleted;
+        
+        /// <remarks/>
+        public event FnUnitsOfMeasureCompletedEventHandler FnUnitsOfMeasureCompleted;
         
         /// <remarks/>
         public event FnImprestRequisitionCreateCompletedEventHandler FnImprestRequisitionCreateCompleted;
@@ -1338,7 +1348,7 @@ namespace mmmSelfservice.NAVWS {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertPaymentmemo", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnInsertPaymentmemo_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnInsertPaymentmemo([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string purchaseRequest, string missionproposal) {
+        public string FnInsertPaymentmemo([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string purchaseRequest, string missionproposal, string paye) {
             object[] results = this.Invoke("FnInsertPaymentmemo", new object[] {
                         datesofActivities,
                         fundcode,
@@ -1350,17 +1360,18 @@ namespace mmmSelfservice.NAVWS {
                         empno,
                         @ref,
                         purchaseRequest,
-                        missionproposal});
+                        missionproposal,
+                        paye});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnInsertPaymentmemoAsync(System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string purchaseRequest, string missionproposal) {
-            this.FnInsertPaymentmemoAsync(datesofActivities, fundcode, programcode, departmentdimension, budgetdimesion, budgetdescription, background, empno, @ref, purchaseRequest, missionproposal, null);
+        public void FnInsertPaymentmemoAsync(System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string purchaseRequest, string missionproposal, string paye) {
+            this.FnInsertPaymentmemoAsync(datesofActivities, fundcode, programcode, departmentdimension, budgetdimesion, budgetdescription, background, empno, @ref, purchaseRequest, missionproposal, paye, null);
         }
         
         /// <remarks/>
-        public void FnInsertPaymentmemoAsync(System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string purchaseRequest, string missionproposal, object userState) {
+        public void FnInsertPaymentmemoAsync(System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string purchaseRequest, string missionproposal, string paye, object userState) {
             if ((this.FnInsertPaymentmemoOperationCompleted == null)) {
                 this.FnInsertPaymentmemoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertPaymentmemoOperationCompleted);
             }
@@ -1375,7 +1386,8 @@ namespace mmmSelfservice.NAVWS {
                         empno,
                         @ref,
                         purchaseRequest,
-                        missionproposal}, this.FnInsertPaymentmemoOperationCompleted, userState);
+                        missionproposal,
+                        paye}, this.FnInsertPaymentmemoOperationCompleted, userState);
         }
         
         private void OnFnInsertPaymentmemoOperationCompleted(object arg) {
@@ -1388,7 +1400,7 @@ namespace mmmSelfservice.NAVWS {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnupdatePaymentmemo", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnupdatePaymentmemo_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnupdatePaymentmemo([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string no, string purchaseRequest, string missionProporsal) {
+        public string FnupdatePaymentmemo([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string no, string purchaseRequest, string missionProporsal, string paye) {
             object[] results = this.Invoke("FnupdatePaymentmemo", new object[] {
                         datesofActivities,
                         fundcode,
@@ -1401,17 +1413,18 @@ namespace mmmSelfservice.NAVWS {
                         @ref,
                         no,
                         purchaseRequest,
-                        missionProporsal});
+                        missionProporsal,
+                        paye});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnupdatePaymentmemoAsync(System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string no, string purchaseRequest, string missionProporsal) {
-            this.FnupdatePaymentmemoAsync(datesofActivities, fundcode, programcode, departmentdimension, budgetdimesion, budgetdescription, background, empno, @ref, no, purchaseRequest, missionProporsal, null);
+        public void FnupdatePaymentmemoAsync(System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string no, string purchaseRequest, string missionProporsal, string paye) {
+            this.FnupdatePaymentmemoAsync(datesofActivities, fundcode, programcode, departmentdimension, budgetdimesion, budgetdescription, background, empno, @ref, no, purchaseRequest, missionProporsal, paye, null);
         }
         
         /// <remarks/>
-        public void FnupdatePaymentmemoAsync(System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string no, string purchaseRequest, string missionProporsal, object userState) {
+        public void FnupdatePaymentmemoAsync(System.DateTime datesofActivities, string fundcode, string programcode, string departmentdimension, string budgetdimesion, string budgetdescription, string background, string empno, string @ref, string no, string purchaseRequest, string missionProporsal, string paye, object userState) {
             if ((this.FnupdatePaymentmemoOperationCompleted == null)) {
                 this.FnupdatePaymentmemoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnupdatePaymentmemoOperationCompleted);
             }
@@ -1427,7 +1440,8 @@ namespace mmmSelfservice.NAVWS {
                         @ref,
                         no,
                         purchaseRequest,
-                        missionProporsal}, this.FnupdatePaymentmemoOperationCompleted, userState);
+                        missionProporsal,
+                        paye}, this.FnupdatePaymentmemoOperationCompleted, userState);
         }
         
         private void OnFnupdatePaymentmemoOperationCompleted(object arg) {
@@ -2569,6 +2583,62 @@ namespace mmmSelfservice.NAVWS {
             if ((this.FnGetTimesheetsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.FnGetTimesheetsCompleted(this, new FnGetTimesheetsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnVendors", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnVendors_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnVendors() {
+            object[] results = this.Invoke("FnVendors", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnVendorsAsync() {
+            this.FnVendorsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void FnVendorsAsync(object userState) {
+            if ((this.FnVendorsOperationCompleted == null)) {
+                this.FnVendorsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnVendorsOperationCompleted);
+            }
+            this.InvokeAsync("FnVendors", new object[0], this.FnVendorsOperationCompleted, userState);
+        }
+        
+        private void OnFnVendorsOperationCompleted(object arg) {
+            if ((this.FnVendorsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnVendorsCompleted(this, new FnVendorsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnUnitsOfMeasure", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnUnitsOfMeasure_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnUnitsOfMeasure() {
+            object[] results = this.Invoke("FnUnitsOfMeasure", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnUnitsOfMeasureAsync() {
+            this.FnUnitsOfMeasureAsync(null);
+        }
+        
+        /// <remarks/>
+        public void FnUnitsOfMeasureAsync(object userState) {
+            if ((this.FnUnitsOfMeasureOperationCompleted == null)) {
+                this.FnUnitsOfMeasureOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnUnitsOfMeasureOperationCompleted);
+            }
+            this.InvokeAsync("FnUnitsOfMeasure", new object[0], this.FnUnitsOfMeasureOperationCompleted, userState);
+        }
+        
+        private void OnFnUnitsOfMeasureOperationCompleted(object arg) {
+            if ((this.FnUnitsOfMeasureCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnUnitsOfMeasureCompleted(this, new FnUnitsOfMeasureCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -7089,6 +7159,58 @@ namespace mmmSelfservice.NAVWS {
         private object[] results;
         
         internal FnGetTimesheetsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnVendorsCompletedEventHandler(object sender, FnVendorsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnVendorsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnVendorsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnUnitsOfMeasureCompletedEventHandler(object sender, FnUnitsOfMeasureCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnUnitsOfMeasureCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnUnitsOfMeasureCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

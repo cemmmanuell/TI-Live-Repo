@@ -229,6 +229,7 @@
             <element minOccurs="1" maxOccurs="1" name="ref" type="string" />
             <element minOccurs="1" maxOccurs="1" name="purchaseRequest" type="string" />
             <element minOccurs="1" maxOccurs="1" name="missionproposal" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="paye" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -254,6 +255,7 @@
             <element minOccurs="1" maxOccurs="1" name="no" type="string" />
             <element minOccurs="1" maxOccurs="1" name="purchaseRequest" type="string" />
             <element minOccurs="1" maxOccurs="1" name="missionProporsal" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="paye" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -781,6 +783,30 @@
         </complexType>
       </element>
       <element name="FnGetTimesheets_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnVendors">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnVendors_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUnitsOfMeasure">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnUnitsOfMeasure_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -2673,6 +2699,18 @@
   <message name="FnGetTimesheets_Result">
     <part name="parameters" element="tns:FnGetTimesheets_Result" />
   </message>
+  <message name="FnVendors">
+    <part name="parameters" element="tns:FnVendors" />
+  </message>
+  <message name="FnVendors_Result">
+    <part name="parameters" element="tns:FnVendors_Result" />
+  </message>
+  <message name="FnUnitsOfMeasure">
+    <part name="parameters" element="tns:FnUnitsOfMeasure" />
+  </message>
+  <message name="FnUnitsOfMeasure_Result">
+    <part name="parameters" element="tns:FnUnitsOfMeasure_Result" />
+  </message>
   <message name="FnImprestRequisitionCreate">
     <part name="parameters" element="tns:FnImprestRequisitionCreate" />
   </message>
@@ -3475,6 +3513,14 @@
     <operation name="FnGetTimesheets">
       <input name="FnGetTimesheets" message="tns:FnGetTimesheets" />
       <output name="FnGetTimesheets_Result" message="tns:FnGetTimesheets_Result" />
+    </operation>
+    <operation name="FnVendors">
+      <input name="FnVendors" message="tns:FnVendors" />
+      <output name="FnVendors_Result" message="tns:FnVendors_Result" />
+    </operation>
+    <operation name="FnUnitsOfMeasure">
+      <input name="FnUnitsOfMeasure" message="tns:FnUnitsOfMeasure" />
+      <output name="FnUnitsOfMeasure_Result" message="tns:FnUnitsOfMeasure_Result" />
     </operation>
     <operation name="FnImprestRequisitionCreate">
       <input name="FnImprestRequisitionCreate" message="tns:FnImprestRequisitionCreate" />
@@ -4302,6 +4348,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnGetTimesheets_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnVendors">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnVendors" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnVendors">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnVendors_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUnitsOfMeasure">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnUnitsOfMeasure" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUnitsOfMeasure">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUnitsOfMeasure_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
