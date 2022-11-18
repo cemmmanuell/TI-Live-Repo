@@ -129,7 +129,7 @@
 
 				<!-- User menu -->
                 <div class="sidebar-user-material">
-                    <div style="height:280px" class="sidebar-user-material-body">
+                    <div style="height: 120px" class="sidebar-user-material-body">
                         <div class="card-body text-center">
 
                             <h6 class="mb-0 text-white text-shadow-dark"></h6>
@@ -192,15 +192,27 @@
                                 </li>
 
                                 <li class="nav-item nav-item-submenu">
-                                    <a href="#" class="nav-link">Travel authorization expense</a>
+                                    <a href="#" class="nav-link">Travel accounting</a>
                                     <ul class="nav nav-group-sub">
-                                        <li class="nav-item"><a href="@Url.Action("index", "ImprestAccounting")" class="nav-link">New travel authorization expense</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("pendingimprestsurrender", "ImprestAccounting")" class="nav-link">Pending travel authorization expense</a></li>
-                                        <li class="nav-item"><a href="@Url.Action("approvedimprestsurrender", "ImprestAccounting")" class="nav-link">Approved travel authorization expense</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("index", "ImprestAccounting")" class="nav-link">New travel accounting</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingimprestsurrender", "ImprestAccounting")" class="nav-link">Pending travel accounting</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedimprestsurrender", "ImprestAccounting")" class="nav-link">Approved travel accounting</a></li>
 
                                     </ul>
                                 </li>
-                               
+
+
+
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Travel claim</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("Index", "TravelClaim")" class="nav-link">New travel claim</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("pendingimprests", "TravelClaim")" class="nav-link">Pending travel claim</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("approvedimprests", "TravelClaim")" class="nav-link">Approved travel claim</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("Postedimprests", "TravelClaim")" class="nav-link">Posted travel claim</a></li>
+                                    </ul>
+                                </li>
+
                                 <li class="nav-item nav-item-submenu">
                                     <a href="#" class="nav-link">Payment request form</a>
                                     <ul class="nav nav-group-sub">

@@ -96,10 +96,11 @@
                                             <table class="table" >
                                                 <thead>
                                                     <tr>
-                                                        <th>Type</th>
+
                                                         <th>Description</th>
+                                                        <th>Unit of measure</th>
                                                         <th>Unit cost</th>
-                                                        <th>Currency</th>
+                                                        <th></th>
                                                         <th>Quantity</th>
 
                                                     </tr>
@@ -151,10 +152,10 @@
                                 <div class="col-md-12">
 
 
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Type:</label>
+                                    <div style="display:none" class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Unit of measure:</label>
                                         <div class="col-lg-9">
-                                            <select class="form-control" id="type1">@Html.Action("expensecategories","imprest")</select>
+                                            <select class="form-control" id="type2131">@Html.Action("expensecategories", "imprest")</select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -166,10 +167,16 @@
                                     </div>
 
                                     <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Unit of measure:</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control" id="type1">@Html.Action("UnitsOfMeasure", "imprest")</select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
 
                                         <label class="col-lg-3 col-form-label">Unit cost:</label>
                                         <div class="col-lg-9">
-                                            <input type="number" id="unitcost1"  class="form-control" />
+                                            <input type="number" id="unitcost1" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -179,10 +186,10 @@
                                             <input type="number" id="quantity1" class="form-control" />
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <div style="display:none" class="form-group row">
                                         <label class="col-lg-3 col-form-label">Currency</label>
                                         <div class="col-lg-9">
-                                            <select class="form-control" id="currency1" >@Html.Action("currencies", "imprest")</select>
+                                            <select class="form-control" id="currency1">@Html.Action("currencies", "imprest")</select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -263,7 +270,7 @@
 
     function addline1() {
 
-        var tblstring = '<tr><td>' + $('#type1 option:selected').val() + '</td><td>' + $('#description1').val() + '</td><td>' + $('#unitcost1').val() + '</td><td>' + $('#currency1 option:selected').val() + '</td><td>' + $('#quantity1').val() + '</td><td><a href="#" onclick="removeEmptyLine(this)"><i class="icon-cross3 mr-3 icon-2x"></a></i></td></tr>';
+        var tblstring = '<tr><td>' + $('#description1').val() + '</td><td>' + $('#type1 option:selected').val() + '</td><td>' + $('#unitcost1').val() + '</td><td>""</td><td>' + $('#quantity1').val() + '</td><td><a href="#" onclick="removeEmptyLine(this)"><i class="icon-cross3 mr-3 icon-2x"></a></i></td></tr>';
       
         $('#tbodyrequestline').append(tblstring)
 
