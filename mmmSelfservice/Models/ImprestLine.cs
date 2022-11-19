@@ -23,6 +23,7 @@
 
         public string ExpenseCategory { get; set; }
 
+        public string uom { get; set; }
         public string Description { get; set; }
 
         public string currency { get; set; }

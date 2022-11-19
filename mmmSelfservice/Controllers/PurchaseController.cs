@@ -108,7 +108,7 @@
                 {
                     string[] separator = new string[] { "??" };
                     string[] strArray = implines[i].Split(separator, StringSplitOptions.None);
-                    WSConfig.ObjNav.FnPurchaselineinsert(strArray[0].ToString(), strArray[1].ToString(), Convert.ToDecimal(strArray[2].ToString()), strArray[3].ToString(), Convert.ToDecimal(strArray[4].ToString()), documentno);
+                    WSConfig.ObjNav.FnPurchaselineinsert(strArray[1].ToString(), strArray[0].ToString(), Convert.ToDecimal(strArray[2].ToString()), strArray[3].ToString(), Convert.ToDecimal(strArray[4].ToString()), documentno);
                     mt.status = true;
                     num2 = i;
                 }

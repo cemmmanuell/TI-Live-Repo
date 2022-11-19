@@ -2,7 +2,7 @@
     $('#alert_s').fadeOut('fast');
     var username = $('#username').val();
     var password = $('#password').val();
-    debugger;
+    //debugger;
     $.ajax({
         type: "POST",
         url: "/Login/authenticate",

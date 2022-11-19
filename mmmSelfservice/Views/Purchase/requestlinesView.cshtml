@@ -7,52 +7,160 @@
     //Layout = "~/Views/Shared/paymenttype.cshtml";
 }
 <div>
-    
-    <!-- Main content -->
-    <div class="card-body">
-        <!-- Content area -->
-        <div class="col-sm-12">
+    <div class="card-header bg-white header-elements-sm-inline">
 
-            <!-- Page length options -->
-            <div class="col-sm-12">
+        <div class="header-elements col-md-offset-12">
 
-                <table class="table datatable-show-all">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Description</th>
-                            <th>Unit cost</th>
-                            <th>Currency</th>
-                            <th>Quantity</th>
-                          
-                        </tr>
-                    </thead>
-
-                    <tbody id="tbodyimprestline2">
-                        @foreach (mmmSelfservice.Models.ImprestLine data in Model)
-                        {
-
-                            <tr>
-                                <td>@data.ExpenseCategory</td>
-                                <td>@data.Description</td>
-                                <td>@data.unitcost</td>
-                                <td>@data.currency</td>
-                                <td>@data.quantity</td>
-                                <td style="display:none">@data.LineNo</td>
-                                <td style="display:none">@data.No</td>
-
-
-                            </tr>
-                        }
-                    </tbody>
-
-                </table>
-            </div>
-            <!-- /page length options -->
 
         </div>
-        <!-- /content area -->
     </div>
 
+    <!-- Main content -->
+    <div class="card-body">
+        <div class="card-body">
+            <!-- Content area -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-md-12">
+                                <form action="#" data-select2-id="77">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+
+
+
+                                            <div class="form-group row">
+
+                                                <label class="col-lg-3 col-form-label">Description:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" id="description13" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Unit of measure:</label>
+                                                <div class="col-lg-9">
+                                                    <select class="form-control" id="type2">@Html.Action("UnitsOfMeasure", "imprest")</select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+
+                                                <label class="col-lg-3 col-form-label">Unit cost:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="number" id="unitcost13" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+
+                                                <label class="col-lg-3 col-form-label">Quantity:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="number" id="quantity13" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div style="display:none" class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Currency:</label>
+                                                <div class="col-lg-9">
+                                                    <select class="form-control" id="currencies1390">@Html.Action("currencies", "imprest")</select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label class="col-lg-3 col-form-label">Total cost:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="number" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+
+
+                                    @*<div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
+                                            <div class="col-lg-9">
+                                                <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
+                                                <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                            </div>
+                                        </div>*@
+
+
+
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" onclick="addline2()" class="btn bg-blue btn-sm legitRipple"><i class="icon-checkmark3 mr-2"></i> Add</button>
+                        </div>
+                    </div>
+
+                    <!-- Page length options -->
+                    <!-- /page length options -->
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="table">
+                    <table class="table datatable-show-all">
+                        <thead>
+                            <tr>
+
+                                <th>Description</th>
+                                <th>Unit of measure</th>
+                                <th>Unit cost</th>
+                                <th></th>
+                                <th>Quantity</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tbodyimprestline2">
+                            @foreach (mmmSelfservice.Models.ImprestLine data in Model)
+                            {
+
+                                <tr>
+
+                                    <td><input type="text" value="@data.Description" class="form-control" /></td>
+                                    <td><select class="form-control"><option value="@data.uom">@data.uom</option>@Html.Action("UnitsOfMeasure", "imprest")</select></td>
+                                    <td><input type="number" class="form-control" value="@data.unitcost" /></td>
+                                    <td><select class="form-control"><option>@data.currency</option>@Html.Action("currencies", "imprest") </select></td>
+                                    <td><input type="number" value="@data.quantity" /> </td>
+                                    <td style="display:none">@data.LineNo</td>
+                                    <td style="display:none">@data.No</td>
+                                    <td class="text-center"><a href="#" onclick="removelineAll('@data.LineNo', '@data.No')"><i class="icon-cross3 mr-3 icon-2x"></i></a></td>
+
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
 </div>
+<script>
+
+    function addline2() {
+
+        var tblstring = '<tr><td>' + $('#type2 option:selected').val() + '</td><td>' + $('#description13').val() + '</td><td>' + $('#unitcost13').val() + '</td><td>' + $('#currencies1390 option:selected').val() + '</td><td>' + $('#quantity13').val() + '</td><td style="display:none"></td><td style="display:none"></td><td class="text-center"><a href="#" onclick="removeEmptyLine(this)"><i class="icon-cross3 mr-3 icon-2x"></a></i></td></tr>';
+
+        $('#tbodyimprestline2').append(tblstring)
+
+
+    }
+
+</script>
 

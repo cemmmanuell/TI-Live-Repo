@@ -123,9 +123,7 @@
             {
                 string input = WSConfig.ObjNav.FnDimensionValuesList(fundcode);
                 List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
-                return base.PartialView((from r in list
-                    where r.Type == "3"
-                    select r).ToList<standardtexts>());
+                return base.PartialView(list);
             }
             catch (Exception)
             {
@@ -155,7 +153,7 @@
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             try
             {
-                string input = WSConfig.ObjNav.();
+                string input = WSConfig.ObjNav.FnUnitsOfMeasure();
                 List<standardtexts> list = serializer.Deserialize<List<standardtexts>>(input);
                 return base.PartialView(list);
             }
