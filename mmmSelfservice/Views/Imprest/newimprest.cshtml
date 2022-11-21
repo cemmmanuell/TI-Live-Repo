@@ -142,7 +142,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="table5">
+                                                            <tbody id="tables5">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                     <td><input type="time" class="form-control"></td>
@@ -183,11 +183,11 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="table5">
+                                                            <tbody id="tables6">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                     <td><input type="date" class="form-control"></td>
-                                                                    <td><input type="text" class="form-control"></td>
+                                                                    <td><input type="checkbox" class="form-control"></td>
                                                                     <td><input type="text" class="form-control"></td>
                                                                     <td><input type="number" class="form-control"></td>
                                                                     <td><input type="number" class="form-control"></td>
@@ -223,7 +223,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="table5">
+                                                            <tbody id="tables7">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                    
@@ -262,7 +262,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="table5">
+                                                            <tbody id="tables8">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
 
@@ -393,20 +393,88 @@
 
 <script>
     function insertimprest() {
-        var implines = [];
-        $("#tbodyimprestline tr").each(function () {
+        var tables5 = [];
+        var tables6 = [];
+        var tables7 = [];
+        var tables8 = [];
+
+        //var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='date']").val() + '??' + row.find("td:eq(2) input[type='text']").val() + '??' + row.find("td:eq(3) input[type='number']").val() + '??' + row.find("td:eq(5)").val();
+        $("#tables5 tr").each(function () {
             var row = $(this);
             //var Statement = {};
-            var rowdata = row.find("td").eq(0).text() + "??" + row.find("td").eq(1).text() + "??" + row.find("td").eq(2).text() + "??" + row.find("td").eq(3).text() + "??" + row.find("td").eq(4).text();
+            var rowData =
+            {
+                date: row.find("td:eq(0) input[type='date']").val(),
+                departureTime: row.find("td:eq(1) input[type='time']").val(),
+                departurePlace: row.find("td:eq(2) input[type='text']").val(),
+                arrivalTime: row.find("td:eq(3) input[type='time']").val(),
+                arrivalPlace: row.find("td:eq(4) input[type='text']").val(),
+                remarks: row.find("td:eq(5) input[type='text']").val()
+            };
 
-            implines.push(rowdata);
+            tables5.push(rowData);
+        });
+        $("#tables6 tr").each(function () {
+            var row = $(this);
+            var rowData =
+            {
+                dateFrom: row.find("td:eq(0) input[type='date']").val(),
+                dateTo: row.find("td:eq(1) input[type='date']").val(),
+                accomodationCatered: row.find("td:eq(2) input[type='checkbox']").val(),
+                locationOfStay: row.find("td:eq(3) input[type='text']").val(),
+                amount: row.find("td:eq(4) input[type='number']").val(),
+                noOfNights: row.find("td:eq(5) input[type='number']").val()
+            };
+
+
+            tables6.push(rowData);
+        });
+        $("#tables7 tr").each(function () {
+            var row = $(this);
+            var rowData =
+            {
+                date: row.find("td:eq(0) input[type='date']").val(),
+                location: row.find("td:eq(1) input[type='text']").val(),
+                description: row.find("td:eq(2) input[type='text']").val(),
+                amount: row.find("td:eq(3) input[type='number']").val(),
+                noOfDays: row.find("td:eq(4) input[type='number']").val()
+               
+            };
+
+
+            tables7.push(rowData);
+        });
+        $("#tables8 tr").each(function () {
+            var row = $(this);
+            var rowData =
+            {
+                date: row.find("td:eq(0) input[type='date']").val(),
+                description: row.find("td:eq(1) input[type='text']").val(),
+                amount: row.find("td:eq(2) input[type='number']").val()
+            };
+
+            tables8.push(rowData);
         });
       //  alert(implines);
         debugger;
         $.ajax({
             type: "POST",
             url: "/Imprest/insertimprestheader",
-            data: JSON.stringify({ fundcode: $('#department3 option:selected').val(), programcode: $('#programcode3 option:selected').val(), purpose: $('#description3').val(), implines: implines, budgetdimension: $('#budgetdimension1 option:selected').val(), departmentdimension: $('#departmentdimension1 option:selected').val(), budgetdescription: $('#budgetdescription1 option:selected').val(), missionno: $('#missionno3 option:selected').val(), purchaseNo: $('#purchase04 option:selected').val() }),
+            data: JSON.stringify({
+                ProgramCode: $('#department3 option:selected').val(),
+                purpose: $('#description3').val(),
+                budgetdminesion: $('#budgetdimension1 option:selected').val(),
+                departmentdimension: $('#departmentdimension1 option:selected').val(),
+                budgetdescription: $('#budgetdescription1 option:selected').val(),
+                missionno: $('#missionno3 option:selected').val(),
+                purchaseNo: $('#purchase04 option:selected').val(),
+                date: $('#description3').val(),
+                Department: $('#destination1').val(),
+                TravelDetails: tables5,
+                AccomodationDetails: tables6,
+                MealsAndIncidentals: tables7,
+                OtherExpenses: tables8
+            }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (response) {

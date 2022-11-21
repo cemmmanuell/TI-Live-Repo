@@ -125,6 +125,8 @@ namespace mmmSelfservice.NAVWS {
         
         private System.Threading.SendOrPostCallback FnUnitsOfMeasureOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FninsertimprestnewClaimOperationCompleted;
+        
         private System.Threading.SendOrPostCallback FnImprestRequisitionCreateOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnLeaveApplicationOperationCompleted;
@@ -512,6 +514,9 @@ namespace mmmSelfservice.NAVWS {
         
         /// <remarks/>
         public event FnUnitsOfMeasureCompletedEventHandler FnUnitsOfMeasureCompleted;
+        
+        /// <remarks/>
+        public event FninsertimprestnewClaimCompletedEventHandler FninsertimprestnewClaimCompleted;
         
         /// <remarks/>
         public event FnImprestRequisitionCreateCompletedEventHandler FnImprestRequisitionCreateCompleted;
@@ -2639,6 +2644,36 @@ namespace mmmSelfservice.NAVWS {
             if ((this.FnUnitsOfMeasureCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.FnUnitsOfMeasureCompleted(this, new FnUnitsOfMeasureCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FninsertimprestnewClaim", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FninsertimprestnewClaim_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void FninsertimprestnewClaim(string jsonData, string emp) {
+            this.Invoke("FninsertimprestnewClaim", new object[] {
+                        jsonData,
+                        emp});
+        }
+        
+        /// <remarks/>
+        public void FninsertimprestnewClaimAsync(string jsonData, string emp) {
+            this.FninsertimprestnewClaimAsync(jsonData, emp, null);
+        }
+        
+        /// <remarks/>
+        public void FninsertimprestnewClaimAsync(string jsonData, string emp, object userState) {
+            if ((this.FninsertimprestnewClaimOperationCompleted == null)) {
+                this.FninsertimprestnewClaimOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFninsertimprestnewClaimOperationCompleted);
+            }
+            this.InvokeAsync("FninsertimprestnewClaim", new object[] {
+                        jsonData,
+                        emp}, this.FninsertimprestnewClaimOperationCompleted, userState);
+        }
+        
+        private void OnFninsertimprestnewClaimOperationCompleted(object arg) {
+            if ((this.FninsertimprestnewClaimCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FninsertimprestnewClaimCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -4934,47 +4969,31 @@ namespace mmmSelfservice.NAVWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:Fninsertimprestnew", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="Fninsertimprestnew_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string Fninsertimprestnew(string fundcode, string programcode, string purpose, string departmentdimension, string budgetdimesion, string budgetdescription, string empno, string missionproporsal, string purchaserequestNo) {
-            object[] results = this.Invoke("Fninsertimprestnew", new object[] {
-                        fundcode,
-                        programcode,
-                        purpose,
-                        departmentdimension,
-                        budgetdimesion,
-                        budgetdescription,
-                        empno,
-                        missionproporsal,
-                        purchaserequestNo});
-            return ((string)(results[0]));
+        public void Fninsertimprestnew(string jsonData, string emp) {
+            this.Invoke("Fninsertimprestnew", new object[] {
+                        jsonData,
+                        emp});
         }
         
         /// <remarks/>
-        public void FninsertimprestnewAsync(string fundcode, string programcode, string purpose, string departmentdimension, string budgetdimesion, string budgetdescription, string empno, string missionproporsal, string purchaserequestNo) {
-            this.FninsertimprestnewAsync(fundcode, programcode, purpose, departmentdimension, budgetdimesion, budgetdescription, empno, missionproporsal, purchaserequestNo, null);
+        public void FninsertimprestnewAsync(string jsonData, string emp) {
+            this.FninsertimprestnewAsync(jsonData, emp, null);
         }
         
         /// <remarks/>
-        public void FninsertimprestnewAsync(string fundcode, string programcode, string purpose, string departmentdimension, string budgetdimesion, string budgetdescription, string empno, string missionproporsal, string purchaserequestNo, object userState) {
+        public void FninsertimprestnewAsync(string jsonData, string emp, object userState) {
             if ((this.FninsertimprestnewOperationCompleted == null)) {
                 this.FninsertimprestnewOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFninsertimprestnewOperationCompleted);
             }
             this.InvokeAsync("Fninsertimprestnew", new object[] {
-                        fundcode,
-                        programcode,
-                        purpose,
-                        departmentdimension,
-                        budgetdimesion,
-                        budgetdescription,
-                        empno,
-                        missionproporsal,
-                        purchaserequestNo}, this.FninsertimprestnewOperationCompleted, userState);
+                        jsonData,
+                        emp}, this.FninsertimprestnewOperationCompleted, userState);
         }
         
         private void OnFninsertimprestnewOperationCompleted(object arg) {
             if ((this.FninsertimprestnewCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FninsertimprestnewCompleted(this, new FninsertimprestnewCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.FninsertimprestnewCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -7226,6 +7245,10 @@ namespace mmmSelfservice.NAVWS {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FninsertimprestnewClaimCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void FnImprestRequisitionCreateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
@@ -8568,29 +8591,7 @@ namespace mmmSelfservice.NAVWS {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FninsertimprestnewCompletedEventHandler(object sender, FninsertimprestnewCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FninsertimprestnewCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FninsertimprestnewCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
+    public delegate void FninsertimprestnewCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]

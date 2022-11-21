@@ -41,9 +41,9 @@
 					<tr>
 						<th>No</th>
 						<th>Date</th>
-						<th>Amount</th>
+						
 						<th>Status</th>
-						<th>Department</th>
+						<th>Purpose</th>
 						<th class="text-center">Action</th>
 					</tr>
 				</thead>
@@ -53,7 +53,7 @@
 						<tr>
 							<td>@data.No</td>
 							<td>@data.Document_Date</td>
-							<td>@data.Amount</td>
+							
 							@if (@data.Status == "Pending Approval")
 							{
 								<td><span class="badge bg-success-400">@data.Status</span></td>
@@ -62,7 +62,7 @@
 							{
 								<td><span class="badge bg-blue">@data.Status</span></td>
 							}
-							<td>@data.DepartmentCode</td>
+							<td>@data.Purpose</td>
 							<td class="text-center">
 								<div class="list-icons">
 									<div class="dropdown">

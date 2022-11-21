@@ -2,7 +2,6 @@
 @model mmmSelfservice.Models.imprestRinfoModel
 
 
-
 <div class="modal-body">
     <div class="row">
         <div class="col-md-12" data-select2-id="81">
@@ -26,121 +25,341 @@
 
                 <div class="card-body" data-select2-id="79">
 
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a href="#basic-tab10011" class="nav-link active" data-toggle="tab">General</a></li>
+                        <li class="nav-item"><a href="#basic-tab20021" class="nav-link" data-toggle="tab">Travel details</a></li>
+                        <li class="nav-item"><a href="#basic-tab30031" class="nav-link" data-toggle="tab">Accomodation details</a></li>
+                        <li class="nav-item"><a href="#basic-tab40041" class="nav-link" data-toggle="tab">Meals and incidentals</a></li>
+                        <li class="nav-item"><a href="#basic-tab50051" class="nav-link" data-toggle="tab">Other expenses</a></li>
+                    </ul>
                     <div class="row" data-select2-id="78">
-                        <div class="col-md-12">
-                            <form action="#" data-select2-id="77">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Fund code:</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control" id="fundcode101" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")','fundcode101')">
-                                                    <option>@Model.DepartmentCode</option>
-                                                    @Html.Action("department", "imprest")
-                                                </select>
+                        <div class="tab-content col-md-12">
+                            <div class="tab-pane  fade active show" id="basic-tab10011">
+                                <div class="col-md-12">
+                                    <form action="#" data-select2-id="77">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Purpose:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="description3" value="@Model.Purpose" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div style="display:none" class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Fund code:</label>
+                                                    <div class="col-lg-9">
+                                                        <select class="form-control" id="programcode3" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'programcode3')">@Html.Action("department")</select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Program code:</label>
+                                                    <div class="col-lg-9">
+                                                        <select class="form-control" id="department3" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'department3')"><option value="@Model.ProgramCode">@Model.ProgramCode</option>@Html.Action("departmentvalue", "imprest")</select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Budget lines code:</label>
+                                                    <div class="col-lg-9">
+                                                        <select class="programcodes form-control" id="budgetdimension1"><option value="@Model.budgetdminesion">@Model.budgetdminesion</option></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Date:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="date" id="description3" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Destination</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="destination1" value="@Model.Department" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div style="display:none" class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Budget category:</label>
+                                                    <div class="col-lg-9">
+                                                        <select class="form-control" id="budgetdescription1">@Html.Action("budgetdescription", "imprest")</select>
+                                                    </div>
+                                                </div>
+                                                <div style="display:none" class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Department:</label>
+                                                    <div class="col-lg-9">
+                                                        <select class="form-control" id="departmentdimension1">@Html.Action("departments", "imprest")</select>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div style="display:none" class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Purchase requisition No:</label>
+                                                    <div class="col-lg-9">
+                                                        <select class="form-control" id="purchase04">
+                                                            @Html.Action("postedpurchasereq", "purchase")
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div style="display:none" class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Mission proposal No:</label>
+                                                    <div class="col-lg-9">
+                                                        <select class="form-control" id="missionno3">
+                                                            @Html.Action("postedmissionproposals", "purchase")
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                             </div>
+
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Program code:</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control" id="programcode101">
-                                                   <option>@Model.DirectorateCode</option>
-                                                    @Html.Action("departmentvalue", "imprest")
-                                                </select>
-                                            </div>
-                                        </div>
-                                      
-                                       
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Department:</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control" id="department101">
-                                                    <option>@Model.departmentdimension</option>
-                                                    @Html.Action("departments", "imprest")
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Budget lines code:</label>
-                                            <div class="col-lg-9">
-                                                <select class="programcodes form-control" id="budgetlinecode101">
-                                                    <option>@Model.budgetdminesion</option>
-                                                  
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Budget category:</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control" id="budgetcategory101">
-                                                    <option>@Model.budgetdescription</option>
-                                                    @Html.Action("budgetdescription", "imprest")
-                                                </select>
-                                            </div>
-                                        </div>
+                                        <br />
+
+
+
                                         @*<div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Project title:</label>
-                                            <div class="col-lg-9">
-                                                <input type="text" id="projectittle10" value="@Model.ProjectTitle" class="form-control" />
-                                            </div>
-                                        </div>*@
-                                        <div style="display:none" class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Misssion proposal No:</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control" id="editmissionproposal">
-                                                    <option>@Model.missionNo</option>
-                                                    @Html.Action("postedmissionproposals", "purchase")
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div style="display:none" class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Purchase requisition No:</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control" id="purchasereq101">
-                                                    <option>@Model.purchaseRequisition</option>
-                                                    @Html.Action("postedpurchasereq", "purchase")
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        @*<div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Date:</label>
-                                            <div class="col-lg-9">
-                                                <input type="date" id="daterequired3" value="@Model.StartDate" class="form-control" />
-                                            </div>
-                                        </div>*@
-
-
+                                    <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
+                                    <div class="col-lg-9">
+                                        <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
+                                        <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
                                     </div>
+                                </div>*@
 
+
+
+                                    </form>
                                 </div>
-                               
-                                <div class="row">
-                                    <div class="col-md-12">
-
-
-                                        @Html.Action("imprestline", new { ImprestNo = Model.No })
-                                    </div>
-
-                                </div>
-
-
-
-
-
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <input type="file" id="FileUpload11" class="form-control" />
-                        <div class="form-group row">
-                            <div class="col-md-4">
-                                <button class="btn" id="btnUpload11">Upload</button>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div id="docs" class="col-md-12">
-                                @Html.Action("uploadeddocuments", "upload", new { documentNo = Model.No })
+                            <div class="tab-pane" id="basic-tab20021">
+                                <div class="form-group row">
+
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th class="col-xs-1">Date</th>
+                                                        <th class="col-xs-1">Departure Time </th>
+                                                        <th class="col-xs-1">Departure Place</th>
+                                                        <th class="col-xs-1">Arrival time</th>
+                                                        <th class="col-xs-1">Arrival place</th>
+                                                        <th class="col-xs-1">Remarks</th>
+                                                        <th class="col-xs-1">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tables5">
+                                                    @foreach (var item in Model.TravelDetails)
+                                                    {
+                                                        <tr>
+                                                            <td><input type="date" value="@item.date.ToString("yyyy-MM-dd")" class="form-control"></td>
+                                                            <td><input type="time" value="@item.departureTime.ToString("hh:mm")" class="form-control"></td>
+                                                            <td><input type="text" value="@item.departurePlace" class="form-control"></td>
+                                                            <td><input type="time" value="@item.arrivalTime.ToString("hh:mm")" class="form-control"></td>
+                                                            <td><input type="text" value="@item.arrivalPlace" class="form-control"></td>
+                                                            <td><input type="text" value="@item.remarks" class="form-control"></td>
+                                                            <td class="text-center">
+                                                                <div class="list-icons">
+                                                                    <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                </div>
+                                                            </td>
+                                                            <td style="display:none"><input type="number" value="@item.LineNo" class="form-control"></td>
+                                                        </tr>
+                                                    }
+                                                    <tr>
+                                                        <td><input type="date" class="form-control"></td>
+                                                        <td><input type="time" class="form-control"></td>
+                                                        <td><input type="text" class="form-control"></td>
+                                                        <td><input type="time" class="form-control"></td>
+                                                        <td><input type="text" class="form-control"></td>
+                                                        <td><input type="text" class="form-control"></td>
+                                                        <td class="text-center">
+                                                            <div class="list-icons">
+                                                                <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane" id="basic-tab30031">
+                                <div class="form-group row">
+
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th class="col-xs-1">Date from </th>
+                                                        <th class="col-xs-1">Date to </th>
+                                                        <th class="col-xs-1">Accomodation catered</th>
+                                                        <th class="col-xs-1">Location of stay/ overnight</th>
+                                                        <th class="col-xs-1">Amount</th>
+                                                        <th class="col-xs-1">No. of nights</th>
+                                                        <th class="col-xs-1">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tables6">
+                                                    @foreach (var item in Model.AccomodationDetails)
+                                                    {
+                                                        <tr>
+                                                            <td><input type="date" value="@item.dateFrom.ToString("yyyy-MM-dd")" class="form-control"></td>
+                                                            <td><input type="date" value="@item.dateTo.ToString("yyyy-MM-dd")" class="form-control"></td>
+                                                            <td><input type="checkbox" value="@item.accomodationCatered" class="form-control"></td>
+                                                            <td><input type="text" value="@item.locationOfStay" class="form-control"></td>
+                                                            <td><input type="number" value="@item.amount" class="form-control"></td>
+                                                            <td><input type="number" value="@item.noOfNights" class="form-control"></td>
+                                                            <td class="text-center">
+                                                                <div class="list-icons">
+                                                                    <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                </div>
+                                                            </td>
+                                                            <td style="display:none"><input type="number" value="@item.LineNo" class="form-control"></td>
+                                                        </tr>
+                                                    }
+                                                    <tr>
+                                                        <td><input type="date" class="form-control"></td>
+                                                        <td><input type="date" class="form-control"></td>
+                                                        <td><input type="checkbox" class="form-control"></td>
+                                                        <td><input type="text" class="form-control"></td>
+                                                        <td><input type="number" class="form-control"></td>
+                                                        <td><input type="number" class="form-control"></td>
+                                                        <td class="text-center">
+                                                            <div class="list-icons">
+                                                                <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="basic-tab40041">
+                                <div class="form-group row">
+
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th class="col-xs-1">Date </th>
+                                                        <th class="col-xs-1">Location</th>
+                                                        <th class="col-xs-1">Description of the expenses</th>
+                                                        <th class="col-xs-1">Amount </th>
+                                                        <th class="col-xs-1">No. of days</th>
+
+                                                        <th class="col-xs-1">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tables7">
+                                                    @foreach (var item in Model.MealsAndIncidentals)
+                                                    {
+                                                        <tr>
+                                                            <td><input type="date" value="@item.date.ToString("yyyy-MM-dd")" class="form-control"></td>
+
+                                                            <td><input type="text" value="@item.location" class="form-control"></td>
+                                                            <td><input type="text" value="@item.description" class="form-control"></td>
+                                                            <td><input type="number" value="@item.amount" class="form-control"></td>
+                                                            <td><input type="number" value="@item.noOfDays" class="form-control"></td>
+                                                            <td class="text-center">
+                                                                <div class="list-icons">
+                                                                    <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                </div>
+                                                            </td>
+                                                            <td style="display:none"><input type="number" value="@item.LineNo" class="form-control"></td>
+                                                        </tr>
+                                                    }
+                                                    <tr>
+                                                        <td><input type="date" class="form-control"></td>
+
+                                                        <td><input type="text" class="form-control"></td>
+                                                        <td><input type="text" class="form-control"></td>
+                                                        <td><input type="number" class="form-control"></td>
+                                                        <td><input type="number" class="form-control"></td>
+                                                        <td class="text-center">
+                                                            <div class="list-icons">
+                                                                <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="basic-tab50051">
+                                <div class="form-group row">
+
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th class="col-xs-1">Date </th>
+                                                        <th class="col-xs-1">Description</th>
+
+                                                        <th class="col-xs-1">Amount </th>
+
+                                                        <th class="col-xs-1">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tables8">
+                                                    @foreach (var item in Model.OtherExpenses)
+                                                    {
+                                                        <tr>
+                                                            <td><input type="date" value="@item.date.ToString("yyyy-MM-dd")" class="form-control"></td>
+
+
+                                                            <td><input type="text" value="@item.description" class="form-control"></td>
+                                                            <td><input type="number" value="@item.amount" class="form-control"></td>
+
+                                                            <td class="text-center">
+                                                                <div class="list-icons">
+                                                                    <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                                </div>
+                                                            </td>
+                                                            <td style="display:none"><input type="number" value="@item.LineNo" class="form-control"></td>
+                                                        </tr>
+                                                    }
+                                                    <tr>
+                                                        <td><input type="date" class="form-control"></td>
+
+
+                                                        <td><input type="text" class="form-control"></td>
+                                                        <td><input type="number" class="form-control"></td>
+
+                                                        <td class="text-center">
+                                                            <div class="list-icons">
+                                                                <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -150,48 +369,3 @@
     </div>
 
 </div>
-
-
-
-<script>
-    $(document).ready(function () {
-        $('#btnUpload11').click(function () {
-
-            // Checking whether FormData is available in browser
-            if (window.FormData !== undefined) {
-
-                var fileUpload = $("#FileUpload11").get(0);
-                var files = fileUpload.files;
-
-                // Create FormData object
-                var fileData = new FormData();
-
-                // Looping over all files and add it to FormData object
-                for (var i = 0; i < files.length; i++) {
-                    fileData.append(files[i].name, files[i]);
-                }
-
-                // Adding one more key to FormData object
-                fileData.append('document', $('#pno1').text());
-
-                $.ajax({
-                    url: '/Upload/uploadFile',
-                    type: "POST",
-                    contentType: false, // Not to set any content header
-                    processData: false, // Not to process data
-                    data: fileData,
-                    success: function (result) {
-                        alert(result.message);
-                        LoadData('#docs', '@Url.Action("uploadeddocuments", "upload", new { documentNo = Model.No })');
-                    },
-                    error: function (err) {
-                        alert(err.statusText);
-                    }
-                });
-            } else {
-                alert("FormData is not supported.");
-            }
-        });
-    });
-
-</script>

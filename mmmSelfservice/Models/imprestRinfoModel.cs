@@ -1,6 +1,7 @@
 ﻿namespace mmmSelfservice.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.Runtime.CompilerServices;
 
     public class imprestRinfoModel
@@ -81,6 +82,7 @@
         public string vendor { get; set; }
         public string vendorName { get; set; }
 
+        public string emno { get; set; }
         public string DateString { get
             {
                 string date_ = "";
@@ -90,7 +92,57 @@
                 return date_;
             }
         }
+
+        public List<travelDetails> TravelDetails { get; set; }
+        public List<accomodationDetails> AccomodationDetails { get; set; }
+        public List<mealsAndIncidentals> MealsAndIncidentals { get; set; }
+        public List<otherExpenses> OtherExpenses { get; set; }
     }
 
+
+    // Travel details
+    public  class travelDetails
+    {
+        public DateTime date { get; set; }
+        public DateTime departureTime { get; set; }
+        public string departurePlace { get; set; }
+        public DateTime arrivalTime { get; set; }
+        public string arrivalPlace { get; set; }
+        public string remarks { get; set; }
+        public int LineNo { get; set; }
+    }
+
+    // Accomodation details 
+    public class accomodationDetails
+    {
+        public DateTime dateFrom { get; set; }
+        public DateTime dateTo { get; set; }
+        public Boolean accomodationCatered { get; set; }
+        public string locationOfStay { get; set; }
+        public decimal amount { get; set; }
+        public int noOfNights { get; set; }
+        public int LineNo { get; set; }
+    }
+
+    // Meals aand incidentals 
+    public class mealsAndIncidentals
+    {
+        public DateTime date { get; set; }
+        public string location { get; set; }
+        public string description { get; set; }
+        public decimal amount { get; set; }
+        public int noOfDays { get; set; }
+        public int LineNo { get; set; }
+
+    }
+
+    // Otther expenses 
+    public class otherExpenses
+    {
+        public DateTime date { get; set; }
+        public string description { get; set; }
+        public decimal amount { get; set; }
+        public int LineNo { get; set; }
+    }
 }
 

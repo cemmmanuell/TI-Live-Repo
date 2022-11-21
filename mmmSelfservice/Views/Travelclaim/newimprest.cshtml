@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header pb-3">
-                <h5 class="modal-title">Travel authorization card</h5>
+                <h5 class="modal-title">Travel claim card</h5>
                 <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
 
@@ -14,7 +14,7 @@
                                 <h6 class="card-title"><i class="icon-reading mr-2"></i> New Travel claim card:<text id="pno" class="text-primary"></text></h6>
                                 <div class="header-elements">
                                     <button type="button" class="btn bg-blue btn-sm legitRipple" onclick="insertimprest()"><i class="icon-checkmark3 mr-2"></i> Save</button>
-                                   
+
                                 </div>
                             </div>
 
@@ -112,12 +112,12 @@
 
 
                                                     @*<div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
-                        <div class="col-lg-9">
-                            <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
-                            <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
-                        </div>
-                    </div>*@
+                                                            <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
+                                                            <div class="col-lg-9">
+                                                                <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
+                                                                <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                                            </div>
+                                                        </div>*@
 
 
 
@@ -142,7 +142,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="table5">
+                                                            <tbody id="tables5">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                     <td><input type="time" class="form-control"></td>
@@ -183,11 +183,11 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="table5">
+                                                            <tbody id="tables6">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                     <td><input type="date" class="form-control"></td>
-                                                                    <td><input type="text" class="form-control"></td>
+                                                                    <td><input type="checkbox" class="form-control"></td>
                                                                     <td><input type="text" class="form-control"></td>
                                                                     <td><input type="number" class="form-control"></td>
                                                                     <td><input type="number" class="form-control"></td>
@@ -219,14 +219,14 @@
                                                                     <th class="col-xs-1">Description of the expenses</th>
                                                                     <th class="col-xs-1">Amount </th>
                                                                     <th class="col-xs-1">No. of days</th>
-                                                                    
+
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="table5">
+                                                            <tbody id="tables7">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
-                                                                   
+
                                                                     <td><input type="text" class="form-control"></td>
                                                                     <td><input type="text" class="form-control"></td>
                                                                     <td><input type="number" class="form-control"></td>
@@ -256,20 +256,20 @@
 
                                                                     <th class="col-xs-1">Date </th>
                                                                     <th class="col-xs-1">Description</th>
-                                                                    
+
                                                                     <th class="col-xs-1">Amount </th>
-                                                                  
+
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="table5">
+                                                            <tbody id="tables8">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
 
-                                                                   
+
                                                                     <td><input type="text" class="form-control"></td>
                                                                     <td><input type="number" class="form-control"></td>
-                                                                   
+
                                                                     <td class="text-center">
                                                                         <div class="list-icons">
                                                                             <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
@@ -285,15 +285,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-           
+
         </div>
     </div>
 </div>
@@ -304,109 +304,177 @@
                 <h5 class="modal-title">Travel authorization lines</h5>
                 <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
-          
-           
-           
-                <div class="card-body" data-select2-id="79">
-                    <div class="row" data-select2-id="78">
-                        <div class="col-md-12">
-                            <form action="#" data-select2-id="77">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        
 
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Type:</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control" id="type" >@Html.Action("expensecategories")</select>
-                                            </div>
-                                        </div>
-                                       
-                                        <div class="form-group row">
 
-                                            <label class="col-lg-3 col-form-label">Description:</label>
-                                            <div class="col-lg-9">
-                                                <input type="text" id="description" class="form-control" />
-                                            </div>
-                                        </div>
 
-                                        <div class="form-group row">
+            <div class="card-body" data-select2-id="79">
+                <div class="row" data-select2-id="78">
+                    <div class="col-md-12">
+                        <form action="#" data-select2-id="77">
+                            <div class="row">
+                                <div class="col-md-12">
 
-                                            <label class="col-lg-3 col-form-label">Unit cost:</label>
-                                            <div class="col-lg-9">
-                                                <input type="number" id="unitcost" class="form-control" />
-                                                </div>
-                                            </div>
-                                        <div class="form-group row">
 
-                                            <label class="col-lg-3 col-form-label">Quantity:</label>
-                                            <div class="col-lg-9">
-                                                <input type="number" id="quantity" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Currency code:</label>
-                                            <div class="col-lg-9">
-                                                <select class="form-control" id="currencies">@Html.Action("currencies")</select>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-
-                                            <label class="col-lg-3 col-form-label">Total cost:</label>
-                                            <div class="col-lg-9">
-                                                <input type="number" disabled="disabled" class="form-control" />
-                                            </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Type:</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control" id="type">@Html.Action("expensecategories")</select>
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+
+                                        <label class="col-lg-3 col-form-label">Description:</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" id="description" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+
+                                        <label class="col-lg-3 col-form-label">Unit cost:</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" id="unitcost" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+
+                                        <label class="col-lg-3 col-form-label">Quantity:</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" id="quantity" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Currency code:</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control" id="currencies">@Html.Action("currencies")</select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+
+                                        <label class="col-lg-3 col-form-label">Total cost:</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" disabled="disabled" class="form-control" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <br />
 
-
-
-                                @*<div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
-                            <div class="col-lg-9">
-                                <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
-                                <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
                             </div>
-                        </div>*@
+                            <br />
 
 
 
-                            </form>
-                        </div>
+                            @*<div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
+                                    <div class="col-lg-9">
+                                        <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
+                                        <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                    </div>
+                                </div>*@
+
+
+
+                        </form>
                     </div>
                 </div>
+            </div>
             <div class="card-footer">
                 <button type="button" onclick="addline()" class="btn bg-blue btn-sm legitRipple"><i class="icon-checkmark3 mr-2"></i> Add</button>
             </div>
-            </div>
-            
-
         </div>
+
+
     </div>
+</div>
 
 
 
 
 <script>
     function insertimprest() {
-        var implines = [];
-        $("#tbodyimprestline tr").each(function () {
+        var tables5 = [];
+        var tables6 = [];
+        var tables7 = [];
+        var tables8 = [];
+
+        //var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='date']").val() + '??' + row.find("td:eq(2) input[type='text']").val() + '??' + row.find("td:eq(3) input[type='number']").val() + '??' + row.find("td:eq(5)").val();
+        $("#tables5 tr").each(function () {
             var row = $(this);
             //var Statement = {};
-            var rowdata = row.find("td").eq(0).text() + "??" + row.find("td").eq(1).text() + "??" + row.find("td").eq(2).text() + "??" + row.find("td").eq(3).text() + "??" + row.find("td").eq(4).text();
+            var rowData =
+            {
+                date: row.find("td:eq(0) input[type='date']").val(),
+                departureTime: row.find("td:eq(1) input[type='time']").val(),
+                departurePlace: row.find("td:eq(2) input[type='text']").val(),
+                arrivalTime: row.find("td:eq(3) input[type='time']").val(),
+                arrivalPlace: row.find("td:eq(4) input[type='text']").val(),
+                remarks: row.find("td:eq(5) input[type='text']").val()
+            };
 
-            implines.push(rowdata);
+            tables5.push(rowData);
         });
-      //  alert(implines);
+        $("#tables6 tr").each(function () {
+            var row = $(this);
+            var rowData =
+            {
+                dateFrom: row.find("td:eq(0) input[type='date']").val(),
+                dateTo: row.find("td:eq(1) input[type='date']").val(),
+                accomodationCatered: row.find("td:eq(2) input[type='checkbox']").val(),
+                locationOfStay: row.find("td:eq(3) input[type='text']").val(),
+                amount: row.find("td:eq(4) input[type='number']").val(),
+                noOfNights: row.find("td:eq(5) input[type='number']").val()
+            };
+
+
+            tables6.push(rowData);
+        });
+        $("#tables7 tr").each(function () {
+            var row = $(this);
+            var rowData =
+            {
+                date: row.find("td:eq(0) input[type='date']").val(),
+                location: row.find("td:eq(1) input[type='text']").val(),
+                description: row.find("td:eq(2) input[type='text']").val(),
+                amount: row.find("td:eq(3) input[type='number']").val(),
+                noOfDays: row.find("td:eq(4) input[type='number']").val()
+
+            };
+
+
+            tables7.push(rowData);
+        });
+        $("#tables8 tr").each(function () {
+            var row = $(this);
+            var rowData =
+            {
+                date: row.find("td:eq(0) input[type='date']").val(),
+                description: row.find("td:eq(1) input[type='text']").val(),
+                amount: row.find("td:eq(2) input[type='number']").val()
+            };
+
+            tables8.push(rowData);
+        });
+        //  alert(implines);
         debugger;
         $.ajax({
             type: "POST",
-            url: "/Imprest/insertimprestheader",
-            data: JSON.stringify({ fundcode: $('#department3 option:selected').val(), programcode: $('#programcode3 option:selected').val(), purpose: $('#description3').val(), implines: implines, budgetdimension: $('#budgetdimension1 option:selected').val(), departmentdimension: $('#departmentdimension1 option:selected').val(), budgetdescription: $('#budgetdescription1 option:selected').val(), missionno: $('#missionno3 option:selected').val(), purchaseNo: $('#purchase04 option:selected').val() }),
+            url: "/TravelClaim/insertimprestheader",
+            data: JSON.stringify({
+                ProgramCode: $('#department3 option:selected').val(),
+                purpose: $('#description3').val(),
+                budgetdminesion: $('#budgetdimension1 option:selected').val(),
+                departmentdimension: $('#departmentdimension1 option:selected').val(),
+                budgetdescription: $('#budgetdescription1 option:selected').val(),
+                missionno: $('#missionno3 option:selected').val(),
+                purchaseNo: $('#purchase04 option:selected').val(),
+                date: $('#description3').val(),
+                Department: $('#destination1').val(),
+                TravelDetails: tables5,
+                AccomodationDetails: tables6,
+                MealsAndIncidentals: tables7,
+                OtherExpenses: tables8
+            }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (response) {
@@ -431,7 +499,7 @@
     function addline() {
 
         var tblstring = '<tr><td>' + $('#type option:selected').val() + '</td><td>' + $('#description').val() + '</td><td>' + $('#unitcost').val() + '</td><td>' + $('#currencies option:selected').val() + '</td><td>' + $('#quantity').val() + '</td><td style="display:none"></td><td style="display:none"></td><td class="text-center"><a href="#" onclick="removeEmptyLine(this)"><i class="icon-cross3 mr-3 icon-2x"></a></i></td></tr>';
-       
+
         $('#tbodyimprestline').append(tblstring)
 
     }

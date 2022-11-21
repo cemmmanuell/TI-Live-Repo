@@ -813,6 +813,19 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FninsertimprestnewClaim">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="jsonData" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="emp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FninsertimprestnewClaim_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
       <element name="FnImprestRequisitionCreate">
         <complexType>
           <sequence>
@@ -1819,23 +1832,14 @@
       <element name="Fninsertimprestnew">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="fundcode" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="programcode" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="departmentdimension" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="budgetdimesion" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="budgetdescription" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="empno" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="missionproporsal" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="purchaserequestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="jsonData" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="emp" type="string" />
           </sequence>
         </complexType>
       </element>
       <element name="Fninsertimprestnew_Result">
         <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
+          <sequence />
         </complexType>
       </element>
       <element name="Fnimprestlineinsert">
@@ -2711,6 +2715,12 @@
   <message name="FnUnitsOfMeasure_Result">
     <part name="parameters" element="tns:FnUnitsOfMeasure_Result" />
   </message>
+  <message name="FninsertimprestnewClaim">
+    <part name="parameters" element="tns:FninsertimprestnewClaim" />
+  </message>
+  <message name="FninsertimprestnewClaim_Result">
+    <part name="parameters" element="tns:FninsertimprestnewClaim_Result" />
+  </message>
   <message name="FnImprestRequisitionCreate">
     <part name="parameters" element="tns:FnImprestRequisitionCreate" />
   </message>
@@ -3521,6 +3531,10 @@
     <operation name="FnUnitsOfMeasure">
       <input name="FnUnitsOfMeasure" message="tns:FnUnitsOfMeasure" />
       <output name="FnUnitsOfMeasure_Result" message="tns:FnUnitsOfMeasure_Result" />
+    </operation>
+    <operation name="FninsertimprestnewClaim">
+      <input name="FninsertimprestnewClaim" message="tns:FninsertimprestnewClaim" />
+      <output name="FninsertimprestnewClaim_Result" message="tns:FninsertimprestnewClaim_Result" />
     </operation>
     <operation name="FnImprestRequisitionCreate">
       <input name="FnImprestRequisitionCreate" message="tns:FnImprestRequisitionCreate" />
@@ -4366,6 +4380,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnUnitsOfMeasure_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FninsertimprestnewClaim">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FninsertimprestnewClaim" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FninsertimprestnewClaim">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FninsertimprestnewClaim_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

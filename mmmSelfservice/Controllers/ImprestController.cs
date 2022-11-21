@@ -475,19 +475,28 @@
             }
         }
 
-        public JsonResult insertimprestheader(string purpose, string fundcode, string programcode, List<string> implines, string budgetdimension, string departmentdimension, string budgetdescription, string missionno, string purchaseNo)
+        public JsonResult insertimprestheader(imprestRinfoModel s)
         {
             int num2;
             resultMt mt = new resultMt();
-            string documentno = WSConfig.ObjNav.Fninsertimprestnew(programcode, fundcode, purpose, departmentdimension, budgetdimension, budgetdescription, base.Session["username"].ToString(), "", "");
-            for (int i = 0; i < implines.Count; i = num2 + 1)
+            try
             {
-                string[] separator = new string[] { "??" };
-                string[] strArray = implines[i].Split(separator, StringSplitOptions.None);
-                WSConfig.ObjNav.Fnimprestlineinsert(strArray[0].ToString(), strArray[1].ToString(), Convert.ToDecimal(strArray[2].ToString()), strArray[3].ToString(), Convert.ToDecimal(strArray[4].ToString()), documentno);
+                //s.emno = Session["username"].ToString();
+
+                WSConfig.ObjNav.Fninsertimprestnew (JsonConvert.SerializeObject(s), Session["username"].ToString());
                 mt.status = true;
-                num2 = i;
+
             }
+            catch(Exception e)
+            {
+                mt.status = false;
+                mt.message = e.Message.ToString();
+            }
+           
+            //string documentno = WSConfig.ObjNav.Fninsertimprestnew(programcode, fundcode, purpose, departmentdimension, budgetdimension, budgetdescription, base.Session["username"].ToString(), "", "");
+            
+
+
             return new JsonResult { Data = mt };
         }
 
