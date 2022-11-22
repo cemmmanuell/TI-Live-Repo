@@ -73,7 +73,7 @@
                 string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                    where r.Status == "Released"
+                    where r.Status == "Released" && r.Posted=="No"
                     select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)

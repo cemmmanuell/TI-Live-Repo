@@ -230,6 +230,7 @@
             contentType: "application/json; charset=utf-8",
             dataType: "html",
             success: function (response) {
+                window.location.href = '/ImprestAccounting/index';
                 $('#surrenderboy').html('');
                 $('#surrenderboy').html(response);
             }

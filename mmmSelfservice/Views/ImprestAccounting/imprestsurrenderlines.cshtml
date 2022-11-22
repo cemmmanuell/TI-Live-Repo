@@ -54,37 +54,6 @@
 </div>
 
 <script>
-    function editimprestSurrender() {
-        table1 = $('#surrlines tr');
-        var surrlines = [];
-        table1.each(function () {
-            var row = $(this);
-            //var Statement = {};
-            var rowdata = row.find("td:eq(4) input[type='number']").val() + '??' + row.find("td:eq(6)").html() + '??' + row.find("td:eq(7)").html() + '??' + row.find("td:eq(5) input[type='number']").val();
-
-            surrlines.push(rowdata);
-        });
-        debugger;
-        $.ajax({
-            type: "POST",
-            url: "/ImprestAccounting/updatesurrenderline",
-            data: JSON.stringify({implines: surrlines}),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (response) {
-
-                if (response.status == true) {
-                    alert('Imprest surrender updated successfully');
-
-                } else {
-
-
-
-                }
-
-            }
-
-        });
-    }
+   
 
 </script>

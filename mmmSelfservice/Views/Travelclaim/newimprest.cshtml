@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header pb-3">
-                <h5 class="modal-title">Travel claim card</h5>
+                <h5 class="modal-title">Travel ckaim card</h5>
                 <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
 
@@ -21,15 +21,15 @@
                             <div class="card-body" data-select2-id="79">
 
                                 <ul class="nav nav-tabs">
-                                    <li class="nav-item"><a href="#basic-tab1001" class="nav-link active" data-toggle="tab">General</a></li>
-                                    <li class="nav-item"><a href="#basic-tab2002" class="nav-link" data-toggle="tab">Travel details</a></li>
-                                    <li class="nav-item"><a href="#basic-tab3003" class="nav-link" data-toggle="tab">Accomodation details</a></li>
-                                    <li class="nav-item"><a href="#basic-tab4004" class="nav-link" data-toggle="tab">Meals and incidentals</a></li>
-                                    <li class="nav-item"><a href="#basic-tab5005" class="nav-link" data-toggle="tab">Other expenses</a></li>
+                                    <li class="nav-item"><a href="#basic-tab10014" class="nav-link active" data-toggle="tab">General</a></li>
+                                    <li class="nav-item"><a href="#basic-tab20024" class="nav-link" data-toggle="tab">Travel details</a></li>
+                                    <li class="nav-item"><a href="#basic-tab30034" class="nav-link" data-toggle="tab">Accomodation details</a></li>
+                                    <li class="nav-item"><a href="#basic-tab40044" class="nav-link" data-toggle="tab">Meals and incidentals</a></li>
+                                    <li class="nav-item"><a href="#basic-tab50054" class="nav-link" data-toggle="tab">Other expenses</a></li>
                                 </ul>
                                 <div class="row" data-select2-id="78">
                                     <div class="tab-content col-md-12">
-                                        <div class="tab-pane  fade active show" id="basic-tab1001">
+                                        <div class="tab-pane  fade active show" id="basic-tab10014">
                                             <div class="col-md-12">
                                                 <form action="#" data-select2-id="77">
                                                     <div class="row">
@@ -37,50 +37,50 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-3 col-form-label">Purpose:</label>
                                                                 <div class="col-lg-9">
-                                                                    <input type="text" id="description3" class="form-control" />
+                                                                    <input type="text" id="description34" class="form-control" />
                                                                 </div>
                                                             </div>
                                                             <div style="display:none" class="form-group row">
                                                                 <label class="col-lg-3 col-form-label">Fund code:</label>
                                                                 <div class="col-lg-9">
-                                                                    <select class="form-control" id="programcode3" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'programcode3')">@Html.Action("department")</select>
+                                                                    <select class="form-control" id="programcode34" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'programcode3')">@Html.Action("department")</select>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-lg-3 col-form-label">Program code:</label>
                                                                 <div class="col-lg-9">
-                                                                    <select class="form-control" id="department3" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'department3')">@Html.Action("departmentvalue", "imprest")</select>
+                                                                    <select class="form-control" id="department34" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'department3')">@Html.Action("departmentvalue", "imprest")</select>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-lg-3 col-form-label">Budget lines code:</label>
                                                                 <div class="col-lg-9">
-                                                                    <select class="programcodes form-control" id="budgetdimension1"></select>
+                                                                    <select class="programcodes form-control" id="budgetdimension14"></select>
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-lg-3 col-form-label">Date:</label>
                                                                 <div class="col-lg-9">
-                                                                    <input type="date" id="description3" class="form-control" />
+                                                                    <input type="date" id="description34" class="form-control" />
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-lg-3 col-form-label">Destination</label>
                                                                 <div class="col-lg-9">
-                                                                    <input type="text" id="destination1" class="form-control" />
+                                                                    <input type="text" id="destination14" class="form-control" />
                                                                 </div>
                                                             </div>
                                                             <div style="display:none" class="form-group row">
                                                                 <label class="col-lg-3 col-form-label">Budget category:</label>
                                                                 <div class="col-lg-9">
-                                                                    <select class="form-control" id="budgetdescription1">@Html.Action("budgetdescription", "imprest")</select>
+                                                                    <select class="form-control" id="budgetdescription14">@Html.Action("budgetdescription", "imprest")</select>
                                                                 </div>
                                                             </div>
                                                             <div style="display:none" class="form-group row">
                                                                 <label class="col-lg-3 col-form-label">Department:</label>
                                                                 <div class="col-lg-9">
-                                                                    <select class="form-control" id="departmentdimension1">@Html.Action("departments", "imprest")</select>
+                                                                    <select class="form-control" id="departmentdimension14">@Html.Action("departments", "imprest")</select>
                                                                 </div>
                                                             </div>
 
@@ -124,7 +124,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="basic-tab2002">
+                                        <div class="tab-pane" id="basic-tab20024">
                                             <div class="form-group row">
 
                                                 <div class="col-lg-12">
@@ -142,7 +142,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="tables5">
+                                                            <tbody id="table59004">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                     <td><input type="time" class="form-control"></td>
@@ -165,7 +165,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="tab-pane" id="basic-tab3003">
+                                        <div class="tab-pane" id="basic-tab30034">
                                             <div class="form-group row">
 
                                                 <div class="col-lg-12">
@@ -183,7 +183,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="tables6">
+                                                            <tbody id="tables69004">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                     <td><input type="date" class="form-control"></td>
@@ -193,7 +193,7 @@
                                                                     <td><input type="number" class="form-control"></td>
                                                                     <td class="text-center">
                                                                         <div class="list-icons">
-                                                                            <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+                                                                            <a onclick="addlinetotables('6')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
 
                                                                         </div>
                                                                     </td>
@@ -205,7 +205,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="basic-tab4004">
+                                        <div class="tab-pane" id="basic-tab40044">
                                             <div class="form-group row">
 
                                                 <div class="col-lg-12">
@@ -223,7 +223,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="tables7">
+                                                            <tbody id="tables79004">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
 
@@ -233,7 +233,7 @@
                                                                     <td><input type="number" class="form-control"></td>
                                                                     <td class="text-center">
                                                                         <div class="list-icons">
-                                                                            <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+                                                                            <a onclick="addlinetotables('7')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
 
                                                                         </div>
                                                                     </td>
@@ -245,7 +245,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="basic-tab5005">
+                                        <div class="tab-pane" id="basic-tab50054">
                                             <div class="form-group row">
 
                                                 <div class="col-lg-12">
@@ -262,7 +262,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="tables8">
+                                                            <tbody id="tables89004">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
 
@@ -272,7 +272,7 @@
 
                                                                     <td class="text-center">
                                                                         <div class="list-icons">
-                                                                            <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+                                                                            <a onclick="addlinetotables('8')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
 
                                                                         </div>
                                                                     </td>
@@ -399,7 +399,7 @@
         var tables8 = [];
 
         //var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='date']").val() + '??' + row.find("td:eq(2) input[type='text']").val() + '??' + row.find("td:eq(3) input[type='number']").val() + '??' + row.find("td:eq(5)").val();
-        $("#tables5 tr").each(function () {
+        $("#table59004 tr").each(function () {
             var row = $(this);
             //var Statement = {};
             var rowData =
@@ -414,7 +414,7 @@
 
             tables5.push(rowData);
         });
-        $("#tables6 tr").each(function () {
+        $("#tables69004 tr").each(function () {
             var row = $(this);
             var rowData =
             {
@@ -429,7 +429,7 @@
 
             tables6.push(rowData);
         });
-        $("#tables7 tr").each(function () {
+        $("#tables79004 tr").each(function () {
             var row = $(this);
             var rowData =
             {
@@ -444,7 +444,7 @@
 
             tables7.push(rowData);
         });
-        $("#tables8 tr").each(function () {
+        $("#tables89004 tr").each(function () {
             var row = $(this);
             var rowData =
             {
@@ -459,17 +459,17 @@
         debugger;
         $.ajax({
             type: "POST",
-            url: "/TravelClaim/insertimprestheader",
+            url: "/Travelclaim/insertimprestheader",
             data: JSON.stringify({
-                ProgramCode: $('#department3 option:selected').val(),
-                purpose: $('#description3').val(),
-                budgetdminesion: $('#budgetdimension1 option:selected').val(),
-                departmentdimension: $('#departmentdimension1 option:selected').val(),
-                budgetdescription: $('#budgetdescription1 option:selected').val(),
-                missionno: $('#missionno3 option:selected').val(),
-                purchaseNo: $('#purchase04 option:selected').val(),
-                date: $('#description3').val(),
-                Department: $('#destination1').val(),
+                ProgramCode: $('#department34 option:selected').val(),
+                purpose: $('#description34').val(),
+                budgetdminesion: $('#budgetdimension14 option:selected').val(),
+                departmentdimension: $('#departmentdimension14 option:selected').val(),
+                budgetdescription: $('#budgetdescription14 option:selected').val(),
+                missionno: $('#missionno34 option:selected').val(),
+                purchaseNo: $('#purchase044 option:selected').val(),
+                date: $('#description34').val(),
+                Department: $('#destination14').val(),
                 TravelDetails: tables5,
                 AccomodationDetails: tables6,
                 MealsAndIncidentals: tables7,
@@ -482,8 +482,8 @@
 
                 if (response.status == true) {
 
-                    alert('Travel authorization saved successfully');
-                    window.location.href = '/Imprest/index';
+                    alert('Travel Claim saved successfully');
+                    window.location.href = '/Travelclaim/index';
 
                 } else {
 
@@ -526,20 +526,75 @@
             $('#msobjectives').append(temp);
         }
         else if (number == '6') {
-            var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><select class='form-control'></select></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(6) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
-            $('#table6').append(temp6);
+            var strVar3 = "";
+            strVar3 += " <tr>";
+            strVar3 += "<td><input type='date' class='form-control'/></td>";
+            strVar3 += "<td><input type='date' class='form-control'/></td>";
+            strVar3 += "<td><input type='checkbox' class='form-control'/></td>";
+            strVar3 += "<td><input type='text' class='form-control'/></td>";
+            strVar3 += "<td><input type='number' class='form-control'/></td>";
+            strVar3 += "<td><input type='number' class='form-control'/></td>";
+            strVar3 += "<td class='text-center'>";
+            strVar3 += "<div class='list-icons'>";
+            strVar3 += "<a onclick='addlinetotables(6)' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a>";
+
+            strVar3 += "</div>";
+            strVar3 += "</td>";
+            strVar3 += "</tr>";
+            $('#tables69004').append(strVar3);
         }
         else if (number == '5') {
-            var temp5 = "<tr><td><input type='date' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(5) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
-            $('#table5').append(temp5);
+            var strVar = "";
+            strVar += "<tr><td><input type='date' class='form-control'></td>";
+
+            strVar += "<td><input type='time' class='form-control'/></td>";
+            strVar += "<td><input type='text' class='form-control'/></td>";
+            strVar += "<td><input type='time' class='form-control'/></td>";
+            strVar += "<td><input type='text' class='form-control'/></td>";
+            strVar += "<td><input type='text' class='form-control'/></td>";
+            strVar += "<td class='text-center'>";
+            strVar += "<div class='list-icons'>";
+            strVar += "<a onclick='addlinetotables(5)' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a>";
+            strVar += "</div>";
+            strVar += "</td>";
+            strVar += "</tr>";
+
+
+            $('#table59004').append(strVar);
         }
-        else if (number == '4') {
-            var temp4 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(4) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
-            $('#table4').append(temp4);
+        else if (number == '7') {
+            var strVar1 = "";
+            strVar1 += " <tr>";
+            strVar1 += "<td><input type='date' class='form-control'/></td>";
+
+            strVar1 += "<td><input type='text' class='form-control'/></td>";
+            strVar1 += "<td><input type='text' class='form-control'/></td>";
+            strVar1 += "<td><input type='number' class='form-control'/></td>";
+            strVar1 += "<td><input type='number' class='form-control'/></td>";
+            strVar1 += "<td class='text-center'>";
+            strVar1 += "<div class='list-icons'>";
+            strVar1 += "<a onclick='addlinetotables(7)' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a>";
+
+            strVar1 += "</div>";
+            strVar1 += "</td>";
+            strVar1 += "</tr>";
+            $('#tables79004').append(strVar1);
         }
-        else if (number == '3') {
-            var temp3 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(3) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
-            $('#table3').append(temp3);
+        else if (number == '8') {
+            var strVar2 = "";
+            strVar2 += "<tr>";
+            strVar2 += "<td><input type='date' class='form-control'/></td>";
+
+
+            strVar2 += "<td><input type='text' class='form-control'></td>";
+            strVar2 += "<td><input type='number' class='form-control'></td>";
+            strVar2 += "<td class='text-center'>";
+            strVar2 += "<div class='list-icons'>";
+            strVar2 += "<a onclick='addlinetotables(8)' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a>";
+            strVar2 += "</div>";
+            strVar2 += "</td>";
+            strVar2 += "</tr>";
+            $('#tables89004').append(strVar2);
         }
         else if (number == '2') {
             var temp2 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(2) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";

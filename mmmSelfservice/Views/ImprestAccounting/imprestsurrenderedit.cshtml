@@ -1,75 +1,283 @@
 ﻿@model mmmSelfservice.Models.imprestRinfoModel
 
 <text style="display:none" id="srno">@Model.No</text>
-<div class="form-group row">
-    <label class="col-lg-3 col-form-label">Fund code:</label>
-    <div class="col-lg-9">
-        <select class="form-control" id="department301">
-            <option>@Model.FundCode</option>
+<div class="card-body" data-select2-id="79">
 
-            @Html.Action("departmentvalue", "imprest")
-        </select>
-    </div>
-</div>
-<div class="form-group row">
-    <label class="col-lg-3 col-form-label">Program code:</label>
-    <div class="col-lg-9">
-        <select class="form-control" id="programcode301">
-            <option>@Model.ProgramCode</option>
-            @Html.Action("department", "imprest")
-        </select>
-    </div>
-</div>
-<div class="form-group row">
-    <label class="col-lg-3 col-form-label">Budget dimension:</label>
-    <div class="col-lg-9">
-        <select class="form-control" id="budgetdimension101">
-            <option>@Model.budgetdminesion</option>
-            @Html.Action("budgetdimesion", "imprest")
-        </select>
-    </div>
-</div>
-<div class="form-group row">
-    <label class="col-lg-3 col-form-label">Budget description:</label>
-    <div class="col-lg-9">
-        <select class="form-control" id="budgetdescription101">
-            <option>@Model.budgetdescription</option>
-            @Html.Action("budgetdescription", "imprest")
-        </select>
-    </div>
-</div>
-<div class="form-group row">
-    <label class="col-lg-3 col-form-label">Department:</label>
-    <div class="col-lg-9">
-        <select class="form-control" id="departmentdimension101">
-            <option>@Model.Department</option>
-            @Html.Action("departments", "imprest")
-        </select>
-    </div>
-</div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="#basic-tab100112" class="nav-link active" data-toggle="tab">General</a></li>
+        <li class="nav-item"><a href="#basic-tab200212" class="nav-link" data-toggle="tab">Travel details</a></li>
+        <li class="nav-item"><a href="#basic-tab300312" class="nav-link" data-toggle="tab">Accomodation details</a></li>
+        <li class="nav-item"><a href="#basic-tab400412" class="nav-link" data-toggle="tab">Meals and incidentals</a></li>
+        <li class="nav-item"><a href="#basic-tab500512" class="nav-link" data-toggle="tab">Other expenses</a></li>
+    </ul>
+    <div class="row" data-select2-id="78">
+        <div class="tab-content col-md-12">
+            <div class="tab-pane  fade active show" id="basic-tab100112">
+                <div class="col-md-12">
+                    <form action="#" data-select2-id="77">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Purpose:</label>
+                                    <div class="col-lg-9">
+                                        <input type="text" id="description39" value="@Model.Purpose" class="form-control" />
+                                    </div>
+                                </div>
+                                <div style="display:none" class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Fund code:</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-control" id="programcode39" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'programcode3')">@Html.Action("department","imprest")</select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Program code:</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-control" id="department39" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'department3')"><option value="@Model.DepartmentCode">@Model.DepartmentCode</option>@Html.Action("departmentvalue", "imprest")</select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Budget lines code:</label>
+                                    <div class="col-lg-9">
+                                        <select class="programcodes form-control" id="budgetdimension19"><option value="@Model.DirectorateCode">@Model.DirectorateCode</option></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Date:</label>
+                                    <div class="col-lg-9">
+                                        <input type="date" id="description3" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Destination</label>
+                                    <div class="col-lg-9">
+                                        <input type="text" id="destination19" value="@Model.Department" class="form-control" />
+                                    </div>
+                                </div>
+                                <div style="display:none" class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Budget category:</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-control" id="budgetdescription19">@Html.Action("budgetdescription", "imprest")</select>
+                                    </div>
+                                </div>
+                                <div style="display:none" class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Department:</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-control" id="departmentdimension19">@Html.Action("departments", "imprest")</select>
+                                    </div>
+                                </div>
 
 
-<br />
-<br />
-
-@Html.Action("imprestsurrenderlines", "ImprestAccounting", new { ImprestNo = Model.No })
 
 
-<div class="row">
-    <div class="row">
-        <input type="file" id="FileUpload16" class="form-control" />
-        <div class="form-group row">
-            <div class="col-md-4">
-                <button class="btn" id="btnUpload16">Upload</button>
+                                <div style="display:none" class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Purchase requisition No:</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-control" id="purchase049">
+                                            @Html.Action("postedpurchasereq", "purchase")
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="display:none" class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Mission proposal No:</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-control" id="missionno39">
+                                            @Html.Action("postedmissionproposals", "purchase")
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <br />
+
+
+
+                        @*<div class="form-group row">
+                                <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
+                                <div class="col-lg-9">
+                                    <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
+                                    <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                </div>
+                            </div>*@
+
+
+
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane" id="basic-tab200212">
+                <div class="form-group row">
+
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th class="col-xs-1">Date</th>
+                                        <th class="col-xs-1">Departure Time </th>
+                                        <th class="col-xs-1">Departure Place</th>
+                                        <th class="col-xs-1">Arrival time</th>
+                                        <th class="col-xs-1">Arrival place</th>
+                                        <th class="col-xs-1">Remarks</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody id="tables52">
+                                    @foreach (var item in Model.TravelDetails)
+                                    {
+                                        <tr>
+                                            <td><input type="date" disabled value="@item.date.ToString("yyyy-MM-dd")" class="form-control"></td>
+                                            <td><input type="time" disabled value="@item.departureTime.ToString("hh:mm")" class="form-control"></td>
+                                            <td><input type="text" disabled value="@item.departurePlace" class="form-control"></td>
+                                            <td><input type="time" disabled value="@item.arrivalTime.ToString("hh:mm")" class="form-control"></td>
+                                            <td><input type="text"  disabled value="@item.arrivalPlace" class="form-control"></td>
+                                            <td><input type="text" disabled value="@item.remarks" class="form-control"></td>
+                                           
+                                            <td style="display:none"><input type="number" value="@item.LineNo" class="form-control"></td>
+
+                                        </tr>
+                                    }
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane" id="basic-tab300312">
+                <div class="form-group row">
+
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th class="col-xs-1">Date from </th>
+                                        <th class="col-xs-1">Date to </th>
+                                        <th class="col-xs-1">Accomodation catered</th>
+                                        <th class="col-xs-1">Location of stay/ overnight</th>
+                                        <th class="col-xs-1">Amount</th>
+                                        <th class="col-xs-1">No. of nights</th>
+                                        <th class="col-xs-1">Amount spent</th>
+                                        <th class="col-xs-1">Amount to refund</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tables69009">
+                                    @foreach (var item in Model.AccomodationDetails)
+                                    {
+                                    <tr>
+                                        <td><input type="date"  disabled value="@item.dateFrom.ToString("yyyy-MM-dd")" class="form-control"></td>
+                                        <td><input type="date" disabled value="@item.dateTo.ToString("yyyy-MM-dd")" class="form-control"></td>
+                                        <td><input type="checkbox" disabled value="@item.accomodationCatered" class="form-control"></td>
+                                        <td><input type="text" disabled value="@item.locationOfStay" class="form-control"></td>
+                                        <td><input type="number" disabled value="@item.amount" class="form-control"></td>
+                                        <td><input type="number" disabled value="@item.noOfNights" class="form-control"></td>
+                                       
+                                        <td style="display:none"><input type="number" value="@item.LineNo" class="form-control"></td>
+                                        <td><input type="number" value="@item.amountSpent" class="form-control"></td>
+                                        <td><input type="number" value="@item.amountToRefund" class="form-control"></td>
+                                    </tr>
+                                    }
+                                   
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="basic-tab400412">
+                <div class="form-group row">
+
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th class="col-xs-1">Date </th>
+                                        <th class="col-xs-1">Location</th>
+                                        <th class="col-xs-1">Description of the expenses</th>
+                                        <th class="col-xs-1">Amount </th>
+                                        <th class="col-xs-1">No. of days</th>
+                                        <th class="col-xs-1">Amount spent</th>
+                                        <th class="col-xs-1">Amount to refund</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tables79009">
+                                    @foreach (var item in Model.MealsAndIncidentals)
+                                    {
+                                    <tr>
+                                        <td><input type="date" disabled value="@item.date.ToString("yyyy-MM-dd")" class="form-control"></td>
+
+                                        <td><input type="text" disabled value="@item.location" class="form-control"></td>
+                                        <td><input type="text" disabled value="@item.description" class="form-control"></td>
+                                        <td><input type="number" disabled value="@item.amount" class="form-control"></td>
+                                        <td><input type="number" disabled value="@item.noOfDays" class="form-control"></td>
+                                        
+                                        <td style="display:none"><input type="number" value="@item.LineNo" class="form-control"></td>
+                                        <td><input type="number" value="@item.amountSpent" class="form-control"></td>
+                                        <td><input type="number" value="@item.amountToRefund" class="form-control"></td>
+                                    </tr>
+                                    }
+                                  
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="basic-tab500512">
+                <div class="form-group row">
+
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th class="col-xs-1">Date </th>
+                                        <th class="col-xs-1">Description</th>
+
+                                        <th class="col-xs-1">Amount </th>
+
+                                        <th class="col-xs-1">Amount spent</th>
+                                        <th class="col-xs-1">Amount to refund</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tables89009">
+                                    @foreach (var item in Model.OtherExpenses)
+                                    {
+                                    <tr>
+                                        <td><input type="date" disabled value="@item.date.ToString("yyyy-MM-dd")" class="form-control"></td>
+
+
+                                        <td><input type="text" disabled value="@item.description" class="form-control"></td>
+                                        <td><input type="number" disabled value="@item.amount" class="form-control"></td>
+
+                                        
+                                        <td style="display:none"><input type="number" value="@item.LineNo" class="form-control"></td>
+                                        <td><input type="number"  value="@item.amountSpent" class="form-control"></td>
+                                        <td><input type="number" value="@item.amountToRefund" class="form-control"></td>
+
+                                    </tr>
+                                    }
+                                    
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div id="docs2">
-                @Html.Action("uploadeddocuments", "upload", new { documentNo = Model.No })
-            </div>
-        </div>
     </div>
-
 </div>
 <script>
 
@@ -112,8 +320,138 @@
             }
         });
     });
+    function editimprestSurrender() {
+        table1 = $('#surrlines tr');
+        var surrlines = [];
+        table1.each(function () {
+            var row = $(this);
+            //var Statement = {};
+            var rowdata = row.find("td:eq(4) input[type='number']").val() + '??' + row.find("td:eq(6)").html() + '??' + row.find("td:eq(7)").html() + '??' + row.find("td:eq(5) input[type='number']").val();
+
+            surrlines.push(rowdata);
+        });
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/ImprestAccounting/updatesurrenderline",
+            data: JSON.stringify({ implines: surrlines }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                if (response.status == true) {
+                    alert('Imprest surrender updated successfully');
+
+                } else {
 
 
+
+                }
+
+            }
+
+        });
+    }
+    function insertimprestSurrender() {
+        var tables5 = [];
+        var tables6 = [];
+        var tables7 = [];
+        var tables8 = [];
+
+        //var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='date']").val() + '??' + row.find("td:eq(2) input[type='text']").val() + '??' + row.find("td:eq(3) input[type='number']").val() + '??' + row.find("td:eq(5)").val();
+       
+        $("#tables69009 tr").each(function () {
+            var row = $(this);
+            var rowData =
+            {
+                dateFrom: row.find("td:eq(0) input[type='date']").val(),
+                dateTo: row.find("td:eq(1) input[type='date']").val(),
+                accomodationCatered: row.find("td:eq(2) input[type='checkbox']").val(),
+                locationOfStay: row.find("td:eq(3) input[type='text']").val(),
+                amount: row.find("td:eq(4) input[type='number']").val(),
+                noOfNights: row.find("td:eq(5) input[type='number']").val(),
+                LineNo: row.find("td:eq(6) input[type='number']").val(),
+                amountSpent: row.find("td:eq(7) input[type='number']").val(),
+                amountToRefund: row.find("td:eq(8) input[type='number']").val()
+            };
+
+
+            tables6.push(rowData);
+        });
+
+        $("#tables79009 tr").each(function () {
+            var row = $(this);
+            var rowData =
+            {
+                date: row.find("td:eq(0) input[type='date']").val(),
+                location: row.find("td:eq(1) input[type='text']").val(),
+                description: row.find("td:eq(2) input[type='text']").val(),
+                amount: row.find("td:eq(3) input[type='number']").val(),
+                noOfDays: row.find("td:eq(4) input[type='number']").val(),
+                LineNo: row.find("td:eq(5) input[type='number']").val(),
+                amountSpent: row.find("td:eq(6) input[type='number']").val(),
+                amountToRefund: row.find("td:eq(7) input[type='number']").val()
+
+            };
+
+
+            tables7.push(rowData);
+        });
+        $("#tables89009 tr").each(function () {
+            var row = $(this);
+            var rowData =
+            {
+                date: row.find("td:eq(0) input[type='date']").val(),
+                description: row.find("td:eq(1) input[type='text']").val(),
+                amount: row.find("td:eq(2) input[type='number']").val(),
+                LineNo: row.find("td:eq(3) input[type='number']").val(),
+                amountSpent: row.find("td:eq(4) input[type='number']").val(),
+                amountToRefund: row.find("td:eq(5) input[type='number']").val()
+            };
+
+            tables8.push(rowData);
+        });
+        //  alert(implines);
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/Imprest/insertimprestheader",
+            data: JSON.stringify({
+                No: $('#srno').text(),
+                ProgramCode: $('#department39 option:selected').val(),
+                purpose: $('#description39').val(),
+                budgetdminesion: $('#budgetdimension19 option:selected').val(),
+                departmentdimension: $('#departmentdimension19 option:selected').val(),
+                budgetdescription: $('#budgetdescription19 option:selected').val(),
+                missionno: $('#missionno39 option:selected').val(),
+                purchaseNo: $('#purchase049 option:selected').val(),
+                date: $('#description39').val(),
+                Department: $('#destination19').val(),
+                TravelDetails: tables5,
+                AccomodationDetails: tables6,
+                MealsAndIncidentals: tables7,
+                OtherExpenses: tables8
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+
+                if (response.status == true) {
+
+                    alert('Travel authorization accounting saved successfully');
+                    window.location.href = '/ImprestAccounting/index';
+
+                } else {
+
+
+
+                }
+
+            }
+
+        });
+    }
 </script>
 
 

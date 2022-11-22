@@ -54,13 +54,13 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label">Program code:</label>
                                                     <div class="col-lg-9">
-                                                        <select class="form-control" id="department3" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'department3')"><option value="@Model.ProgramCode">@Model.ProgramCode</option>@Html.Action("departmentvalue", "imprest")</select>
+                                                        <select class="form-control" id="department3" onchange="loadropdown1('.programcodes', '@Url.Action("budgetdimesion", "imprest")', 'department3')"><option value="@Model.DepartmentCode">@Model.DepartmentCode</option>@Html.Action("departmentvalue", "imprest")</select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label">Budget lines code:</label>
                                                     <div class="col-lg-9">
-                                                        <select class="programcodes form-control" id="budgetdimension1"><option value="@Model.budgetdminesion">@Model.budgetdminesion</option></select>
+                                                        <select class="programcodes form-control" id="budgetdimension1"><option value="@Model.DirectorateCode">@Model.DirectorateCode</option></select>
                                                     </div>
                                                 </div>
 
@@ -147,7 +147,7 @@
                                                         <th class="col-xs-1">Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody id="tables5">
+                                                <tbody id="tables54">
                                                     @foreach (var item in Model.TravelDetails)
                                                     {
                                                         <tr>
@@ -206,7 +206,7 @@
                                                         <th class="col-xs-1">Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody id="tables6">
+                                                <tbody id="tables64">
                                                     @foreach (var item in Model.AccomodationDetails)
                                                     {
                                                         <tr>
@@ -264,7 +264,7 @@
                                                         <th class="col-xs-1">Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody id="tables7">
+                                                <tbody id="tables74">
                                                     @foreach (var item in Model.MealsAndIncidentals)
                                                     {
                                                         <tr>
@@ -321,7 +321,7 @@
                                                         <th class="col-xs-1">Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody id="tables8">
+                                                <tbody id="tables84">
                                                     @foreach (var item in Model.OtherExpenses)
                                                     {
                                                         <tr>

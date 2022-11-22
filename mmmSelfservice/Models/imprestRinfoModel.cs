@@ -121,6 +121,8 @@
         public string locationOfStay { get; set; }
         public decimal amount { get; set; }
         public int noOfNights { get; set; }
+        public decimal amountSpent { get; set; }
+        public decimal amountToRefund { get; set; }
         public int LineNo { get; set; }
     }
 
@@ -132,6 +134,8 @@
         public string description { get; set; }
         public decimal amount { get; set; }
         public int noOfDays { get; set; }
+        public decimal amountSpent { get; set; }
+        public decimal amountToRefund { get; set; }
         public int LineNo { get; set; }
 
     }
@@ -142,6 +146,8 @@
         public DateTime date { get; set; }
         public string description { get; set; }
         public decimal amount { get; set; }
+        public decimal amountSpent { get; set; }
+        public decimal amountToRefund { get; set; }
         public int LineNo { get; set; }
     }
 }

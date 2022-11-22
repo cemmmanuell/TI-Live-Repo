@@ -70,10 +70,10 @@
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             try
             {
-                string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
+                string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
-                                  where r.Status == "Released"
+                                  where r.Status == "Released" && r.Posted=="No"
                                   select r).ToList<imprestRinfoModel>());
             }
             catch (Exception)
@@ -318,7 +318,7 @@
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             try
             {
-                string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
+                string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.PartialView((from r in list
                                          where (r.Status == "Open") && (r.No == no)
@@ -335,7 +335,7 @@
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             try
             {
-                string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
+                string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.PartialView((from r in list
                                          where r.No == no
@@ -433,7 +433,7 @@
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             try
             {
-                string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
+                string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
                                   where r.Status == "Open"
@@ -454,7 +454,7 @@
             {
                 //s.emno = Session["username"].ToString();
 
-                WSConfig.ObjNav.Fninsertimprestnew(JsonConvert.SerializeObject(s), Session["username"].ToString());
+                WSConfig.ObjNav.FninsertimprestnewClaim(JsonConvert.SerializeObject(s), Session["username"].ToString());
                 mt.status = true;
 
             }
@@ -672,7 +672,7 @@
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             try
             {
-                string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
+                string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
                                   where r.Status == "Pending Approval"
@@ -706,7 +706,7 @@
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             try
             {
-                string input = WSConfig.ObjNav.FnImprestList(base.Session["username"].ToString());
+                string input = WSConfig.ObjNav.FnMissionProportsalsList(base.Session["username"].ToString());
                 List<imprestRinfoModel> list = serializer.Deserialize<List<imprestRinfoModel>>(input);
                 return base.View((from r in list
                                   where r.Posted == "Yes"

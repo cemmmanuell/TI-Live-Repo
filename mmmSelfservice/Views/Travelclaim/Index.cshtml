@@ -40,10 +40,10 @@
 				<thead>
 					<tr>
 						<th>No</th>
-						<th>Date</th>
+						
 						<th>Amount</th>
 						<th>Status</th>
-						<th>Department</th>
+						<td>Project code</td>
 						<th class="text-center">Action</th>
 					</tr>
 				</thead>
@@ -52,7 +52,7 @@
 					{
 						<tr>
 							<td>@data.No</td>
-							<td>@data.Document_Date</td>
+							
 							<td>@data.Amount</td>
 							@if (@data.Status == "Pending Approval")
 							{
@@ -145,7 +145,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Travel authorization</h5>
+                <h5 class="modal-title">Edit Travel claim</h5>
                 <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
             <div id="imp4"></div>
@@ -160,7 +160,7 @@
                     debugger;
                     $.ajax({
                         type: "POST",
-                        url: "/Imprest/editImp",
+                        url: "/TravelClaim/editImp",
                         data: '{no:"' + mno + '"}',
                         contentType: "application/json; charset=utf-8",
                         dataType: "html",

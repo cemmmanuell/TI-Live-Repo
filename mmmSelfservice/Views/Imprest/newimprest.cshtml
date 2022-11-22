@@ -142,7 +142,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="tables5">
+                                                            <tbody id="table5900">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                     <td><input type="time" class="form-control"></td>
@@ -183,7 +183,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="tables6">
+                                                            <tbody id="tables6900">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                     <td><input type="date" class="form-control"></td>
@@ -193,7 +193,7 @@
                                                                     <td><input type="number" class="form-control"></td>
                                                                     <td class="text-center">
                                                                         <div class="list-icons">
-                                                                            <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+                                                                            <a onclick="addlinetotables('6')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
 
                                                                         </div>
                                                                     </td>
@@ -223,7 +223,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="tables7">
+                                                            <tbody id="tables7900">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
                                                                    
@@ -233,7 +233,7 @@
                                                                     <td><input type="number" class="form-control"></td>
                                                                     <td class="text-center">
                                                                         <div class="list-icons">
-                                                                            <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+                                                                            <a onclick="addlinetotables('7')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
 
                                                                         </div>
                                                                     </td>
@@ -262,7 +262,7 @@
                                                                     <th class="col-xs-1">Action</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="tables8">
+                                                            <tbody id="tables8900">
                                                                 <tr>
                                                                     <td><input type="date" class="form-control"></td>
 
@@ -272,7 +272,7 @@
                                                                    
                                                                     <td class="text-center">
                                                                         <div class="list-icons">
-                                                                            <a onclick="addlinetotables('5')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
+                                                                            <a onclick="addlinetotables('8')" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
 
                                                                         </div>
                                                                     </td>
@@ -399,7 +399,7 @@
         var tables8 = [];
 
         //var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='date']").val() + '??' + row.find("td:eq(2) input[type='text']").val() + '??' + row.find("td:eq(3) input[type='number']").val() + '??' + row.find("td:eq(5)").val();
-        $("#tables5 tr").each(function () {
+        $("#table5900 tr").each(function () {
             var row = $(this);
             //var Statement = {};
             var rowData =
@@ -414,7 +414,7 @@
 
             tables5.push(rowData);
         });
-        $("#tables6 tr").each(function () {
+        $("#tables6900 tr").each(function () {
             var row = $(this);
             var rowData =
             {
@@ -429,7 +429,7 @@
 
             tables6.push(rowData);
         });
-        $("#tables7 tr").each(function () {
+        $("#tables7900 tr").each(function () {
             var row = $(this);
             var rowData =
             {
@@ -444,7 +444,7 @@
 
             tables7.push(rowData);
         });
-        $("#tables8 tr").each(function () {
+        $("#tables8900 tr").each(function () {
             var row = $(this);
             var rowData =
             {
@@ -526,20 +526,75 @@
             $('#msobjectives').append(temp);
         }
         else if (number == '6') {
-            var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><select class='form-control'></select></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(6) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
-            $('#table6').append(temp6);
+            var strVar3 = "";
+            strVar3 += " <tr>";
+            strVar3 += "<td><input type='date' class='form-control'/></td>";
+            strVar3 += "<td><input type='date' class='form-control'/></td>";
+            strVar3 += "<td><input type='checkbox' class='form-control'/></td>";
+            strVar3 += "<td><input type='text' class='form-control'/></td>";
+            strVar3 += "<td><input type='number' class='form-control'/></td>";
+            strVar3 += "<td><input type='number' class='form-control'/></td>";
+            strVar3 += "<td class='text-center'>";
+            strVar3 += "<div class='list-icons'>";
+            strVar3 += "<a onclick='addlinetotables(6)' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a>";
+            
+            strVar3 += "</div>";
+            strVar3 += "</td>";
+            strVar3 += "</tr>";
+            $('#tables6900').append(strVar3);
         }
         else if (number == '5') {
-            var temp5 = "<tr><td><input type='date' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(5) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
-            $('#table5').append(temp5);
+            var strVar = "";
+            strVar += "<tr><td><input type='date' class='form-control'></td>";
+           
+            strVar += "<td><input type='time' class='form-control'/></td>";
+            strVar += "<td><input type='text' class='form-control'/></td>";
+            strVar += "<td><input type='time' class='form-control'/></td>";
+            strVar += "<td><input type='text' class='form-control'/></td>";
+            strVar += "<td><input type='text' class='form-control'/></td>";
+            strVar += "<td class='text-center'>";
+            strVar += "<div class='list-icons'>";
+            strVar += "<a onclick='addlinetotables(5)' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a>";
+            strVar += "</div>";
+            strVar += "</td>";
+            strVar += "</tr>";
+           
+
+            $('#table5900').append(strVar);
         }
-        else if (number == '4') {
-            var temp4 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(4) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
-            $('#table4').append(temp4);
+        else if (number == '7') {
+            var strVar1 = "";
+            strVar1 += " <tr>";
+            strVar1 += "<td><input type='date' class='form-control'/></td>";
+          
+            strVar1 += "<td><input type='text' class='form-control'/></td>";
+            strVar1 += "<td><input type='text' class='form-control'/></td>";
+            strVar1 += "<td><input type='number' class='form-control'/></td>";
+            strVar1 += "<td><input type='number' class='form-control'/></td>";
+            strVar1 += "<td class='text-center'>";
+            strVar1 += "<div class='list-icons'>";
+            strVar1 += "<a onclick='addlinetotables(7)' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a>";
+         
+            strVar1 += "</div>";
+            strVar1 += "</td>";
+            strVar1 += "</tr>";
+            $('#tables7900').append(strVar1);
         }
-        else if (number == '3') {
-            var temp3 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(3) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
-            $('#table3').append(temp3);
+        else if (number == '8') {
+            var strVar2 = "";
+            strVar2+= "<tr>";
+            strVar2 += "<td><input type='date' class='form-control'/></td>";
+           
+           
+            strVar2 += "<td><input type='text' class='form-control'></td>";
+            strVar2 += "<td><input type='number' class='form-control'></td>";
+            strVar2 += "<td class='text-center'>";
+            strVar2 += "<div class='list-icons'>";
+            strVar2 += "<a onclick='addlinetotables(8)' class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a>";
+            strVar2 += "</div>";
+            strVar2 += "</td>";
+            strVar2 += "</tr>";
+            $('#tables8900').append(strVar2);
         }
         else if (number == '2') {
             var temp2 = "<tr><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a onclick=addlinetotables(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables(2) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
