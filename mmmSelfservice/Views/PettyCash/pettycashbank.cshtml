@@ -61,6 +61,9 @@
                             <thead>
                                 <tr>
                                     <th>Payment description</th>
+                                    <th>Document number</th>
+                                    <th>Fund code</th>
+                                    <th>Document date</th>
                                     <th>Posting date</th>
                                     <th>External No</th>
                                     <th>Amount</th>
@@ -71,9 +74,16 @@
                             <tbody id="jnlline">
                                 @*@Html.Partial("savedjournals")*@
                                 <tr>
+                                    <td>
+                                        <input type="text" class="form-control text-primary">
+                                    </td>
 
                                     <td>
                                         <input type="text" class="form-control text-primary">
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control text-primary">
 
                                     </td>
                                     <td>
