@@ -67,21 +67,26 @@
             }
         }
 
-        public JsonResult InsertJournals(string Document, string PBank, List<string> Journals)
+        public JsonResult InsertJournals(string Document, string PBank, List<jnllines> Journals)
         {
             resultMt mt = new resultMt();
             try
             {
                 int num2;
-                for (int i = 0; i < Journals.Count; i = num2 + 1)
+                foreach (var i in Journals)
                 {
-                    string[] separator = new string[] { "??" };
-                    string[] strArray = Journals[i].Split(separator, StringSplitOptions.None);
-                    if ((strArray[0].ToString() != "") && (strArray[4].ToString() == ""))
+                    if (i.documentNo != "")
                     {
-                        WSConfig.ObjNav.FnInsertGeneralJournal(Convert.ToDateTime(strArray[1].ToString()), strArray[2].ToString(), PBank, Convert.ToDecimal(strArray[3].ToString()), strArray[0].ToString(), base.Session["username"].ToString());
-                    }
-                    num2 = i;
+                        if (i.description != null)
+                        {
+
+
+                            WSConfig.ObjNav.FnInsertGeneralJournal(i.postingdate, i.documentNo, PBank,
+
+                                i.amount, i.description, Session["username"].ToString(), i.glAccount, i.fundCode);
+                        }
+                     }
+
                 }
                 mt.status = true;
             }
@@ -110,6 +115,11 @@
             return base.View(model);
         }
 
+        public ActionResult glaccounts()
+        {
+            List<mmmSelfservice.Models.rolecenter> model = JsonConvert.DeserializeObject<List<mmmSelfservice.Models.rolecenter>>(WSConfig.ObjNav.FnGLAccounts());
+            return base.View(model);
+        }
         public PartialViewResult savedjournals(string payingbank)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();

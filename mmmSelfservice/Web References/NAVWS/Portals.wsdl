@@ -302,6 +302,103 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnInsertTimeSheet">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="projectCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="startdate" type="dateTime" />
+            <element minOccurs="1" maxOccurs="1" name="employee" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="enddate" type="dateTime" />
+            <element minOccurs="1" maxOccurs="1" name="hours" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertTimeSheet_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnModifyTimeSheet">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="projectCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="startdate" type="dateTime" />
+            <element minOccurs="1" maxOccurs="1" name="code" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employee" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="dateTime" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnModifyTimeSheet_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetTimesheets">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employee" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetTimesheets_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDepartmentValueLeave">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDepartmentValueLeave_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGLAccounts">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGLAccounts_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertAttachmentsJnls">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="extension" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="file" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentJnls" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertAttachmentsJnls_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
       <element name="FnImprestRequisitionCreate">
         <complexType>
           <sequence>
@@ -1535,6 +1632,8 @@
             <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
             <element minOccurs="1" maxOccurs="1" name="descirption" type="string" />
             <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="glaccount" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fundCode" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -2024,6 +2123,42 @@
   </message>
   <message name="FnAppraisalList_Result">
     <part name="parameters" element="tns:FnAppraisalList_Result" />
+  </message>
+  <message name="FnInsertTimeSheet">
+    <part name="parameters" element="tns:FnInsertTimeSheet" />
+  </message>
+  <message name="FnInsertTimeSheet_Result">
+    <part name="parameters" element="tns:FnInsertTimeSheet_Result" />
+  </message>
+  <message name="FnModifyTimeSheet">
+    <part name="parameters" element="tns:FnModifyTimeSheet" />
+  </message>
+  <message name="FnModifyTimeSheet_Result">
+    <part name="parameters" element="tns:FnModifyTimeSheet_Result" />
+  </message>
+  <message name="FnGetTimesheets">
+    <part name="parameters" element="tns:FnGetTimesheets" />
+  </message>
+  <message name="FnGetTimesheets_Result">
+    <part name="parameters" element="tns:FnGetTimesheets_Result" />
+  </message>
+  <message name="FnDepartmentValueLeave">
+    <part name="parameters" element="tns:FnDepartmentValueLeave" />
+  </message>
+  <message name="FnDepartmentValueLeave_Result">
+    <part name="parameters" element="tns:FnDepartmentValueLeave_Result" />
+  </message>
+  <message name="FnGLAccounts">
+    <part name="parameters" element="tns:FnGLAccounts" />
+  </message>
+  <message name="FnGLAccounts_Result">
+    <part name="parameters" element="tns:FnGLAccounts_Result" />
+  </message>
+  <message name="FnInsertAttachmentsJnls">
+    <part name="parameters" element="tns:FnInsertAttachmentsJnls" />
+  </message>
+  <message name="FnInsertAttachmentsJnls_Result">
+    <part name="parameters" element="tns:FnInsertAttachmentsJnls_Result" />
   </message>
   <message name="FnImprestRequisitionCreate">
     <part name="parameters" element="tns:FnImprestRequisitionCreate" />
@@ -2720,6 +2855,30 @@
       <input name="FnAppraisalList" message="tns:FnAppraisalList" />
       <output name="FnAppraisalList_Result" message="tns:FnAppraisalList_Result" />
     </operation>
+    <operation name="FnInsertTimeSheet">
+      <input name="FnInsertTimeSheet" message="tns:FnInsertTimeSheet" />
+      <output name="FnInsertTimeSheet_Result" message="tns:FnInsertTimeSheet_Result" />
+    </operation>
+    <operation name="FnModifyTimeSheet">
+      <input name="FnModifyTimeSheet" message="tns:FnModifyTimeSheet" />
+      <output name="FnModifyTimeSheet_Result" message="tns:FnModifyTimeSheet_Result" />
+    </operation>
+    <operation name="FnGetTimesheets">
+      <input name="FnGetTimesheets" message="tns:FnGetTimesheets" />
+      <output name="FnGetTimesheets_Result" message="tns:FnGetTimesheets_Result" />
+    </operation>
+    <operation name="FnDepartmentValueLeave">
+      <input name="FnDepartmentValueLeave" message="tns:FnDepartmentValueLeave" />
+      <output name="FnDepartmentValueLeave_Result" message="tns:FnDepartmentValueLeave_Result" />
+    </operation>
+    <operation name="FnGLAccounts">
+      <input name="FnGLAccounts" message="tns:FnGLAccounts" />
+      <output name="FnGLAccounts_Result" message="tns:FnGLAccounts_Result" />
+    </operation>
+    <operation name="FnInsertAttachmentsJnls">
+      <input name="FnInsertAttachmentsJnls" message="tns:FnInsertAttachmentsJnls" />
+      <output name="FnInsertAttachmentsJnls_Result" message="tns:FnInsertAttachmentsJnls_Result" />
+    </operation>
     <operation name="FnImprestRequisitionCreate">
       <input name="FnImprestRequisitionCreate" message="tns:FnImprestRequisitionCreate" />
       <output name="FnImprestRequisitionCreate_Result" message="tns:FnImprestRequisitionCreate_Result" />
@@ -3303,6 +3462,60 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnAppraisalList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertTimeSheet">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertTimeSheet" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertTimeSheet">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertTimeSheet_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnModifyTimeSheet">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnModifyTimeSheet" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnModifyTimeSheet">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnModifyTimeSheet_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetTimesheets">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGetTimesheets" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetTimesheets">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetTimesheets_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDepartmentValueLeave">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnDepartmentValueLeave" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDepartmentValueLeave">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDepartmentValueLeave_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGLAccounts">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnGLAccounts" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGLAccounts">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGLAccounts_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertAttachmentsJnls">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertAttachmentsJnls" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertAttachmentsJnls">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertAttachmentsJnls_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

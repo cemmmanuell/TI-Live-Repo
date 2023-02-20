@@ -75,6 +75,23 @@
             }
         }
 
+        public PartialViewResult uploadeddocumentsJnls(string documentNo)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            try
+            {
+                string input = WSConfig.ObjNav.FnUploadedDocuments(documentNo);
+                List<documentUploads> list = serializer.Deserialize<List<documentUploads>>(input);
+                return base.PartialView((from r in list
+                                         where r.DocumentNo == documentNo
+                                         select r).ToList<documentUploads>());
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public JsonResult uploadFile(string document)
         {
             resultMt mt = new resultMt();
@@ -90,6 +107,34 @@
                     }
                     string file = Convert.ToBase64String(inArray);
                     WSConfig.ObjNav.FnInsertAttachments("pdf", file, document, base3.FileName);
+                    mt.status = true;
+                    mt.message = "File saved successfully";
+                    return new JsonResult { Data = mt };
+                }
+                catch (Exception)
+                {
+                    mt.message = "Error occured";
+                    return new JsonResult { Data = mt };
+                }
+            }
+            return new JsonResult { Data = mt };
+        }
+
+        public JsonResult uploadFileJnls(string document, string documentJnls)
+        {
+            resultMt mt = new resultMt();
+            if (base.Request.Files.Count > 0)
+            {
+                try
+                {
+                    HttpPostedFileBase base3 = base.Request.Files[0];
+                    byte[] inArray = new byte[base3.ContentLength];
+                    using (BinaryReader reader = new BinaryReader(base3.InputStream))
+                    {
+                        inArray = reader.ReadBytes(base3.ContentLength);
+                    }
+                    string file = Convert.ToBase64String(inArray);
+                    WSConfig.ObjNav.FnInsertAttachmentsJnls("pdf", file, document, base3.FileName, documentJnls);
                     mt.status = true;
                     mt.message = "File saved successfully";
                     return new JsonResult { Data = mt };

@@ -55,399 +55,673 @@
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <table class="table datatable-show-all table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Payment description</th>
-                                    <th>Document number</th>
-                                    <th>Fund code</th>
-                                    <th>Document date</th>
-                                    <th>Posting date</th>
-                                    <th>External No</th>
-                                    <th>Amount</th>
-                                    <th>Attachment</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="jnlline">
-                                @*@Html.Partial("savedjournals")*@
-                                <tr>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-                                    </td>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control text-primary">
-
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control text-primary" />
-                                    </td>
-                                    <td>
-                                        <input type="file" class="form-control text-primary" />
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="list-icons">
-                                            <a onclick="addlinetotables1()" class="list-icons-item"><i class="icon-plus3 font-size-base"></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
+
+
+                <div id="saved">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table datatable-show-all table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Payment description</th>
+                                        <th>Document number</th>
+                                        <th>Fund code</th>
+                                        <th>Document date</th>
+                                        <th>External No</th>
+                                        <th>Gl Account</th>
+                                        <th>Amount</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody id="jnlline">
+                                    @*@Html.Partial("savedjournals")*@
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control text-primary">
+
+                                        </td>
+
+                                        <td>
+                                            <input type="number" class="form-control text-primary" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control">@Html.Action("glaccounts")</select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control text-primary">
+
+                                        </td>
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="coi-md-4">
                         <button type="button" class="btn bg-primary legitRipple" onclick="addjnllines()">Save</button>
@@ -491,7 +765,16 @@
         table1.each(function () {
             var row = $(this);
             //var Statement = {};
-            var rowdata = row.find("td:eq(0) input[type='text']").val() + '??' + row.find("td:eq(1) input[type='date']").val() + '??' + row.find("td:eq(2) input[type='text']").val() + '??' + row.find("td:eq(3) input[type='number']").val() + '??' + row.find("td:eq(5)").val();
+            var rowdata =
+            {
+                description: row.find("td:eq(0) input[type='text']").val(),
+                postingDate: row.find("td:eq(3) input[type='date']").val(),
+                documentNo: row.find("td:eq(1) input[type='text']").val(), 
+                fundCode: row.find("td:eq(2) select option:selected").val(),
+                glAccount: row.find("td:eq(5) select option:selected").val(),
+                externalNo: row.find("td:eq(4) input[type='number']").val(),
+                amount: row.find("td:eq(6) input[type='text']").val(),
+            }
 
             jnllines.push(rowdata);
         });
@@ -541,8 +824,8 @@
             dataType: "html",
             success: function (response) {
                 /// alert("You selected: " + response.AuthSuccess);
-                $('#jnlline').html('');
-                $('#jnlline').before(response);
+                $('#saved').html('');
+                $('#saved').html(response);
 
             }
 

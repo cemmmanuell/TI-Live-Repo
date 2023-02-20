@@ -3267,11 +3267,12 @@
     <Content Include="Views\Home\editAppraisalReleased.cshtml" />
     <Content Include="Views\Home\pendingappraisallist.cshtml" />
     <Content Include="Views\Home\approvedappraisallist.cshtml" />
+    <Content Include="Views\PettyCash\glaccounts.cshtml" />
     <None Include="Web References\NAVWS\Portals.wsdl" />
-    <Content Include="Web References\NAVWS\Reference.map">
+    <None Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

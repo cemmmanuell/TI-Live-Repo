@@ -1,22 +1,793 @@
 ﻿@model IEnumerable<mmmSelfservice.Models.jnllines>
 
+<ul class="nav nav-tabs">
+    <li class="nav-item"><a href="#basic-tab11Jnls" class="nav-link active" data-toggle="tab">General</a></li>
+    <li class="nav-item"><a href="#basic-tab41Jnls" class="nav-link" data-toggle="tab">Documents</a></li>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-          <input type="text" class="form-control text-primary" value="@Html.DisplayFor(modelItem => item.description)" />
-        </td>
-        <td>
-          <input type="text" class="form-control text-primary" value="@Html.DisplayFor(modelItem => item.amount)" />
-        </td>
-        <td style="display:none">@Html.DisplayFor(modelItem => item.lineno)</td>
-            
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+</ul>
+<div class="tab-content col-md-12">
+    <div class="tab-pane fade active show" id="basic-tab11Jnls">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table datatable-show-all table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Payment description</th>
+                            <th>Document number</th>
+                            <th>Fund code</th>
+                            <th>Document date</th>
+                            <th>External No</th>
+                            <th>Gl Account</th>
+                            <th>Amount</th>
 
+
+                        </tr>
+                    </thead>
+                    <tbody id="jnlline">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control text-primary" value="@Html.DisplayFor(modelItem => item.description)" />
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control text-primary" value="@item.documentNo">
+
+                                </td>
+                                <td>
+                                    <select class="form-control" id="programcode3"><option value="@item.fundCode">@item.fundCode<optopn />@Html.Action("department", "imprest")</select>
+                                </td>
+                                <td>
+                                    <input type="date" value="@item.postingdate.ToString("yyyy-MM-dd")" class="form-control text-primary">
+
+                                </td>
+
+                                <td>
+                                    <input type="text" class="form-control text-primary" value="" />
+                                </td>
+                                <td>
+                                    <select class="form-control"><option value="@item.glAccount">@item.glAccount<option />@Html.Action("glaccounts")</select>
+                                </td>
+                                <td>
+                                    <input type="text" value="@item.amount" class="form-control text-primary">
+
+                                </td>
+
+                                <td style="display:none">@Html.DisplayFor(modelItem => item.lineno)</td>
+
+
+
+                            </tr>
+
+                        
+
+                        }
+
+
+
+
+                        @*@Html.Partial("savedjournals")*@
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                                <select class="form-control" id="programcode3">@Html.Action("department", "imprest")</select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control text-primary">
+
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control text-primary" />
+                            </td>
+                            <td>
+                                <select class="form-control">@Html.Action("glaccounts")</select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control text-primary">
+
+                            </td>
+                            <td>
+                            </td>
+
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade active show" id="basic-tab41Jnls">
+        <div class="row">
+            <div class="row">
+                <label class="col-form-label">Journal lines:</label>
+                <select class="form-control" id="jnlDocumetnNo01">
+                    @{
+                        foreach (var n in Model)
+                        {
+                            <option value="@n.documentNo">@n.description</option>
+                        }
+                    }
+                </select>
+                <input type="file" id="FileUpload131111111Jnls" class="form-control" />
+               
+                    <div class="col-md-12">
+                        <button class="btn btn-float btn-block btn-dark" id="uploadfiles0011212Jnls">Upload</button>
+                    </div>
+                
+                
+                    <br /> <br /> <br /> <br /> <br />
+                    <div id="docs11111Jnls">
+
+                        @Html.Action("uploadeddocumentsJnls", "upload", new { documentNo = Model.FirstOrDefault().bank })
+
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+
+<script type="text/javascript">
+
+     $(document).ready(function () {
+        $('#uploadfiles0011212Jnls').click(function () {
+
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload131111111Jnls").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                // Adding one more key to FormData object
+                fileData.append('document', $('#bank option:selected').val());
+                fileData.append('documentJnls', $('#jnlDocumetnNo01 option:selected').val());
+                $.ajax({
+                    url: '/Upload/uploadFileJnls',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                        alert(result.message);
+                        LoadData('#docs11111Jnls', '@Url.Action("uploadeddocumentsJnls", "upload", new { documentNo = Model.FirstOrDefault().bank})');
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+
+
+    });
+</script>

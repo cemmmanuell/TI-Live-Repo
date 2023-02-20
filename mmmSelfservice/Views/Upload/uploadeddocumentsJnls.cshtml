@@ -1,0 +1,38 @@
+﻿@model IEnumerable<mmmSelfservice.Models.documentUploads>
+<div class="row">
+   
+    <div id="uploadedDocumentsDiv1">
+        <div class="col-md-12">
+            <table class="table datatable-basic dataTable no-footer">
+
+                <thead>
+                    <tr>
+                        <th>Document description</th>
+                        <th>Document no</th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DocumentDescription)
+                        </td>
+                        <td style="display:none">@Html.DisplayFor(modelItem => item.AttachmentNo)</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.jnlDocument)
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-small bg-success-400 btn-float legitRipple"><i class="icon-file-empty"></i></button>
+                        </td>
+
+                        <td><button type="button" class="btn btn-small bg-danger-400 btn-float  legitRipple" onclick="deleteAttachment('@item.AttachmentNo', '@item.DocumentNo', 'uploadedDocumentsDiv')"><i class="icon-folder-remove"></i></button></td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+</div>

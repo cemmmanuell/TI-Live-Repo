@@ -2609,6 +2609,21 @@
             return base.View();
         }
 
+        public JsonResult imprestStatement()
+        {
+            string str = base.Session["username"].ToString().Replace("/", "") + "LS";
+            string path = HostingEnvironment.MapPath(string.Format("~/Downloads/{0}.pdf", str));
+            string bigText = "";
+            deletefile(path);
+           // WSConfig.ObjNav.f(no, ref bigText);
+            byte[] buffer = Convert.FromBase64String(bigText);
+            FileStream output = new FileStream(path, FileMode.CreateNew);
+            BinaryWriter writer = new BinaryWriter(output);
+            writer.Write(buffer, 0, buffer.Length);
+            writer.Close();
+            string str4 = string.Format("../Downloads/{0}.pdf", str);
+            return new JsonResult { Data = str4 };
+        }
         public JsonResult LeaveStatementpdf()
         {
             string str = base.Session["username"].ToString().Replace("/", "") + "LS";
