@@ -4406,7 +4406,7 @@ namespace mmmSelfservice.NAVWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Portals:FnInsertGeneralJournal", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", ResponseElementName="FnInsertGeneralJournal_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Portals", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void FnInsertGeneralJournal([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime postingDate, string documentNo, string payingBank, decimal amount, string descirption, string empNo, string glaccount, string fundCode) {
+        public void FnInsertGeneralJournal([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime postingDate, string documentNo, string payingBank, decimal amount, string descirption, string empNo, string glaccount, string fundCode, string currency) {
             this.Invoke("FnInsertGeneralJournal", new object[] {
                         postingDate,
                         documentNo,
@@ -4415,16 +4415,17 @@ namespace mmmSelfservice.NAVWS {
                         descirption,
                         empNo,
                         glaccount,
-                        fundCode});
+                        fundCode,
+                        currency});
         }
         
         /// <remarks/>
-        public void FnInsertGeneralJournalAsync(System.DateTime postingDate, string documentNo, string payingBank, decimal amount, string descirption, string empNo, string glaccount, string fundCode) {
-            this.FnInsertGeneralJournalAsync(postingDate, documentNo, payingBank, amount, descirption, empNo, glaccount, fundCode, null);
+        public void FnInsertGeneralJournalAsync(System.DateTime postingDate, string documentNo, string payingBank, decimal amount, string descirption, string empNo, string glaccount, string fundCode, string currency) {
+            this.FnInsertGeneralJournalAsync(postingDate, documentNo, payingBank, amount, descirption, empNo, glaccount, fundCode, currency, null);
         }
         
         /// <remarks/>
-        public void FnInsertGeneralJournalAsync(System.DateTime postingDate, string documentNo, string payingBank, decimal amount, string descirption, string empNo, string glaccount, string fundCode, object userState) {
+        public void FnInsertGeneralJournalAsync(System.DateTime postingDate, string documentNo, string payingBank, decimal amount, string descirption, string empNo, string glaccount, string fundCode, string currency, object userState) {
             if ((this.FnInsertGeneralJournalOperationCompleted == null)) {
                 this.FnInsertGeneralJournalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertGeneralJournalOperationCompleted);
             }
@@ -4436,7 +4437,8 @@ namespace mmmSelfservice.NAVWS {
                         descirption,
                         empNo,
                         glaccount,
-                        fundCode}, this.FnInsertGeneralJournalOperationCompleted, userState);
+                        fundCode,
+                        currency}, this.FnInsertGeneralJournalOperationCompleted, userState);
         }
         
         private void OnFnInsertGeneralJournalOperationCompleted(object arg) {

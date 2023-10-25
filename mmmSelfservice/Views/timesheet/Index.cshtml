@@ -41,13 +41,18 @@
                         <table class="table datatable-basic dataTable no-footer table-hover" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                             <thead>
                                 <tr>
-                                   
+
 
                                     <th>
-                                      Description
+                                        Description
                                     </th>
                                     <th>
-                                     Date 
+                                        From Date
+                                    </th>
+
+                                    <th>
+                                        To
+                                        Date
                                     </th>
                                     <th>
                                         Hours
@@ -64,19 +69,46 @@
 
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        
-                                        <td>
-                                            @item.projectCode
-                                        </td>
-                                        <td>
-                                           @item.startdate.ToString("yyyy-MM-dd")
-                                        </td>
-                                       
-                                        <td>@item.year</td>
-                                       
-                                       
-                                    </tr>
+                                <tr>
+
+                                    <td>
+                                        @item.name
+                                    </td>
+                                    <td>
+                                        @item.startdate.ToString("yyyy-MM-dd")
+                                    </td>
+                                    <td>
+                                        @item.endDate.ToString("yyyy-MM-dd")
+                                    </td>
+
+                                    <td>@item.year</td>
+
+
+                                    <td class="text-center">
+                                        <div class="list-icons">
+                                            <div class="dropdown">
+                                                <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                    <i class="icon-menu9"></i>
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    @if (item.status == "Open")
+                                                    {
+                                                        <a onClick="EdtTimesheet('@item.code')" class="dropdown-item" data-toggle="modal" data-target="#modal_backdropimprest">Edit</a>
+
+                                                        @*@Html.ActionLink("Add Line", "ImprestLine", "Imprest", new { ImprestNo = data.No }, new { @class = "dropdown-item icon-add-to-list" })
+
+                            <a href="@Url.Action("sendforapproval", new { imprestNo = data.No })" class="dropdown-item"><i class="icon-file-check"></i>Send approval request</a>*@
+                                                    }
+                                                    @if (item.status == "Pending Approval")
+                                                    {
+                                                        <a href="@Url.Action("sendforapprovalcancel", new { imprestNo = item.code })" class="dropdown-item"><i class="icon-eraser2"></i>Cancel approval request</a>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
                                 }
 
 
@@ -110,7 +142,7 @@
 
 @Html.Action("newTimeSheet")
 
-<div id="modal_backdropimprest_0011" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+<div id="modal_backdropimprest" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -147,7 +179,7 @@
         $.ajax({
             type: "POST",
             url: "/Timesheet/editTimesheet",
-            data: '{entryNo:"' + leaveNo + ' "}',
+            data: '{entryNo:"' + leaveNo + '"}',
             contentType: "application/json; charset=utf-8",
             dataType: "html",
             success: function (data) {

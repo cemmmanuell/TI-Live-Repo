@@ -315,6 +315,45 @@
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Projects</span></a>
+                            <ul class="nav nav-group-sub">
+
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Setups</a>
+                                    <ul class="nav nav-group-sub">
+                                        <li class="nav-item"><a href="@Url.Action("donors", "setups")" class="nav-link">Donors</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("departments", "setups")" class="nav-link">Departments</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("thematicareas", "setups")" class="nav-link">Thematic areas</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("goals", "setups")" class="nav-link">Goals</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("focusareas", "setups")" class="nav-link">Focus areas</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("implimentingPartners", "setups")" class="nav-link">Implimenting partners</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("stations", "setups")" class="nav-link">Stations</a></li>
+
+
+
+
+                                    </ul>
+
+                                </li>
+
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link">Project activities</a>
+                                    <ul class="nav nav-group-sub">
+
+                                        <li class="nav-item"><a href="@Url.Action("ProjectReport", "Projects", new {status= "Open" })" class="nav-link">Activity report</a></li>
+
+                                        <li class="nav-item"><a href="@Url.Action("ProjectReport", "Projects", new {status= "Pending approval" })" class="nav-link">Pending Activity report</a></li>
+                                        <li class="nav-item"><a href="@Url.Action("ProjectReport", "Projects", new {status= "Approved" })" class="nav-link">Approved Activity report</a></li>
+
+
+
+
+                                    </ul>
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Approvals</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Starter kit">

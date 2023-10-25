@@ -14,14 +14,14 @@ namespace mmmSelfservice.Controllers
         public ActionResult Index()
         {
 
-            try
-            {
+          //  try
+          //  {
                 IEnumerable<timesheet> m = JsonConvert.DeserializeObject<IEnumerable<timesheet>>(WSConfig.ObjNav.FnGetTimesheets(Session["username"].ToString()));
-                return View(m.Where(r => r.status == "New"));
-            } catch (Exception e)
-            {
+                return View(m.Where(r => r.status == "Open"));
+          //  } catch (Exception e)
+          //  {
                 return null;
-            }
+          //  }
         }
         public ActionResult Pending()
         {
@@ -49,11 +49,11 @@ namespace mmmSelfservice.Controllers
                 return null;
             }
         }
-        public PartialViewResult editTimesheet(int entryNo)
+        public PartialViewResult editTimesheet(string entryNo)
         {
             try
             {
-                IEnumerable<timesheet> m = JsonConvert.DeserializeObject<IEnumerable<timesheet>>(WSConfig.ObjNav.FnGetTimesheets(Session["username"].ToString()));
+                IEnumerable<timesheet> m = JsonConvert.DeserializeObject<IEnumerable<TimesheetLinesL>>(WSConfig.ObjNav.FnGetTimesheets(Session["username"].ToString()));
                 return PartialView(m.Where(r=>r.code==entryNo).FirstOrDefault());
             }
             catch (Exception e)
@@ -78,6 +78,12 @@ namespace mmmSelfservice.Controllers
             public timesheet payload { get; set; }
         }
 
+
+        public ActionResult imprestreq(string no)
+        {
+            WSConfig.ObjNav.FnApproval(no);
+            return base.RedirectToAction("index", "timesheet");
+        }
         // POST timesheet
         public JsonResult postTimesheet(timesheet m)
         {
@@ -87,17 +93,23 @@ namespace mmmSelfservice.Controllers
               
                 if (m.Timesheetlines.Count() != 0)
                 {
+                    int count = 0;
                     foreach (var l in m.Timesheetlines)
                     {
-                        try
+                        if (l.hours > 0)
                         {
-                            WSConfig.ObjNav.FnInsertTimeSheet("",l.projectCode, m.startdate, Session["userName"].ToString(), 0, m.endDate, l.hours);
-                        }
-                        catch (Exception e)
-                        {
-                            mt.message = e.ToString();
-                            mt.status = false;
-                            return new JsonResult { Data = mt };
+
+                            try
+                            {
+                                WSConfig.ObjNav.FnInsertTimeSheet(l.comments, l.projectCode, m.startdate, Session["userName"].ToString(), count, m.endDate, Convert.ToInt32(l.hours)); ;
+                            }
+                            catch (Exception e)
+                            {
+                                mt.message = e.ToString();
+                                mt.status = false;
+                                return new JsonResult { Data = mt };
+                            }
+                            count++;
                         }
                     }
 
@@ -119,47 +131,47 @@ namespace mmmSelfservice.Controllers
         }
 
         //PUT timesheet
-        //public JsonResult putTimesheet(timesheet m)
-        //{
-        //    resultMt mt = new resultMt();
-        //    try
-        //    {
-        //        int code = 0;
-        //        code = WSConfig.ObjNav.FnModifyTimeSheet (m.name,m.projectCode,m.startdate,"", Session["userName"].ToString(),m.year,m.code, m.endDate );
+        public JsonResult putTimesheet(timesheet m)
+        {
+            resultMt mt = new resultMt();
+            try
+            {
+             // int code = 0;
+              // code = WSConfig.ObjNav.FnModifyTimeSheet (m.name,m.projectCode,m.startdate,"", Session["userName"].ToString(),m.year,m.code, m.endDate );
 
-        //        if (m.Timesheetlines.Count() != 0)
-        //        {
-        //            foreach (var l in m.Timesheetlines)
-        //            {
-        //                try
-        //                {
-        //                    WSConfig.ObjNav.FnModifyTimesheetLines(code, l.fromdate, l.todate,l.entryno, l.comments, l.projectCode, l.projectText, l.hours);
+               if (m.Timesheetlines.Count() != 0)
+                {
+                   foreach (var l in m.Timesheetlines)
+                  {
+                       try
+                       {
+                            WSConfig.ObjNav.FnModifyTimeSheet(m.code, l.projectCode, Convert.ToDateTime(l.date), "", Session["userName"].ToString(), Convert.ToInt32( l.hours), 0, m.endDate);
 
-        //                }
-        //                catch (Exception e)
-        //                {
-        //                    mt.message = e.InnerException.Message;
-        //                    mt.status = false;
-        //                    return new JsonResult { Data = mt };
-        //                }
-        //            }
+                       }
+                        catch (Exception e)
+                       {
+                            mt.message = e.InnerException.Message;
+                            mt.status = false;
+                            return new JsonResult { Data = mt };
+                       }
+                  }
 
-        //        }
-        //        m.code = code;
-        //        mt.status = true;
-        //        mt.payload = m;
+                }
+               m.code = m.code;
+              mt.status = true;
+               mt.payload = m;
 
-        //        return new JsonResult { Data = mt };
-        //    }
-        //    catch (Exception e)
-        //    {
+                return new JsonResult { Data = mt };
+            }
+            catch (Exception e)
+            {
 
 
-        //        mt.message = e.InnerException.Message;
-        //        mt.status = false;
-        //        return new JsonResult { Data = mt };
-        //    }
-        //}
+                mt.message = e.InnerException.Message;
+                mt.status = false;
+                return new JsonResult { Data = mt };
+            }
+        }
 
        
         public PartialViewResult years()

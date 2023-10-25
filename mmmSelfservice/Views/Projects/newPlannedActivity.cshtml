@@ -1,0 +1,372 @@
+﻿<div id="modal_backdrop8" class="modal fade" data-backdrop="false" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+           
+
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header bg-white header-elements-sm-inline">
+                        <div class="header-elements">
+
+                            <button type="button" onclick="insertProject()" class="btn bg-blue btn-sm legitRipple"><i class="icon-checkmark3 mr-2"></i> Save</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-12" data-select2-id="81">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item"><a href="#basic-tab1_plannedActivity" class="nav-link active" data-toggle="tab">General</a></li>
+
+                                    <li class="nav-item"><a href="#basic-tab2_plannedActivity" class="nav-link" data-toggle="tab">Targets</a></li>
+
+                                </ul>
+                                <div data-select2-id="80">
+
+
+                                    <div class="card-body" data-select2-id="79">
+                                        <div class="row" data-select2-id="78">
+                                            <div class="col-md-12">
+                                                <form action="#" data-select2-id="77">
+                                                    <div class="tab-content col-md-12">
+                                                        <div class="tab-pane fade active show" id="basic-tab1_plannedActivity">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">From date:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="date" id="projectStartDate" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">To date:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="date" oninput="validateDate('projectStartDate', 'projectEndDate')" id="projectEndDate" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Thematic area:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="form-control" id="thematicArea" onchange="loadropdown3('.goal', '@Url.Action("goals")', 'thematicArea', 'relation')">@Html.Action("thematicAreas")</select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Goal:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="goal form-control" id="goal" onchange="loadropdown3('.focusArea', '@Url.Action("focusAreas")', 'goal', 'relation')">@Html.Action("goals")</select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Focus area:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="focusArea form-control" id="focusArea">@Html.Action("focusAreas")</select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Project:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="project form-control" id="project" onchange="loadropdown3('.categories', '@Url.Action("categories", "Dimensions")', 'budgetdimension1', 'budgetlinecode')">@Html.Action("projects")</select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Objectives:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="objectives form-control" id="objectives" onchange="loadropdown3('.outcomes', '@Url.Action("projectOutcomes")', 'objectives', 'relation')">@Html.Action("ProjectObjectives")</select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Outcomes:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="outcomes form-control" id="outcomes" onchange="loadropdown3('.outputs', '@Url.Action("ProjectOutputs")', 'outcomes', 'relation')"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Output:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="outputs form-control" id="outputs"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Activity :</label>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="text" id="activity" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Activity venue: </label>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="text" id="activityVenue" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                   
+
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <br />
+
+                                                        <div class="tab-pane fade" id="basic-tab2_plannedActivity">
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Target no of Beneficiary:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="number" id="targetNoOfBeneficiary" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Budget:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="number" id="budget" class="form-control" />
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    
+
+
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div id="modal_backdropline" class="modal fade" data-backdrop="false" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Imprest lines</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+
+
+            <div class="card-body" data-select2-id="79">
+                <div class="row" data-select2-id="78">
+                    <div class="col-md-12">
+                        <form action="#" data-select2-id="77">
+                            <div class="row">
+                                <div class="col-md-12">
+
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Type:</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control" id="type">@Html.Action("categories", "dimensions")</select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+
+                                        <label class="col-lg-3 col-form-label">Description:</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" id="description" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+
+                                        <label class="col-lg-3 col-form-label">Unit cost:</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" id="unitcost" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+
+                                        <label class="col-lg-3 col-form-label">Quantity:</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" id="quantity" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div style="display:none" class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Currency code:</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control" id="currencies">@Html.Action("currencies","imprest")</select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+
+                                        <label class="col-lg-3 col-form-label">Total amount:</label>
+                                        <div class="col-lg-9">
+                                            <input type="number" disabled="disabled" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br />
+
+
+
+                            @*<div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Attach Mission proposal file:</label>
+                                    <div class="col-lg-9">
+                                        <div class="uniform-uploader"><input type="file" class="form-input-styled" data-fouc=""><span class="filename" style="user-select: none;">No file selected</span><span class="action btn bg-pink-400 legitRipple" style="user-select: none;">Choose File</span></div>
+                                        <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                    </div>
+                                </div>*@
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="button" onclick="addline()" class="btn bg-blue btn-sm legitRipple"><i class="icon-checkmark3 mr-2"></i> Add</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+<script>
+    function insertProject() {
+        var implines = [];
+        var activities = [];
+     
+      //  alert(implines);
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/Projects/insertProjects",
+            data: JSON.stringify(
+                {
+                    projectStartDate: $('#projectStartDate').val(),
+                    projectEndDate: $('#projectEndDate').val(),
+                    thematicArea: $('#thematicArea').val(),
+                    project: $('#project').val(),
+                    objective: $('#objectives').val(),
+                    outcome: $('#outcomes').val(),
+                    output: $('#outputs').val(),
+                    activity: $('#activity').val(),
+                    activityVenue: $('#activityVenue').val(),
+                    targetNoOfBeneficiary: $('#targetNoOfBeneficiary').val()
+
+
+
+                }
+            ),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+
+                if (response.status == true) {
+
+                    alert('Project  saved successfully');
+                    window.location.href = '/Imprest/index';
+
+                } else {
+
+                    alert(response.message);
+
+                }
+
+            }
+
+        });
+    }
+
+    function addline() {
+
+        var tblstring = '<tr><td>' + $('#type option:selected').val() + '</td><td>' + $('#description').val() + '</td><td>' + $('#unitcost').val() + '</td><td>' + $('#currencies option:selected').val() + '</td><td>' + $('#quantity').val() + '</td><td style="display:none"></td><td style="display:none"></td><td class="text-center"><a href="#" onclick="removeEmptyLine(this)"><i class="icon-cross3 mr-3 icon-2x"></a></i></td></tr>';
+
+        $('#tbodyimprestline').append(tblstring)
+
+    }
+    function addlinetotables2(number) {
+        if (number == '1') {
+            var temp = "<tr><td><input type='text' class='form-control'></td> <td style='display:none'></td><td style='display:none'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables1(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a></div></td></tr>";
+            $('#table11').append(temp);
+        }
+        else if (number == '6') {
+            var temp6 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><select class='currencies form-control'>@Html.Raw("currencies")</select></td><td><input type='number' disabled='disabled' class='totalprice1 form-control'></td><td  style='display:none'><input type='number' class='form-control'></td><td><select class='expensecategories form-control'></select></td><td style='display:none'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(6) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            loadropdown('.currencies', '@Url.Action("currencies")');
+            loadropdown('.expensecategories', '@Url.Action("expensecategories")');
+            $('#table61').append(temp6);
+        }
+        else if (number == '5') {
+            var temp5 = "<tr><td><input type='date' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td style='display:none'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables2(5) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table51').append(temp5);
+        }
+        else if (number == '4') {
+            var temp4 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td style='display:none'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables1(4) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table41').append(temp4);
+        }
+        else if (number == '3') {
+            var temp3 = "<tr><td><input type='text' class='form-control'></td><td style='display:none'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables1(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a></div></td></tr>";
+            $('#table31').append(temp3);
+        }
+        else if (number == '2') {
+            var temp2 = "<tr><td><input type='text' class='form-control'></td><td style='display:none'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables1(1) class='list-icons-item'><i class='icon-plus3 font-size-base></i></a><a onclick=addlinetotables1(2) class='list-icons-item'><i class='icon-cross2 font-size-base'></i></a></div></td></tr>";
+            $('#table21').append(temp2);
+        }
+        else if (number == '7') {
+            var temp7 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td style='display:none'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables(7) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+            $('#table71').append(temp7);
+        }
+        else if (number == '8') {
+            //alert(loadropdown4('.categories', '@Url.Action("categories", "Dimensions")', 'budgetdimension1', 'budgetlinecode'));
+            loadropdown4('.categories', '@Url.Action("categories", "Dimensions")', 'budgetdimension1', 'budgetlinecode', function (options)
+            {
+
+                var temp5 = "<tr><td><select class='categories form-control'>" + options + "</select></td><td><input type='number' class='form-control'></td><td><input type='number' class='form-control'></td><td><input type='number' oninput='validateiens(this)' class='form-control'></td><td><input type='number'  disabled   class='form-control'></td></td><input  type='number' disabled class='form-control'></td><td style='display:none'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables2(8) class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+                $('#tbodyimprestline').append(temp5);
+            });
+
+
+        }
+
+    }
+
+    function html2json() {
+        var json = '{';
+        var otArr = [];
+        var tbl2 = $('#tbodyimprestline tr').each(function (i) {
+            x = $(this).children();
+            var itArr = [];
+            x.each(function () {
+                itArr.push('"' + $(this).text() + '"');
+            });
+            otArr.push('"' + i + '": [' + itArr.join(',') + ']');
+        })
+        json += otArr.join(",") + '}'
+
+        return json;
+    }
+
+    function validateDate(id1, id2) {
+        var date1 = $('#' + id1).val();
+        var date2 = $('#' + id2).val();
+
+        var d1 = new Date(date1);
+        var d2 =new  Date(date2);
+
+        if (d1 > d2) $('#' + id2).val(null);
+    }
+</script>

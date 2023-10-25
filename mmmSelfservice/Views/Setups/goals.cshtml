@@ -1,0 +1,64 @@
+﻿@model mmmSelfservice.Models.Projects
+@{
+    ViewBag.Title = "Staff Imprest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> -Goals</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="@Url.Action("index")" class="breadcrumb-item">Goals</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+
+
+    <div class="card col-sm-12">
+        <div class="content">
+
+            <table class="table datatable-show-all">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Thematic area</th>
+                        <th>Code</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var data in Model.goals)
+                    {
+                        <tr>
+                            <td>@data.entryNo</td>
+                            <td>@data.relation</td>
+                            <td>@data.code</td>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+

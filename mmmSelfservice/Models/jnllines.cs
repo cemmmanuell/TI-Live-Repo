@@ -19,6 +19,7 @@
         public string glAccount { get; set; }
         public string document { get; set; }
 
+        public string currency { get; set; }
         public string bank { get; set; }
        
     }

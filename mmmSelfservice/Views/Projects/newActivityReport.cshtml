@@ -1,0 +1,363 @@
+﻿
+
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header bg-white header-elements-sm-inline">
+                        <div class="header-elements">
+
+                            <button type="button" onclick="insertimprest()" class="btn bg-blue btn-sm legitRipple"><i class="icon-checkmark3 mr-2"></i> Save</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-12" data-select2-id="81">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item"><a href="#basic-tab1_activityReport" class="nav-link active" data-toggle="tab">Activity details</a></li>
+
+                                    <li class="nav-item"><a href="#basic-tab2_activityReport" class="nav-link" data-toggle="tab">Results</a></li>
+
+                                    <li class="nav-item"><a href="#basic-tab3_activityReport" class="nav-link" data-toggle="tab">Results Male </a></li>
+                                    <li class="nav-item"><a href="#basic-tab4_activityReport" class="nav-link" data-toggle="tab">Results female</a></li>
+                                    <li class="nav-item"><a href="#basic-tab6_activityReport" class="nav-link" data-toggle="tab">Other information</a></li>
+
+
+                                </ul>
+                                <div data-select2-id="80">
+
+
+                                    <div class="card-body" data-select2-id="79">
+                                        <div class="row" data-select2-id="78">
+                                            <div class="col-md-12">
+                                                <form action="#" data-select2-id="77">
+                                                    <div class="tab-content col-md-12">
+                                                        <div class="tab-pane fade active show" id="basic-tab1_activityReport">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">From date:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="date" id="fromDate" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">To date:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="date" id="toDate" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                    @Html.Action("DimensionDetails", "Dimensions")
+
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Activity venue:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="text" id="activityVenue" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Constituency:</label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="form-control" id="constituency" onchange="loadropdown3('.ward','wards', 'constituency', 'constituency')"> @Html.Action("Constituencies") </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Ward :</label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="ward form-control" id="wards"></select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Activity description: </label>
+                                                                        <div class="col-lg-9">
+                                                                            <textarea rows="10" class="form-control" id="description"> </textarea>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-3 col-form-label">Options: </label>
+                                                                        <div class="col-lg-9">
+                                                                            <select class="ward form-control" id="options">
+                                                                                <option value="NATIONAL">NATIONAL</option>
+                                                                                <option value="COUNTY">COUNTY</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <br />
+
+                                                        <div class="tab-pane fade" id="basic-tab2_activityReport">
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Output :</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" id="output" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Output indicator:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" id="outputIndicator" class="form-control" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Collaborating stakeholders:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" id="collaboratingStakeHolders" class="form-control" />
+
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Lessons learnt:</label>
+                                                                <div class="col-lg-9">
+                                                                    <textarea rows="10" class="form-control" id="lessons"></textarea>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Challenges:</label>
+                                                                <div class="col-lg-9">
+                                                                    <textarea rows="10" class="form-control" id="challenges"></textarea>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Recommendations:</label>
+                                                                <div class="col-lg-9">
+                                                                    <textarea rows="10" class="form-control" id="recommendations"></textarea>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="tab-pane fade" id="basic-tab3_activityReport">
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Below 18 years:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="number" id="maleChildren" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">18 to 35 years:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" id="maleYouth" class="form-control" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">35 Years and above:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" id="maleSeniorCitizens" class="form-control" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">PWD:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" id="malePwd" class="form-control" />
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="tab-pane fade" id="basic-tab4_activityReport">
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Below 18 years:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="number" id="femaleChildren" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">18 to 35 years :</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" id="femaleYouth" class="form-control" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">35 Years and above:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" id="femaleSeniorCitizens" class="form-control" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">PWD:</label>
+                                                                <div class="col-lg-9">
+                                                                    <input type="text" id="femalePwd" class="form-control" />
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="tab-pane fade" id="basic-tab5_activityReport">
+
+
+
+                                                        </div>
+
+                                                        <div class="tab-pane fade" id="basic-tab6_activityReport">
+                                                            <table  class="table" id="example-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Title   </th>
+                                                                        <th> Information </th>
+                                                                    </tr>
+                                                                    
+
+                                                                </thead>
+
+                                                                <tbody id="activityReport_lines">
+                                                                    <tr>
+                                                                        <td><textarea type="text" rows="6" class="form-control"> </textarea></td>
+                                                                        <td><textarea type="text" rows="6" class="form-control"> </textarea></td>
+                                                                        <td><a href="#" onclick="removeEmptyLine(this)"><i class="icon-cross3 mr-3 icon-1x"></i></a></td>
+                                                                        <td class="text-center">
+                                                                            <div class="list-icons">
+                                                                                <a onclick="addlinetotables()" class="list-icons-item"><i class="icon-plus3 mr-3 icon-1x"></i></a>
+
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+<script>
+    function insertimprest() {
+        var implines = [];
+        var activities = [];
+
+        const dimensions =
+        {
+            'donorCode': $('#donorCode option:selected').val(),
+            'projectCode': $('#projectCode option:selected').val(),
+            'activity': $('#activityCode option:selected').val(),
+            'objective': $('#objectiveCode option:selected').val(),
+            'output': $('#outputCode option:selected').val(),
+            'region': $('#regionCode option:selected').val(),
+            'subCounty': $('#subCountyCode').val(),
+            'county': $('#countyCode option:selected').val()
+
+        };
+        $("#activityReport_lines tr").each(function () {
+            var row = $(this);
+            //var Statement = {};
+           // var rowdata = row.find("td").eq(0).text() + "??" + row.find("td").eq(1).text() + "??" + row.find("td").eq(2).text() + "??" + row.find("td").eq(3).text() + "??" + row.find("td").eq(4).text();
+            var rowdata =
+            {
+               
+                code: row.find("td:eq(0) textarea").val(),
+                description: row.find("td:eq(1) textarea").val()
+
+            }
+
+            implines.push(rowdata);
+        });
+       
+      //  alert(implines);
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/Projects/insertProject",
+            data: JSON.stringify(
+                {
+                    fromDate: $('#fromDate').val(),
+                    toDate: $('#toDate').val(),
+                    description: $('#description').val(),
+                    output: $('#output').val(),
+                    outputIndicator: $('#outputIndicator').val(),
+                    collaboratingStakeHolders: $('#collaboratingStakeHolders').val(),
+                    challenges: $('#challenges').val(),
+                    maleChildren: $('#maleChildren').val(),
+                    maleYouth: $('#maleYouth').val(),
+                    maleSeniorCitizens: $('#maleSeniorCitzens').val(),
+                    ward: $('#wards option:selected').val(),
+                    malePwd: $('#malePwd').val(),
+                    femaleChildren: $('#femaleChildren').val(),
+                    femaleYouth: $('#femaleYouth').val(),
+                    femaleSeniorCitizens: $('#femaleSeniorCitzens').val(),
+                    femalePwd: $('#femalePwd').val(),
+                    dims: dimensions,
+                    lines: implines,
+                    activityVenue: $('#activityVenue').val(),
+                    lessonsLearnt: $('#lessons').val(),
+                    recommendations: $('#recommendations').val(),
+                    constituency: $('#constituency option:selected').val(),
+                    ward: $('#wards option:selected').val(),
+                    options: $('#options option:selected').val()
+                }
+            ),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+
+                if (response.status == true) {
+
+                    alert('Project report saved successfully');
+                    window.location.href = '/Projects/ProjectReport?status=Open';
+
+                } else {
+
+                    alert(response.message);
+
+                }
+
+            }
+
+        });
+    }
+
+    function addlinetotables() {
+        var temp4 = "<tr><td><input type='text' class='form-control'></td><td><input type='text' class='form-control'></td><td class='text-center'><div class='list-icons'><a href='#' class='list-icons-item' onclick='removeEmptyLine(this)'><i class='icon-cross3 font-size-base'></i></a><a onclick=addlinetotables() class='list-icons-item'><i class='icon-plus3 font-size-base'></i></a></div></td></tr>";
+        $('#activityReport_lines').append(temp4);
+    }
+   
+
+</script>
+

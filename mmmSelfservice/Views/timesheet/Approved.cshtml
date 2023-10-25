@@ -30,13 +30,13 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h6 class="card-title">Approved Timesheet entries</h6>
+                <h6 class="card-title">Timesheet entries</h6>
             </div>
 
             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
                 <div class="datatable-header">
                     <div id="DataTables_Table_0_filter" class="dataTables_filter">
-
+                        <button class="btn  btn-success" type="button" data-toggle="modal" data-target="#modal_backdrop12">New timesheet</button>
                     </div><div class="datatable-scroll">
                         <table class="table datatable-basic dataTable no-footer table-hover" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                             <thead>
@@ -44,9 +44,14 @@
 
 
                                     <th>
-                                       Description
+                                        Description
                                     </th>
                                     <th>
+                                        From Date
+                                    </th>
+
+                                    <th>
+                                        To
                                         Date
                                     </th>
                                     <th>
@@ -67,15 +72,37 @@
                                     <tr>
 
                                         <td>
-                                            @item.projectCode
+                                            @item.name
                                         </td>
                                         <td>
                                             @item.startdate.ToString("yyyy-MM-dd")
+                                        </td>
+                                        <td>
+                                            @item.endDate.ToString("yyyy-MM-dd")
                                         </td>
 
                                         <td>@item.year</td>
 
 
+                                        <td class="text-center">
+                                            <div class="list-icons">
+                                                <div class="dropdown">
+                                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                       
+                                                            <a onClick="EdtTimesheet('@item.code')" class="dropdown-item" data-toggle="modal" data-target="#modal_backdropimprest">Edit</a>
+
+                                                            @*@Html.ActionLink("Add Line", "ImprestLine", "Imprest", new { ImprestNo = data.No }, new { @class = "dropdown-item icon-add-to-list" })
+
+                                                                <a href="@Url.Action("sendforapproval", new { imprestNo = data.No })" class="dropdown-item"><i class="icon-file-check"></i>Send approval request</a>*@
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 }
 
@@ -108,9 +135,9 @@
     </div>
 </div>
 
+@Html.Action("newTimeSheet")
 
-
-<div id="modal_backdropimprest_0011" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+<div id="modal_backdropimprest" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -147,7 +174,7 @@
         $.ajax({
             type: "POST",
             url: "/Timesheet/editTimesheet",
-            data: '{entryNo:"' + leaveNo + ' "}',
+            data: '{entryNo:"' + leaveNo + '"}',
             contentType: "application/json; charset=utf-8",
             dataType: "html",
             success: function (data) {

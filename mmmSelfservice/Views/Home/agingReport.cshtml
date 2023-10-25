@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "P9Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="page-header page-header-light mb-0">
+        <div class="page-header-content header-elements-md-inline">
+            <div class="page-title d-flex">
+                <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Imprest statement</h4>
+                <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+            </div>
+
+        </div>
+        <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+            <div class="d-flex">
+                <div class="breadcrumb">
+                    <a href="@Url.Action("index")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                    <a href="" class="breadcrumb-item">Imprest statement  </a>
+
+                </div>
+                <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+            </div>
+            <div class="header-elements d-none">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="card col-md-12">
+        <div class="card-header bg-white header-elements-inline">
+            <h6 class="card-title">Click to view: </h6>
+            <div class="header-elements">
+                <form action="#">
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button type="button" onclick="agingReportPdf()" class="btn bg-blue">View imprest statement <i class="icon-paperplane ml-2"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="reportsagingReport"></div>
+    </div>
+</div>
+
+<script>
+    function agingReportPdf() {
+
+        $.ajax({
+            type: "POST",
+            url: "/Home/agingReportPdf",
+            //data: '{payperiod:"' + date + ' "}',
+            data: JSON.stringify({ }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                // alert(result);
+                debugger;
+                $("#reportsagingReport").empty();
+                $("#reportsagingReport").append('<iframe src=' + result + ' style="min-height:400px; height:900px; width:100%; min-width:500px"></iframe>');
+            },
+        });
+    }
+</script>

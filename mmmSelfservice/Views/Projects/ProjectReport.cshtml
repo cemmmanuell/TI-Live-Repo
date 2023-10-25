@@ -1,0 +1,187 @@
+﻿@model List<mmmSelfservice.Models.Activity>
+@{
+    ViewBag.Title = "Staff Imprest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Content/base.js"></script>
+<div class="page-header page-header-light mb-0">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> -Activities report</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("../Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="@Url.Action("index")" class="breadcrumb-item">Activities report</a>
+
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+
+    @*<div class="col-md-8">
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h6 class="card-title">Imprest Information</h6>
+            </div>*@
+    <div class="card col-sm-12">
+        <div class="content">
+            <a class="btn bg-teal-400 btn-labeled btn-labeled-left legitRipple" data-toggle="modal" data-target="#modal_backdrop8" onclick="newPlannedActivity()"><b><i class="icon-file-plus"></i></b>New project report</a>
+            <table class="table datatable-show-all">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Activity</th>
+                        <th>Activity Description</th>
+                        
+                        
+                        <th>Status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach( var item in Model)
+                  {
+                    <tr>
+                        <td>@item.no</td>
+                       <td>@Html.Action("DimensionSpecific", "Dimensions", new { filterType = "ACTIVITY", filter = item.dimensions.activity })</td>
+                        
+                        <td>@item.description</td>
+
+                       
+                        <td>@item.status</td>
+                        <td class="text-center">
+                            <div class="list-icons">
+                                <div class="dropdown">
+                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right">
+
+                                        @if (item.status == "Open")
+                                        {
+                                            <a onClick="editimp('@item.no')" class="dropdown-item" data-toggle="modal" data-target="#modal_backdropimprest">Edit</a>
+                                        }
+
+                                        @if (item.status == "Pending approval")
+                                        {
+                                            <a onClick="editimp('@item.no')" class="dropdown-item" data-toggle="modal" data-target="#modal_backdropimprest">View</a>
+                                        }
+                                        @if (item.status == "Approved")
+                                        {
+                                            <a onClick="editimp('@item.no')" class="dropdown-item" data-toggle="modal" data-target="#modal_backdropimprest">View</a>
+                                        }
+                                        @if (item.status == "Posted")
+                                        {
+                                            <a onClick="editimp('@item.no')" class="dropdown-item" data-toggle="modal" data-target="#modal_backdropimprest">View</a>
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  }
+                </tbody>
+            </table>
+            <script type="text/javascript">
+                $('a.edit').on('click', function () {
+                    $.ajax({
+                        url: this.href,
+                        type: 'GET',
+                        cache: false,
+                        success: function (result) {
+                            $('#myModal').html(result).find('.modal').modal({
+                                show: true
+                            });
+                        }
+                    });
+                });
+            </script>
+        
+            <!-- /iconified modal -->
+        </div>
+    </div>
+    @*</div>
+        </div>*@
+</div>
+
+
+
+<div id="modal_backdropimprest" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Activity report </h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div id="imp4"></div>
+            Loading....
+        </div>
+    </div>
+</div>
+
+<div id="modal_backdrop8" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New activity report </h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div id="imp4new">
+                Loading....
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+     function editimp(mno) {
+
+                    debugger;
+                    $.ajax({
+                        type: "POST",
+                        url: "/Projects/editActivityReport",
+                        data: '{no:"' + mno + '"}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "html",
+                        success: function (response) {
+                            debugger;
+                            $('#imp4').html('');
+                            $('#imp4').html(response);
+
+                        }
+
+                    });
+    }
+
+    function newPlannedActivity() {
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/Projects/newActivityReport",
+           
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                debugger;
+                $('#imp4new').html('');
+                $('#imp4new').html(response);
+
+            }
+
+        });
+    }
+</script>

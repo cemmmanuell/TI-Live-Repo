@@ -1634,6 +1634,7 @@
             <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="glaccount" type="string" />
             <element minOccurs="1" maxOccurs="1" name="fundCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="currency" type="string" />
           </sequence>
         </complexType>
       </element>

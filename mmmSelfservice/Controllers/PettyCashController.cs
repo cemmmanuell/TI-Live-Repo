@@ -79,11 +79,11 @@
                     {
                         if (i.description != null)
                         {
-
+                            if (i.currency == null) i.currency = "";
 
                             WSConfig.ObjNav.FnInsertGeneralJournal(i.postingdate, i.documentNo, PBank,
-
-                                i.amount, i.description, Session["username"].ToString(), i.glAccount, i.fundCode);
+                               
+                                i.amount, i.description, Session["username"].ToString(), i.glAccount, i.fundCode, i.currency);
                         }
                      }
 

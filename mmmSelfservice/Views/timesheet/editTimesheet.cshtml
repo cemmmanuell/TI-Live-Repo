@@ -8,12 +8,27 @@
                     <div class="col-md-12" data-select2-id="81">
                         <div data-select2-id="80">
                             <div class="card-header bg-white header-elements-sm-inline">
-                                <h6 class="card-title"><i class="icon-reading mr-2"></i> Edit timesheet details:<text id="pno" class="text-primary"></text></h6>
+                                <h6 class="card-title"><i class="icon-reading mr-2"></i> Edit timesheet details:<text id="pno"  class="text-primary">@Model.code </text></h6>
 
 
                                 <div class="header-elements">
+                                    @if (Model.status == "Open")
+                                    {
                                     <button type="button" class="btn bg-blue btn-sm legitRipple" onclick="insertTimesheetEdit()"><i class="icon-checkmark3 mr-2"></i> Save</button>
-
+                                    }
+                                    <div class="btn-group">
+                                        <button type="button" class="btn bg-brown dropdown-toggle legitRipple btn-sm" data-toggle="dropdown" aria-expanded="false">More <i class="icon-menu7 ml-2"></i></button>
+                                        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(152px, 38px, 0px);">
+                                            @if (Model.status == "Open")
+                                            {
+                                                <a href="@Url.Action("imprestreq", "timesheet", new { no = Model.code })" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
+                                                <a href="#" class="dropdown-item"><i class="icon-folder-remove"></i> Cancel approval</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a href="#" class="dropdown-item"><i class="icon-cancel-circle2"></i> Delele</a>
+                                            }
+                                                <a href="#" data-toggle="modal" data-target="#_approvalentries_mission10" class="dropdown-item"><i class="icon-file-check"></i> Approval comments</a>
+                                            </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -41,7 +56,7 @@
                                                                         <th>
                                                                             Projects
                                                                         </th>
-
+                                                                        <th>Date</th>
                                                                         <th>
                                                                             Time (Hours )
                                                                         </th>
@@ -60,23 +75,25 @@
 
                                                                     @foreach (var item in Model.Timesheetlines)
                                                                     {
-                                                                        <tr>
-                                                                            <td style="display:none">
-                                                                                <input type="text" value="@item.projectCode" class="form-control" />
-                                                                            </td>
-                                                                            <td>
-                                                                                <input type="text" disabled value="@item.projectText" class="form-control" />
-                                                                            </td>
-                                                                            <td>
-                                                                                <input type="number" value="@item.hours" class="form-control" />
-                                                                            </td>
-                                                                            <td>
-                                                                                <input type="text" value="@item.comments" class="form-control" />
-                                                                            </td>
+                                                                    <tr>
+                                                                        <td style="display:none">
+                                                                            <input type="text" disabled value="@item.projectCode" class="form-control" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text" disabled value="@item.projectText" class="form-control" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text" disabled value="@item.date" class="form-control" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="number" value="@item.hours" class="form-control" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text" value="@item.comments" class="form-control" />
+                                                                        </td>
 
-
-                                                                            <td></td>
-                                                                        </tr>
+                                                                        <td style="display:none"><input type="text" value="@item.entryno" class="form-control" /></td>
+                                                                    </tr>
                                                                     }
 
 
@@ -133,9 +150,10 @@
                     {
                         'projectCode': row.find("td:eq(0) input[type='text']").val(),
                         'projectText': row.find("td:eq(1) input[type='text']").val(),
-                        'hours': row.find("td:eq(2) input[type='number']").val(),
-                        'comments': row.find("td:eq(3) input[type='text']").val(),
-                        'entryno': row.find("td:eq(4) input[type='number']").val()
+                        'date': row.find("td:eq(2) input[type='text']").val(),
+                        'hours': row.find("td:eq(3) input[type='number']").val(),
+                        'comments': row.find("td:eq(4) input[type='text']").val(),
+                        'entryno': row.find("td:eq(5) input[type='number']").val()
                     }
 
                 );
@@ -145,7 +163,8 @@
         {
             'startdate': $('#fromDate_timeSheet1').val(),
             'endDate':$('#toDate_timeSheet1').val(),
-            'Timesheetlines': items
+            'Timesheetlines': items,
+            'code': $('#pno').text()
         }
         $.ajax({
             type: "POST",
@@ -171,3 +190,11 @@
         });
     }
 </script>
+
+<div class="modal" id="_approvalentries_mission10">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @Html.Action("approvalentries", "Home", new { documentNo = Model.code})
+        </div>
+    </div>
+</div>

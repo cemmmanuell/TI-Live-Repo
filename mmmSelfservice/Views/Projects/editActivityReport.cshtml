@@ -1,0 +1,444 @@
+﻿@model mmmSelfservice.Models.Activity
+
+<div class="modal-body">
+    <div class="card">
+        <div class="card-header bg-white header-elements-sm-inline">
+            <div class="header-elements">
+
+                <button type="button" onclick="insertimprest()" class="btn bg-blue btn-sm legitRipple"><i class="icon-checkmark3 mr-2"></i> Save</button>
+
+                <div class="btn-group">
+                    <button type="button" class="btn bg-brown dropdown-toggle legitRipple btn-sm" data-toggle="dropdown" aria-expanded="false">More <i class="icon-menu7 ml-2"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(152px, 38px, 0px);">
+                        <a href="#" data-toggle="modal" data-target="#_approvalentries_purchase_" class="dropdown-item"><i class="icon-file-check"></i> Approvals</a>
+                        <a href="#" class="dropdown-item"><i class="icon-file-download"></i> Download</a>
+                        <a href="@Url.Action("approvalRequest", "Projects",new {no=Model.no})" class="dropdown-item"><i class="icon-file-check"></i> Send approval</a>
+                        <a href="#" class="dropdown-item"><i class="icon-folder-remove"></i> Cancel approval</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="icon-cancel-circle2"></i> Delele</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-12" data-select2-id="81">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a href="#basic-tab1_activityReport" class="nav-link active" data-toggle="tab">Activity details</a></li>
+
+                        <li class="nav-item"><a href="#basic-tab2_activityReport" class="nav-link" data-toggle="tab">Results</a></li>
+
+                        <li class="nav-item"><a href="#basic-tab3_activityReport" class="nav-link" data-toggle="tab">Results Male </a></li>
+                        <li class="nav-item"><a href="#basic-tab4_activityReport" class="nav-link" data-toggle="tab">Results female</a></li>
+                        <li class="nav-item"><a href="#basic-tab6_activityReport" class="nav-link" data-toggle="tab">Other information</a></li>
+                        <li class="nav-item"><a href="#basic-tab5_activityReport" class="nav-link" data-toggle="tab">Documents</a></li>
+
+                    </ul>
+                    <div data-select2-id="80">
+
+
+                        <div class="card-body" data-select2-id="79">
+                            <div class="row" data-select2-id="78">
+                                <div class="col-md-12">
+                                    <form action="#" data-select2-id="77">
+                                        <div class="tab-content col-md-12">
+                                            <div class="tab-pane fade active show" id="basic-tab1_activityReport">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-3 col-form-label">From date:</label>
+                                                            <div class="col-lg-9">
+                                                                <input type="date" value="@Model.fromDate.ToString("yyyy-MM-dd")" id="fromDate" class="form-control" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-3 col-form-label">To date:</label>
+                                                            <div class="col-lg-9">
+                                                                <input type="date" value="@Model.toDate.ToString("yyyy-MM-dd")" id="toDate" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                        @Html.Action("DimensionDetails", "Dimensions", new { dimensions = Model.dimensions })
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-3 col-form-label">Activity venue:</label>
+                                                            <div class="col-lg-9">
+                                                                <input type="text" id="activityVenue" class="form-control" value="@Model.activityVenue" />
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-3 col-form-label">Constituency:</label>
+                                                            <div class="col-lg-9">
+                                                                <select class="form-control" id="constituency" onchange="loadropdown3('.ward','wards', 'constituency', 'constituency')"> <option value="@Model.constituency">@Model.constituency</option> @Html.Action("Constituencies") </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-3 col-form-label">Ward :</label>
+                                                            <div class="col-lg-9">
+                                                                <select class="ward form-control" id="wards"><option value="@Model.ward">@Model.ward</option></select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-3 col-form-label">Activity description: </label>
+                                                            <div class="col-lg-9">
+                                                                <textarea rows="10" class="form-control" id="description">@Model.description </textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-3 col-form-label">Options: </label>
+                                                            <div class="col-lg-9">
+                                                                <select class="ward form-control" id="options"><option value="@Model.options">@Model.options</option>
+                                                                    <option value="NATIONAL">NATIONAL</option>
+                                                                    <option value="COUNTY">COUNTY</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+
+                                            </div>
+
+                                            <br />
+
+                                            <div class="tab-pane fade" id="basic-tab2_activityReport">
+
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Output :</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="output" value="@Model.output" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Output indicator:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="outputIndicator" value="@Model.outputIndicator" class="form-control" />
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Collaborating stakeholders:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="collaboratingStakeHolders" value="@Model.collaboratingStakeholders" class="form-control" />
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Lessons learnt:</label>
+                                                    <div class="col-lg-9">
+                                                        <textarea rows="10" class="form-control" id="lessons">@Model.lessonsLearnt</textarea>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Challenges:</label>
+                                                    <div class="col-lg-9">
+                                                        <textarea rows="10" class="form-control" id="challenges">@Model.challenges </textarea>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Recommendations:</label>
+                                                    <div class="col-lg-9">
+                                                        <textarea rows="10" class="form-control" id="recommendations">@Model.recommendations</textarea>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane fade" id="basic-tab3_activityReport">
+
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Below 18 years:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="number" id="maleChildren" value="@Model.maleChildren" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">18 to 35 years:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="maleYouth" value="@Model.maleYouth" class="form-control" />
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">35 Years and above:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="maleSeniorCitzens" value="@Model.maleSeniorCitizens" class="form-control" />
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">PWD:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="malePwd" value="@Model.malePwd" class="form-control" />
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="tab-pane fade" id="basic-tab4_activityReport">
+
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">Below 18 years:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="number" id="femaleChildren" value="@Model.femaleChildren" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">18 to 35 years :</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="femaleYouth" value="@Model.femaleYouth" class="form-control" />
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">35 Years and above:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="femaleSeniorCitzens" value="@Model.femaleSeniorCitizens" class="form-control" />
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label">PWD:</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" id="femalePwd" value="@Model.femalePwd" class="form-control" />
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="basic-tab6_activityReport">
+                                                <table class="table" id="example-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> Title  </th>
+                                                            <th> Information </th>
+                                                        </tr>
+
+
+                                                    </thead>
+
+                                                    <tbody id="activityReport_lines">
+                                                        @foreach (var i in Model.lines)
+                                                        {
+                                                        <tr>
+                                                            <td><textarea type="text" rows="6" class="form-control">@i.code</textarea></td>
+                                                            <td><textarea type="text" rows="6" class="form-control">@i.description</textarea></td>
+                                                            <td style="display:none"><input type="number" class="form-control" value="@i.lineNo" /></td>
+                                                            <td><a href="#" onclick="removelineAll(this, '@i.lineNo', '@Model.no')"><i class="icon-cross3 mr-3 icon-1x"></i></a></td>
+                                                            <td class="text-center">
+                                                                <div class="list-icons">
+                                                                    <a onclick="addlinetotables()" class="list-icons-item"><i class="icon-plus3 mr-3 icon-1x"></i></a>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        }
+
+                                                    <tr>
+                                                        <td><textarea type="text" rows="6" class="form-control"> </textarea></td>
+                                                        <td><textarea type="text" rows="6" class="form-control"> </textarea></td>
+                                                        <td><a href="#" onclick="removeEmptyLine(this)"><i class="icon-cross3 mr-3 icon-1x"></i></a></td>
+                                                        <td class="text-center">
+                                                            <div class="list-icons">
+                                                                <a onclick="addlinetotables()" class="list-icons-item"><i class="icon-plus3 mr-3 icon-1x"></i></a>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+
+                                            </div>
+
+                                            <div class="tab-pane fade" id="basic-tab5_activityReport">
+
+                                                <input value="@Model.no" id="pno12" style="display:none" />
+                                                <div class="row">
+                                                    <input type="file" id="FileUpload11" class="form-control" />
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <button class="btn" id="btnUpload11Reports">Upload</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div id="docs" class="col-md-12">
+                                                            @Html.Action("uploadeddocuments", "upload", new { documentNo = Model.no })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+<script>
+
+        $(document).ready(function () {
+            $('#btnUpload11Reports').click(function () {
+
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload11").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                // Adding one more key to FormData object
+                fileData.append('document', $('#pno12').val());
+
+                $.ajax({
+                    url: '/Upload/uploadFile',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                        alert(result.message);
+                        LoadData('#docs', '@Url.Action("uploadeddocuments", "upload", new { documentNo = Model.no })');
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+    });
+    function insertimprest() {
+        var implines = [];
+        var activities = [];
+
+        const dimensions =
+        {
+            'donorCode': $('#donorCode option:selected').val(),
+            'projectCode': $('#projectCode option:selected').val(),
+            'activity': $('#activityCode option:selected').val(),
+            'objective': $('#objectiveCode option:selected').val(),
+            'output': $('#outputCode option:selected').val(),
+            'region': $('#regionCode option:selected').val(),
+            'subCounty': $('#subCountyCode').val(),
+            'county': $('#countyCode option:selected').val()
+
+        };
+        $("#activityReport_lines tr").each(function () {
+            var row = $(this);
+            //var Statement = {};
+            // var rowdata = row.find("td").eq(0).text() + "??" + row.find("td").eq(1).text() + "??" + row.find("td").eq(2).text() + "??" + row.find("td").eq(3).text() + "??" + row.find("td").eq(4).text();
+            var rowdata =
+            {
+
+                code: row.find("td:eq(0) textarea").val(),
+                description: row.find("td:eq(1) textarea").val(),
+                lineNo: row.find("td:eq(2) input[type='number']").val(),
+
+            }
+
+            implines.push(rowdata);
+        });
+        
+        
+        //  alert(implines);
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "/Projects/editProject",
+            data: JSON.stringify(
+                {
+                    no: $('#pno12').val(),
+                    fromDate: $('#fromDate').val(),
+                    toDate: $('#toDate').val(),
+                    description: $('#description').val(),
+                    output: $('#output').val(),
+                    outputIndicator: $('#outputIndicator').val(),
+                    collaboratingStakeHolders: $('#collaboratingStakeHolders').val(),
+                    challenges: $('#challenges').val(),
+                    ward: $('#wards option:selected').val(),
+                    maleChildren: $('#maleChildren').val(),
+                    maleYouth: $('#maleYouth').val(),
+                    maleSeniorCitizens: $('#maleSeniorCitzens').val(),
+                    malePwd: $('#malePwd').val(),
+                    femaleChildren: $('#femaleChildren').val(),
+                    femaleYouth: $('#femaleYouth').val(),
+                    femaleSeniorCitizens: $('#femaleSeniorCitzens').val(),
+                    femalePwd: $('#femalePwd').val(),
+                    dims: dimensions,
+                    lines: implines,
+                    activityVenue: $('#activityVenue').val(),
+                    lessonsLearnt: $('#lessons').val(),
+                    recommendations: $('#recommendations').val(),
+                    constituency: $('#constituency option:selected').val(),
+                    ward: $('#wards option:selected').val(),
+                    options: $('#options option:selected').val()
+                }
+            ),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                /// alert("You selected: " + response.AuthSuccess);
+
+                if (response.status == true) {
+
+                    alert('Project report saved successfully');
+                    window.location.href = '/Projects/ProjectReport?status=Open';
+
+                } else {
+
+                    alert(response.message);
+
+                }
+
+            }
+
+        });
+    }
+
+
+
+
+</script>
+
+
